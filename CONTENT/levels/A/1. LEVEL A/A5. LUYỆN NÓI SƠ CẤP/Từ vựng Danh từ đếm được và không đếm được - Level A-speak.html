@@ -473,6 +473,19 @@ input:focus-visible {
     font-weight: 600;
 }
 
+.help-line {
+    margin: 0;
+}
+
+.help1-line {
+    color: #9fd3ff;
+}
+
+.help2-line {
+    color: #ffd18a;
+    margin-top: 0.45rem;
+}
+
 .is-hidden {
     display: none;
 }
@@ -850,11 +863,11 @@ body.focus-mode .btn-nav {
         </div>
 
                 <section class="speak-card" aria-live="polite">
-            <div class="speak-card-header" id="speak-card-header">
-                <p class="question-kicker">NÓI CÂU TIẾNG ANH PHÙ HỢP</p>
+<h2 id="question-text" class="question-text">Đang tải...</h2>
+            <div id="help-panel" class="help-panel is-hidden" aria-live="polite">
+                <p id="help1-panel" class="help-line help1-line is-hidden"></p>
+                <p id="help2-panel" class="help-line help2-line is-hidden"></p>
             </div>
-            <h2 id="question-text" class="question-text">Đang tải...</h2>
-            <div id="help-panel" class="help-panel is-hidden"></div>
             <div class="transcript-panel">
                 <span class="transcript-label">Hệ thống nghe được</span>
                 <p id="transcript-text" class="transcript-text">Nhấn micro và bắt đầu nói.</p>
@@ -1920,7 +1933,7 @@ if (typeof module === 'object' && module.exports) {
 }
 </script>
     <script>const SPEAK_LEVEL = "A";
-const LESSON_SCORING_PROFILES = [{"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 0, "sourceText": "I have an apple.", "sourceHash": "fec274ad", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "I", "parts": ["i"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "have", "parts": ["have"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "an", "parts": ["an"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "apple.", "parts": ["apple"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "recognizer_alias", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["recognizer_alias"], "homophonesByPart": [[]], "aliasesByPart": [["aple", "appel"]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [{"surfaceParts": ["i've"], "targetParts": ["i", "have"], "kind": "contraction"}, {"surfaceParts": ["ive"], "targetParts": ["i", "have"], "kind": "contraction"}, {"surfaceParts": ["i", "ve"], "targetParts": ["i", "have"], "kind": "contraction"}], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 1, "sourceText": "I drink water.", "sourceHash": "30ae4b21", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "I", "parts": ["i"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "drink", "parts": ["drink"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "water.", "parts": ["water"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "recognizer_alias", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["recognizer_alias"], "homophonesByPart": [[]], "aliasesByPart": [["walter", "wafer", "warder"]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 2, "sourceText": "Milk is good.", "sourceHash": "4fe823fb", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "Milk", "parts": ["milk"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "recognizer_alias", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["recognizer_alias"], "homophonesByPart": [[]], "aliasesByPart": [["milc", "mil k"]]}, {"id": 1, "display": "is", "parts": ["is"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "good.", "parts": ["good"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 3, "sourceText": "I eat a banana.", "sourceHash": "e78a822c", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "I", "parts": ["i"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "eat", "parts": ["eat"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "a", "parts": ["a"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "banana.", "parts": ["banana"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 4, "sourceText": "I have an orange.", "sourceHash": "e625f7c5", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "I", "parts": ["i"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "have", "parts": ["have"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "an", "parts": ["an"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "orange.", "parts": ["orange"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [{"surfaceParts": ["i've"], "targetParts": ["i", "have"], "kind": "contraction"}, {"surfaceParts": ["ive"], "targetParts": ["i", "have"], "kind": "contraction"}, {"surfaceParts": ["i", "ve"], "targetParts": ["i", "have"], "kind": "contraction"}], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 5, "sourceText": "I eat bread for breakfast.", "sourceHash": "33e739d4", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "I", "parts": ["i"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "eat", "parts": ["eat"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "bread", "parts": ["bread"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "for", "parts": ["for"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 4, "display": "breakfast.", "parts": ["breakfast"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": ["breakfast."]}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 6, "sourceText": "I read a book.", "sourceHash": "f0c43606", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "I", "parts": ["i"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "read", "parts": ["read"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "homophone", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["homophone"], "homophonesByPart": [["red"]], "aliasesByPart": [[]]}, {"id": 2, "display": "a", "parts": ["a"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "book.", "parts": ["book"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 7, "sourceText": "I need some salt.", "sourceHash": "a4b825ea", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "I", "parts": ["i"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "need", "parts": ["need"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "some", "parts": ["some"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "salt.", "parts": ["salt"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 8, "sourceText": "I have a pencil.", "sourceHash": "941f5a08", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "I", "parts": ["i"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "have", "parts": ["have"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "a", "parts": ["a"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "pencil.", "parts": ["pencil"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [{"surfaceParts": ["i've"], "targetParts": ["i", "have"], "kind": "contraction"}, {"surfaceParts": ["ive"], "targetParts": ["i", "have"], "kind": "contraction"}, {"surfaceParts": ["i", "ve"], "targetParts": ["i", "have"], "kind": "contraction"}], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 9, "sourceText": "I have some money.", "sourceHash": "b8af736c", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "I", "parts": ["i"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "have", "parts": ["have"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "some", "parts": ["some"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "money.", "parts": ["money"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [{"surfaceParts": ["i've"], "targetParts": ["i", "have"], "kind": "contraction"}, {"surfaceParts": ["ive"], "targetParts": ["i", "have"], "kind": "contraction"}, {"surfaceParts": ["i", "ve"], "targetParts": ["i", "have"], "kind": "contraction"}], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 10, "sourceText": "How many apples are there?", "sourceHash": "05f5f6ba", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "How", "parts": ["how"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "many", "parts": ["many"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "apples", "parts": ["apples"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "are", "parts": ["are"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 4, "display": "there?", "parts": ["there"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "homophone", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["homophone"], "homophonesByPart": [["their", "they're"]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 11, "sourceText": "How much milk is there?", "sourceHash": "5f25f322", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "How", "parts": ["how"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "much", "parts": ["much"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "milk", "parts": ["milk"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "recognizer_alias", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["recognizer_alias"], "homophonesByPart": [[]], "aliasesByPart": [["milc", "mil k"]]}, {"id": 3, "display": "is", "parts": ["is"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 4, "display": "there?", "parts": ["there"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "homophone", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["homophone"], "homophonesByPart": [["their", "they're"]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 12, "sourceText": "This is a pen.", "sourceHash": "30335913", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "This", "parts": ["this"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "is", "parts": ["is"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "a", "parts": ["a"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "pen.", "parts": ["pen"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 13, "sourceText": "I have some water.", "sourceHash": "630e1899", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "I", "parts": ["i"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "have", "parts": ["have"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "some", "parts": ["some"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "water.", "parts": ["water"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "recognizer_alias", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["recognizer_alias"], "homophonesByPart": [[]], "aliasesByPart": [["walter", "wafer", "warder"]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [{"surfaceParts": ["i've"], "targetParts": ["i", "have"], "kind": "contraction"}, {"surfaceParts": ["ive"], "targetParts": ["i", "have"], "kind": "contraction"}, {"surfaceParts": ["i", "ve"], "targetParts": ["i", "have"], "kind": "contraction"}], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 14, "sourceText": "There is some rice in the bowl.", "sourceHash": "35065278", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "There", "parts": ["there"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "homophone", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["homophone"], "homophonesByPart": [["their", "they're"]], "aliasesByPart": [[]]}, {"id": 1, "display": "is", "parts": ["is"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "some", "parts": ["some"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "rice", "parts": ["rice"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 4, "display": "in", "parts": ["in"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 5, "display": "the", "parts": ["the"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 6, "display": "bowl.", "parts": ["bowl"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [{"surfaceParts": ["there's"], "targetParts": ["there", "is"], "kind": "contraction"}, {"surfaceParts": ["theres"], "targetParts": ["there", "is"], "kind": "contraction"}, {"surfaceParts": ["there", "s"], "targetParts": ["there", "is"], "kind": "contraction"}], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 15, "sourceText": "I have a dog.", "sourceHash": "e52a1fdb", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "I", "parts": ["i"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "have", "parts": ["have"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "a", "parts": ["a"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "dog.", "parts": ["dog"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [{"surfaceParts": ["i've"], "targetParts": ["i", "have"], "kind": "contraction"}, {"surfaceParts": ["ive"], "targetParts": ["i", "have"], "kind": "contraction"}, {"surfaceParts": ["i", "ve"], "targetParts": ["i", "have"], "kind": "contraction"}], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 16, "sourceText": "I like butter.", "sourceHash": "69f1504b", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "I", "parts": ["i"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "like", "parts": ["like"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "butter.", "parts": ["butter"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 17, "sourceText": "Sugar is sweet.", "sourceHash": "5a6875ff", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "Sugar", "parts": ["sugar"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "is", "parts": ["is"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "sweet.", "parts": ["sweet"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 18, "sourceText": "How many books are there?", "sourceHash": "6963a1cf", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "How", "parts": ["how"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "many", "parts": ["many"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "books", "parts": ["books"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "are", "parts": ["are"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 4, "display": "there?", "parts": ["there"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "homophone", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["homophone"], "homophonesByPart": [["their", "they're"]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 19, "sourceText": "How much water is there?", "sourceHash": "0bfd76de", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "How", "parts": ["how"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "much", "parts": ["much"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "water", "parts": ["water"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "recognizer_alias", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["recognizer_alias"], "homophonesByPart": [[]], "aliasesByPart": [["walter", "wafer", "warder"]]}, {"id": 3, "display": "is", "parts": ["is"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 4, "display": "there?", "parts": ["there"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "homophone", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["homophone"], "homophonesByPart": [["their", "they're"]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 20, "sourceText": "I drink orange juice.", "sourceHash": "b81c404a", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "I", "parts": ["i"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "drink", "parts": ["drink"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "orange", "parts": ["orange"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "juice.", "parts": ["juice"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 21, "sourceText": "I have a ball.", "sourceHash": "77923064", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "I", "parts": ["i"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "have", "parts": ["have"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "a", "parts": ["a"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "ball.", "parts": ["ball"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [{"surfaceParts": ["i've"], "targetParts": ["i", "have"], "kind": "contraction"}, {"surfaceParts": ["ive"], "targetParts": ["i", "have"], "kind": "contraction"}, {"surfaceParts": ["i", "ve"], "targetParts": ["i", "have"], "kind": "contraction"}], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 22, "sourceText": "I like hot tea.", "sourceHash": "64037acc", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "I", "parts": ["i"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "like", "parts": ["like"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "hot", "parts": ["hot"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "tea.", "parts": ["tea"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 23, "sourceText": "Gold is expensive.", "sourceHash": "dbcec886", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "Gold", "parts": ["gold"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "is", "parts": ["is"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "expensive.", "parts": ["expensive"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": ["expensive."]}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 24, "sourceText": "There are two students.", "sourceHash": "009ad677", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "There", "parts": ["there"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "homophone", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["homophone"], "homophonesByPart": [["their", "they're"]], "aliasesByPart": [[]]}, {"id": 1, "display": "are", "parts": ["are"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "two", "parts": ["2"], "weight": 2.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "critical", "criticalReason": "number", "equivalenceClass": "number", "entityType": null, "requiredPartIndexes": [0], "partClasses": ["content"], "criticalReasons": ["number"], "equivalenceClasses": ["number"], "homophonesByPart": [["too", "to"]], "aliasesByPart": [[]]}, {"id": 3, "display": "students.", "parts": ["students"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": ["two", "students."]}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 25, "sourceText": "I like music.", "sourceHash": "99440fe6", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "I", "parts": ["i"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "like", "parts": ["like"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "music.", "parts": ["music"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 26, "sourceText": "I drink milk.", "sourceHash": "05ae0b75", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "I", "parts": ["i"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "drink", "parts": ["drink"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "milk.", "parts": ["milk"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "recognizer_alias", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["recognizer_alias"], "homophonesByPart": [[]], "aliasesByPart": [["milc", "mil k"]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 27, "sourceText": "I like chocolate.", "sourceHash": "e61ecc4d", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "I", "parts": ["i"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "like", "parts": ["like"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "chocolate.", "parts": ["chocolate"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": ["chocolate."]}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 28, "sourceText": "Give me some water.", "sourceHash": "ecd105c1", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "Give", "parts": ["give"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "me", "parts": ["me"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "some", "parts": ["some"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "water.", "parts": ["water"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "recognizer_alias", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["recognizer_alias"], "homophonesByPart": [[]], "aliasesByPart": [["walter", "wafer", "warder"]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 29, "sourceText": "I use a pen.", "sourceHash": "2424ec93", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "I", "parts": ["i"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "use", "parts": ["use"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "a", "parts": ["a"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "pen.", "parts": ["pen"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 30, "sourceText": "The air is cool.", "sourceHash": "3075fe85", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "The", "parts": ["the"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "air", "parts": ["air"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "is", "parts": ["is"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "cool.", "parts": ["cool"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 31, "sourceText": "I like chicken.", "sourceHash": "340dc7ee", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "I", "parts": ["i"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "like", "parts": ["like"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "chicken.", "parts": ["chicken"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": ["chicken."]}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 32, "sourceText": "I drink a glass of water.", "sourceHash": "73e0b3d1", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "I", "parts": ["i"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "drink", "parts": ["drink"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "a", "parts": ["a"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "glass", "parts": ["glass"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 4, "display": "of", "parts": ["of"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 5, "display": "water.", "parts": ["water"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "recognizer_alias", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["recognizer_alias"], "homophonesByPart": [[]], "aliasesByPart": [["walter", "wafer", "warder"]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 33, "sourceText": "There is some milk.", "sourceHash": "1d96c4f2", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "There", "parts": ["there"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "homophone", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["homophone"], "homophonesByPart": [["their", "they're"]], "aliasesByPart": [[]]}, {"id": 1, "display": "is", "parts": ["is"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "some", "parts": ["some"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "milk.", "parts": ["milk"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "recognizer_alias", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["recognizer_alias"], "homophonesByPart": [[]], "aliasesByPart": [["milc", "mil k"]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [{"surfaceParts": ["there's"], "targetParts": ["there", "is"], "kind": "contraction"}, {"surfaceParts": ["theres"], "targetParts": ["there", "is"], "kind": "contraction"}, {"surfaceParts": ["there", "s"], "targetParts": ["there", "is"], "kind": "contraction"}], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 34, "sourceText": "Do you have any bananas?", "sourceHash": "3c64732c", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "Do", "parts": ["do"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "you", "parts": ["you"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "have", "parts": ["have"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "any", "parts": ["any"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 4, "display": "bananas?", "parts": ["bananas"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [{"surfaceParts": ["you've"], "targetParts": ["you", "have"], "kind": "contraction"}, {"surfaceParts": ["youve"], "targetParts": ["you", "have"], "kind": "contraction"}, {"surfaceParts": ["you", "ve"], "targetParts": ["you", "have"], "kind": "contraction"}], "entityEquivalences": [], "recognitionHints": ["bananas?"]}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 35, "sourceText": "Do you have any sugar?", "sourceHash": "b186239c", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "Do", "parts": ["do"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "you", "parts": ["you"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "have", "parts": ["have"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "any", "parts": ["any"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 4, "display": "sugar?", "parts": ["sugar"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [{"surfaceParts": ["you've"], "targetParts": ["you", "have"], "kind": "contraction"}, {"surfaceParts": ["youve"], "targetParts": ["you", "have"], "kind": "contraction"}, {"surfaceParts": ["you", "ve"], "targetParts": ["you", "have"], "kind": "contraction"}], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 36, "sourceText": "My dad drinks coffee.", "sourceHash": "740ad063", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "My", "parts": ["my"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "dad", "parts": ["dad"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "drinks", "parts": ["drinks"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "coffee.", "parts": ["coffee"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 37, "sourceText": "I eat an egg.", "sourceHash": "54194776", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "I", "parts": ["i"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "eat", "parts": ["eat"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "an", "parts": ["an"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "egg.", "parts": ["egg"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 38, "sourceText": "I sit on a chair.", "sourceHash": "efe9b1ef", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "I", "parts": ["i"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "sit", "parts": ["sit"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "on", "parts": ["on"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "a", "parts": ["a"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 4, "display": "chair.", "parts": ["chair"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 39, "sourceText": "I need some paper.", "sourceHash": "c8dee2cc", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "I", "parts": ["i"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "need", "parts": ["need"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "some", "parts": ["some"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "paper.", "parts": ["paper"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 40, "sourceText": "Honey is sweet.", "sourceHash": "944fb962", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "Honey", "parts": ["honey"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "is", "parts": ["is"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "sweet.", "parts": ["sweet"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 41, "sourceText": "I need bread.", "sourceHash": "793f1060", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "I", "parts": ["i"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "need", "parts": ["need"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "bread.", "parts": ["bread"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 42, "sourceText": "I need this information.", "sourceHash": "8f9666dc", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "I", "parts": ["i"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "need", "parts": ["need"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "this", "parts": ["this"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "information.", "parts": ["information"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": ["information."]}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 43, "sourceText": "I have two eyes.", "sourceHash": "443e2630", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "I", "parts": ["i"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "have", "parts": ["have"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "two", "parts": ["2"], "weight": 2.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "critical", "criticalReason": "number", "equivalenceClass": "number", "entityType": null, "requiredPartIndexes": [0], "partClasses": ["content"], "criticalReasons": ["number"], "equivalenceClasses": ["number"], "homophonesByPart": [["too", "to"]], "aliasesByPart": [[]]}, {"id": 3, "display": "eyes.", "parts": ["eyes"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [{"surfaceParts": ["i've"], "targetParts": ["i", "have"], "kind": "contraction"}, {"surfaceParts": ["ive"], "targetParts": ["i", "have"], "kind": "contraction"}, {"surfaceParts": ["i", "ve"], "targetParts": ["i", "have"], "kind": "contraction"}], "entityEquivalences": [], "recognitionHints": ["two"]}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 44, "sourceText": "I like tomatoes.", "sourceHash": "f54a875f", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "I", "parts": ["i"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "like", "parts": ["like"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "tomatoes.", "parts": ["tomatoes"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": ["tomatoes."]}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 45, "sourceText": "Mom buys cooking oil.", "sourceHash": "e7a8b46d", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "Mom", "parts": ["mom"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "buys", "parts": ["buys"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "cooking", "parts": ["cooking"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "oil.", "parts": ["oil"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": ["cooking"]}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 46, "sourceText": "Salt is white.", "sourceHash": "00f6b918", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "Salt", "parts": ["salt"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "is", "parts": ["is"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "white.", "parts": ["white"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 47, "sourceText": "A dog is sitting.", "sourceHash": "4421520c", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "A", "parts": ["a"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "dog", "parts": ["dog"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "is", "parts": ["is"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "sitting.", "parts": ["sitting"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": ["sitting."]}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 48, "sourceText": "The egg is in the bowl.", "sourceHash": "9349c97b", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "The", "parts": ["the"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "egg", "parts": ["egg"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "is", "parts": ["is"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "in", "parts": ["in"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 4, "display": "the", "parts": ["the"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 5, "display": "bowl.", "parts": ["bowl"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "079db0afccc9ab5fe0a6238142478b9cdfa170744ea16d71e03fa1a5e3db5d16", "itemIndex": 49, "sourceText": "I want hot tea.", "sourceHash": "d37396cf", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "I", "parts": ["i"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "want", "parts": ["want"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "hot", "parts": ["hot"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "tea.", "parts": ["tea"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": []}];
+const LESSON_SCORING_PROFILES = [{"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "63f471fe9308e10ac584510b67ef249af222ae564a3630b450e650cf5ac1ff98", "itemIndex": 0, "sourceText": "I have an apple.", "sourceHash": "fec274ad", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "I", "parts": ["i"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "have", "parts": ["have"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "an", "parts": ["an"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "apple.", "parts": ["apple"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "recognizer_alias", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["recognizer_alias"], "homophonesByPart": [[]], "aliasesByPart": [["aple", "appel"]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [{"surfaceParts": ["i've"], "targetParts": ["i", "have"], "kind": "contraction"}, {"surfaceParts": ["ive"], "targetParts": ["i", "have"], "kind": "contraction"}, {"surfaceParts": ["i", "ve"], "targetParts": ["i", "have"], "kind": "contraction"}], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "63f471fe9308e10ac584510b67ef249af222ae564a3630b450e650cf5ac1ff98", "itemIndex": 1, "sourceText": "I have two apples.", "sourceHash": "4766d681", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "I", "parts": ["i"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "have", "parts": ["have"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "two", "parts": ["2"], "weight": 2.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "critical", "criticalReason": "number", "equivalenceClass": "number", "entityType": null, "requiredPartIndexes": [0], "partClasses": ["content"], "criticalReasons": ["number"], "equivalenceClasses": ["number"], "homophonesByPart": [["too", "to"]], "aliasesByPart": [[]]}, {"id": 3, "display": "apples.", "parts": ["apples"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [{"surfaceParts": ["i've"], "targetParts": ["i", "have"], "kind": "contraction"}, {"surfaceParts": ["ive"], "targetParts": ["i", "have"], "kind": "contraction"}, {"surfaceParts": ["i", "ve"], "targetParts": ["i", "have"], "kind": "contraction"}], "entityEquivalences": [], "recognitionHints": ["two"]}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "63f471fe9308e10ac584510b67ef249af222ae564a3630b450e650cf5ac1ff98", "itemIndex": 2, "sourceText": "I drink water.", "sourceHash": "30ae4b21", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "I", "parts": ["i"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "drink", "parts": ["drink"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "water.", "parts": ["water"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "recognizer_alias", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["recognizer_alias"], "homophonesByPart": [[]], "aliasesByPart": [["walter", "wafer", "warder"]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "63f471fe9308e10ac584510b67ef249af222ae564a3630b450e650cf5ac1ff98", "itemIndex": 3, "sourceText": "I eat rice.", "sourceHash": "f2464443", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "I", "parts": ["i"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "eat", "parts": ["eat"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "rice.", "parts": ["rice"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "63f471fe9308e10ac584510b67ef249af222ae564a3630b450e650cf5ac1ff98", "itemIndex": 4, "sourceText": "There is some milk.", "sourceHash": "1d96c4f2", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "There", "parts": ["there"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "homophone", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["homophone"], "homophonesByPart": [["their", "they're"]], "aliasesByPart": [[]]}, {"id": 1, "display": "is", "parts": ["is"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "some", "parts": ["some"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "milk.", "parts": ["milk"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "recognizer_alias", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["recognizer_alias"], "homophonesByPart": [[]], "aliasesByPart": [["milc", "mil k"]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [{"surfaceParts": ["there's"], "targetParts": ["there", "is"], "kind": "contraction"}, {"surfaceParts": ["theres"], "targetParts": ["there", "is"], "kind": "contraction"}, {"surfaceParts": ["there", "s"], "targetParts": ["there", "is"], "kind": "contraction"}], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "63f471fe9308e10ac584510b67ef249af222ae564a3630b450e650cf5ac1ff98", "itemIndex": 5, "sourceText": "There are two bottles.", "sourceHash": "ec882bee", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "There", "parts": ["there"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "homophone", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["homophone"], "homophonesByPart": [["their", "they're"]], "aliasesByPart": [[]]}, {"id": 1, "display": "are", "parts": ["are"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "two", "parts": ["2"], "weight": 2.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "critical", "criticalReason": "number", "equivalenceClass": "number", "entityType": null, "requiredPartIndexes": [0], "partClasses": ["content"], "criticalReasons": ["number"], "equivalenceClasses": ["number"], "homophonesByPart": [["too", "to"]], "aliasesByPart": [[]]}, {"id": 3, "display": "bottles.", "parts": ["bottles"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": ["two", "bottles."]}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "63f471fe9308e10ac584510b67ef249af222ae564a3630b450e650cf5ac1ff98", "itemIndex": 6, "sourceText": "I need some sugar.", "sourceHash": "a9e2e7b8", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "I", "parts": ["i"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "need", "parts": ["need"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "some", "parts": ["some"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "sugar.", "parts": ["sugar"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "63f471fe9308e10ac584510b67ef249af222ae564a3630b450e650cf5ac1ff98", "itemIndex": 7, "sourceText": "I buy three oranges.", "sourceHash": "64642f9b", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "I", "parts": ["i"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "buy", "parts": ["buy"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "homophone", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["homophone"], "homophonesByPart": [["by", "bye"]], "aliasesByPart": [[]]}, {"id": 2, "display": "three", "parts": ["3"], "weight": 2.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "critical", "criticalReason": "number", "equivalenceClass": "number", "entityType": null, "requiredPartIndexes": [0], "partClasses": ["content"], "criticalReasons": ["number"], "equivalenceClasses": ["number"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "oranges.", "parts": ["oranges"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": ["three", "oranges."]}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "63f471fe9308e10ac584510b67ef249af222ae564a3630b450e650cf5ac1ff98", "itemIndex": 8, "sourceText": "I have some bread.", "sourceHash": "2589e0ce", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "I", "parts": ["i"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "have", "parts": ["have"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "some", "parts": ["some"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "bread.", "parts": ["bread"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [{"surfaceParts": ["i've"], "targetParts": ["i", "have"], "kind": "contraction"}, {"surfaceParts": ["ive"], "targetParts": ["i", "have"], "kind": "contraction"}, {"surfaceParts": ["i", "ve"], "targetParts": ["i", "have"], "kind": "contraction"}], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "63f471fe9308e10ac584510b67ef249af222ae564a3630b450e650cf5ac1ff98", "itemIndex": 9, "sourceText": "I want a cake.", "sourceHash": "917dd417", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "I", "parts": ["i"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "want", "parts": ["want"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "a", "parts": ["a"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "cake.", "parts": ["cake"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "63f471fe9308e10ac584510b67ef249af222ae564a3630b450e650cf5ac1ff98", "itemIndex": 10, "sourceText": "There is an egg.", "sourceHash": "3496c513", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "There", "parts": ["there"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "homophone", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["homophone"], "homophonesByPart": [["their", "they're"]], "aliasesByPart": [[]]}, {"id": 1, "display": "is", "parts": ["is"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "an", "parts": ["an"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "egg.", "parts": ["egg"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [{"surfaceParts": ["there's"], "targetParts": ["there", "is"], "kind": "contraction"}, {"surfaceParts": ["theres"], "targetParts": ["there", "is"], "kind": "contraction"}, {"surfaceParts": ["there", "s"], "targetParts": ["there", "is"], "kind": "contraction"}], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "63f471fe9308e10ac584510b67ef249af222ae564a3630b450e650cf5ac1ff98", "itemIndex": 11, "sourceText": "There are six eggs.", "sourceHash": "afecb38f", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "There", "parts": ["there"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "homophone", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["homophone"], "homophonesByPart": [["their", "they're"]], "aliasesByPart": [[]]}, {"id": 1, "display": "are", "parts": ["are"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "six", "parts": ["6"], "weight": 2.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "critical", "criticalReason": "number", "equivalenceClass": "number", "entityType": null, "requiredPartIndexes": [0], "partClasses": ["content"], "criticalReasons": ["number"], "equivalenceClasses": ["number"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "eggs.", "parts": ["eggs"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": ["six"]}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "63f471fe9308e10ac584510b67ef249af222ae564a3630b450e650cf5ac1ff98", "itemIndex": 12, "sourceText": "I eat meat.", "sourceHash": "3659e4a1", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "I", "parts": ["i"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "eat", "parts": ["eat"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "meat.", "parts": ["meat"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "homophone", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["homophone"], "homophonesByPart": [["meet"]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "63f471fe9308e10ac584510b67ef249af222ae564a3630b450e650cf5ac1ff98", "itemIndex": 13, "sourceText": "I buy a fish.", "sourceHash": "b877efaf", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "I", "parts": ["i"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "buy", "parts": ["buy"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "homophone", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["homophone"], "homophonesByPart": [["by", "bye"]], "aliasesByPart": [[]]}, {"id": 2, "display": "a", "parts": ["a"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "fish.", "parts": ["fish"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "63f471fe9308e10ac584510b67ef249af222ae564a3630b450e650cf5ac1ff98", "itemIndex": 14, "sourceText": "I buy two fish.", "sourceHash": "702684c6", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "I", "parts": ["i"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "buy", "parts": ["buy"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "homophone", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["homophone"], "homophonesByPart": [["by", "bye"]], "aliasesByPart": [[]]}, {"id": 2, "display": "two", "parts": ["2"], "weight": 2.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "critical", "criticalReason": "number", "equivalenceClass": "number", "entityType": null, "requiredPartIndexes": [0], "partClasses": ["content"], "criticalReasons": ["number"], "equivalenceClasses": ["number"], "homophonesByPart": [["too", "to"]], "aliasesByPart": [[]]}, {"id": 3, "display": "fish.", "parts": ["fish"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": ["two"]}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "63f471fe9308e10ac584510b67ef249af222ae564a3630b450e650cf5ac1ff98", "itemIndex": 15, "sourceText": "I need some salt.", "sourceHash": "a4b825ea", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "I", "parts": ["i"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "need", "parts": ["need"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "some", "parts": ["some"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "salt.", "parts": ["salt"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "63f471fe9308e10ac584510b67ef249af222ae564a3630b450e650cf5ac1ff98", "itemIndex": 16, "sourceText": "There is some flour.", "sourceHash": "f5925505", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "There", "parts": ["there"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "homophone", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["homophone"], "homophonesByPart": [["their", "they're"]], "aliasesByPart": [[]]}, {"id": 1, "display": "is", "parts": ["is"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "some", "parts": ["some"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "flour.", "parts": ["flour"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "homophone", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["homophone"], "homophonesByPart": [["flower"]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [{"surfaceParts": ["there's"], "targetParts": ["there", "is"], "kind": "contraction"}, {"surfaceParts": ["theres"], "targetParts": ["there", "is"], "kind": "contraction"}, {"surfaceParts": ["there", "s"], "targetParts": ["there", "is"], "kind": "contraction"}], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "63f471fe9308e10ac584510b67ef249af222ae564a3630b450e650cf5ac1ff98", "itemIndex": 17, "sourceText": "I have a chair.", "sourceHash": "9b7ec8ca", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "I", "parts": ["i"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "have", "parts": ["have"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "a", "parts": ["a"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "chair.", "parts": ["chair"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [{"surfaceParts": ["i've"], "targetParts": ["i", "have"], "kind": "contraction"}, {"surfaceParts": ["ive"], "targetParts": ["i", "have"], "kind": "contraction"}, {"surfaceParts": ["i", "ve"], "targetParts": ["i", "have"], "kind": "contraction"}], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "63f471fe9308e10ac584510b67ef249af222ae564a3630b450e650cf5ac1ff98", "itemIndex": 18, "sourceText": "I have three chairs.", "sourceHash": "01650e72", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "I", "parts": ["i"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "have", "parts": ["have"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "three", "parts": ["3"], "weight": 2.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "critical", "criticalReason": "number", "equivalenceClass": "number", "entityType": null, "requiredPartIndexes": [0], "partClasses": ["content"], "criticalReasons": ["number"], "equivalenceClasses": ["number"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "chairs.", "parts": ["chairs"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [{"surfaceParts": ["i've"], "targetParts": ["i", "have"], "kind": "contraction"}, {"surfaceParts": ["ive"], "targetParts": ["i", "have"], "kind": "contraction"}, {"surfaceParts": ["i", "ve"], "targetParts": ["i", "have"], "kind": "contraction"}], "entityEquivalences": [], "recognitionHints": ["three"]}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "63f471fe9308e10ac584510b67ef249af222ae564a3630b450e650cf5ac1ff98", "itemIndex": 19, "sourceText": "There is some water.", "sourceHash": "fb2fc640", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "There", "parts": ["there"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "homophone", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["homophone"], "homophonesByPart": [["their", "they're"]], "aliasesByPart": [[]]}, {"id": 1, "display": "is", "parts": ["is"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "some", "parts": ["some"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "water.", "parts": ["water"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "recognizer_alias", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["recognizer_alias"], "homophonesByPart": [[]], "aliasesByPart": [["walter", "wafer", "warder"]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [{"surfaceParts": ["there's"], "targetParts": ["there", "is"], "kind": "contraction"}, {"surfaceParts": ["theres"], "targetParts": ["there", "is"], "kind": "contraction"}, {"surfaceParts": ["there", "s"], "targetParts": ["there", "is"], "kind": "contraction"}], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "63f471fe9308e10ac584510b67ef249af222ae564a3630b450e650cf5ac1ff98", "itemIndex": 20, "sourceText": "There are four cups.", "sourceHash": "e3f36998", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "There", "parts": ["there"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "homophone", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["homophone"], "homophonesByPart": [["their", "they're"]], "aliasesByPart": [[]]}, {"id": 1, "display": "are", "parts": ["are"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "four", "parts": ["4"], "weight": 2.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "critical", "criticalReason": "number", "equivalenceClass": "number", "entityType": null, "requiredPartIndexes": [0], "partClasses": ["content"], "criticalReasons": ["number"], "equivalenceClasses": ["number"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "cups.", "parts": ["cups"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": ["four"]}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "63f471fe9308e10ac584510b67ef249af222ae564a3630b450e650cf5ac1ff98", "itemIndex": 21, "sourceText": "I need some oil.", "sourceHash": "e19515b2", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "I", "parts": ["i"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "need", "parts": ["need"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "some", "parts": ["some"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "oil.", "parts": ["oil"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "63f471fe9308e10ac584510b67ef249af222ae564a3630b450e650cf5ac1ff98", "itemIndex": 22, "sourceText": "I buy two potatoes.", "sourceHash": "64b670a5", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "I", "parts": ["i"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "buy", "parts": ["buy"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "homophone", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["homophone"], "homophonesByPart": [["by", "bye"]], "aliasesByPart": [[]]}, {"id": 2, "display": "two", "parts": ["2"], "weight": 2.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "critical", "criticalReason": "number", "equivalenceClass": "number", "entityType": null, "requiredPartIndexes": [0], "partClasses": ["content"], "criticalReasons": ["number"], "equivalenceClasses": ["number"], "homophonesByPart": [["too", "to"]], "aliasesByPart": [[]]}, {"id": 3, "display": "potatoes.", "parts": ["potatoes"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": ["two", "potatoes."]}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "63f471fe9308e10ac584510b67ef249af222ae564a3630b450e650cf5ac1ff98", "itemIndex": 23, "sourceText": "I eat some soup.", "sourceHash": "3de548f9", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "I", "parts": ["i"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "eat", "parts": ["eat"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "some", "parts": ["some"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "soup.", "parts": ["soup"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [], "entityEquivalences": [], "recognitionHints": []}, {"schemaVersion": "3.0.0", "policyVersion": "3.1.0", "rulesHash": "63f471fe9308e10ac584510b67ef249af222ae564a3630b450e650cf5ac1ff98", "itemIndex": 24, "sourceText": "I have five bananas.", "sourceHash": "91ad641e", "level": "A", "passScore": 70, "tokens": [{"id": 0, "display": "I", "parts": ["i"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 1, "display": "have", "parts": ["have"], "weight": 0.55, "scorePolicy": "normal", "skipReason": null, "tokenClass": "function", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["function"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 2, "display": "five", "parts": ["5"], "weight": 2.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "critical", "criticalReason": "number", "equivalenceClass": "number", "entityType": null, "requiredPartIndexes": [0], "partClasses": ["content"], "criticalReasons": ["number"], "equivalenceClasses": ["number"], "homophonesByPart": [[]], "aliasesByPart": [[]]}, {"id": 3, "display": "bananas.", "parts": ["bananas"], "weight": 1.0, "scorePolicy": "normal", "skipReason": null, "tokenClass": "content", "criticalReason": null, "equivalenceClass": "exact", "entityType": null, "requiredPartIndexes": [], "partClasses": ["content"], "criticalReasons": [null], "equivalenceClasses": ["exact"], "homophonesByPart": [[]], "aliasesByPart": [[]]}], "phraseVariants": [{"canonical": "oclock", "variants": ["o clock", "o'clock"]}, {"canonical": "going to", "variants": ["gonna"]}, {"canonical": "want to", "variants": ["wanna"]}, {"canonical": "got to", "variants": ["gotta"]}], "candidateEquivalences": [{"surfaceParts": ["i've"], "targetParts": ["i", "have"], "kind": "contraction"}, {"surfaceParts": ["ive"], "targetParts": ["i", "have"], "kind": "contraction"}, {"surfaceParts": ["i", "ve"], "targetParts": ["i", "have"], "kind": "contraction"}], "entityEquivalences": [], "recognitionHints": ["five", "bananas."]}];
 const lessonData = [
   {
     "id": "q001",
@@ -1929,7 +1942,7 @@ const lessonData = [
     "variants": [
       "I have an apple."
     ],
-    "help1": "apple",
+    "help1": "subject + V1/V2/V3 + complement.",
     "help2": "I have an apple.",
     "keywords": [
       "apple"
@@ -1937,13 +1950,25 @@ const lessonData = [
   },
   {
     "id": "q002",
-    "question": "Tôi uống một cốc nước.",
+    "question": "Tôi có hai quả táo.",
+    "answer": "I have two apples.",
+    "variants": [
+      "I have two apples."
+    ],
+    "help1": "subject + V1/V2/V3 + complement.",
+    "help2": "I have two apples.",
+    "keywords": [
+      "apples"
+    ]
+  },
+  {
+    "id": "q003",
+    "question": "Tôi uống nước.",
     "answer": "I drink water.",
     "variants": [
-      "I drink water.",
-      "I drink a glass of water."
+      "I drink water."
     ],
-    "help1": "drink / water",
+    "help1": "subject + V1/V2/V3 + complement.",
     "help2": "I drink water.",
     "keywords": [
       "drink",
@@ -1951,696 +1976,290 @@ const lessonData = [
     ]
   },
   {
-    "id": "q003",
-    "question": "Sữa rất tốt cho sức khỏe.",
-    "answer": "Milk is good.",
-    "variants": [
-      "Milk is good.",
-      "Milk is good for health."
-    ],
-    "help1": "milk / good",
-    "help2": "Milk is good.",
-    "keywords": [
-      "milk",
-      "good"
-    ]
-  },
-  {
     "id": "q004",
-    "question": "Tôi ăn một quả chuối.",
-    "answer": "I eat a banana.",
+    "question": "Tôi ăn cơm.",
+    "answer": "I eat rice.",
     "variants": [
-      "I eat a banana."
+      "I eat rice."
     ],
-    "help1": "eat / banana",
-    "help2": "I eat a banana.",
+    "help1": "subject + V1/V2/V3 + complement.",
+    "help2": "I eat rice.",
     "keywords": [
       "eat",
-      "banana"
+      "rice"
     ]
   },
   {
     "id": "q005",
-    "question": "Tôi có một quả cam.",
-    "answer": "I have an orange.",
+    "question": "Có một ít sữa.",
+    "answer": "There is some milk.",
     "variants": [
-      "I have an orange."
+      "There is some milk."
     ],
-    "help1": "orange",
-    "help2": "I have an orange.",
+    "help1": "subject + V1/V2/V3 + complement.",
+    "help2": "There is some milk.",
     "keywords": [
-      "orange"
+      "milk"
     ]
   },
   {
     "id": "q006",
-    "question": "Tôi ăn bánh mì vào bữa sáng.",
-    "answer": "I eat bread for breakfast.",
+    "question": "Có hai chai sữa.",
+    "answer": "There are two bottles.",
     "variants": [
-      "I eat bread for breakfast."
+      "There are two bottles."
     ],
-    "help1": "eat / bread / breakfast",
-    "help2": "I eat bread for breakfast.",
+    "help1": "subject + V1/V2/V3 + complement.",
+    "help2": "There are two bottles.",
     "keywords": [
-      "eat",
-      "bread",
-      "breakfast"
+      "bottles"
     ]
   },
   {
     "id": "q007",
-    "question": "Tôi đọc một cuốn sách.",
-    "answer": "I read a book.",
+    "question": "Tôi cần một ít đường.",
+    "answer": "I need some sugar.",
     "variants": [
-      "I read a book."
+      "I need some sugar."
     ],
-    "help1": "read / book",
-    "help2": "I read a book.",
-    "keywords": [
-      "read",
-      "book"
-    ]
-  },
-  {
-    "id": "q008",
-    "question": "Tôi cần một ít muối.",
-    "answer": "I need some salt.",
-    "variants": [
-      "I need some salt."
-    ],
-    "help1": "need / salt",
-    "help2": "I need some salt.",
-    "keywords": [
-      "need",
-      "salt"
-    ]
-  },
-  {
-    "id": "q009",
-    "question": "Tôi có một cây bút chì.",
-    "answer": "I have a pencil.",
-    "variants": [
-      "I have a pencil."
-    ],
-    "help1": "pencil",
-    "help2": "I have a pencil.",
-    "keywords": [
-      "pencil"
-    ]
-  },
-  {
-    "id": "q010",
-    "question": "Tôi có một ít tiền.",
-    "answer": "I have some money.",
-    "variants": [
-      "I have some money."
-    ],
-    "help1": "money",
-    "help2": "I have some money.",
-    "keywords": [
-      "money"
-    ]
-  },
-  {
-    "id": "q011",
-    "question": "Có bao nhiêu quả táo?",
-    "answer": "How many apples are there?",
-    "variants": [
-      "How many apples are there?"
-    ],
-    "help1": "how / many / apples",
-    "help2": "How many apples are there?",
-    "keywords": [
-      "how",
-      "many",
-      "apples"
-    ]
-  },
-  {
-    "id": "q012",
-    "question": "Có bao nhiêu sữa?",
-    "answer": "How much milk is there?",
-    "variants": [
-      "How much milk is there?"
-    ],
-    "help1": "how / much / milk",
-    "help2": "How much milk is there?",
-    "keywords": [
-      "how",
-      "much",
-      "milk"
-    ]
-  },
-  {
-    "id": "q013",
-    "question": "Đây là một cây bút.",
-    "answer": "This is a pen.",
-    "variants": [
-      "This is a pen."
-    ],
-    "help1": "pen",
-    "help2": "This is a pen.",
-    "keywords": [
-      "pen"
-    ]
-  },
-  {
-    "id": "q014",
-    "question": "Tôi có một ít nước.",
-    "answer": "I have some water.",
-    "variants": [
-      "I have some water."
-    ],
-    "help1": "water",
-    "help2": "I have some water.",
-    "keywords": [
-      "water"
-    ]
-  },
-  {
-    "id": "q015",
-    "question": "Có một ít cơm trong bát.",
-    "answer": "There is some rice in the bowl.",
-    "variants": [
-      "There is some rice in the bowl.",
-      "There's some rice in the bowl."
-    ],
-    "help1": "rice / bowl",
-    "help2": "There is some rice in the bowl.",
-    "keywords": [
-      "rice",
-      "bowl"
-    ]
-  },
-  {
-    "id": "q016",
-    "question": "Tôi có một con chó.",
-    "answer": "I have a dog.",
-    "variants": [
-      "I have a dog."
-    ],
-    "help1": "dog",
-    "help2": "I have a dog.",
-    "keywords": [
-      "dog"
-    ]
-  },
-  {
-    "id": "q017",
-    "question": "Tôi thích bơ.",
-    "answer": "I like butter.",
-    "variants": [
-      "I like butter.",
-      "I like eating butter."
-    ],
-    "help1": "like / butter",
-    "help2": "I like butter.",
-    "keywords": [
-      "like",
-      "butter"
-    ]
-  },
-  {
-    "id": "q018",
-    "question": "Đường có vị ngọt.",
-    "answer": "Sugar is sweet.",
-    "variants": [
-      "Sugar is sweet."
-    ],
-    "help1": "sugar / sweet",
-    "help2": "Sugar is sweet.",
-    "keywords": [
-      "sugar",
-      "sweet"
-    ]
-  },
-  {
-    "id": "q019",
-    "question": "Có bao nhiêu cuốn sách?",
-    "answer": "How many books are there?",
-    "variants": [
-      "How many books are there?"
-    ],
-    "help1": "how / many / books",
-    "help2": "How many books are there?",
-    "keywords": [
-      "how",
-      "many",
-      "books"
-    ]
-  },
-  {
-    "id": "q020",
-    "question": "Có bao nhiêu nước?",
-    "answer": "How much water is there?",
-    "variants": [
-      "How much water is there?"
-    ],
-    "help1": "how / much / water",
-    "help2": "How much water is there?",
-    "keywords": [
-      "how",
-      "much",
-      "water"
-    ]
-  },
-  {
-    "id": "q021",
-    "question": "Tôi uống nước ép cam.",
-    "answer": "I drink orange juice.",
-    "variants": [
-      "I drink orange juice."
-    ],
-    "help1": "drink / orange / juice",
-    "help2": "I drink orange juice.",
-    "keywords": [
-      "drink",
-      "orange",
-      "juice"
-    ]
-  },
-  {
-    "id": "q022",
-    "question": "Tôi có một quả bóng.",
-    "answer": "I have a ball.",
-    "variants": [
-      "I have a ball."
-    ],
-    "help1": "ball",
-    "help2": "I have a ball.",
-    "keywords": [
-      "ball"
-    ]
-  },
-  {
-    "id": "q023",
-    "question": "Tôi thích trà nóng.",
-    "answer": "I like hot tea.",
-    "variants": [
-      "I like hot tea.",
-      "I like drinking hot tea."
-    ],
-    "help1": "like / hot / tea",
-    "help2": "I like hot tea.",
-    "keywords": [
-      "like",
-      "hot",
-      "tea"
-    ]
-  },
-  {
-    "id": "q024",
-    "question": "Vàng rất đắt tiền.",
-    "answer": "Gold is expensive.",
-    "variants": [
-      "Gold is expensive."
-    ],
-    "help1": "gold / expensive",
-    "help2": "Gold is expensive.",
-    "keywords": [
-      "gold",
-      "expensive"
-    ]
-  },
-  {
-    "id": "q025",
-    "question": "Có hai học sinh ở đây.",
-    "answer": "There are two students.",
-    "variants": [
-      "There are two students."
-    ],
-    "help1": "two / students",
-    "help2": "There are two students.",
-    "keywords": [
-      "two",
-      "students"
-    ]
-  },
-  {
-    "id": "q026",
-    "question": "Tôi thích âm nhạc.",
-    "answer": "I like music.",
-    "variants": [
-      "I like music.",
-      "I like listening to music."
-    ],
-    "help1": "like / music",
-    "help2": "I like music.",
-    "keywords": [
-      "like",
-      "music"
-    ]
-  },
-  {
-    "id": "q027",
-    "question": "Tôi uống một ly sữa.",
-    "answer": "I drink milk.",
-    "variants": [
-      "I drink milk.",
-      "I drink a glass of milk."
-    ],
-    "help1": "drink / milk",
-    "help2": "I drink milk.",
-    "keywords": [
-      "drink",
-      "milk"
-    ]
-  },
-  {
-    "id": "q028",
-    "question": "Tôi thích sô-cô-la.",
-    "answer": "I like chocolate.",
-    "variants": [
-      "I like chocolate.",
-      "I like eating chocolate."
-    ],
-    "help1": "like / chocolate",
-    "help2": "I like chocolate.",
-    "keywords": [
-      "like",
-      "chocolate"
-    ]
-  },
-  {
-    "id": "q029",
-    "question": "Làm ơn cho tôi ít nước.",
-    "answer": "Give me some water.",
-    "variants": [
-      "Give me some water.",
-      "Please give me some water."
-    ],
-    "help1": "give / water",
-    "help2": "Give me some water.",
-    "keywords": [
-      "give",
-      "water"
-    ]
-  },
-  {
-    "id": "q030",
-    "question": "Tôi dùng một cây bút.",
-    "answer": "I use a pen.",
-    "variants": [
-      "I use a pen."
-    ],
-    "help1": "use / pen",
-    "help2": "I use a pen.",
-    "keywords": [
-      "use",
-      "pen"
-    ]
-  },
-  {
-    "id": "q031",
-    "question": "Không khí rất mát mẻ.",
-    "answer": "The air is cool.",
-    "variants": [
-      "The air is cool."
-    ],
-    "help1": "air / cool",
-    "help2": "The air is cool.",
-    "keywords": [
-      "air",
-      "cool"
-    ]
-  },
-  {
-    "id": "q032",
-    "question": "Tôi thích thịt gà.",
-    "answer": "I like chicken.",
-    "variants": [
-      "I like chicken.",
-      "I like eating chicken."
-    ],
-    "help1": "like / chicken",
-    "help2": "I like chicken.",
-    "keywords": [
-      "like",
-      "chicken"
-    ]
-  },
-  {
-    "id": "q033",
-    "question": "Tôi uống một cốc nước.",
-    "answer": "I drink a glass of water.",
-    "variants": [
-      "I drink a glass of water.",
-      "I have a glass of water."
-    ],
-    "help1": "drink / glass / water",
-    "help2": "I drink a glass of water.",
-    "keywords": [
-      "drink",
-      "glass",
-      "water"
-    ]
-  },
-  {
-    "id": "q034",
-    "question": "Có một ít sữa.",
-    "answer": "There is some milk.",
-    "variants": [
-      "There is some milk.",
-      "There's some milk."
-    ],
-    "help1": "some / milk",
-    "help2": "There is some milk.",
-    "keywords": [
-      "some",
-      "milk"
-    ]
-  },
-  {
-    "id": "q035",
-    "question": "Bạn có chuối không?",
-    "answer": "Do you have any bananas?",
-    "variants": [
-      "Do you have any bananas?"
-    ],
-    "help1": "bananas",
-    "help2": "Do you have any bananas?",
-    "keywords": [
-      "bananas"
-    ]
-  },
-  {
-    "id": "q036",
-    "question": "Bạn có đường không?",
-    "answer": "Do you have any sugar?",
-    "variants": [
-      "Do you have any sugar?"
-    ],
-    "help1": "sugar",
-    "help2": "Do you have any sugar?",
+    "help1": "subject + V1/V2/V3 + complement.",
+    "help2": "I need some sugar.",
     "keywords": [
       "sugar"
     ]
   },
   {
-    "id": "q037",
-    "question": "Bố tôi uống cà phê.",
-    "answer": "My dad drinks coffee.",
+    "id": "q008",
+    "question": "Tôi mua ba quả cam.",
+    "answer": "I buy three oranges.",
     "variants": [
-      "My dad drinks coffee.",
-      "My father drinks coffee."
+      "I buy three oranges."
     ],
-    "help1": "dad / drinks / coffee",
-    "help2": "My dad drinks coffee.",
+    "help1": "subject + V1/V2/V3 + complement.",
+    "help2": "I buy three oranges.",
     "keywords": [
-      "dad",
-      "drinks",
-      "coffee"
+      "oranges"
     ]
   },
   {
-    "id": "q038",
-    "question": "Tôi ăn một quả trứng.",
-    "answer": "I eat an egg.",
+    "id": "q009",
+    "question": "Tôi có một ít bánh mì.",
+    "answer": "I have some bread.",
     "variants": [
-      "I eat an egg."
+      "I have some bread."
     ],
-    "help1": "eat / egg",
-    "help2": "I eat an egg.",
+    "help1": "subject + V1/V2/V3 + complement.",
+    "help2": "I have some bread.",
     "keywords": [
-      "eat",
-      "egg"
-    ]
-  },
-  {
-    "id": "q039",
-    "question": "Tôi ngồi trên một chiếc ghế.",
-    "answer": "I sit on a chair.",
-    "variants": [
-      "I sit on a chair."
-    ],
-    "help1": "sit / chair",
-    "help2": "I sit on a chair.",
-    "keywords": [
-      "sit",
-      "chair"
-    ]
-  },
-  {
-    "id": "q040",
-    "question": "Tôi cần một tờ giấy.",
-    "answer": "I need some paper.",
-    "variants": [
-      "I need some paper.",
-      "I need a piece of paper."
-    ],
-    "help1": "need / paper",
-    "help2": "I need some paper.",
-    "keywords": [
-      "need",
-      "paper"
-    ]
-  },
-  {
-    "id": "q041",
-    "question": "Mật ong rất ngọt ngào.",
-    "answer": "Honey is sweet.",
-    "variants": [
-      "Honey is sweet."
-    ],
-    "help1": "honey / sweet",
-    "help2": "Honey is sweet.",
-    "keywords": [
-      "honey",
-      "sweet"
-    ]
-  },
-  {
-    "id": "q042",
-    "question": "Tôi cần một ổ bánh mì.",
-    "answer": "I need bread.",
-    "variants": [
-      "I need bread.",
-      "I need a loaf of bread."
-    ],
-    "help1": "need / bread",
-    "help2": "I need bread.",
-    "keywords": [
-      "need",
       "bread"
     ]
   },
   {
-    "id": "q043",
-    "question": "Tôi cần thông tin này.",
-    "answer": "I need this information.",
+    "id": "q010",
+    "question": "Tôi muốn một chiếc bánh.",
+    "answer": "I want a cake.",
     "variants": [
-      "I need this information."
+      "I want a cake."
     ],
-    "help1": "need / information",
-    "help2": "I need this information.",
+    "help1": "subject + V1/V2/V3 + complement.",
+    "help2": "I want a cake.",
     "keywords": [
-      "need",
-      "information"
+      "cake"
     ]
   },
   {
-    "id": "q044",
-    "question": "Tôi có hai con mắt.",
-    "answer": "I have two eyes.",
+    "id": "q011",
+    "question": "Có một quả trứng.",
+    "answer": "There is an egg.",
     "variants": [
-      "I have two eyes."
+      "There is an egg."
     ],
-    "help1": "two / eyes",
-    "help2": "I have two eyes.",
+    "help1": "subject + V1/V2/V3 + complement.",
+    "help2": "There is an egg.",
     "keywords": [
-      "two",
-      "eyes"
+      "egg"
     ]
   },
   {
-    "id": "q045",
-    "question": "Tôi thích cà chua.",
-    "answer": "I like tomatoes.",
+    "id": "q012",
+    "question": "Có sáu quả trứng.",
+    "answer": "There are six eggs.",
     "variants": [
-      "I like tomatoes.",
-      "I like eating tomatoes."
+      "There are six eggs."
     ],
-    "help1": "like / tomatoes",
-    "help2": "I like tomatoes.",
+    "help1": "subject + V1/V2/V3 + complement.",
+    "help2": "There are six eggs.",
     "keywords": [
-      "like",
-      "tomatoes"
+      "eggs"
     ]
   },
   {
-    "id": "q046",
-    "question": "Mẹ mua dầu ăn.",
-    "answer": "Mom buys cooking oil.",
+    "id": "q013",
+    "question": "Tôi ăn thịt.",
+    "answer": "I eat meat.",
     "variants": [
-      "Mom buys cooking oil.",
-      "mother buys cooking oil.",
-      "mom buys cooking oil."
+      "I eat meat."
     ],
-    "help1": "mom / buys / cooking",
-    "help2": "Mom buys cooking oil.",
+    "help1": "subject + V1/V2/V3 + complement.",
+    "help2": "I eat meat.",
     "keywords": [
-      "mom",
-      "buys",
-      "cooking"
+      "meat"
     ]
   },
   {
-    "id": "q047",
-    "question": "Muối có màu trắng.",
-    "answer": "Salt is white.",
+    "id": "q014",
+    "question": "Tôi mua một con cá.",
+    "answer": "I buy a fish.",
     "variants": [
-      "Salt is white."
+      "I buy a fish."
     ],
-    "help1": "salt / white",
-    "help2": "Salt is white.",
+    "help1": "subject + V1/V2/V3 + complement.",
+    "help2": "I buy a fish.",
     "keywords": [
-      "salt",
-      "white"
+      "fish"
     ]
   },
   {
-    "id": "q048",
-    "question": "Một con chó đang ngồi.",
-    "answer": "A dog is sitting.",
+    "id": "q015",
+    "question": "Tôi mua hai con cá.",
+    "answer": "I buy two fish.",
     "variants": [
-      "A dog is sitting."
+      "I buy two fish."
     ],
-    "help1": "dog / sitting",
-    "help2": "A dog is sitting.",
+    "help1": "subject + V1/V2/V3 + complement.",
+    "help2": "I buy two fish.",
     "keywords": [
-      "dog",
-      "sitting"
+      "fish"
     ]
   },
   {
-    "id": "q049",
-    "question": "Quả trứng ở trong bát.",
-    "answer": "The egg is in the bowl.",
+    "id": "q016",
+    "question": "Tôi cần một ít muối.",
+    "answer": "I need some salt.",
     "variants": [
-      "The egg is in the bowl."
+      "I need some salt."
     ],
-    "help1": "egg / bowl",
-    "help2": "The egg is in the bowl.",
+    "help1": "subject + V1/V2/V3 + complement.",
+    "help2": "I need some salt.",
     "keywords": [
-      "egg",
-      "bowl"
+      "salt"
     ]
   },
   {
-    "id": "q050",
-    "question": "Tôi muốn trà nóng.",
-    "answer": "I want hot tea.",
+    "id": "q017",
+    "question": "Có một ít bột mì.",
+    "answer": "There is some flour.",
     "variants": [
-      "I want hot tea.",
-      "I want to drink hot tea.",
-      "I would like hot tea."
+      "There is some flour."
     ],
-    "help1": "want / hot / tea",
-    "help2": "I want hot tea.",
+    "help1": "subject + V1/V2/V3 + complement.",
+    "help2": "There is some flour.",
     "keywords": [
-      "want",
-      "hot",
-      "tea"
+      "flour"
+    ]
+  },
+  {
+    "id": "q018",
+    "question": "Tôi có một cái ghế.",
+    "answer": "I have a chair.",
+    "variants": [
+      "I have a chair."
+    ],
+    "help1": "subject + V1/V2/V3 + complement.",
+    "help2": "I have a chair.",
+    "keywords": [
+      "chair"
+    ]
+  },
+  {
+    "id": "q019",
+    "question": "Tôi có ba cái ghế.",
+    "answer": "I have three chairs.",
+    "variants": [
+      "I have three chairs."
+    ],
+    "help1": "subject + V1/V2/V3 + complement.",
+    "help2": "I have three chairs.",
+    "keywords": [
+      "chairs"
+    ]
+  },
+  {
+    "id": "q020",
+    "question": "Có một ít nước.",
+    "answer": "There is some water.",
+    "variants": [
+      "There is some water."
+    ],
+    "help1": "subject + V1/V2/V3 + complement.",
+    "help2": "There is some water.",
+    "keywords": [
+      "water"
+    ]
+  },
+  {
+    "id": "q021",
+    "question": "Có bốn cái cốc.",
+    "answer": "There are four cups.",
+    "variants": [
+      "There are four cups."
+    ],
+    "help1": "subject + V1/V2/V3 + complement.",
+    "help2": "There are four cups.",
+    "keywords": [
+      "cups"
+    ]
+  },
+  {
+    "id": "q022",
+    "question": "Tôi cần một ít dầu.",
+    "answer": "I need some oil.",
+    "variants": [
+      "I need some oil."
+    ],
+    "help1": "subject + V1/V2/V3 + complement.",
+    "help2": "I need some oil.",
+    "keywords": [
+      "oil"
+    ]
+  },
+  {
+    "id": "q023",
+    "question": "Tôi mua hai củ khoai tây.",
+    "answer": "I buy two potatoes.",
+    "variants": [
+      "I buy two potatoes."
+    ],
+    "help1": "subject + V1/V2/V3 + complement.",
+    "help2": "I buy two potatoes.",
+    "keywords": [
+      "potatoes"
+    ]
+  },
+  {
+    "id": "q024",
+    "question": "Tôi ăn một ít súp.",
+    "answer": "I eat some soup.",
+    "variants": [
+      "I eat some soup."
+    ],
+    "help1": "subject + V1/V2/V3 + complement.",
+    "help2": "I eat some soup.",
+    "keywords": [
+      "soup"
+    ]
+  },
+  {
+    "id": "q025",
+    "question": "Tôi có năm quả chuối.",
+    "answer": "I have five bananas.",
+    "variants": [
+      "I have five bananas."
+    ],
+    "help1": "subject + V1/V2/V3 + complement.",
+    "help2": "I have five bananas.",
+    "keywords": [
+      "bananas"
     ]
   }
 ];
@@ -2655,6 +2274,7 @@ const lessonData = [
         order: [],
         completed: new Set(),
         questionStatus: new Map(),
+        questionScores: new Map(),
         helpStage: 0,
         recognition: null,
         listening: false
@@ -2663,6 +2283,8 @@ const lessonData = [
     const dom = {
         question: document.getElementById('question-text'),
         help: document.getElementById('help-panel'),
+        help1: document.getElementById('help1-panel'),
+        help2: document.getElementById('help2-panel'),
         transcript: document.getElementById('transcript-text'),
         result: document.getElementById('result-message'),
         progress: document.getElementById('progress-bar-container'),
@@ -2771,7 +2393,10 @@ const lessonData = [
         stopRecognition();
         state.helpStage = 0;
         dom.help.classList.add('is-hidden');
-        dom.help.textContent = '';
+        dom.help1.classList.add('is-hidden');
+        dom.help2.classList.add('is-hidden');
+        dom.help1.textContent = '';
+        dom.help2.textContent = '';
         dom.helpButton.textContent = 'Gợi ý 1 (Space)';
         dom.transcript.textContent = 'Nhấn micro và bắt đầu nói.';
         setResult('Sẵn sàng.');
@@ -2804,8 +2429,15 @@ const lessonData = [
         const item = currentItem();
         if (!item) return;
         state.helpStage = Math.min(2, state.helpStage + 1);
-        dom.help.textContent = state.helpStage === 1 ? item.help1 : item.help2;
         dom.help.classList.remove('is-hidden');
+        if (state.helpStage >= 1) {
+            dom.help1.textContent = `Hint1: ${item.help1}`;
+            dom.help1.classList.remove('is-hidden');
+        }
+        if (state.helpStage >= 2) {
+            dom.help2.textContent = `Hint2: ${item.help2}`;
+            dom.help2.classList.remove('is-hidden');
+        }
         dom.helpButton.textContent = state.helpStage === 1 ? 'Gợi ý 2 (Space)' : 'Đang xem gợi ý 2';
     }
 
@@ -2827,7 +2459,9 @@ const lessonData = [
 
     function finishLessonIfComplete() {
         if (state.completed.size !== lessonData.length) return;
-        dom.scoreMessage.textContent = `Bạn đã nói đạt ${lessonData.length}/${lessonData.length} câu.`;
+        const total = Array.from(state.questionScores.values()).reduce((sum, value) => sum + value, 0);
+        const max = lessonData.length;
+        dom.scoreMessage.textContent = `Bạn đã hoàn thành ${lessonData.length}/${lessonData.length} câu — ${total.toFixed(1)}/${max} điểm.`;
         dom.modal.classList.remove('is-hidden');
     }
 
@@ -2863,92 +2497,43 @@ const lessonData = [
         return words.join(' ').replace(/\s+/g, ' ').trim();
     }
 
-    function calculateSimilarity(candidateTokens, targetTokens) {
-        if (!candidateTokens.length || !targetTokens.length) return 0;
-        const dp = Array.from({ length: candidateTokens.length + 1 }, () =>
-            new Array(targetTokens.length + 1).fill(0)
-        );
-        for (let i = 0; i <= candidateTokens.length; i++) dp[i][0] = i;
-        for (let j = 0; j <= targetTokens.length; j++) dp[0][j] = j;
-
-        for (let i = 1; i <= candidateTokens.length; i++) {
-            for (let j = 1; j <= targetTokens.length; j++) {
-                if (candidateTokens[i - 1] === targetTokens[j - 1]) {
-                    dp[i][j] = dp[i - 1][j - 1];
-                } else {
-                    dp[i][j] = Math.min(
-                        dp[i - 1][j] + 1,
-                        dp[i][j - 1] + 1,
-                        dp[i - 1][j - 1] + 1
-                    );
-                }
-            }
-        }
-        const dist = dp[candidateTokens.length][targetTokens.length];
-        const maxLen = Math.max(candidateTokens.length, targetTokens.length);
-        return (maxLen - dist) / maxLen;
-    }
-
     function matchVariants(candidateNorm, item) {
-        const variants = [item.answer].concat(Array.isArray(item.variants) ? item.variants : []);
-        const candidateWords = candidateNorm.split(' ').filter(Boolean);
-        const criticalWords = ['what', 'where', 'when', 'why', 'who', 'how', 'not', 'no', 'never'];
-
-        for (let i = 0; i < variants.length; i += 1) {
-            const vNorm = normalizeText(variants[i]);
-            if (candidateNorm === vNorm) return true;
-
-            const vWords = vNorm.split(' ').filter(Boolean);
-            if (Math.abs(candidateWords.length - vWords.length) > 1) continue;
-
-            const requiredCritical = vWords.filter(w => criticalWords.includes(w));
-            const hasAllCritical = requiredCritical.every(w => candidateWords.includes(w));
-            if (!hasAllCritical && requiredCritical.length > 0) continue;
-
-            const sim = calculateSimilarity(candidateWords, vWords);
-            if (sim >= 0.88) return true;
-        }
-        return false;
+        if (candidateNorm === normalizeText(item.answer)) return 'primary';
+        const optional = Array.isArray(item.variants) ? item.variants : [];
+        if (optional.some(variant => candidateNorm === normalizeText(variant))) return 'optional';
+        return null;
     }
 
     function scoreCandidates(candidates) {
         const item = currentItem();
-        const rawIdx = currentRawIndex();
         if (!item) {
             setResult('Dữ liệu câu hỏi chưa hợp lệ.', 'error');
             return;
         }
 
-        let passed = false;
+        let matchType = null;
         let bestTranscript = candidates[0] ? candidates[0].transcript : '';
 
         // 1. Kiểm tra đa biến thể với chuẩn hóa nghiêm ngặt
         for (let i = 0; i < candidates.length; i += 1) {
             const cNorm = normalizeText(candidates[i].transcript);
-            if (matchVariants(cNorm, item)) {
-                passed = true;
+            const candidateMatch = matchVariants(cNorm, item);
+            if (candidateMatch) {
+                matchType = candidateMatch;
                 bestTranscript = candidates[i].transcript;
                 break;
             }
         }
 
-        // 2. Fallback sang PronunciationEngine nếu có
-        if (!passed && window.DukePronunciationEngine && typeof window.DukePronunciationEngine.scoreListeningCandidates === 'function') {
-            const profile = LESSON_SCORING_PROFILES[rawIdx];
-            if (profile && profile.schemaVersion === '3.0.0') {
-                const score = window.DukePronunciationEngine.scoreListeningCandidates(profile, candidates, SPEAK_LEVEL);
-                if (score.isPass) {
-                    passed = true;
-                    bestTranscript = score.selectedCandidate || bestTranscript;
-                }
-            }
-        }
-
         dom.transcript.textContent = bestTranscript || (candidates[0] && candidates[0].transcript) || '';
-        if (passed) {
+        if (matchType) {
             state.completed.add(state.currentIndex);
             state.questionStatus.set(state.currentIndex, 'correct');
-            setResult('Đạt. Chuỗi phát âm đã khớp yêu cầu.', 'success');
+            const score = matchType === 'primary' ? 1 : 0.9;
+            state.questionScores.set(state.currentIndex, score);
+            setResult(matchType === 'primary'
+                ? 'Đúng tuyệt đối. Đạt tối đa 1.0 điểm.'
+                : 'Đúng theo biến thể đã khai báo. Câu này đạt 0.9 điểm.', 'success');
             renderProgress();
             finishLessonIfComplete();
         } else {
@@ -3049,6 +2634,7 @@ const lessonData = [
         stopRecognition();
         state.completed.clear();
         if (state.questionStatus) state.questionStatus.clear();
+        if (state.questionScores) state.questionScores.clear();
         shuffleOrder();
         state.currentIndex = 0;
         dom.modal.classList.add('is-hidden');
