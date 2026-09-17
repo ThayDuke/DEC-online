@@ -40,6 +40,8 @@ html,body,button,input,select,textarea{font-family:var(--dec-font-family-offline
     --bg-color: #eef3ff;
     --primary-blue: #19a7a0;
     --primary-pink: #e5566a;
+    --hint-primary-text: #b4233b;
+    --hint-secondary-text: #006c68;
     --light-pink: #fff5f6;
     --border-pink: #ffd3d8;
     --teal-main: var(--primary-blue);
@@ -478,12 +480,22 @@ input:focus-visible {
 }
 
 .help1-line {
-    color: #9fd3ff;
+    color: var(--hint-secondary-text);
 }
 
 .help2-line {
-    color: #ffd18a;
+    color: var(--hint-primary-text);
     margin-top: 0.45rem;
+}
+
+.help1-line.help-color-primary,
+.help2-line.help-color-primary {
+    color: var(--hint-primary-text);
+}
+
+.help1-line.help-color-secondary,
+.help2-line.help-color-secondary {
+    color: var(--hint-secondary-text);
 }
 
 .is-hidden {
@@ -1942,12 +1954,13 @@ const lessonData = [
     "variants": [
       "The post office is on this street corner."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The [___] is on this street corner.",
     "help2": "The post office is on this street corner.",
     "keywords": [
       "post",
       "office",
-      "street"
+      "street",
+      "corner"
     ]
   },
   {
@@ -1957,12 +1970,13 @@ const lessonData = [
     "variants": [
       "The city hospital is opposite the large park."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The [___] is opposite the large park.",
     "help2": "The city hospital is opposite the large park.",
     "keywords": [
       "city",
       "hospital",
-      "opposite"
+      "opposite",
+      "park"
     ]
   },
   {
@@ -1972,7 +1986,7 @@ const lessonData = [
     "variants": [
       "Can you show the way to the bank?"
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Can you show the way to the [___]?",
     "help2": "Can you show the way to the bank?",
     "keywords": [
       "show",
@@ -1987,12 +2001,13 @@ const lessonData = [
     "variants": [
       "Go straight and turn left at the crossroads."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Go straight and turn left at the [___].",
     "help2": "Go straight and turn left at the crossroads.",
     "keywords": [
       "go",
       "straight",
-      "turn"
+      "turn",
+      "crossroads"
     ]
   },
   {
@@ -2002,12 +2017,12 @@ const lessonData = [
     "variants": [
       "The bookstore is next to the bakery."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The bookstore is next to the [___].",
     "help2": "The bookstore is next to the bakery.",
     "keywords": [
       "bookstore",
       "next",
-      "fresh"
+      "bakery"
     ]
   },
   {
@@ -2017,7 +2032,7 @@ const lessonData = [
     "variants": [
       "The cinema is on the third floor."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The [___] is on the third floor.",
     "help2": "The cinema is on the third floor.",
     "keywords": [
       "cinema",
@@ -2032,12 +2047,13 @@ const lessonData = [
     "variants": [
       "The history museum opens on the weekend."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The [___] opens on the weekend.",
     "help2": "The history museum opens on the weekend.",
     "keywords": [
       "history",
       "museum",
-      "opens"
+      "opens",
+      "weekend"
     ]
   },
   {
@@ -2047,27 +2063,28 @@ const lessonData = [
     "variants": [
       "We borrow books at the library."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "We borrow books at the [___].",
     "help2": "We borrow books at the library.",
     "keywords": [
-      "often",
       "borrow",
-      "books"
+      "books",
+      "library"
     ]
   },
   {
     "id": "q009",
-    "question": "Trạm xe buýt nằm ngay trước trường học tôi.",
+    "question": "Trạm xe buýt nằm ngay trước trường học của tôi.",
     "answer": "The bus stop is before my school.",
     "variants": [
-      "The bus stop is before my school."
+      "The bus stop is before my school. | The bus stop is in front of my school."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The [___] is before my school.",
     "help2": "The bus stop is before my school.",
     "keywords": [
       "bus",
       "stop",
-      "front"
+      "before",
+      "school"
     ]
   },
   {
@@ -2077,12 +2094,13 @@ const lessonData = [
     "variants": [
       "This seafood restaurant serves delicious food."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "This [___] serves delicious food.",
     "help2": "This seafood restaurant serves delicious food.",
     "keywords": [
       "seafood",
       "restaurant",
-      "serves"
+      "serves",
+      "delicious"
     ]
   },
   {
@@ -2092,12 +2110,13 @@ const lessonData = [
     "variants": [
       "The pharmacy is open twenty-four hours a day."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The [___] is open twenty-four hours a day.",
     "help2": "The pharmacy is open twenty-four hours a day.",
     "keywords": [
       "pharmacy",
       "open",
-      "twenty"
+      "hours",
+      "day"
     ]
   },
   {
@@ -2107,12 +2126,13 @@ const lessonData = [
     "variants": [
       "The city stadium has a huge capacity."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The [___] has a huge capacity.",
     "help2": "The city stadium has a huge capacity.",
     "keywords": [
       "city",
       "stadium",
-      "huge"
+      "huge",
+      "capacity"
     ]
   },
   {
@@ -2122,11 +2142,12 @@ const lessonData = [
     "variants": [
       "The luxury hotel is beside the cool lake."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The [___] is beside the cool lake.",
     "help2": "The luxury hotel is beside the cool lake.",
     "keywords": [
       "luxury",
       "hotel",
+      "beside",
       "lake"
     ]
   },
@@ -2137,12 +2158,13 @@ const lessonData = [
     "variants": [
       "The amusement park has many exciting rides."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The [___] has many exciting rides.",
     "help2": "The amusement park has many exciting rides.",
     "keywords": [
       "amusement",
       "park",
-      "exciting"
+      "exciting",
+      "rides"
     ]
   },
   {
@@ -2152,12 +2174,13 @@ const lessonData = [
     "variants": [
       "The city zoo houses many kinds of animals."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The [___] houses many kinds of animals.",
     "help2": "The city zoo houses many kinds of animals.",
     "keywords": [
       "city",
       "zoo",
-      "houses"
+      "houses",
+      "animals"
     ]
   },
   {
@@ -2167,12 +2190,13 @@ const lessonData = [
     "variants": [
       "The traditional market sells many fresh vegetables."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The [___] sells many fresh vegetables.",
     "help2": "The traditional market sells many fresh vegetables.",
     "keywords": [
       "traditional",
       "market",
-      "sells"
+      "sells",
+      "vegetables"
     ]
   },
   {
@@ -2182,12 +2206,13 @@ const lessonData = [
     "variants": [
       "The shopping mall is busy on Sunday."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The [___] is busy on Sunday.",
     "help2": "The shopping mall is busy on Sunday.",
     "keywords": [
       "shopping",
       "mall",
-      "busy"
+      "busy",
+      "Sunday"
     ]
   },
   {
@@ -2197,12 +2222,13 @@ const lessonData = [
     "variants": [
       "The iron bridge crosses over the wide river."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The [___] crosses over the wide river.",
     "help2": "The iron bridge crosses over the wide river.",
     "keywords": [
       "iron",
       "bridge",
-      "crosses"
+      "crosses",
+      "river"
     ]
   },
   {
@@ -2212,11 +2238,12 @@ const lessonData = [
     "variants": [
       "The police station is near the road crossing."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The [___] is near the road crossing.",
     "help2": "The police station is near the road crossing.",
     "keywords": [
       "police",
       "station",
+      "road",
       "crossing"
     ]
   },
@@ -2227,12 +2254,13 @@ const lessonData = [
     "variants": [
       "The fire station is always ready for duty."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The [___] is always ready for duty.",
     "help2": "The fire station is always ready for duty.",
     "keywords": [
       "fire",
       "station",
-      "always"
+      "always",
+      "duty"
     ]
   },
   {
@@ -2242,12 +2270,13 @@ const lessonData = [
     "variants": [
       "The train station is in the town center."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The [___] is in the town center.",
     "help2": "The train station is in the town center.",
     "keywords": [
       "train",
       "station",
-      "town"
+      "town",
+      "center"
     ]
   },
   {
@@ -2257,12 +2286,13 @@ const lessonData = [
     "variants": [
       "The international airport is fifteen kilometers away."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The [___] is fifteen kilometers away.",
     "help2": "The international airport is fifteen kilometers away.",
     "keywords": [
       "international",
       "airport",
-      "fifteen"
+      "fifteen",
+      "kilometers"
     ]
   },
   {
@@ -2272,12 +2302,13 @@ const lessonData = [
     "variants": [
       "The small cafe is in a quiet alley."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The [___] is in a quiet alley.",
     "help2": "The small cafe is in a quiet alley.",
     "keywords": [
       "small",
       "cafe",
-      "quiet"
+      "quiet",
+      "alley"
     ]
   },
   {
@@ -2287,12 +2318,13 @@ const lessonData = [
     "variants": [
       "The laundry shop is at the road end."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The [___] is at the road end.",
     "help2": "The laundry shop is at the road end.",
     "keywords": [
       "laundry",
       "shop",
-      "road"
+      "road",
+      "end"
     ]
   },
   {
@@ -2302,12 +2334,13 @@ const lessonData = [
     "variants": [
       "The public pool opens for guests each morning."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The [___] opens for guests each morning.",
     "help2": "The public pool opens for guests each morning.",
     "keywords": [
       "public",
       "pool",
-      "opens"
+      "opens",
+      "morning"
     ]
   }
 ];
@@ -2443,6 +2476,8 @@ const lessonData = [
         dom.help.classList.add('is-hidden');
         dom.help1.classList.add('is-hidden');
         dom.help2.classList.add('is-hidden');
+        dom.help1.classList.remove('help-color-primary', 'help-color-secondary');
+        dom.help2.classList.remove('help-color-primary', 'help-color-secondary');
         dom.help1.textContent = '';
         dom.help2.textContent = '';
         dom.helpButton.textContent = 'Gợi ý 1 (Space)';
@@ -2466,6 +2501,8 @@ const lessonData = [
         const isOdd = (state.currentIndex + 1) % 2 === 1;
         dom.question.classList.toggle('dec-text-primary', isOdd);
         dom.question.classList.toggle('dec-text-secondary', !isOdd);
+        dom.help1.dataset.questionColor = isOdd ? 'primary' : 'secondary';
+        dom.help2.dataset.questionColor = isOdd ? 'primary' : 'secondary';
         dom.previous.disabled = state.currentIndex === 0;
         dom.next.disabled = state.currentIndex === lessonData.length - 1;
         dom.helpButton.disabled = false;
@@ -2478,12 +2515,18 @@ const lessonData = [
         if (!item) return;
         state.helpStage = Math.min(2, state.helpStage + 1);
         dom.help.classList.remove('is-hidden');
+        const questionColor = dom.help1.dataset.questionColor || 'primary';
+        const hint1Color = questionColor === 'primary' ? 'secondary' : 'primary';
         if (state.helpStage >= 1) {
-            dom.help1.textContent = `Hint1: ${item.help1}`;
+            dom.help1.textContent = item.help1;
+            dom.help1.classList.remove('help-color-primary', 'help-color-secondary');
+            dom.help1.classList.add(`help-color-${hint1Color}`);
             dom.help1.classList.remove('is-hidden');
         }
         if (state.helpStage >= 2) {
-            dom.help2.textContent = `Hint2: ${item.help2}`;
+            dom.help2.textContent = item.help2;
+            dom.help2.classList.remove('help-color-primary', 'help-color-secondary');
+            dom.help2.classList.add(`help-color-${questionColor}`);
             dom.help2.classList.remove('is-hidden');
         }
         dom.helpButton.textContent = state.helpStage === 1 ? 'Gợi ý 2 (Space)' : 'Đang xem gợi ý 2';

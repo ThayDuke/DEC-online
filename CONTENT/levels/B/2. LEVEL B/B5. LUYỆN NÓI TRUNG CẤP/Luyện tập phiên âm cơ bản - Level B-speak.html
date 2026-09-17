@@ -40,6 +40,8 @@ html,body,button,input,select,textarea{font-family:var(--dec-font-family-offline
     --bg-color: #eef3ff;
     --primary-blue: #19a7a0;
     --primary-pink: #e5566a;
+    --hint-primary-text: #b4233b;
+    --hint-secondary-text: #006c68;
     --light-pink: #fff5f6;
     --border-pink: #ffd3d8;
     --teal-main: var(--primary-blue);
@@ -478,12 +480,22 @@ input:focus-visible {
 }
 
 .help1-line {
-    color: #9fd3ff;
+    color: var(--hint-secondary-text);
 }
 
 .help2-line {
-    color: #ffd18a;
+    color: var(--hint-primary-text);
     margin-top: 0.45rem;
+}
+
+.help1-line.help-color-primary,
+.help2-line.help-color-primary {
+    color: var(--hint-primary-text);
+}
+
+.help1-line.help-color-secondary,
+.help2-line.help-color-secondary {
+    color: var(--hint-secondary-text);
 }
 
 .is-hidden {
@@ -1942,12 +1954,12 @@ const lessonData = [
     "variants": [
       "This word is pronounced with a short vowel."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "This word is pronounced with a [___].",
     "help2": "This word is pronounced with a short vowel.",
     "keywords": [
-      "word",
       "pronounced",
-      "short"
+      "short",
+      "vowel"
     ]
   },
   {
@@ -1957,12 +1969,14 @@ const lessonData = [
     "variants": [
       "Long vowels last longer than short vowels."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Long vowels last longer than [___].",
     "help2": "Long vowels last longer than short vowels.",
     "keywords": [
       "long",
       "vowels",
-      "last"
+      "last",
+      "short",
+      "vowels"
     ]
   },
   {
@@ -1972,12 +1986,13 @@ const lessonData = [
     "variants": [
       "The initial sound is a voiceless consonant."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The initial sound is a [___].",
     "help2": "The initial sound is a voiceless consonant.",
     "keywords": [
       "initial",
       "sound",
-      "voiceless"
+      "voiceless",
+      "consonant"
     ]
   },
   {
@@ -1987,12 +2002,14 @@ const lessonData = [
     "variants": [
       "Voiced consonants make your vocal cords vibrate."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Voiced consonants make your [___] vibrate.",
     "help2": "Voiced consonants make your vocal cords vibrate.",
     "keywords": [
       "voiced",
       "consonants",
-      "make"
+      "vocal",
+      "cords",
+      "vibrate"
     ]
   },
   {
@@ -2002,12 +2019,13 @@ const lessonData = [
     "variants": [
       "The word stress falls on the first syllable."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The word stress falls on the [___].",
     "help2": "The word stress falls on the first syllable.",
     "keywords": [
       "word",
       "stress",
-      "falls"
+      "first",
+      "syllable"
     ]
   },
   {
@@ -2017,11 +2035,12 @@ const lessonData = [
     "variants": [
       "This word has second-syllable stress."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "This word has [___].",
     "help2": "This word has second-syllable stress.",
     "keywords": [
-      "two-syllable",
       "word",
+      "second",
+      "syllable",
       "stress"
     ]
   },
@@ -2032,12 +2051,13 @@ const lessonData = [
     "variants": [
       "I practice pronouncing the ending S correctly."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "I practice pronouncing the [___] correctly.",
     "help2": "I practice pronouncing the ending S correctly.",
     "keywords": [
       "practice",
+      "pronouncing",
       "ending",
-      "sound"
+      "S"
     ]
   },
   {
@@ -2047,12 +2067,14 @@ const lessonData = [
     "variants": [
       "The ending S is pronounced after voiceless consonants."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The ending S is pronounced after [___].",
     "help2": "The ending S is pronounced after voiceless consonants.",
     "keywords": [
       "ending",
+      "S",
       "pronounced",
-      "voiceless"
+      "voiceless",
+      "consonants"
     ]
   },
   {
@@ -2062,12 +2084,14 @@ const lessonData = [
     "variants": [
       "S sounds like Z after voiced sounds."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "S sounds like [___] after voiced sounds.",
     "help2": "S sounds like Z after voiced sounds.",
     "keywords": [
-      "ending",
-      "pronounced",
-      "voiced"
+      "sounds",
+      "like",
+      "Z",
+      "voiced",
+      "sounds"
     ]
   },
   {
@@ -2077,12 +2101,14 @@ const lessonData = [
     "variants": [
       "The ending S sounds like IZ after sibilants."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The ending S sounds like [___] after sibilants.",
     "help2": "The ending S sounds like IZ after sibilants.",
     "keywords": [
       "ending",
+      "S",
       "sounds",
-      "iz"
+      "IZ",
+      "sibilants"
     ]
   },
   {
@@ -2092,12 +2118,14 @@ const lessonData = [
     "variants": [
       "There are three ways to pronounce ending ED."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "There are three ways to [___].",
     "help2": "There are three ways to pronounce ending ED.",
     "keywords": [
       "three",
       "ways",
-      "pronounce"
+      "pronounce",
+      "ending",
+      "ED"
     ]
   },
   {
@@ -2107,12 +2135,14 @@ const lessonData = [
     "variants": [
       "ED is ID after T and D."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "ED is [___] after T and D.",
     "help2": "ED is ID after T and D.",
     "keywords": [
-      "ending",
-      "ed",
-      "read"
+      "ED",
+      "ID",
+      "after",
+      "T",
+      "D"
     ]
   },
   {
@@ -2122,12 +2152,14 @@ const lessonData = [
     "variants": [
       "Ending ED is pronounced T after voiceless consonants."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Ending ED is pronounced [___] after voiceless consonants.",
     "help2": "Ending ED is pronounced T after voiceless consonants.",
     "keywords": [
       "ending",
-      "ed",
-      "pronounced"
+      "ED",
+      "pronounced",
+      "T",
+      "voiceless"
     ]
   },
   {
@@ -2137,12 +2169,14 @@ const lessonData = [
     "variants": [
       "Ending ED is pronounced D after voiced sounds."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Ending ED is pronounced [___] after voiced sounds.",
     "help2": "Ending ED is pronounced D after voiced sounds.",
     "keywords": [
       "ending",
-      "ed",
-      "pronounced"
+      "ED",
+      "pronounced",
+      "D",
+      "voiced"
     ]
   },
   {
@@ -2152,12 +2186,14 @@ const lessonData = [
     "variants": [
       "I practice short and long vowel sound pairs."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "I practice [___] sound pairs.",
     "help2": "I practice short and long vowel sound pairs.",
     "keywords": [
       "practice",
       "short",
-      "long"
+      "long",
+      "vowel",
+      "pairs"
     ]
   },
   {
@@ -2167,12 +2203,14 @@ const lessonData = [
     "variants": [
       "The short and long I sounds are common."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The short and long [___] are common.",
     "help2": "The short and long I sounds are common.",
     "keywords": [
       "short",
       "long",
-      "sounds"
+      "I",
+      "sounds",
+      "common"
     ]
   },
   {
@@ -2182,12 +2220,14 @@ const lessonData = [
     "variants": [
       "The word ship has a short I sound."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The word ship has a [___].",
     "help2": "The word ship has a short I sound.",
     "keywords": [
       "word",
       "ship",
-      "short"
+      "short",
+      "I",
+      "sound"
     ]
   },
   {
@@ -2197,12 +2237,14 @@ const lessonData = [
     "variants": [
       "The word sheep has a long I sound."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The word sheep has a [___].",
     "help2": "The word sheep has a long I sound.",
     "keywords": [
       "word",
       "sheep",
-      "long"
+      "long",
+      "I",
+      "sound"
     ]
   },
   {
@@ -2212,12 +2254,14 @@ const lessonData = [
     "variants": [
       "I do not confuse these two common words."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "I do not [___] these two common words.",
     "help2": "I do not confuse these two common words.",
     "keywords": [
+      "not",
       "confuse",
       "two",
-      "common"
+      "common",
+      "words"
     ]
   },
   {
@@ -2227,12 +2271,14 @@ const lessonData = [
     "variants": [
       "Clear pronunciation helps listeners understand you easily."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Clear pronunciation helps [___] understand you easily.",
     "help2": "Clear pronunciation helps listeners understand you easily.",
     "keywords": [
       "clear",
       "pronunciation",
-      "helps"
+      "helps",
+      "listeners",
+      "understand"
     ]
   },
   {
@@ -2242,12 +2288,13 @@ const lessonData = [
     "variants": [
       "I practice the voiceless TH in thanks."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "I practice the [___] in thanks.",
     "help2": "I practice the voiceless TH in thanks.",
     "keywords": [
       "practice",
       "voiceless",
-      "th"
+      "TH",
+      "thanks"
     ]
   },
   {
@@ -2257,12 +2304,14 @@ const lessonData = [
     "variants": [
       "Place your tongue tip between your two teeth."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Place your [___] between your two teeth.",
     "help2": "Place your tongue tip between your two teeth.",
     "keywords": [
       "place",
       "tongue",
-      "tip"
+      "tip",
+      "between",
+      "teeth"
     ]
   },
   {
@@ -2272,12 +2321,14 @@ const lessonData = [
     "variants": [
       "Blow air gently through your teeth."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Blow air [___] through your teeth.",
     "help2": "Blow air gently through your teeth.",
     "keywords": [
       "blow",
       "air",
-      "stream"
+      "gently",
+      "through",
+      "teeth"
     ]
   },
   {
@@ -2287,12 +2338,13 @@ const lessonData = [
     "variants": [
       "I practice the voiced TH in mother."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "I practice the [___] in mother.",
     "help2": "I practice the voiced TH in mother.",
     "keywords": [
       "practice",
       "voiced",
-      "th"
+      "TH",
+      "mother"
     ]
   },
   {
@@ -2302,7 +2354,7 @@ const lessonData = [
     "variants": [
       "I vibrate my vocal cords."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "I vibrate my [___].",
     "help2": "I vibrate my vocal cords.",
     "keywords": [
       "vibrate",
@@ -2443,6 +2495,8 @@ const lessonData = [
         dom.help.classList.add('is-hidden');
         dom.help1.classList.add('is-hidden');
         dom.help2.classList.add('is-hidden');
+        dom.help1.classList.remove('help-color-primary', 'help-color-secondary');
+        dom.help2.classList.remove('help-color-primary', 'help-color-secondary');
         dom.help1.textContent = '';
         dom.help2.textContent = '';
         dom.helpButton.textContent = 'Gợi ý 1 (Space)';
@@ -2466,6 +2520,8 @@ const lessonData = [
         const isOdd = (state.currentIndex + 1) % 2 === 1;
         dom.question.classList.toggle('dec-text-primary', isOdd);
         dom.question.classList.toggle('dec-text-secondary', !isOdd);
+        dom.help1.dataset.questionColor = isOdd ? 'primary' : 'secondary';
+        dom.help2.dataset.questionColor = isOdd ? 'primary' : 'secondary';
         dom.previous.disabled = state.currentIndex === 0;
         dom.next.disabled = state.currentIndex === lessonData.length - 1;
         dom.helpButton.disabled = false;
@@ -2478,12 +2534,18 @@ const lessonData = [
         if (!item) return;
         state.helpStage = Math.min(2, state.helpStage + 1);
         dom.help.classList.remove('is-hidden');
+        const questionColor = dom.help1.dataset.questionColor || 'primary';
+        const hint1Color = questionColor === 'primary' ? 'secondary' : 'primary';
         if (state.helpStage >= 1) {
-            dom.help1.textContent = `Hint1: ${item.help1}`;
+            dom.help1.textContent = item.help1;
+            dom.help1.classList.remove('help-color-primary', 'help-color-secondary');
+            dom.help1.classList.add(`help-color-${hint1Color}`);
             dom.help1.classList.remove('is-hidden');
         }
         if (state.helpStage >= 2) {
-            dom.help2.textContent = `Hint2: ${item.help2}`;
+            dom.help2.textContent = item.help2;
+            dom.help2.classList.remove('help-color-primary', 'help-color-secondary');
+            dom.help2.classList.add(`help-color-${questionColor}`);
             dom.help2.classList.remove('is-hidden');
         }
         dom.helpButton.textContent = state.helpStage === 1 ? 'Gợi ý 2 (Space)' : 'Đang xem gợi ý 2';

@@ -40,6 +40,8 @@ html,body,button,input,select,textarea{font-family:var(--dec-font-family-offline
     --bg-color: #eef3ff;
     --primary-blue: #19a7a0;
     --primary-pink: #e5566a;
+    --hint-primary-text: #b4233b;
+    --hint-secondary-text: #006c68;
     --light-pink: #fff5f6;
     --border-pink: #ffd3d8;
     --teal-main: var(--primary-blue);
@@ -478,12 +480,22 @@ input:focus-visible {
 }
 
 .help1-line {
-    color: #9fd3ff;
+    color: var(--hint-secondary-text);
 }
 
 .help2-line {
-    color: #ffd18a;
+    color: var(--hint-primary-text);
     margin-top: 0.45rem;
+}
+
+.help1-line.help-color-primary,
+.help2-line.help-color-primary {
+    color: var(--hint-primary-text);
+}
+
+.help1-line.help-color-secondary,
+.help2-line.help-color-secondary {
+    color: var(--hint-secondary-text);
 }
 
 .is-hidden {
@@ -1942,12 +1954,12 @@ const lessonData = [
     "variants": [
       "The word face has the diphthong /eɪ/."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The word face has the [___].",
     "help2": "The word face has the diphthong /eɪ/.",
     "keywords": [
+      "word",
       "face",
-      "diphthong",
-      "sound"
+      "diphthong"
     ]
   },
   {
@@ -1957,9 +1969,10 @@ const lessonData = [
     "variants": [
       "The AI sound in sky is a diphthong."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The AI sound in sky is a [___].",
     "help2": "The AI sound in sky is a diphthong.",
     "keywords": [
+      "AI",
       "sound",
       "sky",
       "diphthong"
@@ -1972,12 +1985,13 @@ const lessonData = [
     "variants": [
       "Read the word coin with a smooth glide."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Read the word coin with a [___].",
     "help2": "Read the word coin with a smooth glide.",
     "keywords": [
       "read",
       "coin",
-      "smoothly"
+      "smooth",
+      "glide"
     ]
   },
   {
@@ -1987,12 +2001,12 @@ const lessonData = [
     "variants": [
       "The word fire has a triphthong."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The word fire has a [___].",
     "help2": "The word fire has a triphthong.",
     "keywords": [
+      "word",
       "fire",
-      "triphthong",
-      "sound"
+      "triphthong"
     ]
   },
   {
@@ -2002,12 +2016,13 @@ const lessonData = [
     "variants": [
       "The word fire contains an English triphthong."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The word fire contains an [___].",
     "help2": "The word fire contains an English triphthong.",
     "keywords": [
-      "word",
       "fire",
-      "contains"
+      "contains",
+      "English",
+      "triphthong"
     ]
   },
   {
@@ -2017,12 +2032,14 @@ const lessonData = [
     "variants": [
       "Silent letters are not pronounced in written words."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "[___] are not pronounced in written words.",
     "help2": "Silent letters are not pronounced in written words.",
     "keywords": [
       "silent",
       "letters",
-      "pronounced"
+      "pronounced",
+      "written",
+      "words"
     ]
   },
   {
@@ -2032,11 +2049,13 @@ const lessonData = [
     "variants": [
       "The letter K in knife is completely silent."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The letter K in knife is [___].",
     "help2": "The letter K in knife is completely silent.",
     "keywords": [
       "letter",
+      "K",
       "knife",
+      "completely",
       "silent"
     ]
   },
@@ -2047,11 +2066,13 @@ const lessonData = [
     "variants": [
       "The letter B in climb is completely silent."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The letter B in climb is [___].",
     "help2": "The letter B in climb is completely silent.",
     "keywords": [
       "letter",
+      "B",
       "climb",
+      "completely",
       "silent"
     ]
   },
@@ -2062,11 +2083,13 @@ const lessonData = [
     "variants": [
       "The letter W in write is completely silent."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The letter W in write is [___].",
     "help2": "The letter W in write is completely silent.",
     "keywords": [
       "letter",
+      "W",
       "write",
+      "completely",
       "silent"
     ]
   },
@@ -2077,11 +2100,13 @@ const lessonData = [
     "variants": [
       "The letter L in walk is completely silent."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The letter L in walk is [___].",
     "help2": "The letter L in walk is completely silent.",
     "keywords": [
       "letter",
+      "L",
       "walk",
+      "completely",
       "silent"
     ]
   },
@@ -2092,11 +2117,13 @@ const lessonData = [
     "variants": [
       "The letter H in hour is completely silent."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The letter H in hour is [___].",
     "help2": "The letter H in hour is completely silent.",
     "keywords": [
       "letter",
+      "H",
       "hour",
+      "completely",
       "silent"
     ]
   },
@@ -2107,11 +2134,13 @@ const lessonData = [
     "variants": [
       "The letter P in psychology is completely silent."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The letter P in psychology is [___].",
     "help2": "The letter P in psychology is completely silent.",
     "keywords": [
       "letter",
+      "P",
       "psychology",
+      "completely",
       "silent"
     ]
   },
@@ -2122,11 +2151,13 @@ const lessonData = [
     "variants": [
       "The letter T in castle is completely silent."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The letter T in castle is [___].",
     "help2": "The letter T in castle is completely silent.",
     "keywords": [
       "letter",
+      "T",
       "castle",
+      "completely",
       "silent"
     ]
   },
@@ -2137,12 +2168,14 @@ const lessonData = [
     "variants": [
       "The flap T is common in American English."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The flap T is [___] in American English.",
     "help2": "The flap T is common in American English.",
     "keywords": [
       "flap",
+      "T",
       "common",
-      "american"
+      "American",
+      "English"
     ]
   },
   {
@@ -2152,12 +2185,14 @@ const lessonData = [
     "variants": [
       "T between vowels sounds like a soft D."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "T between vowels sounds like a [___].",
     "help2": "T between vowels sounds like a soft D.",
     "keywords": [
+      "between",
       "vowels",
       "sounds",
-      "soft"
+      "soft",
+      "D"
     ]
   },
   {
@@ -2167,12 +2202,14 @@ const lessonData = [
     "variants": [
       "The word water sounds like wader in American English."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The word water sounds like [___] in American English.",
     "help2": "The word water sounds like wader in American English.",
     "keywords": [
-      "word",
       "water",
-      "sounds"
+      "sounds",
+      "wader",
+      "American",
+      "English"
     ]
   },
   {
@@ -2182,12 +2219,13 @@ const lessonData = [
     "variants": [
       "The word butter sounds like budder in speech."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The word butter sounds like [___] in speech.",
     "help2": "The word butter sounds like budder in speech.",
     "keywords": [
-      "word",
       "butter",
-      "sounds"
+      "sounds",
+      "budder",
+      "speech"
     ]
   },
   {
@@ -2197,11 +2235,12 @@ const lessonData = [
     "variants": [
       "Pronounce the glottal stop in the word bottle."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Pronounce the [___] in the word bottle.",
     "help2": "Pronounce the glottal stop in the word bottle.",
     "keywords": [
       "pronounce",
       "glottal",
+      "stop",
       "bottle"
     ]
   },
@@ -2212,12 +2251,14 @@ const lessonData = [
     "variants": [
       "British speakers often use glottal stops in words."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "British speakers often use [___] in words.",
     "help2": "British speakers often use glottal stops in words.",
     "keywords": [
-      "british",
+      "British",
       "speakers",
-      "often"
+      "glottal",
+      "stops",
+      "words"
     ]
   },
   {
@@ -2227,12 +2268,13 @@ const lessonData = [
     "variants": [
       "The word bottle has a glottal stop sound."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The word bottle has a [___].",
     "help2": "The word bottle has a glottal stop sound.",
     "keywords": [
-      "word",
       "bottle",
-      "glottal"
+      "glottal",
+      "stop",
+      "sound"
     ]
   },
   {
@@ -2242,12 +2284,13 @@ const lessonData = [
     "variants": [
       "Assimilation happens in fast English speech."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "[___] happens in fast English speech.",
     "help2": "Assimilation happens in fast English speech.",
     "keywords": [
       "assimilation",
       "happens",
-      "speaking"
+      "fast",
+      "speech"
     ]
   },
   {
@@ -2257,12 +2300,15 @@ const lessonData = [
     "variants": [
       "The N sound becomes M before bilabial consonants."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The N sound becomes M before [___].",
     "help2": "The N sound becomes M before bilabial consonants.",
     "keywords": [
+      "N",
       "sound",
       "becomes",
-      "bilabial"
+      "M",
+      "bilabial",
+      "consonants"
     ]
   },
   {
@@ -2272,12 +2318,15 @@ const lessonData = [
     "variants": [
       "The phrase \"good boy\" changes slightly in rapid speech."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The phrase \"good boy\" changes [___] in rapid speech.",
     "help2": "The phrase \"good boy\" changes slightly in rapid speech.",
     "keywords": [
+      "phrase",
       "good",
       "boy",
-      "sound"
+      "changes",
+      "slightly",
+      "rapid"
     ]
   },
   {
@@ -2287,12 +2336,13 @@ const lessonData = [
     "variants": [
       "Elision makes sounds disappear in speech."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "[___] makes sounds disappear in speech.",
     "help2": "Elision makes sounds disappear in speech.",
     "keywords": [
       "elision",
-      "makes",
-      "sound"
+      "sounds",
+      "disappear",
+      "speech"
     ]
   },
   {
@@ -2302,12 +2352,14 @@ const lessonData = [
     "variants": [
       "The T sound in postcard is often dropped."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The T sound in postcard is [___].",
     "help2": "The T sound in postcard is often dropped.",
     "keywords": [
+      "T",
       "sound",
       "postcard",
-      "often"
+      "often",
+      "dropped"
     ]
   }
 ];
@@ -2443,6 +2495,8 @@ const lessonData = [
         dom.help.classList.add('is-hidden');
         dom.help1.classList.add('is-hidden');
         dom.help2.classList.add('is-hidden');
+        dom.help1.classList.remove('help-color-primary', 'help-color-secondary');
+        dom.help2.classList.remove('help-color-primary', 'help-color-secondary');
         dom.help1.textContent = '';
         dom.help2.textContent = '';
         dom.helpButton.textContent = 'Gợi ý 1 (Space)';
@@ -2466,6 +2520,8 @@ const lessonData = [
         const isOdd = (state.currentIndex + 1) % 2 === 1;
         dom.question.classList.toggle('dec-text-primary', isOdd);
         dom.question.classList.toggle('dec-text-secondary', !isOdd);
+        dom.help1.dataset.questionColor = isOdd ? 'primary' : 'secondary';
+        dom.help2.dataset.questionColor = isOdd ? 'primary' : 'secondary';
         dom.previous.disabled = state.currentIndex === 0;
         dom.next.disabled = state.currentIndex === lessonData.length - 1;
         dom.helpButton.disabled = false;
@@ -2478,12 +2534,18 @@ const lessonData = [
         if (!item) return;
         state.helpStage = Math.min(2, state.helpStage + 1);
         dom.help.classList.remove('is-hidden');
+        const questionColor = dom.help1.dataset.questionColor || 'primary';
+        const hint1Color = questionColor === 'primary' ? 'secondary' : 'primary';
         if (state.helpStage >= 1) {
-            dom.help1.textContent = `Hint1: ${item.help1}`;
+            dom.help1.textContent = item.help1;
+            dom.help1.classList.remove('help-color-primary', 'help-color-secondary');
+            dom.help1.classList.add(`help-color-${hint1Color}`);
             dom.help1.classList.remove('is-hidden');
         }
         if (state.helpStage >= 2) {
-            dom.help2.textContent = `Hint2: ${item.help2}`;
+            dom.help2.textContent = item.help2;
+            dom.help2.classList.remove('help-color-primary', 'help-color-secondary');
+            dom.help2.classList.add(`help-color-${questionColor}`);
             dom.help2.classList.remove('is-hidden');
         }
         dom.helpButton.textContent = state.helpStage === 1 ? 'Gợi ý 2 (Space)' : 'Đang xem gợi ý 2';

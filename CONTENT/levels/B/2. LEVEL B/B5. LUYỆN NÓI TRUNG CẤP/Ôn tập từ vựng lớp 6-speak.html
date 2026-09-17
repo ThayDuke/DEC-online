@@ -40,6 +40,8 @@ html,body,button,input,select,textarea{font-family:var(--dec-font-family-offline
     --bg-color: #eef3ff;
     --primary-blue: #19a7a0;
     --primary-pink: #e5566a;
+    --hint-primary-text: #b4233b;
+    --hint-secondary-text: #006c68;
     --light-pink: #fff5f6;
     --border-pink: #ffd3d8;
     --teal-main: var(--primary-blue);
@@ -478,12 +480,22 @@ input:focus-visible {
 }
 
 .help1-line {
-    color: #9fd3ff;
+    color: var(--hint-secondary-text);
 }
 
 .help2-line {
-    color: #ffd18a;
+    color: var(--hint-primary-text);
     margin-top: 0.45rem;
+}
+
+.help1-line.help-color-primary,
+.help2-line.help-color-primary {
+    color: var(--hint-primary-text);
+}
+
+.help1-line.help-color-secondary,
+.help2-line.help-color-secondary {
+    color: var(--hint-secondary-text);
 }
 
 .is-hidden {
@@ -1942,12 +1954,13 @@ const lessonData = [
     "variants": [
       "My new school is large and beautiful."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "My new school is [___].",
     "help2": "My new school is large and beautiful.",
     "keywords": [
       "new",
       "school",
-      "large"
+      "large",
+      "beautiful"
     ]
   },
   {
@@ -1957,9 +1970,10 @@ const lessonData = [
     "variants": [
       "We have a new science lab."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "We have a new [___].",
     "help2": "We have a new science lab.",
     "keywords": [
+      "have",
       "new",
       "science",
       "lab"
@@ -1972,11 +1986,12 @@ const lessonData = [
     "variants": [
       "The classroom is equipped with a projector."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The classroom is equipped with a [___].",
     "help2": "The classroom is equipped with a projector.",
     "keywords": [
       "classroom",
       "equipped",
+      "with",
       "projector"
     ]
   },
@@ -1987,12 +2002,13 @@ const lessonData = [
     "variants": [
       "Students wear neat uniforms to school."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Students wear neat [___] to school.",
     "help2": "Students wear neat uniforms to school.",
     "keywords": [
-      "students",
       "wear",
-      "neat"
+      "neat",
+      "uniforms",
+      "school"
     ]
   },
   {
@@ -2002,12 +2018,12 @@ const lessonData = [
     "variants": [
       "My house has five spacious bedrooms."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "My house has five spacious [___].",
     "help2": "My house has five spacious bedrooms.",
     "keywords": [
-      "house",
       "five",
-      "spacious"
+      "spacious",
+      "bedrooms"
     ]
   },
   {
@@ -2017,12 +2033,13 @@ const lessonData = [
     "variants": [
       "The living room is cozy with a soft sofa."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The living room is cozy with a soft [___].",
     "help2": "The living room is cozy with a soft sofa.",
     "keywords": [
       "living",
       "room",
-      "cozy"
+      "soft",
+      "sofa"
     ]
   },
   {
@@ -2032,12 +2049,13 @@ const lessonData = [
     "variants": [
       "The kitchen is clean and fully equipped."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The [___] is clean and fully equipped.",
     "help2": "The kitchen is clean and fully equipped.",
     "keywords": [
       "kitchen",
       "clean",
-      "full"
+      "fully",
+      "equipped"
     ]
   },
   {
@@ -2047,12 +2065,13 @@ const lessonData = [
     "variants": [
       "The backyard garden has fragrant roses."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The backyard garden has [___].",
     "help2": "The backyard garden has fragrant roses.",
     "keywords": [
       "backyard",
       "garden",
-      "fragrant"
+      "fragrant",
+      "roses"
     ]
   },
   {
@@ -2062,12 +2081,13 @@ const lessonData = [
     "variants": [
       "My best friend is a caring person."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "My best friend is a [___].",
     "help2": "My best friend is a caring person.",
     "keywords": [
       "best",
       "friend",
-      "caring"
+      "caring",
+      "person"
     ]
   },
   {
@@ -2077,12 +2097,13 @@ const lessonData = [
     "variants": [
       "He always helps friends in hard times."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "He always helps friends in [___].",
     "help2": "He always helps friends in hard times.",
     "keywords": [
-      "always",
       "helps",
-      "friends"
+      "friends",
+      "hard",
+      "times"
     ]
   },
   {
@@ -2092,10 +2113,11 @@ const lessonData = [
     "variants": [
       "She is a hardworking and good student."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "She is a [___] and good student.",
     "help2": "She is a hardworking and good student.",
     "keywords": [
       "hardworking",
+      "and",
       "good",
       "student"
     ]
@@ -2107,10 +2129,11 @@ const lessonData = [
     "variants": [
       "They are the most reliable and trustworthy friends."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "They are the most [___] friends.",
     "help2": "They are the most reliable and trustworthy friends.",
     "keywords": [
       "reliable",
+      "and",
       "trustworthy",
       "friends"
     ]
@@ -2122,12 +2145,13 @@ const lessonData = [
     "variants": [
       "Fansipan is the highest peak in Indochina."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Fansipan is the [___] in Indochina.",
     "help2": "Fansipan is the highest peak in Indochina.",
     "keywords": [
       "fansipan",
       "highest",
-      "peak"
+      "peak",
+      "indochina"
     ]
   },
   {
@@ -2137,11 +2161,12 @@ const lessonData = [
     "variants": [
       "Sahara is a vast desert."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Sahara is a [___].",
     "help2": "Sahara is a vast desert.",
     "keywords": [
       "sahara",
-      "large",
+      "is",
+      "vast",
       "desert"
     ]
   },
@@ -2152,12 +2177,13 @@ const lessonData = [
     "variants": [
       "Niagara Falls is majestic and powerful."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Niagara Falls is [___].",
     "help2": "Niagara Falls is majestic and powerful.",
     "keywords": [
       "niagara",
       "falls",
-      "majestic"
+      "majestic",
+      "powerful"
     ]
   },
   {
@@ -2167,12 +2193,13 @@ const lessonData = [
     "variants": [
       "The Amazon rainforest has a diverse ecosystem."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The Amazon rainforest has a [___].",
     "help2": "The Amazon rainforest has a diverse ecosystem.",
     "keywords": [
       "amazon",
       "rainforest",
-      "diverse"
+      "diverse",
+      "ecosystem"
     ]
   },
   {
@@ -2182,9 +2209,10 @@ const lessonData = [
     "variants": [
       "My neighborhood is quiet and safe."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "My [___] is quiet and safe.",
     "help2": "My neighborhood is quiet and safe.",
     "keywords": [
+      "my",
       "neighborhood",
       "quiet",
       "safe"
@@ -2197,12 +2225,13 @@ const lessonData = [
     "variants": [
       "Our neighbors are united and friendly."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Our [___] are united and friendly.",
     "help2": "Our neighbors are united and friendly.",
     "keywords": [
-      "nearby",
+      "our",
       "neighbors",
-      "united"
+      "united",
+      "friendly"
     ]
   },
   {
@@ -2212,11 +2241,12 @@ const lessonData = [
     "variants": [
       "There is a big supermarket near my home."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "There is a big [___] near my home.",
     "help2": "There is a big supermarket near my home.",
     "keywords": [
       "big",
       "supermarket",
+      "near",
       "home"
     ]
   },
@@ -2227,12 +2257,13 @@ const lessonData = [
     "variants": [
       "The bus stop is just steps away."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The [___] is just steps away.",
     "help2": "The bus stop is just steps away.",
     "keywords": [
       "bus",
       "stop",
-      "steps"
+      "steps",
+      "away"
     ]
   },
   {
@@ -2242,12 +2273,13 @@ const lessonData = [
     "variants": [
       "Tet is the biggest annual holiday."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Tet is the [___].",
     "help2": "Tet is the biggest annual holiday.",
     "keywords": [
       "tet",
-      "festival",
-      "biggest"
+      "biggest",
+      "annual",
+      "holiday"
     ]
   },
   {
@@ -2257,12 +2289,13 @@ const lessonData = [
     "variants": [
       "People clean and decorate their houses."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "People clean and [___] their houses.",
     "help2": "People clean and decorate their houses.",
     "keywords": [
-      "people",
       "clean",
-      "decorate"
+      "and",
+      "decorate",
+      "houses"
     ]
   },
   {
@@ -2272,12 +2305,13 @@ const lessonData = [
     "variants": [
       "Children receive lucky money in red envelopes."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Children receive [___] in red envelopes.",
     "help2": "Children receive lucky money in red envelopes.",
     "keywords": [
-      "children",
       "receive",
-      "lucky"
+      "lucky",
+      "money",
+      "envelopes"
     ]
   },
   {
@@ -2287,12 +2321,13 @@ const lessonData = [
     "variants": [
       "The flower festival attracts thousands of tourists."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The [___] attracts thousands of tourists.",
     "help2": "The flower festival attracts thousands of tourists.",
     "keywords": [
       "flower",
       "festival",
-      "attracts"
+      "attracts",
+      "tourists"
     ]
   },
   {
@@ -2302,10 +2337,11 @@ const lessonData = [
     "variants": [
       "Football is the most popular sport."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "[___] is the most popular sport.",
     "help2": "Football is the most popular sport.",
     "keywords": [
       "football",
+      "most",
       "popular",
       "sport"
     ]
@@ -2443,6 +2479,8 @@ const lessonData = [
         dom.help.classList.add('is-hidden');
         dom.help1.classList.add('is-hidden');
         dom.help2.classList.add('is-hidden');
+        dom.help1.classList.remove('help-color-primary', 'help-color-secondary');
+        dom.help2.classList.remove('help-color-primary', 'help-color-secondary');
         dom.help1.textContent = '';
         dom.help2.textContent = '';
         dom.helpButton.textContent = 'Gợi ý 1 (Space)';
@@ -2466,6 +2504,8 @@ const lessonData = [
         const isOdd = (state.currentIndex + 1) % 2 === 1;
         dom.question.classList.toggle('dec-text-primary', isOdd);
         dom.question.classList.toggle('dec-text-secondary', !isOdd);
+        dom.help1.dataset.questionColor = isOdd ? 'primary' : 'secondary';
+        dom.help2.dataset.questionColor = isOdd ? 'primary' : 'secondary';
         dom.previous.disabled = state.currentIndex === 0;
         dom.next.disabled = state.currentIndex === lessonData.length - 1;
         dom.helpButton.disabled = false;
@@ -2478,12 +2518,18 @@ const lessonData = [
         if (!item) return;
         state.helpStage = Math.min(2, state.helpStage + 1);
         dom.help.classList.remove('is-hidden');
+        const questionColor = dom.help1.dataset.questionColor || 'primary';
+        const hint1Color = questionColor === 'primary' ? 'secondary' : 'primary';
         if (state.helpStage >= 1) {
-            dom.help1.textContent = `Hint1: ${item.help1}`;
+            dom.help1.textContent = item.help1;
+            dom.help1.classList.remove('help-color-primary', 'help-color-secondary');
+            dom.help1.classList.add(`help-color-${hint1Color}`);
             dom.help1.classList.remove('is-hidden');
         }
         if (state.helpStage >= 2) {
-            dom.help2.textContent = `Hint2: ${item.help2}`;
+            dom.help2.textContent = item.help2;
+            dom.help2.classList.remove('help-color-primary', 'help-color-secondary');
+            dom.help2.classList.add(`help-color-${questionColor}`);
             dom.help2.classList.remove('is-hidden');
         }
         dom.helpButton.textContent = state.helpStage === 1 ? 'Gợi ý 2 (Space)' : 'Đang xem gợi ý 2';
