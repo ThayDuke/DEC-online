@@ -829,15 +829,16 @@ html,body,button,input,select,textarea{font-family:var(--dec-font-family-offline
             min-width: 0;
         }
 
-        .progress-container.wrap-mode {
-            flex-wrap: wrap !important;
-            height: auto !important;
+        .progress-container.dynamic-mode {
+            flex-wrap: nowrap;
+            height: var(--adaptive-progress-height);
+            overflow: hidden;
         }
 
-        .progress-container.wrap-mode .progress-dot {
-            flex: 0 0 calc((100% - (29 * var(--adaptive-progress-gap))) / 30) !important;
-            box-sizing: border-box !important;
-            max-width: none !important;
+        .progress-container.dynamic-mode .progress-dot.current {
+            flex-grow: 2.25;
+            min-width: 4.5rem;
+            max-width: none;
         }
 
         .progress-dot {
@@ -884,6 +885,30 @@ html,body,button,input,select,textarea{font-family:var(--dec-font-family-offline
 
         .progress-dot:hover:not(.current) {
             background-color: var(--progress-hover-bg) !important;
+        }
+
+        .progress-bank-count {
+            appearance: none;
+            flex: 0 0 auto;
+            min-width: 36px;
+            height: 100%;
+            padding: 0 8px;
+            border: var(--adaptive-progress-border-width) solid var(--border-main);
+            border-radius: var(--adaptive-progress-segment-radius);
+            color: var(--muted-text);
+            background: var(--adaptive-progress-empty-bg);
+            font: inherit;
+            font-size: 0.72rem;
+            font-weight: var(--progress-dot-font-weight);
+            line-height: 1;
+            white-space: nowrap;
+            opacity: 1;
+        }
+
+        @media (max-width: 640px) {
+            .progress-container.dynamic-mode .progress-dot.current {
+                min-width: 4rem;
+            }
         }
 
         /* RESULTS */
@@ -1240,6 +1265,11 @@ html,body,button,input,select,textarea{font-family:var(--dec-font-family-offline
             color: var(--muted-text);
         }
 
+        body[data-theme="elegant"] .progress-bank-count {
+            background: var(--option-bg);
+            color: var(--muted-text);
+        }
+
         body[data-theme="elegant"] .progress-dot.current,
         body[data-theme="elegant"] .progress-dot.current.correct,
         body[data-theme="elegant"] .progress-dot.current.wrong {
@@ -1493,6 +1523,12 @@ html,body,button,input,select,textarea{font-family:var(--dec-font-family-offline
         body.focus-mode .progress-dot {
             max-width: none !important;
             border-radius: var(--adaptive-progress-segment-radius) !important;
+            background: var(--adaptive-progress-empty-bg) !important;
+            border-color: var(--border-main) !important;
+            color: var(--adaptive-progress-empty-text) !important;
+        }
+
+        body.focus-mode .progress-bank-count {
             background: var(--adaptive-progress-empty-bg) !important;
             border-color: var(--border-main) !important;
             color: var(--adaptive-progress-empty-text) !important;
@@ -7720,7 +7756,130 @@ const fullQuestionBank = [
         "explanation": "Tàu vũ trụ bay trong chân không chứ không cần thả trôi sông."
       }
     ]
-  }
+  },
+  {"q":"What nationality is a person from Japan?","a":[{"text":"Japanese","correct":true,"explanation":"People from Japan are Japanese."},{"text":"Japanian","correct":false,"explanation":"The correct nationality word is Japanese."},{"text":"Japanish","correct":false,"explanation":"Japanish is not the correct word."},{"text":"Chinese","correct":false,"explanation":"Chinese refers to China."}]},
+  {"q":"Which country is famous for the Eiffel Tower?","a":[{"text":"France","correct":true,"explanation":"The Eiffel Tower is in France."},{"text":"Italy","correct":false,"explanation":"Italy is famous for the Colosseum."},{"text":"Australia","correct":false,"explanation":"Australia is a different country."},{"text":"Brazil","correct":false,"explanation":"Brazil is in South America."}]},
+  {"q":"Where is New York?","a":[{"text":"In the USA.","correct":true,"explanation":"New York is a city in the United States."},{"text":"In Canada.","correct":false,"explanation":"Canada is north of the USA."},{"text":"In Spain.","correct":false,"explanation":"Spain is in Europe."},{"text":"In Egypt.","correct":false,"explanation":"Egypt is in Africa."}]},
+  {"q":"People from Australia are ___.","a":[{"text":"Australian","correct":true,"explanation":"Australian is the nationality adjective."},{"text":"Austria","correct":false,"explanation":"Austria is a different country."},{"text":"Australic","correct":false,"explanation":"Australic is not the nationality word."},{"text":"Australish","correct":false,"explanation":"Australish is incorrect."}]},
+  {"q":"Which language do people commonly speak in England?","a":[{"text":"English","correct":true,"explanation":"English is the main language of England."},{"text":"French","correct":false,"explanation":"French is mainly spoken in France."},{"text":"Japanese","correct":false,"explanation":"Japanese is spoken in Japan."},{"text":"Arabic","correct":false,"explanation":"Arabic is used in many Arab countries."}]},
+  {"q":"My uncle ___ from Canada.","a":[{"text":"is","correct":true,"explanation":"Use 'is' with a singular person."},{"text":"are","correct":false,"explanation":"'Are' is used with you or plural subjects."},{"text":"am","correct":false,"explanation":"'Am' is used with I."},{"text":"be","correct":false,"explanation":"The sentence needs the verb is."}]},
+  {"q":"___ your parents Vietnamese?","a":[{"text":"Are","correct":true,"explanation":"Use 'Are' with plural parents."},{"text":"Is","correct":false,"explanation":"'Is' is singular."},{"text":"Am","correct":false,"explanation":"'Am' is used with I."},{"text":"Do","correct":false,"explanation":"Nationality uses the verb be here."}]},
+  {"q":"What is the capital city of Vietnam?","a":[{"text":"Hanoi","correct":true,"explanation":"Hanoi is the capital of Vietnam."},{"text":"Hue","correct":false,"explanation":"Hue is a historic city."},{"text":"Da Nang","correct":false,"explanation":"Da Nang is a coastal city."},{"text":"Can Tho","correct":false,"explanation":"Can Tho is in the Mekong Delta."}]},
+  {"q":"Which city is in Japan?","a":[{"text":"Tokyo","correct":true,"explanation":"Tokyo is the capital of Japan."},{"text":"Seoul","correct":false,"explanation":"Seoul is in South Korea."},{"text":"London","correct":false,"explanation":"London is in England."},{"text":"Moscow","correct":false,"explanation":"Moscow is in Russia."}]},
+  {"q":"There ___ a map on the classroom wall.","a":[{"text":"is","correct":true,"explanation":"Use 'is' with one map."},{"text":"are","correct":false,"explanation":"'Are' is for plural nouns."},{"text":"am","correct":false,"explanation":"'Am' is used with I."},{"text":"be","correct":false,"explanation":"The correct form is is."}]},
+  {"q":"There ___ many pupils in the playground.","a":[{"text":"are","correct":true,"explanation":"Use 'are' with a plural noun."},{"text":"is","correct":false,"explanation":"'Is' is for one thing."},{"text":"am","correct":false,"explanation":"'Am' is used with I."},{"text":"be","correct":false,"explanation":"The sentence needs are."}]},
+  {"q":"The art room is ___ the music room.","a":[{"text":"next to","correct":true,"explanation":"'Next to' means beside."},{"text":"under","correct":false,"explanation":"'Under' means below."},{"text":"inside","correct":false,"explanation":"The room is not inside another room."},{"text":"through","correct":false,"explanation":"'Through' describes movement across."}]},
+  {"q":"Turn left ___ the library.","a":[{"text":"at","correct":true,"explanation":"Use 'at' for a point or place."},{"text":"in","correct":false,"explanation":"'In' means inside."},{"text":"on","correct":false,"explanation":"'On' means on a surface."},{"text":"from","correct":false,"explanation":"'From' shows a starting point."}]},
+  {"q":"A place where you see paintings is an ___.","a":[{"text":"art gallery","correct":true,"explanation":"An art gallery displays paintings."},{"text":"airport","correct":false,"explanation":"An airport is for air travel."},{"text":"aquarium","correct":false,"explanation":"An aquarium has fish and sea life."},{"text":"stadium","correct":false,"explanation":"A stadium hosts sports events."}]},
+  {"q":"A place where planes arrive and leave is an ___.","a":[{"text":"airport","correct":true,"explanation":"Planes use an airport."},{"text":"office","correct":false,"explanation":"An office is a workplace."},{"text":"island","correct":false,"explanation":"An island is land surrounded by water."},{"text":"apartment","correct":false,"explanation":"An apartment is a home."}]},
+  {"q":"You can borrow books at a ___.","a":[{"text":"library","correct":true,"explanation":"Libraries lend books."},{"text":"cinema","correct":false,"explanation":"A cinema shows films."},{"text":"bakery","correct":false,"explanation":"A bakery sells bread."},{"text":"factory","correct":false,"explanation":"A factory makes products."}]},
+  {"q":"The opposite of 'cheap' is ___.","a":[{"text":"expensive","correct":true,"explanation":"Expensive is the opposite of cheap."},{"text":"easy","correct":false,"explanation":"Easy is the opposite of difficult."},{"text":"empty","correct":false,"explanation":"Empty is the opposite of full."},{"text":"quiet","correct":false,"explanation":"Quiet is the opposite of noisy."}]},
+  {"q":"The opposite of 'noisy' is ___.","a":[{"text":"quiet","correct":true,"explanation":"Quiet is the opposite of noisy."},{"text":"busy","correct":false,"explanation":"Busy describes activity."},{"text":"strong","correct":false,"explanation":"Strong describes power."},{"text":"bright","correct":false,"explanation":"Bright describes light."}]},
+  {"q":"The opposite of 'difficult' is ___.","a":[{"text":"easy","correct":true,"explanation":"Easy is the opposite of difficult."},{"text":"heavy","correct":false,"explanation":"Heavy is the opposite of light."},{"text":"slow","correct":false,"explanation":"Slow is the opposite of fast."},{"text":"weak","correct":false,"explanation":"Weak is the opposite of strong."}]},
+  {"q":"A person who flies a plane is a ___.","a":[{"text":"pilot","correct":true,"explanation":"A pilot flies a plane."},{"text":"nurse","correct":false,"explanation":"A nurse cares for patients."},{"text":"waiter","correct":false,"explanation":"A waiter serves food."},{"text":"farmer","correct":false,"explanation":"A farmer works on a farm."}]},
+  {"q":"A person who helps sick people in hospital is a ___.","a":[{"text":"nurse","correct":true,"explanation":"Nurses care for sick people."},{"text":"mechanic","correct":false,"explanation":"A mechanic repairs vehicles."},{"text":"singer","correct":false,"explanation":"A singer performs songs."},{"text":"postman","correct":false,"explanation":"A postman delivers letters."}]},
+  {"q":"My mother works in a restaurant. She is a ___.","a":[{"text":"chef","correct":true,"explanation":"A chef cooks in a restaurant."},{"text":"pilot","correct":false,"explanation":"A pilot flies planes."},{"text":"farmer","correct":false,"explanation":"A farmer grows crops."},{"text":"artist","correct":false,"explanation":"An artist creates art."}]},
+  {"q":"He ___ breakfast at seven every morning.","a":[{"text":"has","correct":true,"explanation":"Use has with he in the present simple."},{"text":"have","correct":false,"explanation":"Have is used with I, you, we and they."},{"text":"having","correct":false,"explanation":"The sentence needs a finite verb."},{"text":"had","correct":false,"explanation":"Had is past tense."}]},
+  {"q":"They ___ football after school on Fridays.","a":[{"text":"play","correct":true,"explanation":"Use the base verb with they."},{"text":"plays","correct":false,"explanation":"Plays is for he, she or it."},{"text":"playing","correct":false,"explanation":"The sentence describes a routine."},{"text":"played","correct":false,"explanation":"Played is past tense."}]},
+  {"q":"Look! The children ___ a kite.","a":[{"text":"are flying","correct":true,"explanation":"Look signals an action happening now."},{"text":"fly","correct":false,"explanation":"The present continuous is needed."},{"text":"flies","correct":false,"explanation":"Flies is singular present simple."},{"text":"flew","correct":false,"explanation":"Flew is past tense."}]},
+  {"q":"Listen! Someone ___ at the door.","a":[{"text":"is knocking","correct":true,"explanation":"Listen signals an action happening now."},{"text":"knock","correct":false,"explanation":"Use the present continuous here."},{"text":"knocks","correct":false,"explanation":"Knocks describes a habit."},{"text":"knocked","correct":false,"explanation":"Knocked is past tense."}]},
+  {"q":"___ you doing your homework now?","a":[{"text":"Are","correct":true,"explanation":"Use Are with you in the present continuous."},{"text":"Do","correct":false,"explanation":"Do forms present simple questions."},{"text":"Is","correct":false,"explanation":"Is is used with he, she or it."},{"text":"Am","correct":false,"explanation":"Am is used with I."}]},
+  {"q":"What ___ she doing?","a":[{"text":"is","correct":true,"explanation":"Use is with she in the present continuous."},{"text":"are","correct":false,"explanation":"Are is used with you, we and they."},{"text":"do","correct":false,"explanation":"Do is a present simple auxiliary."},{"text":"does","correct":false,"explanation":"Does is a present simple auxiliary."}]},
+  {"q":"My brother can ___ a bicycle.","a":[{"text":"ride","correct":true,"explanation":"Use the base verb after can."},{"text":"rides","correct":false,"explanation":"Do not add -s after can."},{"text":"riding","correct":false,"explanation":"Use the base form after can."},{"text":"rode","correct":false,"explanation":"Rode is past tense."}]},
+  {"q":"Can you ___ this word?","a":[{"text":"spell","correct":true,"explanation":"Use the base verb after can."},{"text":"spells","correct":false,"explanation":"Do not add -s after can."},{"text":"spelling","correct":false,"explanation":"The base form is needed."},{"text":"spelled","correct":false,"explanation":"Spelled is past tense."}]},
+  {"q":"Would you like ___ orange juice?","a":[{"text":"some","correct":true,"explanation":"Use some in a polite offer."},{"text":"any","correct":false,"explanation":"Any is common in questions about quantity, not this offer."},{"text":"a","correct":false,"explanation":"Orange juice is uncountable here."},{"text":"an","correct":false,"explanation":"An is used before one countable noun."}]},
+  {"q":"There isn't ___ milk in the fridge.","a":[{"text":"any","correct":true,"explanation":"Use any in a negative sentence."},{"text":"some","correct":false,"explanation":"Some is usually positive."},{"text":"many","correct":false,"explanation":"Milk is uncountable."},{"text":"a","correct":false,"explanation":"Milk is not one countable item."}]},
+  {"q":"How ___ rice do you want?","a":[{"text":"much","correct":true,"explanation":"Use much with the uncountable noun rice."},{"text":"many","correct":false,"explanation":"Many is for countable nouns."},{"text":"old","correct":false,"explanation":"How old asks about age."},{"text":"often","correct":false,"explanation":"How often asks about frequency."}]},
+  {"q":"How ___ apples are in the basket?","a":[{"text":"many","correct":true,"explanation":"Apples are countable plural nouns."},{"text":"much","correct":false,"explanation":"Much is for uncountable nouns."},{"text":"long","correct":false,"explanation":"How long asks about length or duration."},{"text":"far","correct":false,"explanation":"How far asks about distance."}]},
+  {"q":"This book is ___ than that book.","a":[{"text":"bigger","correct":true,"explanation":"Bigger is the comparative of big."},{"text":"big","correct":false,"explanation":"The comparison needs a comparative form."},{"text":"biggest","correct":false,"explanation":"Biggest is a superlative."},{"text":"more big","correct":false,"explanation":"The usual form is bigger."}]},
+  {"q":"A car is usually ___ than a bicycle.","a":[{"text":"faster","correct":true,"explanation":"Faster compares speed."},{"text":"fast","correct":false,"explanation":"The sentence compares two things."},{"text":"fastest","correct":false,"explanation":"Fastest is a superlative."},{"text":"more fast","correct":false,"explanation":"The correct comparative is faster."}]},
+  {"q":"Mountains are ___ than hills.","a":[{"text":"higher","correct":true,"explanation":"Higher compares height."},{"text":"high","correct":false,"explanation":"A comparative is needed."},{"text":"highest","correct":false,"explanation":"Highest is a superlative."},{"text":"more high","correct":false,"explanation":"The correct form is higher."}]},
+  {"q":"Which month comes before August?","a":[{"text":"July","correct":true,"explanation":"July comes before August."},{"text":"September","correct":false,"explanation":"September comes after August."},{"text":"June","correct":false,"explanation":"June comes before July."},{"text":"October","correct":false,"explanation":"October comes after September."}]},
+  {"q":"Which day comes between Wednesday and Friday?","a":[{"text":"Thursday","correct":true,"explanation":"Thursday is between Wednesday and Friday."},{"text":"Tuesday","correct":false,"explanation":"Tuesday comes before Wednesday."},{"text":"Saturday","correct":false,"explanation":"Saturday comes after Friday."},{"text":"Sunday","correct":false,"explanation":"Sunday is later in the week."}]},
+  {"q":"What time is 3:30?","a":[{"text":"Half past three","correct":true,"explanation":"3:30 is half past three."},{"text":"Quarter past three","correct":false,"explanation":"Quarter past is 3:15."},{"text":"Three o'clock","correct":false,"explanation":"Three o'clock is 3:00."},{"text":"Half past four","correct":false,"explanation":"Half past four is 4:30."}]},
+  {"q":"What time is 8:15?","a":[{"text":"Quarter past eight","correct":true,"explanation":"8:15 is a quarter past eight."},{"text":"Quarter to eight","correct":false,"explanation":"Quarter to eight is 7:45."},{"text":"Half past eight","correct":false,"explanation":"Half past eight is 8:30."},{"text":"Eight o'clock","correct":false,"explanation":"Eight o'clock is 8:00."}]},
+  {"q":"We have lunch ___ noon.","a":[{"text":"at","correct":true,"explanation":"Use at with noon."},{"text":"on","correct":false,"explanation":"On is for days and dates."},{"text":"in","correct":false,"explanation":"In is for months or years."},{"text":"from","correct":false,"explanation":"From shows a starting point."}]},
+  {"q":"Tet is usually ___ January or February.","a":[{"text":"in","correct":true,"explanation":"Use in with months."},{"text":"on","correct":false,"explanation":"On is for a particular date."},{"text":"at","correct":false,"explanation":"At is for exact times."},{"text":"by","correct":false,"explanation":"By means no later than."}]},
+  {"q":"The ball is ___ the two boxes.","a":[{"text":"between","correct":true,"explanation":"Between is used with two things."},{"text":"among","correct":false,"explanation":"Among is used with more than two."},{"text":"above","correct":false,"explanation":"Above means higher than."},{"text":"inside","correct":false,"explanation":"Inside means within one thing."}]},
+  {"q":"The dog is sitting ___ the table.","a":[{"text":"beside","correct":true,"explanation":"Beside means next to."},{"text":"through","correct":false,"explanation":"Through describes movement across."},{"text":"onto","correct":false,"explanation":"Onto shows movement to a surface."},{"text":"during","correct":false,"explanation":"During describes time."}]},
+  {"q":"Whose jacket is this? — It is ___.","a":[{"text":"mine","correct":true,"explanation":"Mine is the possessive pronoun for me."},{"text":"my","correct":false,"explanation":"My must come before a noun."},{"text":"me","correct":false,"explanation":"Me is an object pronoun."},{"text":"I","correct":false,"explanation":"I is a subject pronoun."}]},
+  {"q":"These pencils belong to Tom. They are ___.","a":[{"text":"his","correct":true,"explanation":"His shows possession by Tom."},{"text":"him","correct":false,"explanation":"Him is an object pronoun."},{"text":"he","correct":false,"explanation":"He is a subject pronoun."},{"text":"her","correct":false,"explanation":"Her refers to a female owner."}]},
+  {"q":"This is ___ umbrella. It belongs to Anna.","a":[{"text":"her","correct":true,"explanation":"Her shows possession by Anna."},{"text":"she","correct":false,"explanation":"She is a subject pronoun."},{"text":"hers","correct":false,"explanation":"Hers stands alone without a noun."},{"text":"his","correct":false,"explanation":"His refers to a male owner."}]},
+  {"q":"Which sentence is correct?","a":[{"text":"There are five chairs.","correct":true,"explanation":"There are agrees with plural chairs."},{"text":"There is five chairs.","correct":false,"explanation":"Use are with plural chairs."},{"text":"There am five chairs.","correct":false,"explanation":"Am is used with I."},{"text":"There be five chairs.","correct":false,"explanation":"The correct verb is are."}]},
+  {"q":"Which sentence is correct about one apple?","a":[{"text":"There is an apple.","correct":true,"explanation":"There is agrees with one apple."},{"text":"There are an apple.","correct":false,"explanation":"Use is with one apple."},{"text":"There am an apple.","correct":false,"explanation":"Am is used with I."},{"text":"There be an apple.","correct":false,"explanation":"The correct verb is is."}]},
+  {"q":"Choose the correct plural of 'tomato'.","a":[{"text":"tomatoes","correct":true,"explanation":"The standard plural is tomatoes."},{"text":"tomatos","correct":false,"explanation":"Add -es after this ending."},{"text":"tomatoies","correct":false,"explanation":"The spelling is tomatoes."},{"text":"tomato","correct":false,"explanation":"This is singular."}]},
+  {"q":"Choose the correct plural of 'woman'.","a":[{"text":"women","correct":true,"explanation":"Women is the irregular plural of woman."},{"text":"womans","correct":false,"explanation":"Woman has an irregular plural."},{"text":"womens","correct":false,"explanation":"The correct spelling is women."},{"text":"womanes","correct":false,"explanation":"This is not the plural form."}]},
+  {"q":"Which word is countable?","a":[{"text":"bottle","correct":true,"explanation":"We can count bottles."},{"text":"water","correct":false,"explanation":"Water is usually uncountable."},{"text":"rice","correct":false,"explanation":"Rice is usually uncountable."},{"text":"sugar","correct":false,"explanation":"Sugar is usually uncountable."}]},
+  {"q":"Which word is uncountable?","a":[{"text":"bread","correct":true,"explanation":"Bread is usually treated as uncountable."},{"text":"sandwich","correct":false,"explanation":"Sandwich is countable."},{"text":"egg","correct":false,"explanation":"Egg is countable."},{"text":"banana","correct":false,"explanation":"Banana is countable."}]},
+  {"q":"You should wear a coat when it is ___.","a":[{"text":"cold","correct":true,"explanation":"A coat keeps you warm in cold weather."},{"text":"hot","correct":false,"explanation":"A coat is not usually needed when hot."},{"text":"sunny","correct":false,"explanation":"Sunny weather may be warm."},{"text":"dry","correct":false,"explanation":"Dry describes lack of rain."}]},
+  {"q":"A storm has strong wind and ___.","a":[{"text":"rain","correct":true,"explanation":"Storms often bring strong wind and rain."},{"text":"sunshine","correct":false,"explanation":"Sunshine is not typical of a storm."},{"text":"snowman","correct":false,"explanation":"A snowman is an object."},{"text":"rainbow only","correct":false,"explanation":"A rainbow may appear after rain, not define a storm."}]},
+  {"q":"Which activity is usually done in a swimming pool?","a":[{"text":"Swimming","correct":true,"explanation":"People swim in a swimming pool."},{"text":"Climbing trees","correct":false,"explanation":"Trees are outside, not in a pool."},{"text":"Reading a map","correct":false,"explanation":"A map activity is not a pool activity."},{"text":"Cooking dinner","correct":false,"explanation":"Cooking is done in a kitchen."}]},
+  {"q":"Which sport uses a racket?","a":[{"text":"Tennis","correct":true,"explanation":"Tennis players use rackets."},{"text":"Swimming","correct":false,"explanation":"Swimming uses no racket."},{"text":"Running","correct":false,"explanation":"Running uses no racket."},{"text":"Cycling","correct":false,"explanation":"Cycling uses a bicycle."}]},
+  {"q":"In basketball, players throw a ball into a ___.","a":[{"text":"hoop","correct":true,"explanation":"A basketball hoop is the target."},{"text":"netball only","correct":false,"explanation":"Netball is a different sport name."},{"text":"goalpost","correct":false,"explanation":"Goalposts are common in football."},{"text":"bat","correct":false,"explanation":"A bat is used in some other sports."}]},
+  {"q":"Read: 'Mai visits the museum on Sunday. She sees old paintings.' What does Mai see?","a":[{"text":"Old paintings.","correct":true,"explanation":"The text says she sees old paintings."},{"text":"Wild animals.","correct":false,"explanation":"Animals are not mentioned."},{"text":"A football match.","correct":false,"explanation":"No match is mentioned."},{"text":"New computers.","correct":false,"explanation":"Computers are not mentioned."}]},
+  {"q":"Read: 'Nam has a blue backpack and two notebooks.' How many notebooks does he have?","a":[{"text":"Two","correct":true,"explanation":"The text says two notebooks."},{"text":"One","correct":false,"explanation":"The text says two."},{"text":"Three","correct":false,"explanation":"Three is not stated."},{"text":"Four","correct":false,"explanation":"Four is not stated."}]},
+  {"q":"Read: 'The train leaves at half past six.' When does it leave?","a":[{"text":"6:30","correct":true,"explanation":"Half past six means 6:30."},{"text":"6:00","correct":false,"explanation":"Six o'clock is 6:00."},{"text":"5:30","correct":false,"explanation":"Half past five is 5:30."},{"text":"7:30","correct":false,"explanation":"Half past seven is 7:30."}]},
+  {"q":"Read: 'Linh is wearing a yellow dress because it is hot.' Why does she wear it?","a":[{"text":"Because it is hot.","correct":true,"explanation":"The text gives the reason: it is hot."},{"text":"Because it is cold.","correct":false,"explanation":"Cold is the opposite of the stated reason."},{"text":"Because it is raining.","correct":false,"explanation":"Rain is not mentioned."},{"text":"Because she is at school.","correct":false,"explanation":"School is not the reason in the text."}]},
+  {"q":"Which sentence gives advice?","a":[{"text":"You should drink more water.","correct":true,"explanation":"Should introduces advice."},{"text":"You are drinking water.","correct":false,"explanation":"This describes an action."},{"text":"You drank water.","correct":false,"explanation":"This is past tense."},{"text":"You can water the flowers.","correct":false,"explanation":"Can expresses ability or permission."}]},
+  {"q":"If you feel tired, you should ___.","a":[{"text":"have a rest","correct":true,"explanation":"Rest helps when you feel tired."},{"text":"run all night","correct":false,"explanation":"Running all night increases tiredness."},{"text":"skip breakfast","correct":false,"explanation":"Skipping breakfast is not good advice."},{"text":"shout loudly","correct":false,"explanation":"Shouting does not help you rest."}]},
+  {"q":"You must look both ways before you ___ the road.","a":[{"text":"cross","correct":true,"explanation":"Look both ways before you cross a road."},{"text":"crosses","correct":false,"explanation":"Use the base form after must."},{"text":"crossing","correct":false,"explanation":"Use the base form after must."},{"text":"crossed","correct":false,"explanation":"Crossed is past tense."}]},
+  {"q":"Which sign means you must stop?","a":[{"text":"A red STOP sign","correct":true,"explanation":"A red STOP sign tells drivers to stop."},{"text":"A blue information sign","correct":false,"explanation":"It gives information."},{"text":"A green exit sign","correct":false,"explanation":"It shows an exit."},{"text":"A yellow school sign","correct":false,"explanation":"It warns about a school area."}]},
+  {"q":"What do you say when you meet someone for the first time?","a":[{"text":"Nice to meet you.","correct":true,"explanation":"This is a polite first-meeting expression."},{"text":"See you yesterday.","correct":false,"explanation":"Yesterday is past."},{"text":"Good night at noon.","correct":false,"explanation":"Good night is not a first greeting at noon."},{"text":"I am leaving now.","correct":false,"explanation":"This announces leaving."}]},
+  {"q":"What is a polite way to ask for help?","a":[{"text":"Could you help me, please?","correct":true,"explanation":"Could you... please? is a polite request."},{"text":"Help me now!","correct":false,"explanation":"This sounds like a command."},{"text":"You help me.","correct":false,"explanation":"This is not a polite question."},{"text":"I helped you.","correct":false,"explanation":"This is a past statement."}]},
+  {"q":"Which reply accepts an invitation?","a":[{"text":"Yes, I'd love to.","correct":true,"explanation":"This politely accepts an invitation."},{"text":"No, I am not hungry.","correct":false,"explanation":"This does not accept the invitation."},{"text":"Where is my book?","correct":false,"explanation":"This is unrelated."},{"text":"I went yesterday.","correct":false,"explanation":"This is a past statement."}]},
+  {"q":"Which reply politely refuses an invitation?","a":[{"text":"Sorry, I can't.","correct":true,"explanation":"This is a polite refusal."},{"text":"Yes, certainly.","correct":false,"explanation":"This accepts the invitation."},{"text":"Here you are.","correct":false,"explanation":"This is used when giving something."},{"text":"Nice to meet you.","correct":false,"explanation":"This is a greeting."}]},
+  {"q":"Choose the correct question for 'I go to school by bus.'","a":[{"text":"How do you go to school?","correct":true,"explanation":"How asks about the way or transport."},{"text":"Where do you go school?","correct":false,"explanation":"The word order is incorrect."},{"text":"Who do you school?","correct":false,"explanation":"Who asks about a person."},{"text":"When do you bus?","correct":false,"explanation":"This is not a correct question."}]},
+  {"q":"Choose the correct question for 'Because I like science.'","a":[{"text":"Why do you like it?","correct":true,"explanation":"Why asks for a reason."},{"text":"Where do you like it?","correct":false,"explanation":"Where asks about place."},{"text":"Who do you like it?","correct":false,"explanation":"Who asks about a person."},{"text":"When do you like it?","correct":false,"explanation":"When asks about time."}]},
+  {"q":"Which sentence has the correct punctuation?","a":[{"text":"Where are you from?","correct":true,"explanation":"A question ends with a question mark."},{"text":"Where are you from.","correct":false,"explanation":"A direct question needs a question mark."},{"text":"Where are you from!","correct":false,"explanation":"An exclamation mark is not the usual punctuation here."},{"text":"where are you from?","correct":false,"explanation":"The first word needs a capital letter."}]},
+  {"q":"Which sentence is written correctly?","a":[{"text":"My favourite subject is English.","correct":true,"explanation":"The sentence has correct capitals and spelling."},{"text":"my favourite subject is english.","correct":false,"explanation":"The first word and English need capitals."},{"text":"My favourite subject are English.","correct":false,"explanation":"Subject is singular, so use is."},{"text":"My favorite subject English is.","correct":false,"explanation":"The word order is incorrect."}]},
+  {"q":"Which word is an adjective in 'a beautiful garden'?","a":[{"text":"beautiful","correct":true,"explanation":"Beautiful describes the garden."},{"text":"a","correct":false,"explanation":"A is an article."},{"text":"garden","correct":false,"explanation":"Garden is a noun."},{"text":"in","correct":false,"explanation":"In is a preposition."}]},
+  {"q":"Which word is a verb in 'They visit the museum'?","a":[{"text":"visit","correct":true,"explanation":"Visit is the action verb."},{"text":"they","correct":false,"explanation":"They is a pronoun."},{"text":"the","correct":false,"explanation":"The is an article."},{"text":"museum","correct":false,"explanation":"Museum is a noun."}]},
+  {"q":"She ___ her room every Saturday.","a":[{"text":"cleans","correct":true,"explanation":"Use cleans with she in the present simple."},{"text":"clean","correct":false,"explanation":"Clean is used with I, you, we and they."},{"text":"cleaning","correct":false,"explanation":"The sentence describes a routine."},{"text":"cleaned","correct":false,"explanation":"Cleaned is past tense."}]},
+  {"q":"We ___ our grandparents next Sunday.","a":[{"text":"will visit","correct":true,"explanation":"Will visit expresses a future plan."},{"text":"visited","correct":false,"explanation":"Visited is past tense."},{"text":"visit yesterday","correct":false,"explanation":"Yesterday is past time."},{"text":"visits","correct":false,"explanation":"Visits is singular present simple."}]},
+  {"q":"Tomorrow, I ___ a new book.","a":[{"text":"will read","correct":true,"explanation":"Will read expresses future time."},{"text":"read yesterday","correct":false,"explanation":"Yesterday is past time."},{"text":"reads","correct":false,"explanation":"Reads is third-person singular."},{"text":"am read","correct":false,"explanation":"This form is incorrect."}]},
+  {"q":"Last Sunday, we ___ football.","a":[{"text":"played","correct":true,"explanation":"Last Sunday signals the past; played is past tense."},{"text":"play","correct":false,"explanation":"Play is present tense."},{"text":"are playing","correct":false,"explanation":"This is present continuous."},{"text":"will play","correct":false,"explanation":"Will play is future."}]},
+  {"q":"Which word completes: 'I have lived here ___ 2020.'","a":[{"text":"since","correct":true,"explanation":"Since is used with a starting year."},{"text":"for","correct":false,"explanation":"For is used with a duration."},{"text":"at","correct":false,"explanation":"At is used with exact times."},{"text":"on","correct":false,"explanation":"On is used with days and dates."}]},
+  {"q":"Which word completes: 'We waited ___ two hours.'","a":[{"text":"for","correct":true,"explanation":"For is used with a duration."},{"text":"since","correct":false,"explanation":"Since is used with a starting point."},{"text":"in","correct":false,"explanation":"In does not show this duration."},{"text":"at","correct":false,"explanation":"At is for exact times."}]},
+  {"q":"What can you see in the sky at night?","a":[{"text":"Stars","correct":true,"explanation":"Stars are visible in the night sky."},{"text":"Crops","correct":false,"explanation":"Crops grow in fields."},{"text":"Corals","correct":false,"explanation":"Corals live in the sea."},{"text":"Trains","correct":false,"explanation":"Trains travel on rails."}]},
+  {"q":"Which material is made from trees?","a":[{"text":"Paper","correct":true,"explanation":"Paper is commonly made from wood pulp."},{"text":"Glass","correct":false,"explanation":"Glass is made from sand."},{"text":"Metal","correct":false,"explanation":"Metal comes from ores."},{"text":"Plastic","correct":false,"explanation":"Plastic is made from chemicals."}]},
+  {"q":"Which animal is a mammal?","a":[{"text":"Dolphin","correct":true,"explanation":"A dolphin is a mammal."},{"text":"Shark","correct":false,"explanation":"A shark is a fish."},{"text":"Eagle","correct":false,"explanation":"An eagle is a bird."},{"text":"Frog","correct":false,"explanation":"A frog is an amphibian."}]},
+  {"q":"Which animal is an insect?","a":[{"text":"Butterfly","correct":true,"explanation":"A butterfly is an insect."},{"text":"Spider","correct":false,"explanation":"A spider is an arachnid."},{"text":"Lizard","correct":false,"explanation":"A lizard is a reptile."},{"text":"Whale","correct":false,"explanation":"A whale is a mammal."}]},
+  {"q":"Which body part helps you hear?","a":[{"text":"Ears","correct":true,"explanation":"We hear with our ears."},{"text":"Eyes","correct":false,"explanation":"We see with our eyes."},{"text":"Nose","correct":false,"explanation":"We smell with our nose."},{"text":"Knees","correct":false,"explanation":"Knees help us bend our legs."}]},
+  {"q":"Which body part helps you smell?","a":[{"text":"Nose","correct":true,"explanation":"We smell with our nose."},{"text":"Mouth","correct":false,"explanation":"We eat and speak with our mouth."},{"text":"Elbow","correct":false,"explanation":"An elbow bends the arm."},{"text":"Foot","correct":false,"explanation":"A foot helps us walk."}]},
+  {"q":"Which item protects your head when cycling?","a":[{"text":"Helmet","correct":true,"explanation":"A helmet protects the head."},{"text":"Belt","correct":false,"explanation":"A belt holds clothing."},{"text":"Glove","correct":false,"explanation":"A glove protects a hand."},{"text":"Boot","correct":false,"explanation":"A boot protects a foot."}]},
+  {"q":"Which vehicle travels on water?","a":[{"text":"Ferry","correct":true,"explanation":"A ferry travels on water."},{"text":"Tram","correct":false,"explanation":"A tram travels on rails."},{"text":"Scooter","correct":false,"explanation":"A scooter travels on roads."},{"text":"Lorry","correct":false,"explanation":"A lorry travels on roads."}]},
+  {"q":"Which vehicle travels underground in some cities?","a":[{"text":"Metro","correct":true,"explanation":"A metro can travel underground."},{"text":"Sailboat","correct":false,"explanation":"A sailboat travels on water."},{"text":"Helicopter","correct":false,"explanation":"A helicopter flies in the air."},{"text":"Bicycle","correct":false,"explanation":"A bicycle travels on a path or road."}]},
+  {"q":"What do you use to send a letter?","a":[{"text":"A stamp","correct":true,"explanation":"A stamp helps send a letter by post."},{"text":"A spoon","correct":false,"explanation":"A spoon is used for eating."},{"text":"A pillow","correct":false,"explanation":"A pillow is used for sleeping."},{"text":"A towel","correct":false,"explanation":"A towel dries things."}]},
+  {"q":"Where can you buy medicine?","a":[{"text":"At a pharmacy.","correct":true,"explanation":"Pharmacies sell medicine."},{"text":"At a stadium.","correct":false,"explanation":"A stadium is for sports."},{"text":"At a museum.","correct":false,"explanation":"A museum displays objects."},{"text":"At a bridge.","correct":false,"explanation":"A bridge connects places."}]},
+  {"q":"What do you use to pay for a ticket?","a":[{"text":"Money","correct":true,"explanation":"Money is used to pay."},{"text":"A ruler","correct":false,"explanation":"A ruler measures length."},{"text":"A blanket","correct":false,"explanation":"A blanket keeps you warm."},{"text":"A mirror","correct":false,"explanation":"A mirror shows a reflection."}]},
+  {"q":"Which room is usually used for sleeping?","a":[{"text":"Bedroom","correct":true,"explanation":"People sleep in a bedroom."},{"text":"Dining room","correct":false,"explanation":"People eat in a dining room."},{"text":"Garage","correct":false,"explanation":"A garage stores vehicles."},{"text":"Balcony","correct":false,"explanation":"A balcony is an outdoor platform."}]},
+  {"q":"Which room is used for eating meals?","a":[{"text":"Dining room","correct":true,"explanation":"Meals are eaten in a dining room."},{"text":"Bathroom","correct":false,"explanation":"The bathroom is for washing."},{"text":"Study","correct":false,"explanation":"A study is for working or reading."},{"text":"Garage","correct":false,"explanation":"A garage stores vehicles."}]},
+  {"q":"What should you do before crossing a road?","a":[{"text":"Look left and right.","correct":true,"explanation":"Checking both directions improves safety."},{"text":"Close your eyes.","correct":false,"explanation":"You need to see traffic."},{"text":"Run without looking.","correct":false,"explanation":"This is unsafe."},{"text":"Play in the road.","correct":false,"explanation":"Roads are not for playing."}]},
+  {"q":"Which sentence is a request?","a":[{"text":"Could you open the window, please?","correct":true,"explanation":"Could you... please? makes a request."},{"text":"The window is open.","correct":false,"explanation":"This is a statement."},{"text":"Open the window!","correct":false,"explanation":"This is a command."},{"text":"I opened the window.","correct":false,"explanation":"This is a past statement."}]},
+  {"q":"Which answer matches 'How often do you read?'","a":[{"text":"Twice a week.","correct":true,"explanation":"How often asks about frequency."},{"text":"In the library.","correct":false,"explanation":"This answers where."},{"text":"At five o'clock.","correct":false,"explanation":"This answers when."},{"text":"With my sister.","correct":false,"explanation":"This answers with whom."}]},
+  {"q":"Which answer matches 'Who is your best friend?'","a":[{"text":"Mai is.","correct":true,"explanation":"Who asks about a person."},{"text":"She is ten.","correct":false,"explanation":"This answers age."},{"text":"At school.","correct":false,"explanation":"This answers place."},{"text":"On Monday.","correct":false,"explanation":"This answers time."}]},
+  {"q":"Which answer matches 'Where did you go yesterday?'","a":[{"text":"I went to the park.","correct":true,"explanation":"Where asks about a place."},{"text":"I went with Nam.","correct":false,"explanation":"This answers with whom."},{"text":"I went at five.","correct":false,"explanation":"This answers when."},{"text":"I went because it was sunny.","correct":false,"explanation":"This answers why."}]},
+  {"q":"Which sentence uses 'because' correctly?","a":[{"text":"I stayed home because it rained.","correct":true,"explanation":"Because introduces the reason."},{"text":"Because I stayed home it rained.","correct":false,"explanation":"The meaning and order are incorrect."},{"text":"I because stayed home rained.","correct":false,"explanation":"The word order is incorrect."},{"text":"I stayed because home it rained.","correct":false,"explanation":"Because must introduce a clause."}]},
+  {"q":"Which sentence uses 'but' correctly?","a":[{"text":"I like tea, but I don't like coffee.","correct":true,"explanation":"But joins two contrasting ideas."},{"text":"I like but tea coffee.","correct":false,"explanation":"The word order is incorrect."},{"text":"But I like tea coffee.","correct":false,"explanation":"The sentence needs a contrast after but."},{"text":"I but like tea, coffee.","correct":false,"explanation":"But is misplaced."}]},
+  {"q":"Which sentence uses 'and' correctly?","a":[{"text":"Tom and I play chess.","correct":true,"explanation":"And joins two subjects."},{"text":"Tom I and play chess.","correct":false,"explanation":"The word order is incorrect."},{"text":"Tom play and I chess.","correct":false,"explanation":"The phrase is not grammatical."},{"text":"And Tom I chess play.","correct":false,"explanation":"The word order is incorrect."}]},
+  {"q":"What do you do before school?","a":[{"text":"I have breakfast.","correct":true,"explanation":"Breakfast is commonly before school."},{"text":"I go to bed at night.","correct":false,"explanation":"Going to bed happens later."},{"text":"I have dinner.","correct":false,"explanation":"Dinner is usually in the evening."},{"text":"I watch the stars.","correct":false,"explanation":"This is not the expected routine."}]},
+  {"q":"Which subject helps you learn about numbers?","a":[{"text":"Maths","correct":true,"explanation":"Maths teaches numbers and calculations."},{"text":"Music","correct":false,"explanation":"Music teaches songs and sounds."},{"text":"Art","correct":false,"explanation":"Art teaches drawing and making pictures."},{"text":"PE","correct":false,"explanation":"PE means physical education."}]},
+  {"q":"Our English lesson is ___ Tuesday.","a":[{"text":"on","correct":true,"explanation":"Use on with a day."},{"text":"in","correct":false,"explanation":"Use in with months or years."},{"text":"at","correct":false,"explanation":"Use at with exact times."},{"text":"from","correct":false,"explanation":"From shows a starting point."}]},
+  {"q":"The pencil is ___ the book and the ruler.","a":[{"text":"between","correct":true,"explanation":"Between is used for two objects."},{"text":"under","correct":false,"explanation":"Under means below one object."},{"text":"behind","correct":false,"explanation":"Behind means at the back of something."},{"text":"inside","correct":false,"explanation":"Inside means within something."}]},
+  {"q":"How do you get to the park? — ___.","a":[{"text":"Go straight and turn left.","correct":true,"explanation":"This gives simple directions."},{"text":"It is sunny.","correct":false,"explanation":"This describes weather."},{"text":"I am ten.","correct":false,"explanation":"This answers age."},{"text":"It is my book.","correct":false,"explanation":"This shows possession."}]},
+  {"q":"Which transport has two wheels and pedals?","a":[{"text":"Bicycle","correct":true,"explanation":"A bicycle has two wheels and pedals."},{"text":"Bus","correct":false,"explanation":"A bus has many seats and wheels."},{"text":"Boat","correct":false,"explanation":"A boat travels on water."},{"text":"Train","correct":false,"explanation":"A train travels on rails."}]},
+  {"q":"My father ___ TV in the evening.","a":[{"text":"watches","correct":true,"explanation":"Use watches with he in the present simple."},{"text":"watch","correct":false,"explanation":"Watch is used with I, you, we and they."},{"text":"watching","correct":false,"explanation":"The sentence needs a finite verb."},{"text":"watched","correct":false,"explanation":"Watched is past tense."}]},
+  {"q":"They ___ lunch at school every day.","a":[{"text":"eat","correct":true,"explanation":"Use eat with they for a routine."},{"text":"eats","correct":false,"explanation":"Eats is for he, she or it."},{"text":"eating","correct":false,"explanation":"The sentence needs the present simple form."},{"text":"ate","correct":false,"explanation":"Ate is past tense."}]},
+  {"q":"Look! The girl ___ a picture.","a":[{"text":"is drawing","correct":true,"explanation":"Look signals an action happening now."},{"text":"draw","correct":false,"explanation":"The present continuous is needed."},{"text":"draws","correct":false,"explanation":"Draws describes a routine."},{"text":"drew","correct":false,"explanation":"Drew is past tense."}]},
+  {"q":"There are four ___ in our classroom.","a":[{"text":"windows","correct":true,"explanation":"Windows is the plural noun needed."},{"text":"window","correct":false,"explanation":"The number four needs a plural noun."},{"text":"windowes","correct":false,"explanation":"The plural spelling is windows."},{"text":"windowing","correct":false,"explanation":"Windowing does not fit."}]},
+  {"q":"Can you play the piano? — ___.","a":[{"text":"Yes, I can.","correct":true,"explanation":"This is the short affirmative answer."},{"text":"Yes, I am.","correct":false,"explanation":"The question uses can."},{"text":"Yes, I do.","correct":false,"explanation":"Do does not answer a can question."},{"text":"Yes, I have.","correct":false,"explanation":"Have does not answer a can question."}]},
+  {"q":"Would you like some juice? — ___.","a":[{"text":"Yes, please.","correct":true,"explanation":"This politely accepts an offer."},{"text":"I am from Hue.","correct":false,"explanation":"This gives a place of origin."},{"text":"It is Monday.","correct":false,"explanation":"This gives a day."},{"text":"I can swim.","correct":false,"explanation":"This states an ability."}]},
+  {"q":"Which food is made from milk?","a":[{"text":"Cheese","correct":true,"explanation":"Cheese is made from milk."},{"text":"Bread","correct":false,"explanation":"Bread is made from flour."},{"text":"Rice","correct":false,"explanation":"Rice is a grain."},{"text":"Carrot","correct":false,"explanation":"A carrot is a vegetable."}]},
+  {"q":"What should you wear when it is sunny?","a":[{"text":"A hat","correct":true,"explanation":"A hat protects you from strong sun."},{"text":"A raincoat","correct":false,"explanation":"A raincoat is for rain."},{"text":"A scarf only","correct":false,"explanation":"A scarf is for warmth."},{"text":"Snow boots","correct":false,"explanation":"Snow boots are for cold snowy weather."}]},
+  {"q":"Which animal lives in the sea and has eight arms?","a":[{"text":"Octopus","correct":true,"explanation":"An octopus has eight arms and lives in the sea."},{"text":"Horse","correct":false,"explanation":"A horse lives on land."},{"text":"Eagle","correct":false,"explanation":"An eagle is a bird."},{"text":"Rabbit","correct":false,"explanation":"A rabbit lives on land."}]},
+  {"q":"Read: 'Peter has a new red bike. He rides it to school.' How does Peter go to school?","a":[{"text":"By bike.","correct":true,"explanation":"He rides his bike to school."},{"text":"By bus.","correct":false,"explanation":"The text says bike."},{"text":"By train.","correct":false,"explanation":"No train is mentioned."},{"text":"On foot only.","correct":false,"explanation":"The text says he rides."}]},
+  {"q":"Read: 'It is cold today, so Anna wears a coat.' Why does Anna wear a coat?","a":[{"text":"Because it is cold.","correct":true,"explanation":"The text gives cold weather as the reason."},{"text":"Because it is hot.","correct":false,"explanation":"Hot is the opposite of the stated reason."},{"text":"Because she is swimming.","correct":false,"explanation":"Swimming is not mentioned."},{"text":"Because she is cooking.","correct":false,"explanation":"Cooking is not mentioned."}]},
+  {"q":"Which sentence correctly describes a favourite subject?","a":[{"text":"My favourite subject is Science.","correct":true,"explanation":"The singular subject uses is."},{"text":"My favourite subject are Science.","correct":false,"explanation":"Subject is singular."},{"text":"My favourite subject am Science.","correct":false,"explanation":"Am is used with I."},{"text":"My favourite subject be Science.","correct":false,"explanation":"The correct verb is is."}]}
 ];
 
         const DASHBOARD_THEME_KEY = 'dec_dashboard_theme_v1';
@@ -7820,6 +7979,9 @@ const fullQuestionBank = [
         // --- CONFIG & STATE ---
         const TOTAL_QUESTIONS = 20;
         const PASSING_RATE = 0.8;
+        const DYNAMIC_PROGRESS_THRESHOLD = 30;
+        const DESKTOP_PROGRESS_RADIUS = 10;
+        const COMPACT_PROGRESS_RADIUS = 4;
         let isSubmitConfirming = false;
         let quizState = {
             questions: [], // The __TOTAL_QUESTIONS__ selected questions
@@ -8076,33 +8238,76 @@ const fullQuestionBank = [
         function renderProgress() {
             const container = document.getElementById('progress-area');
             const questionCount = getQuestionCount();
+            if (!container) return;
 
-            if (container) {
-                if (questionCount > 30) {
-                    container.classList.add('wrap-mode');
-                } else {
-                    container.classList.remove('wrap-mode');
-                }
-            }
+            const dynamicMode = questionCount > DYNAMIC_PROGRESS_THRESHOLD;
+            const radius = window.matchMedia('(max-width: 640px)').matches
+                ? COMPACT_PROGRESS_RADIUS
+                : DESKTOP_PROGRESS_RADIUS;
+            const visibleCount = dynamicMode
+                ? Math.min(questionCount, radius * 2 + 1)
+                : questionCount;
+            let startIndex = dynamicMode
+                ? Math.max(0, quizState.currentIndex - radius)
+                : 0;
+            let endIndex = Math.min(questionCount, startIndex + visibleCount);
+            startIndex = Math.max(0, endIndex - visibleCount);
+
+            container.classList.toggle('dynamic-mode', dynamicMode);
+            container.dataset.windowStart = String(startIndex);
+            container.dataset.windowEnd = String(endIndex);
 
             let html = '';
-            for (let i = 0; i < questionCount; i++) {
-                html += `<button id="dot-${i}" class="progress-dot" data-nav-index="${i}" type="button" aria-label="Câu ${i + 1}">${i + 1}</button>`;
+            for (let i = startIndex; i < endIndex; i++) {
+                const label = dynamicMode && i === quizState.currentIndex
+                    ? `${i + 1} / ${questionCount}`
+                    : i + 1;
+                html += `<button id="dot-${i}" class="progress-dot" data-nav-index="${i}" type="button" aria-label="Câu ${i + 1} trên ${questionCount}">${label}</button>`;
             }
+            const bankCount = Array.isArray(fullQuestionBank) ? fullQuestionBank.length : 0;
+            html += `<button class="progress-bank-count" type="button" disabled aria-label="Ngân hàng có ${bankCount} câu hỏi">/${bankCount}</button>`;
             container.innerHTML = html;
             updateProgressUI();
         }
 
         function updateProgressUI() {
+            const container = document.getElementById('progress-area');
             const questionCount = getQuestionCount();
-            for (let i = 0; i < questionCount; i++) {
-                const dot = document.getElementById(`dot-${i}`);
-                if (!dot) continue;
+            if (!container) return;
+
+            const dynamicMode = questionCount > DYNAMIC_PROGRESS_THRESHOLD;
+            const radius = window.matchMedia('(max-width: 640px)').matches
+                ? COMPACT_PROGRESS_RADIUS
+                : DESKTOP_PROGRESS_RADIUS;
+            const visibleCount = dynamicMode
+                ? Math.min(questionCount, radius * 2 + 1)
+                : questionCount;
+            let expectedStart = dynamicMode
+                ? Math.max(0, quizState.currentIndex - radius)
+                : 0;
+            let expectedEnd = Math.min(questionCount, expectedStart + visibleCount);
+            expectedStart = Math.max(0, expectedEnd - visibleCount);
+
+            if (
+                Number(container.dataset.windowStart) !== expectedStart ||
+                Number(container.dataset.windowEnd) !== expectedEnd ||
+                container.classList.contains('dynamic-mode') !== dynamicMode
+            ) {
+                renderProgress();
+                return;
+            }
+
+            container.querySelectorAll('.progress-dot').forEach((dot) => {
+                const i = Number(dot.dataset.navIndex);
+                if (!Number.isInteger(i)) return;
 
                 // Reset classes
                 dot.className = 'progress-dot';
                 dot.removeAttribute('aria-current');
                 dot.title = `Câu ${i + 1}`;
+                dot.textContent = dynamicMode && i === quizState.currentIndex
+                    ? `${i + 1} / ${questionCount}`
+                    : String(i + 1);
 
                 // Current status
                 if (i === quizState.currentIndex) {
@@ -8121,7 +8326,7 @@ const fullQuestionBank = [
                         dot.title = `Câu ${i + 1}: sai`;
                     }
                 }
-            }
+            });
         }
 
         function getUnansweredIndexes() {
@@ -8349,20 +8554,20 @@ const fullQuestionBank = [
         function applyFocusMode(enabled, options = {}) {
             const isEnabled = Boolean(enabled);
             document.body.classList.toggle('focus-mode', isEnabled);
-
+            
             const container = document.querySelector('.container');
             if (!isEnabled) {
                 if (container) container.style.height = '';
                 qFocusZoomScale = 1.0;
                 applyFocusZoomScale(1.0);
             }
-
+            
             syncFocusModeButton();
-
+            
             if (isEnabled) {
                 scheduleFocusFit();
             }
-
+            
             if (options.syncFullscreen !== false) {
                 syncFocusFullscreen(isEnabled);
             }
@@ -8372,10 +8577,10 @@ const fullQuestionBank = [
             const btn = document.getElementById('btnFocusMode');
             if (!btn) return;
             const isFocus = document.body.classList.contains('focus-mode');
-
+            
             const headerMeta = document.querySelector('.header-meta');
             const focusProgressRow = document.getElementById('focus-progress-row');
-
+            
             if (isFocus) {
                 if (focusProgressRow && btn.parentElement !== focusProgressRow) {
                     focusProgressRow.appendChild(btn);
@@ -8385,7 +8590,7 @@ const fullQuestionBank = [
                     headerMeta.insertBefore(btn, headerMeta.firstChild);
                 }
             }
-
+            
             btn.setAttribute('aria-pressed', isFocus ? 'true' : 'false');
             if (isFocus) {
                 btn.innerHTML = `<i class="fa-solid fa-compress" aria-hidden="true"></i>Exit (F)`;
@@ -8481,6 +8686,7 @@ const fullQuestionBank = [
             // Listen for window resize to refit zoom in both focus and normal mode
             window.addEventListener('resize', () => {
                 scheduleFocusFit();
+                renderProgress();
             });
         });
 

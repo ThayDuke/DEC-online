@@ -829,15 +829,16 @@ html,body,button,input,select,textarea{font-family:var(--dec-font-family-offline
             min-width: 0;
         }
 
-        .progress-container.wrap-mode {
-            flex-wrap: wrap !important;
-            height: auto !important;
+        .progress-container.dynamic-mode {
+            flex-wrap: nowrap;
+            height: var(--adaptive-progress-height);
+            overflow: hidden;
         }
 
-        .progress-container.wrap-mode .progress-dot {
-            flex: 0 0 calc((100% - (29 * var(--adaptive-progress-gap))) / 30) !important;
-            box-sizing: border-box !important;
-            max-width: none !important;
+        .progress-container.dynamic-mode .progress-dot.current {
+            flex-grow: 2.25;
+            min-width: 4.5rem;
+            max-width: none;
         }
 
         .progress-dot {
@@ -884,6 +885,30 @@ html,body,button,input,select,textarea{font-family:var(--dec-font-family-offline
 
         .progress-dot:hover:not(.current) {
             background-color: var(--progress-hover-bg) !important;
+        }
+
+        .progress-bank-count {
+            appearance: none;
+            flex: 0 0 auto;
+            min-width: 36px;
+            height: 100%;
+            padding: 0 8px;
+            border: var(--adaptive-progress-border-width) solid var(--border-main);
+            border-radius: var(--adaptive-progress-segment-radius);
+            color: var(--muted-text);
+            background: var(--adaptive-progress-empty-bg);
+            font: inherit;
+            font-size: 0.72rem;
+            font-weight: var(--progress-dot-font-weight);
+            line-height: 1;
+            white-space: nowrap;
+            opacity: 1;
+        }
+
+        @media (max-width: 640px) {
+            .progress-container.dynamic-mode .progress-dot.current {
+                min-width: 4rem;
+            }
         }
 
         /* RESULTS */
@@ -1240,6 +1265,11 @@ html,body,button,input,select,textarea{font-family:var(--dec-font-family-offline
             color: var(--muted-text);
         }
 
+        body[data-theme="elegant"] .progress-bank-count {
+            background: var(--option-bg);
+            color: var(--muted-text);
+        }
+
         body[data-theme="elegant"] .progress-dot.current,
         body[data-theme="elegant"] .progress-dot.current.correct,
         body[data-theme="elegant"] .progress-dot.current.wrong {
@@ -1493,6 +1523,12 @@ html,body,button,input,select,textarea{font-family:var(--dec-font-family-offline
         body.focus-mode .progress-dot {
             max-width: none !important;
             border-radius: var(--adaptive-progress-segment-radius) !important;
+            background: var(--adaptive-progress-empty-bg) !important;
+            border-color: var(--border-main) !important;
+            color: var(--adaptive-progress-empty-text) !important;
+        }
+
+        body.focus-mode .progress-bank-count {
             background: var(--adaptive-progress-empty-bg) !important;
             border-color: var(--border-main) !important;
             color: var(--adaptive-progress-empty-text) !important;
@@ -3970,7 +4006,182 @@ const fullQuestionBank = [
         "explanation": "Nếu trả lời \"No\" thì phải đi cùng \"can't\"."
       }
     ]
-  }
+  },
+  {"q":"What color is grass? 🌱","a":[{"text":"green","correct":true,"explanation":"Grass is green."},{"text":"blue","correct":false,"explanation":"Blue is not the usual color of grass."},{"text":"black","correct":false,"explanation":"Black is not correct."},{"text":"pink","correct":false,"explanation":"Pink is not correct."}]},
+  {"q":"Điền chữ còn thiếu: \"_ellow\" (màu vàng).","a":[{"text":"y","correct":true,"explanation":"y + ellow = yellow."},{"text":"b","correct":false,"explanation":"Không tạo thành yellow."},{"text":"g","correct":false,"explanation":"Không tạo thành yellow."},{"text":"r","correct":false,"explanation":"Không tạo thành yellow."}]},
+  {"q":"Which number comes after nine?","a":[{"text":"ten","correct":true,"explanation":"Ten comes after nine."},{"text":"eight","correct":false,"explanation":"Eight comes before nine."},{"text":"eleven","correct":false,"explanation":"Eleven comes after ten."},{"text":"seven","correct":false,"explanation":"Seven is smaller."}]},
+  {"q":"Số 14 trong tiếng Anh là gì?","a":[{"text":"fourteen","correct":true,"explanation":"14 is fourteen."},{"text":"forty","correct":false,"explanation":"Forty is 40."},{"text":"four","correct":false,"explanation":"Four is 4."},{"text":"fifteen","correct":false,"explanation":"Fifteen is 15."}]},
+  {"q":"How many days are there in a week?","a":[{"text":"seven","correct":true,"explanation":"A week has seven days."},{"text":"five","correct":false,"explanation":"A week has more than five days."},{"text":"six","correct":false,"explanation":"A week has seven days."},{"text":"eight","correct":false,"explanation":"Eight is too many."}]},
+  {"q":"Odd one out: red, blue, green, book","a":[{"text":"book","correct":true,"explanation":"Book is not a color."},{"text":"red","correct":false,"explanation":"Red is a color."},{"text":"blue","correct":false,"explanation":"Blue is a color."},{"text":"green","correct":false,"explanation":"Green is a color."}]},
+  {"q":"What shape has three sides?","a":[{"text":"triangle","correct":true,"explanation":"A triangle has three sides."},{"text":"circle","correct":false,"explanation":"A circle has no straight sides."},{"text":"square","correct":false,"explanation":"A square has four sides."},{"text":"rectangle","correct":false,"explanation":"A rectangle has four sides."}]},
+  {"q":"Điền chữ còn thiếu: \"ei_ht\".","a":[{"text":"g","correct":true,"explanation":"The word is eight."},{"text":"k","correct":false,"explanation":"Không tạo thành eight."},{"text":"n","correct":false,"explanation":"Không tạo thành eight."},{"text":"r","correct":false,"explanation":"Không tạo thành eight."}]},
+  {"q":"Two plus three is ___.","a":[{"text":"five","correct":true,"explanation":"2 + 3 = 5."},{"text":"four","correct":false,"explanation":"2 + 3 is not 4."},{"text":"six","correct":false,"explanation":"2 + 3 is not 6."},{"text":"seven","correct":false,"explanation":"2 + 3 is not 7."}]},
+  {"q":"Which is the biggest number?","a":[{"text":"nineteen","correct":true,"explanation":"Nineteen is the biggest."},{"text":"nine","correct":false,"explanation":"Nine is smaller."},{"text":"twelve","correct":false,"explanation":"Twelve is smaller."},{"text":"sixteen","correct":false,"explanation":"Sixteen is smaller."}]},
+  {"q":"This is ___ apple. 🍎","a":[{"text":"an","correct":true,"explanation":"Use an before apple."},{"text":"a","correct":false,"explanation":"Apple begins with a vowel sound."},{"text":"two","correct":false,"explanation":"The picture shows one apple."},{"text":"are","correct":false,"explanation":"Are is a verb."}]},
+  {"q":"I have two ___. ✏️✏️","a":[{"text":"pencils","correct":true,"explanation":"Use the plural pencils after two."},{"text":"pencil","correct":false,"explanation":"Two needs a plural noun."},{"text":"penciles","correct":false,"explanation":"The plural is pencils."},{"text":"pen","correct":false,"explanation":"The objects are pencils."}]},
+  {"q":"Where do you write your lessons?","a":[{"text":"notebook","correct":true,"explanation":"We write lessons in a notebook."},{"text":"ruler","correct":false,"explanation":"A ruler measures or draws lines."},{"text":"eraser","correct":false,"explanation":"An eraser removes pencil marks."},{"text":"chair","correct":false,"explanation":"We sit on a chair."}]},
+  {"q":"___ your book, please. (Mở sách ra.)","a":[{"text":"Open","correct":true,"explanation":"Open your book is correct."},{"text":"Close","correct":false,"explanation":"Close means đóng lại."},{"text":"Stand","correct":false,"explanation":"Stand means đứng."},{"text":"Listen","correct":false,"explanation":"Listen means lắng nghe."}]},
+  {"q":"The teacher writes on the ___.","a":[{"text":"board","correct":true,"explanation":"A teacher writes on the board."},{"text":"door","correct":false,"explanation":"A door is for entering."},{"text":"bag","correct":false,"explanation":"A bag carries things."},{"text":"chair","correct":false,"explanation":"A chair is for sitting."}]},
+  {"q":"Odd one out: pen, ruler, pencil, tiger","a":[{"text":"tiger","correct":true,"explanation":"Tiger is an animal."},{"text":"pen","correct":false,"explanation":"Pen is a school thing."},{"text":"ruler","correct":false,"explanation":"Ruler is a school thing."},{"text":"pencil","correct":false,"explanation":"Pencil is a school thing."}]},
+  {"q":"Is that your school bag? — Yes, ___.","a":[{"text":"it is","correct":true,"explanation":"Yes, it is answers Is that...?"},{"text":"I am","correct":false,"explanation":"I am answers Are you...?"},{"text":"I do","correct":false,"explanation":"I do answers Do you...?"},{"text":"it are","correct":false,"explanation":"It goes with is."}]},
+  {"q":"Điền chữ còn thiếu: \"penc_l\".","a":[{"text":"i","correct":true,"explanation":"The word is pencil."},{"text":"e","correct":false,"explanation":"Không tạo thành pencil."},{"text":"a","correct":false,"explanation":"Không tạo thành pencil."},{"text":"o","correct":false,"explanation":"Không tạo thành pencil."}]},
+  {"q":"There is one ___ in my bag.","a":[{"text":"book","correct":true,"explanation":"One takes a singular noun."},{"text":"books","correct":false,"explanation":"Books is plural."},{"text":"bookes","correct":false,"explanation":"Bookes is incorrect."},{"text":"booking","correct":false,"explanation":"Booking is not the object."}]},
+  {"q":"Which word means \"giáo viên\"?","a":[{"text":"teacher","correct":true,"explanation":"Teacher means giáo viên."},{"text":"student","correct":false,"explanation":"Student means học sinh."},{"text":"farmer","correct":false,"explanation":"Farmer means nông dân."},{"text":"doctor","correct":false,"explanation":"Doctor means bác sĩ."}]},
+  {"q":"My father's father is my ___.","a":[{"text":"grandfather","correct":true,"explanation":"Father's father is grandfather."},{"text":"brother","correct":false,"explanation":"Brother is a male sibling."},{"text":"uncle","correct":false,"explanation":"Uncle is not father's father."},{"text":"son","correct":false,"explanation":"Son is a male child."}]},
+  {"q":"My mother's mother is my ___.","a":[{"text":"grandmother","correct":true,"explanation":"Mother's mother is grandmother."},{"text":"sister","correct":false,"explanation":"Sister is a female sibling."},{"text":"aunt","correct":false,"explanation":"Aunt is not mother's mother."},{"text":"daughter","correct":false,"explanation":"Daughter is a female child."}]},
+  {"q":"This is my brother. ___ name is Ben.","a":[{"text":"His","correct":true,"explanation":"Use His for a boy."},{"text":"Her","correct":false,"explanation":"Her is used for a girl."},{"text":"My","correct":false,"explanation":"The name belongs to brother."},{"text":"Its","correct":false,"explanation":"Its is not used for a person here."}]},
+  {"q":"This is my sister. ___ is eight.","a":[{"text":"She","correct":true,"explanation":"She refers to a girl."},{"text":"He","correct":false,"explanation":"He refers to a boy."},{"text":"It","correct":false,"explanation":"It is not used for sister."},{"text":"They","correct":false,"explanation":"They is plural."}]},
+  {"q":"Who is your father's brother?","a":[{"text":"uncle","correct":true,"explanation":"Father's brother is your uncle."},{"text":"aunt","correct":false,"explanation":"Aunt is female."},{"text":"cousin","correct":false,"explanation":"Cousin is an uncle's or aunt's child."},{"text":"grandpa","correct":false,"explanation":"Grandpa is a grandfather."}]},
+  {"q":"Odd one out: mother, father, sister, kitchen","a":[{"text":"kitchen","correct":true,"explanation":"Kitchen is a room."},{"text":"mother","correct":false,"explanation":"Mother is a family member."},{"text":"father","correct":false,"explanation":"Father is a family member."},{"text":"sister","correct":false,"explanation":"Sister is a family member."}]},
+  {"q":"Điền chữ còn thiếu: \"fam_ly\".","a":[{"text":"i","correct":true,"explanation":"The word is family."},{"text":"e","correct":false,"explanation":"Không tạo thành family."},{"text":"a","correct":false,"explanation":"Không tạo thành family."},{"text":"o","correct":false,"explanation":"Không tạo thành family."}]},
+  {"q":"How many people: Mum, Dad and two children?","a":[{"text":"four","correct":true,"explanation":"1 + 1 + 2 = 4."},{"text":"two","correct":false,"explanation":"There are also two parents."},{"text":"three","correct":false,"explanation":"There are four people."},{"text":"five","correct":false,"explanation":"Five is too many."}]},
+  {"q":"___ is this? — This is my mother.","a":[{"text":"Who","correct":true,"explanation":"Who asks about a person."},{"text":"What","correct":false,"explanation":"What asks about a thing."},{"text":"Where","correct":false,"explanation":"Where asks about a place."},{"text":"How many","correct":false,"explanation":"How many asks about quantity."}]},
+  {"q":"My family ___ happy.","a":[{"text":"is","correct":true,"explanation":"Family is singular here."},{"text":"are","correct":false,"explanation":"Use is with family here."},{"text":"am","correct":false,"explanation":"Am goes with I."},{"text":"be","correct":false,"explanation":"Be is not conjugated here."}]},
+  {"q":"Which animal says \"meow\"?","a":[{"text":"cat","correct":true,"explanation":"A cat says meow."},{"text":"dog","correct":false,"explanation":"A dog barks."},{"text":"duck","correct":false,"explanation":"A duck quacks."},{"text":"cow","correct":false,"explanation":"A cow moos."}]},
+  {"q":"Which animal can fly?","a":[{"text":"bird","correct":true,"explanation":"A bird can fly."},{"text":"fish","correct":false,"explanation":"A fish swims."},{"text":"rabbit","correct":false,"explanation":"A rabbit hops."},{"text":"pig","correct":false,"explanation":"A pig cannot fly."}]},
+  {"q":"A fish lives in the ___.","a":[{"text":"water","correct":true,"explanation":"Fish live in water."},{"text":"sky","correct":false,"explanation":"Birds fly in the sky."},{"text":"tree","correct":false,"explanation":"Fish do not live in trees."},{"text":"classroom","correct":false,"explanation":"Fish do not live in classrooms."}]},
+  {"q":"The rabbit has two long ___.","a":[{"text":"ears","correct":true,"explanation":"A rabbit has long ears."},{"text":"noses","correct":false,"explanation":"A rabbit has one nose."},{"text":"tails","correct":false,"explanation":"A rabbit has one tail."},{"text":"mouths","correct":false,"explanation":"A rabbit has one mouth."}]},
+  {"q":"Odd one out: cow, duck, sheep, pencil","a":[{"text":"pencil","correct":true,"explanation":"Pencil is not an animal."},{"text":"cow","correct":false,"explanation":"Cow is an animal."},{"text":"duck","correct":false,"explanation":"Duck is an animal."},{"text":"sheep","correct":false,"explanation":"Sheep is an animal."}]},
+  {"q":"Điền chữ còn thiếu: \"m_nkey\".","a":[{"text":"o","correct":true,"explanation":"The word is monkey."},{"text":"a","correct":false,"explanation":"Không tạo thành monkey."},{"text":"e","correct":false,"explanation":"Không tạo thành monkey."},{"text":"u","correct":false,"explanation":"Không tạo thành monkey."}]},
+  {"q":"How many legs does a bird have?","a":[{"text":"two","correct":true,"explanation":"A bird has two legs."},{"text":"four","correct":false,"explanation":"Most birds have two legs."},{"text":"six","correct":false,"explanation":"Six is not correct."},{"text":"eight","correct":false,"explanation":"Eight is not correct."}]},
+  {"q":"This animal is big and has a trunk.","a":[{"text":"elephant","correct":true,"explanation":"An elephant has a trunk."},{"text":"tiger","correct":false,"explanation":"A tiger has no trunk."},{"text":"lion","correct":false,"explanation":"A lion has no trunk."},{"text":"horse","correct":false,"explanation":"A horse has no trunk."}]},
+  {"q":"Can a duck swim?","a":[{"text":"Yes, it can.","correct":true,"explanation":"A duck can swim."},{"text":"No, it can't.","correct":false,"explanation":"Ducks can swim."},{"text":"Yes, it is.","correct":false,"explanation":"Use can in the answer."},{"text":"No, it doesn't.","correct":false,"explanation":"Use can't for a can-question."}]},
+  {"q":"A baby dog is a ___.","a":[{"text":"puppy","correct":true,"explanation":"A baby dog is a puppy."},{"text":"kitten","correct":false,"explanation":"A kitten is a baby cat."},{"text":"chick","correct":false,"explanation":"A chick is a baby bird."},{"text":"calf","correct":false,"explanation":"A calf is a baby cow."}]},
+  {"q":"Which fruit is yellow and long?","a":[{"text":"banana","correct":true,"explanation":"A banana is yellow and long."},{"text":"apple","correct":false,"explanation":"An apple is round."},{"text":"grape","correct":false,"explanation":"A grape is small and round."},{"text":"orange","correct":false,"explanation":"An orange is round."}]},
+  {"q":"I am thirsty. I want some ___.","a":[{"text":"water","correct":true,"explanation":"We drink water when thirsty."},{"text":"rice","correct":false,"explanation":"Rice is food."},{"text":"bread","correct":false,"explanation":"Bread is food."},{"text":"cake","correct":false,"explanation":"Cake is food."}]},
+  {"q":"Which one is a drink?","a":[{"text":"juice","correct":true,"explanation":"Juice is a drink."},{"text":"egg","correct":false,"explanation":"Egg is food."},{"text":"bread","correct":false,"explanation":"Bread is food."},{"text":"rice","correct":false,"explanation":"Rice is food."}]},
+  {"q":"Would you like some milk? — Yes, ___.","a":[{"text":"please","correct":true,"explanation":"Yes, please is a polite reply."},{"text":"milk","correct":false,"explanation":"This does not complete the reply."},{"text":"I am","correct":false,"explanation":"I am is not used here."},{"text":"it is","correct":false,"explanation":"It is is not used here."}]},
+  {"q":"Odd one out: apple, mango, orange, bread","a":[{"text":"bread","correct":true,"explanation":"Bread is not a fruit."},{"text":"apple","correct":false,"explanation":"Apple is a fruit."},{"text":"mango","correct":false,"explanation":"Mango is a fruit."},{"text":"orange","correct":false,"explanation":"Orange is a fruit."}]},
+  {"q":"Điền chữ còn thiếu: \"c_ke\".","a":[{"text":"a","correct":true,"explanation":"The word is cake."},{"text":"o","correct":false,"explanation":"Không tạo thành cake."},{"text":"i","correct":false,"explanation":"Không tạo thành cake."},{"text":"u","correct":false,"explanation":"Không tạo thành cake."}]},
+  {"q":"We eat soup with a ___.","a":[{"text":"spoon","correct":true,"explanation":"We use a spoon for soup."},{"text":"ruler","correct":false,"explanation":"A ruler is a school thing."},{"text":"pencil","correct":false,"explanation":"A pencil is for writing."},{"text":"sock","correct":false,"explanation":"A sock is clothing."}]},
+  {"q":"There ___ two apples on the table.","a":[{"text":"are","correct":true,"explanation":"Use are with two apples."},{"text":"is","correct":false,"explanation":"Is is singular."},{"text":"am","correct":false,"explanation":"Am goes with I."},{"text":"be","correct":false,"explanation":"Be is not conjugated here."}]},
+  {"q":"What do chickens give us?","a":[{"text":"eggs","correct":true,"explanation":"Chickens give us eggs."},{"text":"books","correct":false,"explanation":"Books are not food from chickens."},{"text":"shoes","correct":false,"explanation":"Shoes are clothing."},{"text":"pencils","correct":false,"explanation":"Pencils are school things."}]},
+  {"q":"I like ice cream because it is ___.","a":[{"text":"yummy","correct":true,"explanation":"Yummy means delicious."},{"text":"angry","correct":false,"explanation":"Angry describes a feeling."},{"text":"old","correct":false,"explanation":"Old does not describe taste."},{"text":"tall","correct":false,"explanation":"Tall describes height."}]},
+  {"q":"You wear this on your head.","a":[{"text":"hat","correct":true,"explanation":"A hat goes on the head."},{"text":"shoes","correct":false,"explanation":"Shoes go on feet."},{"text":"socks","correct":false,"explanation":"Socks go on feet."},{"text":"gloves","correct":false,"explanation":"Gloves go on hands."}]},
+  {"q":"You wear these on your feet.","a":[{"text":"shoes","correct":true,"explanation":"Shoes go on your feet."},{"text":"cap","correct":false,"explanation":"A cap goes on your head."},{"text":"shirt","correct":false,"explanation":"A shirt goes on your body."},{"text":"scarf","correct":false,"explanation":"A scarf goes around your neck."}]},
+  {"q":"What color is snow?","a":[{"text":"white","correct":true,"explanation":"Snow is white."},{"text":"purple","correct":false,"explanation":"Snow is not purple."},{"text":"brown","correct":false,"explanation":"Snow is not brown."},{"text":"orange","correct":false,"explanation":"Snow is not orange."}]},
+  {"q":"This T-shirt ___ blue.","a":[{"text":"is","correct":true,"explanation":"Use is with This T-shirt."},{"text":"are","correct":false,"explanation":"Are is plural."},{"text":"am","correct":false,"explanation":"Am goes with I."},{"text":"be","correct":false,"explanation":"Be is not conjugated here."}]},
+  {"q":"Odd one out: dress, skirt, shirt, banana","a":[{"text":"banana","correct":true,"explanation":"Banana is food, not clothing."},{"text":"dress","correct":false,"explanation":"Dress is clothing."},{"text":"skirt","correct":false,"explanation":"Skirt is clothing."},{"text":"shirt","correct":false,"explanation":"Shirt is clothing."}]},
+  {"q":"Điền chữ còn thiếu: \"dr_ss\".","a":[{"text":"e","correct":true,"explanation":"The word is dress."},{"text":"a","correct":false,"explanation":"Không tạo thành dress."},{"text":"i","correct":false,"explanation":"Không tạo thành dress."},{"text":"o","correct":false,"explanation":"Không tạo thành dress."}]},
+  {"q":"It is cold. Put on your ___.","a":[{"text":"coat","correct":true,"explanation":"A coat keeps you warm."},{"text":"shorts","correct":false,"explanation":"Shorts do not keep you warm."},{"text":"swimsuit","correct":false,"explanation":"A swimsuit is for swimming."},{"text":"sandals","correct":false,"explanation":"Sandals are open shoes."}]},
+  {"q":"Whose cap is this? — It is ___ cap.","a":[{"text":"my","correct":true,"explanation":"My shows the cap belongs to me."},{"text":"I","correct":false,"explanation":"Use my before a noun."},{"text":"me","correct":false,"explanation":"Use my before cap."},{"text":"mine is","correct":false,"explanation":"Mine is cannot go before cap."}]},
+  {"q":"Good morning! — ___.","a":[{"text":"Good morning!","correct":true,"explanation":"Return the same morning greeting."},{"text":"Good night!","correct":false,"explanation":"Good night is said before sleep."},{"text":"Goodbye!","correct":false,"explanation":"Goodbye is for leaving."},{"text":"Thank you!","correct":false,"explanation":"Thank you expresses thanks."}]},
+  {"q":"What is your name? — ___.","a":[{"text":"My name is Lan.","correct":true,"explanation":"This answers a name question."},{"text":"I am seven.","correct":false,"explanation":"This tells age."},{"text":"I am fine.","correct":false,"explanation":"This tells how you feel."},{"text":"It is blue.","correct":false,"explanation":"This tells a color."}]},
+  {"q":"How old are you? — ___.","a":[{"text":"I am eight.","correct":true,"explanation":"This gives your age."},{"text":"My name is Mai.","correct":false,"explanation":"This gives your name."},{"text":"I am happy.","correct":false,"explanation":"This gives a feeling."},{"text":"It is eight.","correct":false,"explanation":"Use I am for your age."}]},
+  {"q":"How are you? — ___.","a":[{"text":"I'm fine, thank you.","correct":true,"explanation":"This is the usual reply."},{"text":"I'm seven.","correct":false,"explanation":"This tells age."},{"text":"My name is Tom.","correct":false,"explanation":"This tells a name."},{"text":"It is a pen.","correct":false,"explanation":"This identifies an object."}]},
+  {"q":"See you tomorrow! — ___.","a":[{"text":"See you!","correct":true,"explanation":"See you is an appropriate reply."},{"text":"Good morning!","correct":false,"explanation":"This is a morning greeting."},{"text":"I'm eight.","correct":false,"explanation":"This tells age."},{"text":"It's red.","correct":false,"explanation":"This tells color."}]},
+  {"q":"Thank you. — ___.","a":[{"text":"You're welcome.","correct":true,"explanation":"You're welcome replies to thanks."},{"text":"I'm sorry.","correct":false,"explanation":"I'm sorry is an apology."},{"text":"Good night.","correct":false,"explanation":"Good night is a farewell before sleep."},{"text":"Stand up.","correct":false,"explanation":"Stand up is a command."}]},
+  {"q":"Please give me the ruler. — ___.","a":[{"text":"Here you are.","correct":true,"explanation":"Here you are is used when giving something."},{"text":"I'm seven.","correct":false,"explanation":"This tells age."},{"text":"It is green.","correct":false,"explanation":"This tells color."},{"text":"Good evening.","correct":false,"explanation":"This is a greeting."}]},
+  {"q":"Odd one out: hello, hi, goodbye, apple","a":[{"text":"apple","correct":true,"explanation":"Apple is not a greeting."},{"text":"hello","correct":false,"explanation":"Hello is a greeting."},{"text":"hi","correct":false,"explanation":"Hi is a greeting."},{"text":"goodbye","correct":false,"explanation":"Goodbye is a farewell."}]},
+  {"q":"___ to meet you.","a":[{"text":"Nice","correct":true,"explanation":"Nice to meet you is correct."},{"text":"Fine","correct":false,"explanation":"Fine is used in I'm fine."},{"text":"Name","correct":false,"explanation":"Name does not fit."},{"text":"Old","correct":false,"explanation":"Old does not fit."}]},
+  {"q":"What can you do? — I can ___.","a":[{"text":"swim","correct":true,"explanation":"Use a base verb after can."},{"text":"swims","correct":false,"explanation":"Use swim, not swims, after can."},{"text":"swimming","correct":false,"explanation":"Use the base verb after can."},{"text":"to swim","correct":false,"explanation":"Do not use to after can."}]},
+  {"q":"A bird can ___.","a":[{"text":"fly","correct":true,"explanation":"Birds can fly."},{"text":"flies","correct":false,"explanation":"Use fly after can."},{"text":"flying","correct":false,"explanation":"Use the base verb after can."},{"text":"to fly","correct":false,"explanation":"Do not use to after can."}]},
+  {"q":"Can you sing? — No, ___.","a":[{"text":"I can't","correct":true,"explanation":"No, I can't is correct."},{"text":"I can","correct":false,"explanation":"I can is affirmative."},{"text":"I don't","correct":false,"explanation":"Use can't for a can-question."},{"text":"I'm not","correct":false,"explanation":"Use can't for ability."}]},
+  {"q":"Which action do you do with a ball?","a":[{"text":"kick","correct":true,"explanation":"You can kick a ball."},{"text":"read","correct":false,"explanation":"You read a book."},{"text":"drink","correct":false,"explanation":"You drink water."},{"text":"sleep","correct":false,"explanation":"You sleep in a bed."}]},
+  {"q":"Điền chữ còn thiếu: \"j_mp\".","a":[{"text":"u","correct":true,"explanation":"The word is jump."},{"text":"a","correct":false,"explanation":"Không tạo thành jump."},{"text":"e","correct":false,"explanation":"Không tạo thành jump."},{"text":"i","correct":false,"explanation":"Không tạo thành jump."}]},
+  {"q":"Odd one out: run, jump, sing, yellow","a":[{"text":"yellow","correct":true,"explanation":"Yellow is a color, not an action."},{"text":"run","correct":false,"explanation":"Run is an action."},{"text":"jump","correct":false,"explanation":"Jump is an action."},{"text":"sing","correct":false,"explanation":"Sing is an action."}]},
+  {"q":"I can ride a ___. 🚲","a":[{"text":"bike","correct":true,"explanation":"You ride a bike."},{"text":"book","correct":false,"explanation":"You read a book."},{"text":"cake","correct":false,"explanation":"You eat cake."},{"text":"fish","correct":false,"explanation":"Fish is an animal."}]},
+  {"q":"Clap your ___.","a":[{"text":"hands","correct":true,"explanation":"We clap our hands."},{"text":"eyes","correct":false,"explanation":"We do not clap eyes."},{"text":"ears","correct":false,"explanation":"We do not clap ears."},{"text":"nose","correct":false,"explanation":"We do not clap a nose."}]},
+  {"q":"Which room is for cooking?","a":[{"text":"kitchen","correct":true,"explanation":"We cook in the kitchen."},{"text":"bedroom","correct":false,"explanation":"We sleep in the bedroom."},{"text":"bathroom","correct":false,"explanation":"We wash in the bathroom."},{"text":"classroom","correct":false,"explanation":"We study in the classroom."}]},
+  {"q":"Where do you sleep?","a":[{"text":"bedroom","correct":true,"explanation":"We sleep in a bedroom."},{"text":"kitchen","correct":false,"explanation":"We cook in a kitchen."},{"text":"garden","correct":false,"explanation":"A garden is outdoors."},{"text":"classroom","correct":false,"explanation":"We study in a classroom."}]},
+  {"q":"The sofa is in the ___.","a":[{"text":"living room","correct":true,"explanation":"A sofa is usually in the living room."},{"text":"bathroom","correct":false,"explanation":"A bathroom is for washing."},{"text":"classroom","correct":false,"explanation":"A classroom has desks."},{"text":"farm","correct":false,"explanation":"A farm is not a room."}]},
+  {"q":"The book is ___ the table.","a":[{"text":"on","correct":true,"explanation":"On means on top of."},{"text":"in","correct":false,"explanation":"In means inside."},{"text":"under","correct":false,"explanation":"Under means below."},{"text":"between","correct":false,"explanation":"Between needs two things."}]},
+  {"q":"The cat is ___ the box. (Con mèo ở trong hộp.)","a":[{"text":"in","correct":true,"explanation":"In means inside."},{"text":"on","correct":false,"explanation":"On means on top of."},{"text":"under","correct":false,"explanation":"Under means below."},{"text":"next","correct":false,"explanation":"Next needs to."}]},
+  {"q":"The ball is ___ the chair. (Quả bóng ở dưới ghế.)","a":[{"text":"under","correct":true,"explanation":"Under means below."},{"text":"on","correct":false,"explanation":"On means on top of."},{"text":"in","correct":false,"explanation":"In means inside."},{"text":"at","correct":false,"explanation":"At does not show below."}]},
+  {"q":"Odd one out: bedroom, kitchen, bathroom, monkey","a":[{"text":"monkey","correct":true,"explanation":"Monkey is an animal, not a room."},{"text":"bedroom","correct":false,"explanation":"Bedroom is a room."},{"text":"kitchen","correct":false,"explanation":"Kitchen is a room."},{"text":"bathroom","correct":false,"explanation":"Bathroom is a room."}]},
+  {"q":"Điền chữ còn thiếu: \"h_use\".","a":[{"text":"o","correct":true,"explanation":"The word is house."},{"text":"a","correct":false,"explanation":"Không tạo thành house."},{"text":"e","correct":false,"explanation":"Không tạo thành house."},{"text":"i","correct":false,"explanation":"Không tạo thành house."}]},
+  {"q":"There ___ a bed in my room.","a":[{"text":"is","correct":true,"explanation":"Use is with a bed."},{"text":"are","correct":false,"explanation":"Are is used with plural nouns."},{"text":"am","correct":false,"explanation":"Am goes with I."},{"text":"be","correct":false,"explanation":"Be is not conjugated here."}]},
+  {"q":"How many windows are there? — There ___ two.","a":[{"text":"are","correct":true,"explanation":"Use are with two."},{"text":"is","correct":false,"explanation":"Is is singular."},{"text":"am","correct":false,"explanation":"Am goes with I."},{"text":"be","correct":false,"explanation":"Be is not conjugated here."}]},
+  {"q":"A farmer works on a ___.","a":[{"text":"farm","correct":true,"explanation":"A farmer works on a farm."},{"text":"hospital","correct":false,"explanation":"Doctors work in hospitals."},{"text":"school","correct":false,"explanation":"Teachers work at schools."},{"text":"shop","correct":false,"explanation":"Shopkeepers work in shops."}]},
+  {"q":"A doctor works in a ___.","a":[{"text":"hospital","correct":true,"explanation":"A doctor works in a hospital."},{"text":"farm","correct":false,"explanation":"A farmer works on a farm."},{"text":"classroom","correct":false,"explanation":"A teacher works in a classroom."},{"text":"garden","correct":false,"explanation":"A gardener works in a garden."}]},
+  {"q":"A teacher works at a ___.","a":[{"text":"school","correct":true,"explanation":"A teacher works at a school."},{"text":"zoo","correct":false,"explanation":"A zookeeper works at a zoo."},{"text":"farm","correct":false,"explanation":"A farmer works on a farm."},{"text":"hospital","correct":false,"explanation":"A doctor works in a hospital."}]},
+  {"q":"Who helps sick people?","a":[{"text":"doctor","correct":true,"explanation":"A doctor helps sick people."},{"text":"farmer","correct":false,"explanation":"A farmer grows food."},{"text":"teacher","correct":false,"explanation":"A teacher teaches students."},{"text":"student","correct":false,"explanation":"A student learns."}]},
+  {"q":"Odd one out: doctor, teacher, farmer, banana","a":[{"text":"banana","correct":true,"explanation":"Banana is not a job."},{"text":"doctor","correct":false,"explanation":"Doctor is a job."},{"text":"teacher","correct":false,"explanation":"Teacher is a job."},{"text":"farmer","correct":false,"explanation":"Farmer is a job."}]},
+  {"q":"Điền chữ còn thiếu: \"d_ctor\".","a":[{"text":"o","correct":true,"explanation":"The word is doctor."},{"text":"a","correct":false,"explanation":"Không tạo thành doctor."},{"text":"e","correct":false,"explanation":"Không tạo thành doctor."},{"text":"i","correct":false,"explanation":"Không tạo thành doctor."}]},
+  {"q":"What do you want to be? — I want to be a ___.","a":[{"text":"teacher","correct":true,"explanation":"Teacher is a job and fits the sentence."},{"text":"school","correct":false,"explanation":"School is a place."},{"text":"book","correct":false,"explanation":"Book is an object."},{"text":"yellow","correct":false,"explanation":"Yellow is a color."}]},
+  {"q":"It is sunny. I can see the ___.","a":[{"text":"sun","correct":true,"explanation":"The sun shines on a sunny day."},{"text":"rain","correct":false,"explanation":"Rain falls on a rainy day."},{"text":"snow","correct":false,"explanation":"Snow falls in snowy weather."},{"text":"wind","correct":false,"explanation":"Wind is moving air."}]},
+  {"q":"It is raining. Take your ___.","a":[{"text":"umbrella","correct":true,"explanation":"An umbrella keeps you dry."},{"text":"kite","correct":false,"explanation":"A kite is a toy."},{"text":"book","correct":false,"explanation":"A book does not keep you dry."},{"text":"ball","correct":false,"explanation":"A ball is a toy."}]},
+  {"q":"What is the weather like? — It is ___. ☁️","a":[{"text":"cloudy","correct":true,"explanation":"Cloudy describes a sky with clouds."},{"text":"hungry","correct":false,"explanation":"Hungry is a feeling."},{"text":"young","correct":false,"explanation":"Young describes age."},{"text":"round","correct":false,"explanation":"Round describes shape."}]},
+  {"q":"Which season is often hot?","a":[{"text":"summer","correct":true,"explanation":"Summer is often hot."},{"text":"winter","correct":false,"explanation":"Winter is often cold."},{"text":"spring","correct":false,"explanation":"Spring is usually mild."},{"text":"autumn","correct":false,"explanation":"Autumn is usually cool."}]},
+  {"q":"Điền chữ còn thiếu: \"r_iny\".","a":[{"text":"a","correct":true,"explanation":"The word is rainy."},{"text":"e","correct":false,"explanation":"Không tạo thành rainy."},{"text":"i","correct":false,"explanation":"Không tạo thành rainy."},{"text":"o","correct":false,"explanation":"Không tạo thành rainy."}]},
+  {"q":"Odd one out: sunny, windy, rainy, pencil","a":[{"text":"pencil","correct":true,"explanation":"Pencil is not weather."},{"text":"sunny","correct":false,"explanation":"Sunny describes weather."},{"text":"windy","correct":false,"explanation":"Windy describes weather."},{"text":"rainy","correct":false,"explanation":"Rainy describes weather."}]},
+  {"q":"Monday comes before ___.","a":[{"text":"Tuesday","correct":true,"explanation":"Tuesday follows Monday."},{"text":"Sunday","correct":false,"explanation":"Sunday comes before Monday in this sequence."},{"text":"Friday","correct":false,"explanation":"Friday comes later."},{"text":"Saturday","correct":false,"explanation":"Saturday comes later."}]},
+  {"q":"Which day comes after Friday?","a":[{"text":"Saturday","correct":true,"explanation":"Saturday follows Friday."},{"text":"Thursday","correct":false,"explanation":"Thursday comes before Friday."},{"text":"Monday","correct":false,"explanation":"Monday does not follow Friday."},{"text":"Wednesday","correct":false,"explanation":"Wednesday comes earlier."}]},
+  {"q":"We go to bed at ___.","a":[{"text":"night","correct":true,"explanation":"We usually sleep at night."},{"text":"breakfast","correct":false,"explanation":"Breakfast is a meal."},{"text":"school","correct":false,"explanation":"School is a place."},{"text":"blue","correct":false,"explanation":"Blue is a color."}]},
+  {"q":"We eat breakfast in the ___.","a":[{"text":"morning","correct":true,"explanation":"Breakfast is eaten in the morning."},{"text":"night","correct":false,"explanation":"Night is usually sleeping time."},{"text":"evening","correct":false,"explanation":"Dinner is often in the evening."},{"text":"midnight","correct":false,"explanation":"Midnight is very late."}]},
+  {"q":"What time is it? 🕖","a":[{"text":"It is seven o'clock.","correct":true,"explanation":"The clock shows seven."},{"text":"It is six o'clock.","correct":false,"explanation":"The clock does not show six."},{"text":"It is eight o'clock.","correct":false,"explanation":"The clock does not show eight."},{"text":"It is nine o'clock.","correct":false,"explanation":"The clock does not show nine."}]},
+  {"q":"Odd one out: Monday, Tuesday, Sunday, summer","a":[{"text":"summer","correct":true,"explanation":"Summer is a season, not a day."},{"text":"Monday","correct":false,"explanation":"Monday is a day."},{"text":"Tuesday","correct":false,"explanation":"Tuesday is a day."},{"text":"Sunday","correct":false,"explanation":"Sunday is a day."}]},
+  {"q":"Điền chữ còn thiếu: \"S_nday\".","a":[{"text":"u","correct":true,"explanation":"The word is Sunday."},{"text":"a","correct":false,"explanation":"Không tạo thành Sunday."},{"text":"e","correct":false,"explanation":"Không tạo thành Sunday."},{"text":"i","correct":false,"explanation":"Không tạo thành Sunday."}]},
+  {"q":"I get up ___ six o'clock.","a":[{"text":"at","correct":true,"explanation":"Use at with clock time."},{"text":"on","correct":false,"explanation":"On is used with days."},{"text":"in","correct":false,"explanation":"In is used with parts of the day."},{"text":"under","correct":false,"explanation":"Under shows position."}]},
+  {"q":"I go to school ___ Monday.","a":[{"text":"on","correct":true,"explanation":"Use on with days."},{"text":"at","correct":false,"explanation":"At is used with clock time."},{"text":"in","correct":false,"explanation":"In is not used before Monday."},{"text":"under","correct":false,"explanation":"Under shows position."}]},
+  {"q":"Where are you from? — I am from ___.","a":[{"text":"Viet Nam","correct":true,"explanation":"Viet Nam is a country."},{"text":"Vietnamese","correct":false,"explanation":"Vietnamese is a nationality/language."},{"text":"seven","correct":false,"explanation":"Seven is a number."},{"text":"happy","correct":false,"explanation":"Happy is a feeling."}]},
+  {"q":"What nationality are you? — I am ___.","a":[{"text":"Vietnamese","correct":true,"explanation":"Vietnamese is a nationality."},{"text":"Viet Nam","correct":false,"explanation":"Viet Nam is a country."},{"text":"English book","correct":false,"explanation":"This is an object phrase."},{"text":"from school","correct":false,"explanation":"This is a place phrase."}]},
+  {"q":"The flag of Viet Nam has a yellow ___.","a":[{"text":"star","correct":true,"explanation":"The flag has a yellow star."},{"text":"circle","correct":false,"explanation":"It does not have a yellow circle."},{"text":"square","correct":false,"explanation":"It does not have a yellow square."},{"text":"heart","correct":false,"explanation":"It does not have a yellow heart."}]},
+  {"q":"Which vehicle has two wheels?","a":[{"text":"bike","correct":true,"explanation":"A bike has two wheels."},{"text":"car","correct":false,"explanation":"A car usually has four wheels."},{"text":"bus","correct":false,"explanation":"A bus has more than two wheels."},{"text":"boat","correct":false,"explanation":"A boat has no road wheels."}]},
+  {"q":"Which vehicle travels on water?","a":[{"text":"boat","correct":true,"explanation":"A boat travels on water."},{"text":"bus","correct":false,"explanation":"A bus travels on roads."},{"text":"bike","correct":false,"explanation":"A bike travels on land."},{"text":"train","correct":false,"explanation":"A train travels on rails."}]},
+  {"q":"I go to school ___ bus.","a":[{"text":"by","correct":true,"explanation":"By bus is correct."},{"text":"on a","correct":false,"explanation":"The expected phrase is by bus."},{"text":"in the","correct":false,"explanation":"The standard answer is by bus."},{"text":"at","correct":false,"explanation":"At does not show transport."}]},
+  {"q":"Odd one out: car, bus, train, kitchen","a":[{"text":"kitchen","correct":true,"explanation":"Kitchen is not a vehicle."},{"text":"car","correct":false,"explanation":"Car is a vehicle."},{"text":"bus","correct":false,"explanation":"Bus is a vehicle."},{"text":"train","correct":false,"explanation":"Train is a vehicle."}]},
+  {"q":"Điền chữ còn thiếu: \"tr_in\".","a":[{"text":"a","correct":true,"explanation":"The word is train."},{"text":"e","correct":false,"explanation":"Không tạo thành train."},{"text":"i","correct":false,"explanation":"Không tạo thành train."},{"text":"o","correct":false,"explanation":"Không tạo thành train."}]},
+  {"q":"A plane can ___.","a":[{"text":"fly","correct":true,"explanation":"A plane can fly."},{"text":"swim","correct":false,"explanation":"A plane does not swim."},{"text":"read","correct":false,"explanation":"A plane cannot read."},{"text":"eat","correct":false,"explanation":"A plane cannot eat."}]},
+  {"q":"Choose the correct sentence about a blue bag.","a":[{"text":"I have a blue bag.","correct":true,"explanation":"This sentence has correct word order."},{"text":"I a blue have bag.","correct":false,"explanation":"The word order is wrong."},{"text":"Have I bag blue a.","correct":false,"explanation":"The word order is wrong."},{"text":"Blue bag I a have.","correct":false,"explanation":"The word order is wrong."}]},
+  {"q":"Choose the correct sentence about a new ruler.","a":[{"text":"This is my new ruler.","correct":true,"explanation":"This sentence has correct word order."},{"text":"This my ruler new is.","correct":false,"explanation":"The word order is wrong."},{"text":"My this is ruler new.","correct":false,"explanation":"The word order is wrong."},{"text":"New ruler this my is.","correct":false,"explanation":"The word order is wrong."}]},
+  {"q":"Choose the correct question about counting from one to ten.","a":[{"text":"Can you count from one to ten?","correct":true,"explanation":"This question has correct word order."},{"text":"You can count one from ten to?","correct":false,"explanation":"The word order is wrong."},{"text":"Count can you to from ten one?","correct":false,"explanation":"The word order is wrong."},{"text":"From one can count you ten to?","correct":false,"explanation":"The word order is wrong."}]},
+  {"q":"Choose the correct question asking where a book is.","a":[{"text":"Where is my book?","correct":true,"explanation":"This question has correct word order."},{"text":"Where my book is?","correct":false,"explanation":"Is must come before my book."},{"text":"My book where is?","correct":false,"explanation":"The word order is wrong."},{"text":"Is where book my?","correct":false,"explanation":"The word order is wrong."}]},
+  {"q":"Choose the correct sentence about seeing the sea.","a":[{"text":"I can see the sea.","correct":true,"explanation":"This sentence has correct word order."},{"text":"I see can sea the.","correct":false,"explanation":"The word order is wrong."},{"text":"Can the sea I see.","correct":false,"explanation":"The word order is wrong."},{"text":"The I can sea see.","correct":false,"explanation":"The word order is wrong."}]},
+  {"q":"Which word begins with the same sound as \"book\"?","a":[{"text":"ball","correct":true,"explanation":"Book and ball begin with /b/."},{"text":"cat","correct":false,"explanation":"Cat begins with /k/."},{"text":"dog","correct":false,"explanation":"Dog begins with /d/."},{"text":"fish","correct":false,"explanation":"Fish begins with /f/."}]},
+  {"q":"Which word rhymes with \"cat\"?","a":[{"text":"hat","correct":true,"explanation":"Cat and hat rhyme."},{"text":"dog","correct":false,"explanation":"Dog does not rhyme with cat."},{"text":"pen","correct":false,"explanation":"Pen does not rhyme with cat."},{"text":"book","correct":false,"explanation":"Book does not rhyme with cat."}]},
+  {"q":"Choose the word with two syllables.","a":[{"text":"teacher","correct":true,"explanation":"Teacher has two syllables: teach-er."},{"text":"pen","correct":false,"explanation":"Pen has one syllable."},{"text":"book","correct":false,"explanation":"Book has one syllable."},{"text":"desk","correct":false,"explanation":"Desk has one syllable."}]},
+  {"q":"Which letter comes after M?","a":[{"text":"N","correct":true,"explanation":"N comes after M."},{"text":"L","correct":false,"explanation":"L comes before M."},{"text":"O","correct":false,"explanation":"O comes after N."},{"text":"K","correct":false,"explanation":"K comes earlier."}]},
+  {"q":"Which word starts with a vowel?","a":[{"text":"orange","correct":true,"explanation":"Orange starts with O, a vowel."},{"text":"banana","correct":false,"explanation":"Banana starts with B."},{"text":"mango","correct":false,"explanation":"Mango starts with M."},{"text":"grape","correct":false,"explanation":"Grape starts with G."}]},
+  {"q":"Điền chữ còn thiếu: \"_pple\".","a":[{"text":"a","correct":true,"explanation":"The word is apple."},{"text":"e","correct":false,"explanation":"Không tạo thành apple."},{"text":"i","correct":false,"explanation":"Không tạo thành apple."},{"text":"o","correct":false,"explanation":"Không tạo thành apple."}]},
+  {"q":"How many vowels are there in A, E, I, O, U?","a":[{"text":"five","correct":true,"explanation":"There are five listed vowels."},{"text":"three","correct":false,"explanation":"There are more than three."},{"text":"four","correct":false,"explanation":"There are five."},{"text":"six","correct":false,"explanation":"There are only five."}]},
+  {"q":"Complete the alphabet: X, Y, ___.","a":[{"text":"Z","correct":true,"explanation":"Z comes after Y."},{"text":"W","correct":false,"explanation":"W comes before X."},{"text":"V","correct":false,"explanation":"V comes earlier."},{"text":"A","correct":false,"explanation":"A starts the alphabet."}]},
+  {"q":"___ you like apples?","a":[{"text":"Do","correct":true,"explanation":"Do you like...? is correct."},{"text":"Are","correct":false,"explanation":"Are is not used with like here."},{"text":"Is","correct":false,"explanation":"Is does not go with you here."},{"text":"Can be","correct":false,"explanation":"Can be does not fit."}]},
+  {"q":"Do you like milk? — Yes, ___.","a":[{"text":"I do","correct":true,"explanation":"Yes, I do answers Do you...?"},{"text":"I am","correct":false,"explanation":"I am answers Are you...?"},{"text":"I can","correct":false,"explanation":"I can answers Can you...?"},{"text":"it is","correct":false,"explanation":"It is does not answer this question."}]},
+  {"q":"I ___ like spiders.","a":[{"text":"don't","correct":true,"explanation":"I don't like... is correct."},{"text":"doesn't","correct":false,"explanation":"Doesn't is used with he/she/it."},{"text":"am not","correct":false,"explanation":"Am not is not used with like here."},{"text":"isn't","correct":false,"explanation":"Isn't does not go with I."}]},
+  {"q":"What is your favourite toy? — It is my ___.","a":[{"text":"robot","correct":true,"explanation":"Robot is a toy."},{"text":"milk","correct":false,"explanation":"Milk is a drink."},{"text":"teacher","correct":false,"explanation":"Teacher is a person."},{"text":"kitchen","correct":false,"explanation":"Kitchen is a room."}]},
+  {"q":"Which sentence is correct?","a":[{"text":"She has a doll.","correct":true,"explanation":"Use has with she."},{"text":"She have a doll.","correct":false,"explanation":"She takes has."},{"text":"She haves a doll.","correct":false,"explanation":"Haves is incorrect."},{"text":"She having a doll.","correct":false,"explanation":"The verb form is incomplete."}]},
+  {"q":"He ___ two kites.","a":[{"text":"has","correct":true,"explanation":"Use has with he."},{"text":"have","correct":false,"explanation":"He takes has."},{"text":"having","correct":false,"explanation":"The sentence needs has."},{"text":"is have","correct":false,"explanation":"Is have is incorrect."}]},
+  {"q":"They ___ my friends.","a":[{"text":"are","correct":true,"explanation":"Use are with they."},{"text":"is","correct":false,"explanation":"Is is singular."},{"text":"am","correct":false,"explanation":"Am goes with I."},{"text":"be","correct":false,"explanation":"Be is not conjugated here."}]},
+  {"q":"I ___ a student.","a":[{"text":"am","correct":true,"explanation":"Use am with I."},{"text":"is","correct":false,"explanation":"Is goes with he/she/it."},{"text":"are","correct":false,"explanation":"Are goes with you/we/they."},{"text":"be","correct":false,"explanation":"Be is not conjugated here."}]},
+  {"q":"The books ___ new.","a":[{"text":"are","correct":true,"explanation":"Books is plural, so use are."},{"text":"is","correct":false,"explanation":"Is is singular."},{"text":"am","correct":false,"explanation":"Am goes with I."},{"text":"be","correct":false,"explanation":"Be is not conjugated here."}]},
+  {"q":"Which question asks about quantity?","a":[{"text":"How many books are there?","correct":true,"explanation":"How many asks about quantity."},{"text":"What is your name?","correct":false,"explanation":"This asks for a name."},{"text":"Where is the book?","correct":false,"explanation":"This asks about place."},{"text":"How are you?","correct":false,"explanation":"This asks about a feeling."}]},
+  {"q":"Which question asks about a place?","a":[{"text":"Where is the cat?","correct":true,"explanation":"Where asks about place."},{"text":"Who is she?","correct":false,"explanation":"Who asks about a person."},{"text":"What color is it?","correct":false,"explanation":"This asks about color."},{"text":"How old are you?","correct":false,"explanation":"This asks about age."}]},
+  {"q":"Which question asks about a person?","a":[{"text":"Who is that?","correct":true,"explanation":"Who asks about a person."},{"text":"Where is that?","correct":false,"explanation":"Where asks about place."},{"text":"What color is that?","correct":false,"explanation":"This asks about color."},{"text":"How many are there?","correct":false,"explanation":"This asks about quantity."}]},
+  {"q":"There are ___ months in a year.","a":[{"text":"twelve","correct":true,"explanation":"A year has twelve months."},{"text":"seven","correct":false,"explanation":"A week has seven days."},{"text":"ten","correct":false,"explanation":"A year has more than ten months."},{"text":"twenty","correct":false,"explanation":"Twenty is too many."}]},
+  {"q":"Which is good for your health?","a":[{"text":"Wash your hands.","correct":true,"explanation":"Washing hands helps keep you healthy."},{"text":"Eat lots of candy.","correct":false,"explanation":"Too much candy is not healthy."},{"text":"Never sleep.","correct":false,"explanation":"Sleep is important."},{"text":"Never drink water.","correct":false,"explanation":"Water is important."}]},
+  {"q":"When the traffic light is red, we ___.","a":[{"text":"stop","correct":true,"explanation":"Red means stop."},{"text":"go","correct":false,"explanation":"Green means go."},{"text":"run","correct":false,"explanation":"Do not run into traffic."},{"text":"dance","correct":false,"explanation":"Dance is unrelated."}]},
+  {"q":"Which one is safe?","a":[{"text":"Look both ways before crossing.","correct":true,"explanation":"Looking both ways helps you cross safely."},{"text":"Play in the road.","correct":false,"explanation":"Playing in the road is dangerous."},{"text":"Touch a hot pan.","correct":false,"explanation":"A hot pan can burn you."},{"text":"Run on wet floors.","correct":false,"explanation":"You may slip on wet floors."}]},
+  {"q":"A rainbow has many ___.","a":[{"text":"colors","correct":true,"explanation":"A rainbow has many colors."},{"text":"books","correct":false,"explanation":"Books are unrelated."},{"text":"chairs","correct":false,"explanation":"Chairs are unrelated."},{"text":"teachers","correct":false,"explanation":"Teachers are unrelated."}]},
+  {"q":"Which animal gives us wool?","a":[{"text":"sheep","correct":true,"explanation":"Sheep give us wool."},{"text":"duck","correct":false,"explanation":"Ducks have feathers."},{"text":"fish","correct":false,"explanation":"Fish have scales."},{"text":"monkey","correct":false,"explanation":"Monkeys do not give wool."}]},
+  {"q":"Plants need water and ___.","a":[{"text":"sunlight","correct":true,"explanation":"Plants need water and sunlight."},{"text":"pencils","correct":false,"explanation":"Pencils do not help plants grow."},{"text":"shoes","correct":false,"explanation":"Shoes do not help plants grow."},{"text":"toys","correct":false,"explanation":"Toys do not help plants grow."}]},
+  {"q":"Which part of the body helps you see?","a":[{"text":"eyes","correct":true,"explanation":"We see with our eyes."},{"text":"ears","correct":false,"explanation":"We hear with our ears."},{"text":"nose","correct":false,"explanation":"We smell with our nose."},{"text":"mouth","correct":false,"explanation":"We eat and speak with our mouth."}]},
+  {"q":"Which part of the body helps you hear?","a":[{"text":"ears","correct":true,"explanation":"We hear with our ears."},{"text":"eyes","correct":false,"explanation":"We see with our eyes."},{"text":"hands","correct":false,"explanation":"We touch with our hands."},{"text":"feet","correct":false,"explanation":"We walk with our feet."}]},
+  {"q":"I smell a flower with my ___.","a":[{"text":"nose","correct":true,"explanation":"We smell with our nose."},{"text":"eyes","correct":false,"explanation":"We see with our eyes."},{"text":"ears","correct":false,"explanation":"We hear with our ears."},{"text":"hands","correct":false,"explanation":"We touch with our hands."}]},
+  {"q":"Ten minus three is ___.","a":[{"text":"seven","correct":true,"explanation":"10 - 3 = 7."},{"text":"six","correct":false,"explanation":"10 - 3 is not 6."},{"text":"eight","correct":false,"explanation":"10 - 3 is not 8."},{"text":"thirteen","correct":false,"explanation":"Thirteen is 10 + 3."}]},
+  {"q":"Four plus four is ___.","a":[{"text":"eight","correct":true,"explanation":"4 + 4 = 8."},{"text":"six","correct":false,"explanation":"4 + 4 is not 6."},{"text":"seven","correct":false,"explanation":"4 + 4 is not 7."},{"text":"nine","correct":false,"explanation":"4 + 4 is not 9."}]},
+  {"q":"Which is smaller: 6 or 9?","a":[{"text":"six","correct":true,"explanation":"6 is smaller than 9."},{"text":"nine","correct":false,"explanation":"9 is bigger than 6."},{"text":"both","correct":false,"explanation":"The numbers are different."},{"text":"ten","correct":false,"explanation":"Ten is not one of the two numbers."}]},
+  {"q":"Complete the pattern: one, two, three, ___.","a":[{"text":"four","correct":true,"explanation":"Four follows three."},{"text":"five","correct":false,"explanation":"Five follows four."},{"text":"six","correct":false,"explanation":"Six comes later."},{"text":"zero","correct":false,"explanation":"Zero comes before one."}]},
+  {"q":"Which sentence is polite?","a":[{"text":"May I come in, please?","correct":true,"explanation":"Please makes the request polite."},{"text":"Give me that!","correct":false,"explanation":"This sounds impolite."},{"text":"Go away!","correct":false,"explanation":"This sounds rude."},{"text":"Be quiet, you!","correct":false,"explanation":"This is not a polite request."}]},
+  {"q":"I'm sorry. — ___.","a":[{"text":"That's OK.","correct":true,"explanation":"That's OK is a suitable response."},{"text":"Good morning.","correct":false,"explanation":"This is a greeting."},{"text":"I'm seven.","correct":false,"explanation":"This tells age."},{"text":"It's a cat.","correct":false,"explanation":"This identifies an animal."}]},
+  {"q":"Happy birthday! — ___.","a":[{"text":"Thank you!","correct":true,"explanation":"Thank you is the right response."},{"text":"Goodbye!","correct":false,"explanation":"Goodbye is a farewell."},{"text":"I'm sorry!","correct":false,"explanation":"I'm sorry is an apology."},{"text":"Sit down!","correct":false,"explanation":"Sit down is a command."}]},
+  {"q":"What do you say before sleeping?","a":[{"text":"Good night.","correct":true,"explanation":"We say Good night before sleeping."},{"text":"Good morning.","correct":false,"explanation":"We say this in the morning."},{"text":"Good afternoon.","correct":false,"explanation":"We say this after noon."},{"text":"Welcome.","correct":false,"explanation":"Welcome greets a guest."}]},
+  {"q":"Which is the correct spelling of \"ngày sinh nhật\"?","a":[{"text":"birthday","correct":true,"explanation":"Birthday is spelled correctly."},{"text":"birhtday","correct":false,"explanation":"The letters are in the wrong order."},{"text":"birtday","correct":false,"explanation":"The word is missing h."},{"text":"birthdey","correct":false,"explanation":"The last syllable is day."}]},
+  {"q":"Which is the correct spelling of \"phòng học\"?","a":[{"text":"classroom","correct":true,"explanation":"Classroom is spelled correctly."},{"text":"clasroom","correct":false,"explanation":"Classroom has double s."},{"text":"classrom","correct":false,"explanation":"Room has double o."},{"text":"clasrom","correct":false,"explanation":"Both double letters are missing."}]},
+  {"q":"Which is the correct spelling of \"xinh đẹp\"?","a":[{"text":"beautiful","correct":true,"explanation":"Beautiful is spelled correctly."},{"text":"beautifull","correct":false,"explanation":"Beautiful ends with one l."},{"text":"butiful","correct":false,"explanation":"Several letters are missing."},{"text":"beutifol","correct":false,"explanation":"The spelling is incorrect."}]},
+  {"q":"Choose the best title: cat, dog, rabbit, fish.","a":[{"text":"Animals","correct":true,"explanation":"All four words name animals."},{"text":"Colors","correct":false,"explanation":"They are not colors."},{"text":"School things","correct":false,"explanation":"They are not school things."},{"text":"Numbers","correct":false,"explanation":"They are not numbers."}]},
+  {"q":"Choose the best title: pen, ruler, book, eraser.","a":[{"text":"School things","correct":true,"explanation":"All four are school things."},{"text":"Animals","correct":false,"explanation":"They are not animals."},{"text":"Food","correct":false,"explanation":"They are not food."},{"text":"Family","correct":false,"explanation":"They are not family members."}]},
+  {"q":"Choose the best title: red, yellow, green, blue.","a":[{"text":"Colors","correct":true,"explanation":"All four are colors."},{"text":"Toys","correct":false,"explanation":"They are not toys."},{"text":"Rooms","correct":false,"explanation":"They are not rooms."},{"text":"Jobs","correct":false,"explanation":"They are not jobs."}]},
+  {"q":"Read: \"Lan has a red ball.\" What color is the ball?","a":[{"text":"red","correct":true,"explanation":"The sentence says a red ball."},{"text":"blue","correct":false,"explanation":"Blue is not stated."},{"text":"green","correct":false,"explanation":"Green is not stated."},{"text":"yellow","correct":false,"explanation":"Yellow is not stated."}]},
+  {"q":"Read: \"Tom has two cats.\" How many cats does Tom have?","a":[{"text":"two","correct":true,"explanation":"The sentence says two cats."},{"text":"one","correct":false,"explanation":"Tom has more than one."},{"text":"three","correct":false,"explanation":"Three is not stated."},{"text":"four","correct":false,"explanation":"Four is not stated."}]},
+  {"q":"Read: \"Mai can sing but she can't swim.\" What can Mai do?","a":[{"text":"sing","correct":true,"explanation":"The sentence says Mai can sing."},{"text":"swim","correct":false,"explanation":"The sentence says she can't swim."},{"text":"fly","correct":false,"explanation":"Fly is not stated."},{"text":"ride a horse","correct":false,"explanation":"This is not stated."}]},
+  {"q":"Read: \"The book is under the chair.\" Where is the book?","a":[{"text":"under the chair","correct":true,"explanation":"The sentence gives this position."},{"text":"on the chair","correct":false,"explanation":"On is not stated."},{"text":"in the bag","correct":false,"explanation":"The bag is not mentioned."},{"text":"next to the table","correct":false,"explanation":"This is not stated."}]},
+  {"q":"Read: \"It is rainy today.\" What is the weather like?","a":[{"text":"rainy","correct":true,"explanation":"The sentence says it is rainy."},{"text":"sunny","correct":false,"explanation":"Sunny is not stated."},{"text":"snowy","correct":false,"explanation":"Snowy is not stated."},{"text":"hot","correct":false,"explanation":"Hot is not stated."}]},
+  {"q":"Read: \"Nam goes to school by bike.\" How does Nam go to school?","a":[{"text":"by bike","correct":true,"explanation":"The sentence says by bike."},{"text":"by bus","correct":false,"explanation":"Bus is not stated."},{"text":"on foot","correct":false,"explanation":"Walking is not stated."},{"text":"by car","correct":false,"explanation":"Car is not stated."}]},
+  {"q":"Read: \"My mother is a doctor.\" What is her job?","a":[{"text":"doctor","correct":true,"explanation":"The sentence says she is a doctor."},{"text":"teacher","correct":false,"explanation":"Teacher is not stated."},{"text":"farmer","correct":false,"explanation":"Farmer is not stated."},{"text":"student","correct":false,"explanation":"Student is not stated."}]},
+  {"q":"Read: \"There are five ducks on the farm.\" Where are the ducks?","a":[{"text":"on the farm","correct":true,"explanation":"The sentence says on the farm."},{"text":"in the classroom","correct":false,"explanation":"The classroom is not mentioned."},{"text":"under the bed","correct":false,"explanation":"The bed is not mentioned."},{"text":"at the hospital","correct":false,"explanation":"The hospital is not mentioned."}]},
+  {"q":"Read: \"Anna likes apples and bananas.\" Which fruit does Anna like?","a":[{"text":"apples and bananas","correct":true,"explanation":"Both fruits are stated."},{"text":"oranges only","correct":false,"explanation":"Oranges are not stated."},{"text":"mangoes only","correct":false,"explanation":"Mangoes are not stated."},{"text":"grapes only","correct":false,"explanation":"Grapes are not stated."}]},
+  {"q":"Read: \"This is Ben. He is eight years old.\" How old is Ben?","a":[{"text":"eight","correct":true,"explanation":"The sentence says eight years old."},{"text":"seven","correct":false,"explanation":"Seven is not stated."},{"text":"nine","correct":false,"explanation":"Nine is not stated."},{"text":"ten","correct":false,"explanation":"Ten is not stated."}]}
 ];
 
         const DASHBOARD_THEME_KEY = 'dec_dashboard_theme_v1';
@@ -4070,6 +4281,9 @@ const fullQuestionBank = [
         // --- CONFIG & STATE ---
         const TOTAL_QUESTIONS = 20;
         const PASSING_RATE = 0.8;
+        const DYNAMIC_PROGRESS_THRESHOLD = 30;
+        const DESKTOP_PROGRESS_RADIUS = 10;
+        const COMPACT_PROGRESS_RADIUS = 4;
         let isSubmitConfirming = false;
         let quizState = {
             questions: [], // The __TOTAL_QUESTIONS__ selected questions
@@ -4326,33 +4540,76 @@ const fullQuestionBank = [
         function renderProgress() {
             const container = document.getElementById('progress-area');
             const questionCount = getQuestionCount();
+            if (!container) return;
 
-            if (container) {
-                if (questionCount > 30) {
-                    container.classList.add('wrap-mode');
-                } else {
-                    container.classList.remove('wrap-mode');
-                }
-            }
+            const dynamicMode = questionCount > DYNAMIC_PROGRESS_THRESHOLD;
+            const radius = window.matchMedia('(max-width: 640px)').matches
+                ? COMPACT_PROGRESS_RADIUS
+                : DESKTOP_PROGRESS_RADIUS;
+            const visibleCount = dynamicMode
+                ? Math.min(questionCount, radius * 2 + 1)
+                : questionCount;
+            let startIndex = dynamicMode
+                ? Math.max(0, quizState.currentIndex - radius)
+                : 0;
+            let endIndex = Math.min(questionCount, startIndex + visibleCount);
+            startIndex = Math.max(0, endIndex - visibleCount);
+
+            container.classList.toggle('dynamic-mode', dynamicMode);
+            container.dataset.windowStart = String(startIndex);
+            container.dataset.windowEnd = String(endIndex);
 
             let html = '';
-            for (let i = 0; i < questionCount; i++) {
-                html += `<button id="dot-${i}" class="progress-dot" data-nav-index="${i}" type="button" aria-label="Câu ${i + 1}">${i + 1}</button>`;
+            for (let i = startIndex; i < endIndex; i++) {
+                const label = dynamicMode && i === quizState.currentIndex
+                    ? `${i + 1} / ${questionCount}`
+                    : i + 1;
+                html += `<button id="dot-${i}" class="progress-dot" data-nav-index="${i}" type="button" aria-label="Câu ${i + 1} trên ${questionCount}">${label}</button>`;
             }
+            const bankCount = Array.isArray(fullQuestionBank) ? fullQuestionBank.length : 0;
+            html += `<button class="progress-bank-count" type="button" disabled aria-label="Ngân hàng có ${bankCount} câu hỏi">/${bankCount}</button>`;
             container.innerHTML = html;
             updateProgressUI();
         }
 
         function updateProgressUI() {
+            const container = document.getElementById('progress-area');
             const questionCount = getQuestionCount();
-            for (let i = 0; i < questionCount; i++) {
-                const dot = document.getElementById(`dot-${i}`);
-                if (!dot) continue;
+            if (!container) return;
+
+            const dynamicMode = questionCount > DYNAMIC_PROGRESS_THRESHOLD;
+            const radius = window.matchMedia('(max-width: 640px)').matches
+                ? COMPACT_PROGRESS_RADIUS
+                : DESKTOP_PROGRESS_RADIUS;
+            const visibleCount = dynamicMode
+                ? Math.min(questionCount, radius * 2 + 1)
+                : questionCount;
+            let expectedStart = dynamicMode
+                ? Math.max(0, quizState.currentIndex - radius)
+                : 0;
+            let expectedEnd = Math.min(questionCount, expectedStart + visibleCount);
+            expectedStart = Math.max(0, expectedEnd - visibleCount);
+
+            if (
+                Number(container.dataset.windowStart) !== expectedStart ||
+                Number(container.dataset.windowEnd) !== expectedEnd ||
+                container.classList.contains('dynamic-mode') !== dynamicMode
+            ) {
+                renderProgress();
+                return;
+            }
+
+            container.querySelectorAll('.progress-dot').forEach((dot) => {
+                const i = Number(dot.dataset.navIndex);
+                if (!Number.isInteger(i)) return;
 
                 // Reset classes
                 dot.className = 'progress-dot';
                 dot.removeAttribute('aria-current');
                 dot.title = `Câu ${i + 1}`;
+                dot.textContent = dynamicMode && i === quizState.currentIndex
+                    ? `${i + 1} / ${questionCount}`
+                    : String(i + 1);
 
                 // Current status
                 if (i === quizState.currentIndex) {
@@ -4371,7 +4628,7 @@ const fullQuestionBank = [
                         dot.title = `Câu ${i + 1}: sai`;
                     }
                 }
-            }
+            });
         }
 
         function getUnansweredIndexes() {
@@ -4599,20 +4856,20 @@ const fullQuestionBank = [
         function applyFocusMode(enabled, options = {}) {
             const isEnabled = Boolean(enabled);
             document.body.classList.toggle('focus-mode', isEnabled);
-
+            
             const container = document.querySelector('.container');
             if (!isEnabled) {
                 if (container) container.style.height = '';
                 qFocusZoomScale = 1.0;
                 applyFocusZoomScale(1.0);
             }
-
+            
             syncFocusModeButton();
-
+            
             if (isEnabled) {
                 scheduleFocusFit();
             }
-
+            
             if (options.syncFullscreen !== false) {
                 syncFocusFullscreen(isEnabled);
             }
@@ -4622,10 +4879,10 @@ const fullQuestionBank = [
             const btn = document.getElementById('btnFocusMode');
             if (!btn) return;
             const isFocus = document.body.classList.contains('focus-mode');
-
+            
             const headerMeta = document.querySelector('.header-meta');
             const focusProgressRow = document.getElementById('focus-progress-row');
-
+            
             if (isFocus) {
                 if (focusProgressRow && btn.parentElement !== focusProgressRow) {
                     focusProgressRow.appendChild(btn);
@@ -4635,7 +4892,7 @@ const fullQuestionBank = [
                     headerMeta.insertBefore(btn, headerMeta.firstChild);
                 }
             }
-
+            
             btn.setAttribute('aria-pressed', isFocus ? 'true' : 'false');
             if (isFocus) {
                 btn.innerHTML = `<i class="fa-solid fa-compress" aria-hidden="true"></i>Exit (F)`;
@@ -4731,6 +4988,7 @@ const fullQuestionBank = [
             // Listen for window resize to refit zoom in both focus and normal mode
             window.addEventListener('resize', () => {
                 scheduleFocusFit();
+                renderProgress();
             });
         });
 

@@ -829,15 +829,16 @@ html,body,button,input,select,textarea{font-family:var(--dec-font-family-offline
             min-width: 0;
         }
 
-        .progress-container.wrap-mode {
-            flex-wrap: wrap !important;
-            height: auto !important;
+        .progress-container.dynamic-mode {
+            flex-wrap: nowrap;
+            height: var(--adaptive-progress-height);
+            overflow: hidden;
         }
 
-        .progress-container.wrap-mode .progress-dot {
-            flex: 0 0 calc((100% - (29 * var(--adaptive-progress-gap))) / 30) !important;
-            box-sizing: border-box !important;
-            max-width: none !important;
+        .progress-container.dynamic-mode .progress-dot.current {
+            flex-grow: 2.25;
+            min-width: 4.5rem;
+            max-width: none;
         }
 
         .progress-dot {
@@ -884,6 +885,30 @@ html,body,button,input,select,textarea{font-family:var(--dec-font-family-offline
 
         .progress-dot:hover:not(.current) {
             background-color: var(--progress-hover-bg) !important;
+        }
+
+        .progress-bank-count {
+            appearance: none;
+            flex: 0 0 auto;
+            min-width: 36px;
+            height: 100%;
+            padding: 0 8px;
+            border: var(--adaptive-progress-border-width) solid var(--border-main);
+            border-radius: var(--adaptive-progress-segment-radius);
+            color: var(--muted-text);
+            background: var(--adaptive-progress-empty-bg);
+            font: inherit;
+            font-size: 0.72rem;
+            font-weight: var(--progress-dot-font-weight);
+            line-height: 1;
+            white-space: nowrap;
+            opacity: 1;
+        }
+
+        @media (max-width: 640px) {
+            .progress-container.dynamic-mode .progress-dot.current {
+                min-width: 4rem;
+            }
         }
 
         /* RESULTS */
@@ -1240,6 +1265,11 @@ html,body,button,input,select,textarea{font-family:var(--dec-font-family-offline
             color: var(--muted-text);
         }
 
+        body[data-theme="elegant"] .progress-bank-count {
+            background: var(--option-bg);
+            color: var(--muted-text);
+        }
+
         body[data-theme="elegant"] .progress-dot.current,
         body[data-theme="elegant"] .progress-dot.current.correct,
         body[data-theme="elegant"] .progress-dot.current.wrong {
@@ -1493,6 +1523,12 @@ html,body,button,input,select,textarea{font-family:var(--dec-font-family-offline
         body.focus-mode .progress-dot {
             max-width: none !important;
             border-radius: var(--adaptive-progress-segment-radius) !important;
+            background: var(--adaptive-progress-empty-bg) !important;
+            border-color: var(--border-main) !important;
+            color: var(--adaptive-progress-empty-text) !important;
+        }
+
+        body.focus-mode .progress-bank-count {
             background: var(--adaptive-progress-empty-bg) !important;
             border-color: var(--border-main) !important;
             color: var(--adaptive-progress-empty-text) !important;
@@ -5595,6 +5631,9 @@ const fullQuestionBank = [
         // --- CONFIG & STATE ---
         const TOTAL_QUESTIONS = 20;
         const PASSING_RATE = 0.8;
+        const DYNAMIC_PROGRESS_THRESHOLD = 30;
+        const DESKTOP_PROGRESS_RADIUS = 10;
+        const COMPACT_PROGRESS_RADIUS = 4;
         let isSubmitConfirming = false;
         let quizState = {
             questions: [], // The __TOTAL_QUESTIONS__ selected questions
@@ -5851,33 +5890,76 @@ const fullQuestionBank = [
         function renderProgress() {
             const container = document.getElementById('progress-area');
             const questionCount = getQuestionCount();
+            if (!container) return;
 
-            if (container) {
-                if (questionCount > 30) {
-                    container.classList.add('wrap-mode');
-                } else {
-                    container.classList.remove('wrap-mode');
-                }
-            }
+            const dynamicMode = questionCount > DYNAMIC_PROGRESS_THRESHOLD;
+            const radius = window.matchMedia('(max-width: 640px)').matches
+                ? COMPACT_PROGRESS_RADIUS
+                : DESKTOP_PROGRESS_RADIUS;
+            const visibleCount = dynamicMode
+                ? Math.min(questionCount, radius * 2 + 1)
+                : questionCount;
+            let startIndex = dynamicMode
+                ? Math.max(0, quizState.currentIndex - radius)
+                : 0;
+            let endIndex = Math.min(questionCount, startIndex + visibleCount);
+            startIndex = Math.max(0, endIndex - visibleCount);
+
+            container.classList.toggle('dynamic-mode', dynamicMode);
+            container.dataset.windowStart = String(startIndex);
+            container.dataset.windowEnd = String(endIndex);
 
             let html = '';
-            for (let i = 0; i < questionCount; i++) {
-                html += `<button id="dot-${i}" class="progress-dot" data-nav-index="${i}" type="button" aria-label="Câu ${i + 1}">${i + 1}</button>`;
+            for (let i = startIndex; i < endIndex; i++) {
+                const label = dynamicMode && i === quizState.currentIndex
+                    ? `${i + 1} / ${questionCount}`
+                    : i + 1;
+                html += `<button id="dot-${i}" class="progress-dot" data-nav-index="${i}" type="button" aria-label="Câu ${i + 1} trên ${questionCount}">${label}</button>`;
             }
+            const bankCount = Array.isArray(fullQuestionBank) ? fullQuestionBank.length : 0;
+            html += `<button class="progress-bank-count" type="button" disabled aria-label="Ngân hàng có ${bankCount} câu hỏi">/${bankCount}</button>`;
             container.innerHTML = html;
             updateProgressUI();
         }
 
         function updateProgressUI() {
+            const container = document.getElementById('progress-area');
             const questionCount = getQuestionCount();
-            for (let i = 0; i < questionCount; i++) {
-                const dot = document.getElementById(`dot-${i}`);
-                if (!dot) continue;
+            if (!container) return;
+
+            const dynamicMode = questionCount > DYNAMIC_PROGRESS_THRESHOLD;
+            const radius = window.matchMedia('(max-width: 640px)').matches
+                ? COMPACT_PROGRESS_RADIUS
+                : DESKTOP_PROGRESS_RADIUS;
+            const visibleCount = dynamicMode
+                ? Math.min(questionCount, radius * 2 + 1)
+                : questionCount;
+            let expectedStart = dynamicMode
+                ? Math.max(0, quizState.currentIndex - radius)
+                : 0;
+            let expectedEnd = Math.min(questionCount, expectedStart + visibleCount);
+            expectedStart = Math.max(0, expectedEnd - visibleCount);
+
+            if (
+                Number(container.dataset.windowStart) !== expectedStart ||
+                Number(container.dataset.windowEnd) !== expectedEnd ||
+                container.classList.contains('dynamic-mode') !== dynamicMode
+            ) {
+                renderProgress();
+                return;
+            }
+
+            container.querySelectorAll('.progress-dot').forEach((dot) => {
+                const i = Number(dot.dataset.navIndex);
+                if (!Number.isInteger(i)) return;
 
                 // Reset classes
                 dot.className = 'progress-dot';
                 dot.removeAttribute('aria-current');
                 dot.title = `Câu ${i + 1}`;
+                dot.textContent = dynamicMode && i === quizState.currentIndex
+                    ? `${i + 1} / ${questionCount}`
+                    : String(i + 1);
 
                 // Current status
                 if (i === quizState.currentIndex) {
@@ -5896,7 +5978,7 @@ const fullQuestionBank = [
                         dot.title = `Câu ${i + 1}: sai`;
                     }
                 }
-            }
+            });
         }
 
         function getUnansweredIndexes() {
@@ -6256,6 +6338,7 @@ const fullQuestionBank = [
             // Listen for window resize to refit zoom in both focus and normal mode
             window.addEventListener('resize', () => {
                 scheduleFocusFit();
+                renderProgress();
             });
         });
 
