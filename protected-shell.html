@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>DEC Online</title>
+  <style>
+    :root { color-scheme: light; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; color: #17324d; background: #edf6ff; }
+    body { margin: 0; min-height: 100vh; background: linear-gradient(135deg, #edf6ff, #fff7ef); }
+    main { width: min(1120px, calc(100% - 32px)); margin: 0 auto; padding: 42px 0 72px; }
+    .panel { background: rgba(255,255,255,.92); border: 1px solid #d8e5f3; border-radius: 22px; box-shadow: 0 18px 60px rgba(55,91,125,.12); padding: 28px; }
+    h1 { margin: 0 0 8px; font-size: clamp(28px, 5vw, 44px); }
+    h2 { margin-top: 0; }
+    .muted { color: #60788e; }
+    button, select { border: 1px solid #bfd3e7; border-radius: 10px; padding: 11px 15px; background: #fff; color: #17324d; font: inherit; cursor: pointer; }
+    button.primary { color: #fff; border-color: #156f9f; background: #156f9f; }
+    button.danger { color: #9c2d3d; border-color: #efb6bf; }
+    button:disabled { opacity: .55; cursor: not-allowed; }
+    .topbar, .actions { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .hidden { display: none !important; }
+    .error { margin-top: 16px; padding: 12px 14px; border-radius: 10px; background: #fff0f1; color: #a52f3d; }
+    .student-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-top: 18px; }
+    .student-card { text-align: left; min-height: 90px; }
+    .student-card strong { display: block; margin-bottom: 6px; }
+    .catalog { display: grid; gap: 10px; margin-top: 20px; }
+    .lesson { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 16px; border: 1px solid #d8e5f3; border-radius: 13px; background: #fbfdff; }
+    .lesson a { color: #156f9f; font-weight: 700; text-decoration: none; }
+    .lesson small { display: block; color: #71879a; margin-top: 4px; }
+    .status { white-space: nowrap; color: #60788e; font-size: 14px; }
+    @media (max-width: 640px) { main { width: min(100% - 20px, 1120px); padding-top: 20px; } .panel { padding: 20px; } .lesson { align-items: flex-start; flex-direction: column; } }
+  </style>
+</head>
+<body>
+  <main>
+    <section id="login-panel" class="panel">
+      <h1>DEC Online</h1>
+      <p class="muted">Đăng nhập bằng tài khoản Google đã được giáo viên cấp quyền.</p>
+      <button id="login-button" class="primary" type="button">Đăng nhập bằng Google</button>
+      <div id="login-error" class="error hidden"></div>
+    </section>
+
+    <section id="student-panel" class="panel hidden">
+      <div class="topbar"><div><h2>Chọn học sinh</h2><p id="account-label" class="muted"></p></div><button id="logout-button" class="danger" type="button">Đăng xuất</button></div>
+      <div id="student-list" class="student-list"></div>
+      <div id="student-error" class="error hidden"></div>
+    </section>
+
+    <section id="catalog-panel" class="panel hidden">
+      <div class="topbar"><div><h2>Kho bài DEC</h2><p id="student-label" class="muted"></p></div><div class="actions"><button id="change-student" type="button">Đổi học sinh</button><button id="catalog-logout" class="danger" type="button">Đăng xuất</button></div></div>
+      <div id="catalog" class="catalog"></div>
+      <div id="catalog-error" class="error hidden"></div>
+    </section>
+  </main>
+  <script>
+    const $ = (id) => document.getElementById(id);
+    const state = { me: null, selected: null };
+    const show = (id, visible) => $(id).classList.toggle('hidden', !visible);
+    const error = (id, message) => { $(id).textContent = message || ''; show(id, Boolean(message)); };
+    async function jsonFetch(url, options = {}) {
+      const response = await fetch(url, { credentials: 'same-origin', ...options });
+      let body = null; try { body = await response.json(); } catch (_) {}
+      if (!response.ok) { const e = new Error(body?.error || `HTTP ${response.status}`); e.status = response.status; throw e; }
+      return body;
+    }
+    function renderStudents() {
+      const list = $('student-list'); list.replaceChildren();
+      for (const student of state.me.students) {
+        const button = document.createElement('button'); button.className = 'student-card'; button.type = 'button';
+        button.innerHTML = `<strong></strong><span class="muted">${student.student_id}</span>`;
+        button.querySelector('strong').textContent = student.display_name;
+        button.onclick = () => selectStudent(student.student_id);
+        list.appendChild(button);
+      }
+    }
+    async function selectStudent(studentId) {
+      error('student-error', '');
+      try { await jsonFetch('/api/auth/select-student', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ student_id: studentId }) }); state.selected = studentId; await loadCatalog(); }
+      catch (e) { error('student-error', 'Không chọn được học sinh. Vui lòng thử lại.'); }
+    }
+    async function loadCatalog() {
+      show('student-panel', false); show('catalog-panel', true); error('catalog-error', '');
+      const student = state.me.students.find((item) => item.student_id === state.selected) || state.me.students[0];
+      $('student-label').textContent = `${student.display_name} · ${student.student_id}`;
+      const catalog = $('catalog'); catalog.replaceChildren();
+      try {
+        const data = await jsonFetch('/api/catalog');
+        for (const entry of data.entries || []) {
+          const row = document.createElement('div'); row.className = 'lesson';
+          const info = document.createElement('div'); const link = document.createElement('a'); link.href = entry.public_path; link.textContent = entry.title; link.target = '_blank';
+          const path = document.createElement('small'); path.textContent = entry.type === 'quiz' ? 'Quiz' : 'Tự ôn/luyện tập'; info.append(link, path);
+          const status = document.createElement('span'); status.className = 'status'; const result = entry.result;
+          status.textContent = entry.type === 'quiz' ? (result?.completed ? `Đã làm · ${result.score}/${result.max_score} (${result.percent}%)` : 'Chưa làm') : 'Mở bài';
+          row.append(info, status); catalog.appendChild(row);
+        }
+        if (!catalog.children.length) catalog.innerHTML = '<p class="muted">Chưa có bài được cấp quyền.</p>';
+      } catch (e) { error('catalog-error', e.status === 409 ? 'Hãy chọn học sinh trước.' : 'Không tải được danh sách bài. Vui lòng thử lại.'); }
+    }
+    async function boot() {
+      try {
+        const me = await jsonFetch('/api/auth/me'); state.me = me;
+        $('account-label').textContent = me.email;
+        if (me.students.length === 1) { state.selected = me.students[0].student_id; await loadCatalog(); }
+        else { renderStudents(); show('login-panel', false); show('student-panel', true); }
+      } catch (_) { show('login-panel', true); }
+    }
+    function logout() { window.location.href = '/api/auth/logout'; }
+    $('login-button').onclick = () => { window.location.href = '/api/auth/start'; };
+    $('logout-button').onclick = logout; $('catalog-logout').onclick = logout;
+    $('change-student').onclick = () => { renderStudents(); show('catalog-panel', false); show('student-panel', true); };
+    boot();
+  </script>
+</body>
+</html>

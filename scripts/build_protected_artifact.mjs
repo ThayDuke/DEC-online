@@ -36,9 +36,11 @@ function encrypt(plaintext) {
 await rm(output, { recursive: true, force: true });
 await mkdir(output, { recursive: true });
 
-// The shell is intentionally copied as a normal public asset. Lesson HTML is
-// encrypted below and must only be returned through the Pages Function route.
-await writeFile(join(output, 'index.html'), await readFile(join(root, 'index.html')));
+// The protected shell is public; lesson HTML is encrypted below and must only
+// be returned through the Pages Function route. Keep index.html as a fallback
+// source until the protected deployment is promoted.
+const shell = join(root, 'protected-shell.html');
+await writeFile(join(output, 'index.html'), await readFile(shell));
 try {
   const manifest = await readFile(join(root, 'manifest', 'lesson-manifest.json'));
   await mkdir(join(output, 'manifest'), { recursive: true });
