@@ -1,9 +1,4 @@
-function base64UrlToBytes(value) {
-  const normalized = value.replace(/-/g, '+').replace(/_/g, '/');
-  const padded = normalized + '='.repeat((4 - (normalized.length % 4)) % 4);
-  const binary = atob(padded);
-  return Uint8Array.from(binary, (char) => char.charCodeAt(0));
-}
+import { backendCall, base64UrlToBytes, cookieValue, verifySession } from '../_shared/auth.js';
 
 async function decryptEnvelope(envelope, keyBytes) {
   if (!envelope || envelope.v !== 1 || envelope.alg !== 'AES-256-GCM') {
@@ -86,4 +81,3 @@ export async function onRequest(context) {
     return new Response('Protected lesson is unavailable.', { status: 503 });
   }
 }
-import { backendCall, base64UrlToBytes, cookieValue, verifySession } from '../_shared/auth.js';
