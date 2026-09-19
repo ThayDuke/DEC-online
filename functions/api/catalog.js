@@ -1,6 +1,17 @@
 import { backendCall, cookieValue, verifySession } from '../_shared/auth.js';
 
 export async function onRequestGet(context) {
+  try {
+    return await catalogRequest_(context);
+  } catch (error) {
+    return Response.json({
+      error: 'catalog_worker_exception',
+      message: String(error?.message || error || 'unknown_error'),
+    }, { status: 500 });
+  }
+}
+
+async function catalogRequest_(context) {
   const session = await verifySession(cookieValue(context.request, 'DEC_SESSION'), context.env.SESSION_SIGNING_SECRET);
   if (!session) return Response.json({ error: 'unauthorized' }, { status: 401 });
   const selected = session.selected_student_id || (session.students.length === 1 ? session.students[0].student_id : '');
