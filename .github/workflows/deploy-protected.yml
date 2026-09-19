@@ -1,0 +1,49 @@
+name: Deploy protected DEC-online
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: dec-online-production
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout private DEC-online source
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Build encrypted Pages artifact
+        env:
+          DEC_CONTENT_KEY_B64: ${{ secrets.DEC_CONTENT_KEY_B64 }}
+        run: node scripts/build_protected_artifact.mjs . dist
+
+      - name: Verify no plaintext HTML in deploy artifact
+        shell: bash
+        run: |
+          if find dist/CONTENT -type f -name '*.html' -print -quit | grep -q .; then
+            echo 'Plaintext HTML must not be deployed.' >&2
+            exit 1
+          fi
+          test -s dist/BUILD_CONTENT_SHA256
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: ${{ secrets.CLOUDFLARE_PAGES_PROJECT }}
+          directory: dist
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
