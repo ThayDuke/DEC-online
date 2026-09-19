@@ -1,4 +1,4 @@
-import { cookieValue, verifySession } from '../../../_shared/auth.js';
+import { cookieValue, verifySession } from '../../_shared/auth.js';
 
 export async function onRequestGet(context) {
   const session = await verifySession(cookieValue(context.request, 'DEC_SESSION'), context.env.SESSION_SIGNING_SECRET);

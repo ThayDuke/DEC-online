@@ -1,4 +1,4 @@
-import { backendCall, cookieValue, exchangeGoogleCode, sessionCookie, signSession } from '../../../_shared/auth.js';
+import { backendCall, cookieValue, exchangeGoogleCode, sessionCookie, signSession } from '../../_shared/auth.js';
 
 export async function onRequestGet(context) {
   const url = new URL(context.request.url);

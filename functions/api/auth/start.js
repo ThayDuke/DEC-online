@@ -1,4 +1,4 @@
-import { randomToken } from '../../../_shared/auth.js';
+import { randomToken } from '../../_shared/auth.js';
 
 export async function onRequestGet(context) {
   if (!context.env.GOOGLE_CLIENT_ID) return new Response('Google OAuth is not configured.', { status: 503 });
