@@ -11,15 +11,15 @@ export async function onRequestGet(context) {
   let permissions;
   let results;
   try {
+    const combined = await backendCall(context.env, 'catalog', { student_ids: [selected] });
+    permissions = combined.permissions || {};
+    results = combined.results || {};
+  } catch (_combinedError) {
+    // Compatibility with an older Apps Script deployment while it is being updated.
     [permissions, results] = await Promise.all([
       backendCall(context.env, 'permissions', { student_ids: [selected] }),
       backendCall(context.env, 'results', { student_ids: [selected] }),
     ]);
-  } catch (_parallelError) {
-    // Apps Script Web Apps can reject concurrent executions during cold start.
-    // Retry sequentially so a transient concurrency failure does not blank the catalog.
-    permissions = await backendCall(context.env, 'permissions', { student_ids: [selected] });
-    results = await backendCall(context.env, 'results', { student_ids: [selected] });
   }
   const tags = new Set((permissions[selected] || []).map((tag) => String(tag).toLowerCase()));
   const entries = (manifest.entries || [])

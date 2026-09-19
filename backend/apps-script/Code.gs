@@ -22,6 +22,7 @@ function doPost(event) {
     if (action === 'resolve_account') result = resolveAccount_(payload.email);
     else if (action === 'permissions') result = permissions_(payload.student_ids);
     else if (action === 'results') result = results_(payload.student_ids);
+    else if (action === 'catalog') result = catalog_(payload.student_ids);
     else if (action === 'upsert_result') result = upsertResult_(payload.result);
     else throw new Error('unsupported_action');
     return json_({ ok: true, result });
@@ -148,6 +149,13 @@ function results_(studentIds) {
     };
   });
   return output;
+}
+
+function catalog_(studentIds) {
+  return {
+    permissions: permissions_(studentIds),
+    results: results_(studentIds),
+  };
 }
 
 function json_(body) {
