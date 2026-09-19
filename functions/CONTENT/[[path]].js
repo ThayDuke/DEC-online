@@ -49,8 +49,13 @@ export async function onRequest(context) {
   const selectedStudentId = session.selected_student_id || (session.students.length === 1 ? session.students[0].student_id : '');
   if (!selectedStudentId) return new Response('Select a student first.', { status: 409 });
 
-  const pathSegments = Array.isArray(context.params.path) ? context.params.path : [context.params.path || ''];
-  const sourcePath = `/CONTENT/${pathSegments.join('/')}`;
+  const requestPath = new URL(context.request.url).pathname;
+  let sourcePath;
+  try {
+    sourcePath = decodeURIComponent(requestPath);
+  } catch (_error) {
+    return new Response('Not found', { status: 404 });
+  }
   if (sourcePath.includes('..') || sourcePath.includes('\\')) return new Response('Not found', { status: 404 });
   const manifestResponse = await context.env.ASSETS.fetch(new Request(new URL('/manifest/lesson-manifest.json', context.request.url)));
   if (!manifestResponse.ok) return new Response('Protected lesson service is not configured.', { status: 503 });
