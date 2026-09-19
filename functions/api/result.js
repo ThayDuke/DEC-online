@@ -1,4 +1,4 @@
-import { backendCall, cookieValue, verifySession } from '../../_shared/auth.js';
+import { backendCall, cookieValue, verifySession } from '../_shared/auth.js';
 
 export async function onRequestPost(context) {
   const session = await verifySession(cookieValue(context.request, 'DEC_SESSION'), context.env.SESSION_SIGNING_SECRET);
