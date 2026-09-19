@@ -14,10 +14,18 @@ export async function onRequestGet(context) {
     const combined = await backendCall(context.env, 'catalog', { student_ids: [selected] });
     permissions = combined.permissions || {};
     results = combined.results || {};
-  } catch (_combinedError) {
+  } catch (combinedError) {
     // Compatibility with an older Apps Script deployment while it is being updated.
-    permissions = await backendCall(context.env, 'permissions', { student_ids: [selected] });
-    results = await backendCall(context.env, 'results', { student_ids: [selected] });
+    try {
+      permissions = await backendCall(context.env, 'permissions', { student_ids: [selected] });
+      results = await backendCall(context.env, 'results', { student_ids: [selected] });
+    } catch (fallbackError) {
+      return Response.json({
+        error: 'catalog_backend_failed',
+        combined: String(combinedError?.message || 'request_failed'),
+        fallback: String(fallbackError?.message || 'request_failed'),
+      }, { status: 502 });
+    }
   }
   const tags = new Set((permissions[selected] || []).map((tag) => String(tag).toLowerCase()));
   const entries = (manifest.entries || [])
