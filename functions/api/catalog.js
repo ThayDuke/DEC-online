@@ -8,11 +8,13 @@ export async function onRequestGet(context) {
   const manifestResponse = await context.env.ASSETS.fetch(new Request(new URL('/manifest/lesson-manifest.json', context.request.url)));
   if (!manifestResponse.ok) return Response.json({ error: 'manifest_unavailable' }, { status: 503 });
   const manifest = await manifestResponse.json();
-  const permissions = await backendCall(context.env, 'permissions', { student_ids: [selected] });
-  const results = await backendCall(context.env, 'results', { student_ids: [selected] });
+  const [permissions, results] = await Promise.all([
+    backendCall(context.env, 'permissions', { student_ids: [selected] }),
+    backendCall(context.env, 'results', { student_ids: [selected] }),
+  ]);
   const tags = new Set((permissions[selected] || []).map((tag) => String(tag).toLowerCase()));
   const entries = (manifest.entries || [])
     .filter((entry) => entry.active !== false && (entry.tags || []).some((tag) => tags.has(String(tag).toLowerCase())))
     .map((entry) => ({ ...entry, result: results[selected]?.[entry.id] || null }));
-  return Response.json({ student_id: selected, entries }, { headers: { 'Cache-Control': 'private, no-store' } });
+  return Response.json({ student_id: selected, entries }, { headers: { 'Cache-Control': 'private, max-age=60, stale-while-revalidate=300' } });
 }

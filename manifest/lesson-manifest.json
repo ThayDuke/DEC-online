@@ -2,8 +2,8 @@
   "schema_version": "dec-online-manifest-v1",
   "generated_by": "APP/dev/scripts/build_online_manifest.py",
   "summary": {
-    "total": 551,
-    "quiz": 154,
+    "total": 567,
+    "quiz": 170,
     "practice": 397
   },
   "entries": [
@@ -6618,6 +6618,214 @@
       ],
       "content_sha256": "CF88AC8C8310580E78F35693ACA91032031249DCA4CE9F3074E525E921D937E7",
       "active": true
+    },
+    {
+      "id": "QUIZ-IOE-LOP-2-TU-VUNG-53D2A0AE3C",
+      "type": "quiz",
+      "source_path": "P/4. ÔN LUYỆN/IOE/Lớp 2/IOE lớp 2 - Từ vựng.html",
+      "public_path": "/CONTENT/levels/P/4. ÔN LUYỆN/IOE/Lớp 2/IOE lớp 2 - Từ vựng.html",
+      "title": "IOE lớp 2 - Từ vựng",
+      "tags": [
+        "ioe",
+        "practice"
+      ],
+      "content_sha256": "A691ECAF3E6DBA140160E2960D07B478DE1872E3717F34293ED59AACE21C8FD3",
+      "active": true
+    },
+    {
+      "id": "QUIZ-IOE-LOP-2-2026-18BB567E12",
+      "type": "quiz",
+      "source_path": "P/4. ÔN LUYỆN/IOE/Lớp 2/Năm học 2025-2026/IOE-lớp-2-2026.html",
+      "public_path": "/CONTENT/levels/P/4. ÔN LUYỆN/IOE/Lớp 2/Năm học 2025-2026/IOE-lớp-2-2026.html",
+      "title": "IOE-lớp-2-2026",
+      "tags": [
+        "ioe",
+        "practice"
+      ],
+      "content_sha256": "EEAB679531C30639D508E3CB6E27A472E2D5F2774F09D8D1BAB82EF231DD46AD",
+      "active": true
+    },
+    {
+      "id": "QUIZ-IOE-LOP-3-TU-VUNG-10086791A2",
+      "type": "quiz",
+      "source_path": "P/4. ÔN LUYỆN/IOE/Lớp 3/IOE lớp 3 - Từ vựng.html",
+      "public_path": "/CONTENT/levels/P/4. ÔN LUYỆN/IOE/Lớp 3/IOE lớp 3 - Từ vựng.html",
+      "title": "IOE lớp 3 - Từ vựng",
+      "tags": [
+        "ioe",
+        "practice"
+      ],
+      "content_sha256": "3357D59F2116E0B929D35079AD47BB1C3F0E7F8DC0C274410EECCA9BC1F8007B",
+      "active": true
+    },
+    {
+      "id": "QUIZ-IOE-LOP-3-2026-6479F93423",
+      "type": "quiz",
+      "source_path": "P/4. ÔN LUYỆN/IOE/Lớp 3/Năm học 2025-2026/IOE-lớp-3-2026.html",
+      "public_path": "/CONTENT/levels/P/4. ÔN LUYỆN/IOE/Lớp 3/Năm học 2025-2026/IOE-lớp-3-2026.html",
+      "title": "IOE-lớp-3-2026",
+      "tags": [
+        "ioe",
+        "practice"
+      ],
+      "content_sha256": "358F2D058980A06C457AABBA372984B5090504BBA83A3CDE4F87B6CF3A68FB2F",
+      "active": true
+    },
+    {
+      "id": "QUIZ-IOE-LOP-4-TU-VUNG-FB7162D419",
+      "type": "quiz",
+      "source_path": "P/4. ÔN LUYỆN/IOE/Lớp 4/IOE lớp 4 - Từ vựng.html",
+      "public_path": "/CONTENT/levels/P/4. ÔN LUYỆN/IOE/Lớp 4/IOE lớp 4 - Từ vựng.html",
+      "title": "IOE lớp 4 - Từ vựng",
+      "tags": [
+        "ioe",
+        "practice"
+      ],
+      "content_sha256": "44A8C7FB085323AF8AA303850673C922B0D625CCEBD8D812326C68018DF03667",
+      "active": true
+    },
+    {
+      "id": "QUIZ-IOE-LOP-4-2026-5A655B57E8",
+      "type": "quiz",
+      "source_path": "P/4. ÔN LUYỆN/IOE/Lớp 4/Năm học 2025-2026/IOE-lớp-4-2026.html",
+      "public_path": "/CONTENT/levels/P/4. ÔN LUYỆN/IOE/Lớp 4/Năm học 2025-2026/IOE-lớp-4-2026.html",
+      "title": "IOE-lớp-4-2026",
+      "tags": [
+        "ioe",
+        "practice"
+      ],
+      "content_sha256": "B5C7ED21304727C5D77E5C2684FBA3B718F93B978080070BE4BC193746EA3F1E",
+      "active": true
+    },
+    {
+      "id": "QUIZ-IOE-LOP-5-TU-VUNG-47E19C22CE",
+      "type": "quiz",
+      "source_path": "P/4. ÔN LUYỆN/IOE/Lớp 5/IOE lớp 5 - Từ vựng.html",
+      "public_path": "/CONTENT/levels/P/4. ÔN LUYỆN/IOE/Lớp 5/IOE lớp 5 - Từ vựng.html",
+      "title": "IOE lớp 5 - Từ vựng",
+      "tags": [
+        "ioe",
+        "practice"
+      ],
+      "content_sha256": "A133E5660F0547880329050B5BC3C00265E083836487911E5BF9DC060286433A",
+      "active": true
+    },
+    {
+      "id": "QUIZ-IOE-LOP-5-2026-D3A12E3092",
+      "type": "quiz",
+      "source_path": "P/4. ÔN LUYỆN/IOE/Lớp 5/Năm học 2025-2026/IOE-lớp-5-2026.html",
+      "public_path": "/CONTENT/levels/P/4. ÔN LUYỆN/IOE/Lớp 5/Năm học 2025-2026/IOE-lớp-5-2026.html",
+      "title": "IOE-lớp-5-2026",
+      "tags": [
+        "ioe",
+        "practice"
+      ],
+      "content_sha256": "9EE5B8A076CF79ECEACC87BC16F24DCD06270B9D733970AAEC4372EC7DC3AD0B",
+      "active": true
+    },
+    {
+      "id": "QUIZ-IOE-LOP-6-TU-VUNG-DA871BD3D4",
+      "type": "quiz",
+      "source_path": "P/4. ÔN LUYỆN/IOE/Lớp 6/IOE lớp 6 - Từ vựng.html",
+      "public_path": "/CONTENT/levels/P/4. ÔN LUYỆN/IOE/Lớp 6/IOE lớp 6 - Từ vựng.html",
+      "title": "IOE lớp 6 - Từ vựng",
+      "tags": [
+        "ioe",
+        "practice"
+      ],
+      "content_sha256": "BD4677804C72420EC8B9FADC95DA562EA1136A952BBACC819BAB32B084F3D5F4",
+      "active": true
+    },
+    {
+      "id": "QUIZ-IOE-LOP-6-2026-181B9F022C",
+      "type": "quiz",
+      "source_path": "P/4. ÔN LUYỆN/IOE/Lớp 6/Năm học 2025-2026/IOE-lớp-6-2026.html",
+      "public_path": "/CONTENT/levels/P/4. ÔN LUYỆN/IOE/Lớp 6/Năm học 2025-2026/IOE-lớp-6-2026.html",
+      "title": "IOE-lớp-6-2026",
+      "tags": [
+        "ioe",
+        "practice"
+      ],
+      "content_sha256": "89D188DD12E8CAF3AEE1ECF27973D672B69C140341D31BAED1372DA6CAA0D65F",
+      "active": true
+    },
+    {
+      "id": "QUIZ-IOE-LOP-7-TU-VUNG-2879824D39",
+      "type": "quiz",
+      "source_path": "P/4. ÔN LUYỆN/IOE/Lớp 7/IOE lớp 7 - Từ vựng.html",
+      "public_path": "/CONTENT/levels/P/4. ÔN LUYỆN/IOE/Lớp 7/IOE lớp 7 - Từ vựng.html",
+      "title": "IOE lớp 7 - Từ vựng",
+      "tags": [
+        "ioe",
+        "practice"
+      ],
+      "content_sha256": "D434F1E50ACBFA6456D9EA1D395EC4D4DE75A1CA47CB3371DE145B0ACCECB923",
+      "active": true
+    },
+    {
+      "id": "QUIZ-IOE-LOP-7-2026-0B4CCF452E",
+      "type": "quiz",
+      "source_path": "P/4. ÔN LUYỆN/IOE/Lớp 7/Năm học 2025-2026/IOE-lớp-7-2026.html",
+      "public_path": "/CONTENT/levels/P/4. ÔN LUYỆN/IOE/Lớp 7/Năm học 2025-2026/IOE-lớp-7-2026.html",
+      "title": "IOE-lớp-7-2026",
+      "tags": [
+        "ioe",
+        "practice"
+      ],
+      "content_sha256": "2C51F22A421E0FF907B4AF8B376D2DE12094ED52C75C3FCDF1D20E73FCFAAC57",
+      "active": true
+    },
+    {
+      "id": "QUIZ-IOE-LOP-8-TU-VUNG-45BE4B6A17",
+      "type": "quiz",
+      "source_path": "P/4. ÔN LUYỆN/IOE/Lớp 8/IOE lớp 8 - Từ vựng.html",
+      "public_path": "/CONTENT/levels/P/4. ÔN LUYỆN/IOE/Lớp 8/IOE lớp 8 - Từ vựng.html",
+      "title": "IOE lớp 8 - Từ vựng",
+      "tags": [
+        "ioe",
+        "practice"
+      ],
+      "content_sha256": "C72A5567DACED8D8322EC1DA2D8C4CF4BC40162C3A8C360414869033083A7FF8",
+      "active": true
+    },
+    {
+      "id": "QUIZ-IOE-LOP-8-2026-11B55AAD30",
+      "type": "quiz",
+      "source_path": "P/4. ÔN LUYỆN/IOE/Lớp 8/Năm học 2025-2026/IOE-lớp-8-2026.html",
+      "public_path": "/CONTENT/levels/P/4. ÔN LUYỆN/IOE/Lớp 8/Năm học 2025-2026/IOE-lớp-8-2026.html",
+      "title": "IOE-lớp-8-2026",
+      "tags": [
+        "ioe",
+        "practice"
+      ],
+      "content_sha256": "928A038DE096C7FC0203A2136B75F5C7881CD8012E1B61BEFD743B32B8C948AA",
+      "active": true
+    },
+    {
+      "id": "QUIZ-IOE-LOP-9-TU-VUNG-CB7FFF41F7",
+      "type": "quiz",
+      "source_path": "P/4. ÔN LUYỆN/IOE/Lớp 9/IOE lớp 9 - Từ vựng.html",
+      "public_path": "/CONTENT/levels/P/4. ÔN LUYỆN/IOE/Lớp 9/IOE lớp 9 - Từ vựng.html",
+      "title": "IOE lớp 9 - Từ vựng",
+      "tags": [
+        "ioe",
+        "practice"
+      ],
+      "content_sha256": "4C402B83919297F31913BE6A817387F57D322FB5DEF4F03C1981D30C4338915C",
+      "active": true
+    },
+    {
+      "id": "QUIZ-IOE-LOP-9-2026-4B63FA3F6B",
+      "type": "quiz",
+      "source_path": "P/4. ÔN LUYỆN/IOE/Lớp 9/Năm học 2025-2026/IOE-lớp-9-2026.html",
+      "public_path": "/CONTENT/levels/P/4. ÔN LUYỆN/IOE/Lớp 9/Năm học 2025-2026/IOE-lớp-9-2026.html",
+      "title": "IOE-lớp-9-2026",
+      "tags": [
+        "ioe",
+        "practice"
+      ],
+      "content_sha256": "84C2A48C0DBCD13F5285E6BBD5CA1A9123850416E04B529455AB3C803BFC310A",
+      "active": true
     }
   ]
-}
+}\n
