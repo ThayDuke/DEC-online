@@ -66,7 +66,7 @@ function resolveAccount_(email) {
   const normalized = normalizeEmail_(email);
   if (!normalized) throw new Error('missing_email');
   const students = Object.fromEntries(rows_(TAB.students).map(row => [String(row.student_id), row]));
-  const accounts = rows_(TAB.accounts)
+  const matchedStudents = rows_(TAB.accounts)
     .filter(row => active_(row.active) && normalizeEmail_(row.google_email) === normalized)
     .map(row => students[String(row.student_id)])
     .filter(row => row && active_(row.active))
@@ -75,7 +75,7 @@ function resolveAccount_(email) {
       display_name: String(row.display_name || row.student_id),
       class_name: String(row.class_name || ''),
     }));
-  return { email: normalized, students };
+  return { email: normalized, students: matchedStudents };
 }
 
 function permissions_(studentIds) {
