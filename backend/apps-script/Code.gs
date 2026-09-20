@@ -42,8 +42,8 @@ function spreadsheet_() {
   return SpreadsheetApp.openById(id);
 }
 
-function rows_(tabName) {
-  const sheet = spreadsheet_().getSheetByName(tabName);
+function rows_(tabName, book) {
+  const sheet = (book || spreadsheet_()).getSheetByName(tabName);
   if (!sheet) throw new Error('missing_tab:' + tabName);
   const values = sheet.getDataRange().getValues();
   if (!values.length) return [];
@@ -79,10 +79,10 @@ function resolveAccount_(email) {
   return { email: normalized, students: matchedStudents };
 }
 
-function permissions_(studentIds) {
+function permissions_(studentIds, book) {
   const allowed = new Set((studentIds || []).map(String));
   const tags = {};
-  rows_(TAB.permissions).forEach(row => {
+  rows_(TAB.permissions, book).forEach(row => {
     const studentId = String(row.student_id || '');
     const tag = String(row.tag || '').trim().toLowerCase();
     if (allowed.has(studentId) && active_(row.active) && tag) {
@@ -134,10 +134,10 @@ function upsertResult_(result) {
   return { updated: true, best_score: score };
 }
 
-function results_(studentIds) {
+function results_(studentIds, book) {
   const allowed = new Set((studentIds || []).map(String));
   const output = {};
-  rows_(TAB.results).forEach(row => {
+  rows_(TAB.results, book).forEach(row => {
     const studentId = String(row.student_id || '');
     if (!allowed.has(studentId)) return;
     if (!output[studentId]) output[studentId] = {};
@@ -152,10 +152,18 @@ function results_(studentIds) {
 }
 
 function catalog_(studentIds) {
-  return {
-    permissions: permissions_(studentIds),
-    results: results_(studentIds),
+  const ids = (studentIds || []).map(String).sort();
+  const cache = CacheService.getScriptCache();
+  const cacheKey = 'catalog:' + ids.join(',');
+  const cached = cache.get(cacheKey);
+  if (cached) return JSON.parse(cached);
+  const book = spreadsheet_();
+  const result = {
+    permissions: permissions_(ids, book),
+    results: results_(ids, book),
   };
+  cache.put(cacheKey, JSON.stringify(result), 60);
+  return result;
 }
 
 function json_(body) {
