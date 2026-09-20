@@ -40,6 +40,8 @@ html,body,button,input,select,textarea{font-family:var(--dec-font-family-offline
     --bg-color: #eef3ff;
     --primary-blue: #19a7a0;
     --primary-pink: #e5566a;
+    --hint-primary-text: #b4233b;
+    --hint-secondary-text: #006c68;
     --light-pink: #fff5f6;
     --border-pink: #ffd3d8;
     --teal-main: var(--primary-blue);
@@ -478,12 +480,22 @@ input:focus-visible {
 }
 
 .help1-line {
-    color: #9fd3ff;
+    color: var(--hint-secondary-text);
 }
 
 .help2-line {
-    color: #ffd18a;
+    color: var(--hint-primary-text);
     margin-top: 0.45rem;
+}
+
+.help1-line.help-color-primary,
+.help2-line.help-color-primary {
+    color: var(--hint-primary-text);
+}
+
+.help1-line.help-color-secondary,
+.help2-line.help-color-secondary {
+    color: var(--hint-secondary-text);
 }
 
 .is-hidden {
@@ -1942,10 +1954,11 @@ const lessonData = [
     "variants": [
       "I want to be a pilot."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "I want to be a [___].",
     "help2": "I want to be a pilot.",
     "keywords": [
       "want",
+      "be",
       "pilot"
     ]
   },
@@ -1956,12 +1969,13 @@ const lessonData = [
     "variants": [
       "He wants to become a good doctor."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "He wants to become a good [___].",
     "help2": "He wants to become a good doctor.",
     "keywords": [
       "wants",
       "become",
-      "good"
+      "good",
+      "doctor"
     ]
   },
   {
@@ -1971,10 +1985,11 @@ const lessonData = [
     "variants": [
       "She wants to be a math teacher."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "She wants to be a [___].",
     "help2": "She wants to be a math teacher.",
     "keywords": [
       "wants",
+      "be",
       "math",
       "teacher"
     ]
@@ -1986,12 +2001,13 @@ const lessonData = [
     "variants": [
       "They want to design modern buildings."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "They want to design [___].",
     "help2": "They want to design modern buildings.",
     "keywords": [
       "want",
       "design",
-      "modern"
+      "modern",
+      "buildings"
     ]
   },
   {
@@ -2001,12 +2017,13 @@ const lessonData = [
     "variants": [
       "I want to write good stories."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "I want to write [___].",
     "help2": "I want to write good stories.",
     "keywords": [
       "want",
       "write",
-      "good"
+      "good",
+      "stories"
     ]
   },
   {
@@ -2016,9 +2033,10 @@ const lessonData = [
     "variants": [
       "You should eat green vegetables and fruits."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "You should eat [___] and fruits.",
     "help2": "You should eat green vegetables and fruits.",
     "keywords": [
+      "should",
       "eat",
       "green",
       "vegetables"
@@ -2031,11 +2049,12 @@ const lessonData = [
     "variants": [
       "You should not eat too many sweets."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "You should not eat too many [___].",
     "help2": "You should not eat too many sweets.",
     "keywords": [
+      "should",
+      "not",
       "eat",
-      "many",
       "sweets"
     ]
   },
@@ -2046,12 +2065,13 @@ const lessonData = [
     "variants": [
       "Daily exercise keeps your body healthy."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "[___] keeps your body healthy.",
     "help2": "Daily exercise keeps your body healthy.",
     "keywords": [
       "daily",
       "exercise",
-      "keeps"
+      "keeps",
+      "healthy"
     ]
   },
   {
@@ -2061,12 +2081,13 @@ const lessonData = [
     "variants": [
       "I drink two liters of water every day."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "I drink [___] of water every day.",
     "help2": "I drink two liters of water every day.",
     "keywords": [
       "drink",
       "two",
-      "liters"
+      "liters",
+      "water"
     ]
   },
   {
@@ -2076,12 +2097,13 @@ const lessonData = [
     "variants": [
       "I sleep eight hours to feel refreshed."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "I sleep [___] to feel refreshed.",
     "help2": "I sleep eight hours to feel refreshed.",
     "keywords": [
       "sleep",
       "eight",
-      "hours"
+      "hours",
+      "refreshed"
     ]
   },
   {
@@ -2091,9 +2113,10 @@ const lessonData = [
     "variants": [
       "I do not play with burning matches."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "I do not play with [___].",
     "help2": "I do not play with burning matches.",
     "keywords": [
+      "not",
       "play",
       "burning",
       "matches"
@@ -2106,11 +2129,12 @@ const lessonData = [
     "variants": [
       "You may burn your fingers."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "You may [___] your fingers.",
     "help2": "You may burn your fingers.",
     "keywords": [
       "may",
       "burn",
+      "your",
       "fingers"
     ]
   },
@@ -2121,9 +2145,10 @@ const lessonData = [
     "variants": [
       "I do not climb that tall tree."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "I do not climb that [___].",
     "help2": "I do not climb that tall tree.",
     "keywords": [
+      "not",
       "climb",
       "tall",
       "tree"
@@ -2136,10 +2161,11 @@ const lessonData = [
     "variants": [
       "You may fall and break an arm."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "You may fall and [___].",
     "help2": "You may fall and break an arm.",
     "keywords": [
       "fall",
+      "and",
       "break",
       "arm"
     ]
@@ -2151,12 +2177,12 @@ const lessonData = [
     "variants": [
       "I do not ride my bike downhill."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "I do not ride my bike [___].",
     "help2": "I do not ride my bike downhill.",
     "keywords": [
       "ride",
       "bike",
-      "fast"
+      "downhill"
     ]
   },
   {
@@ -2166,12 +2192,13 @@ const lessonData = [
     "variants": [
       "I do not touch exposed electrical sockets."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "I do not touch [___].",
     "help2": "I do not touch exposed electrical sockets.",
     "keywords": [
+      "not",
       "touch",
-      "exposed",
-      "open"
+      "electrical",
+      "sockets"
     ]
   },
   {
@@ -2181,9 +2208,10 @@ const lessonData = [
     "variants": [
       "You may get an electric shock."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "You may get an [___].",
     "help2": "You may get an electric shock.",
     "keywords": [
+      "may",
       "get",
       "electric",
       "shock"
@@ -2196,12 +2224,13 @@ const lessonData = [
     "variants": [
       "I am careful when using sharp knives."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "I am careful when using [___].",
     "help2": "I am careful when using sharp knives.",
     "keywords": [
       "careful",
       "using",
-      "sharp"
+      "sharp",
+      "knives"
     ]
   },
   {
@@ -2211,11 +2240,12 @@ const lessonData = [
     "variants": [
       "You may cut your hand."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "You may [___] your hand.",
     "help2": "You may cut your hand.",
     "keywords": [
       "may",
       "cut",
+      "your",
       "hand"
     ]
   },
@@ -2226,12 +2256,13 @@ const lessonData = [
     "variants": [
       "I wear a helmet on my motorbike."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "I wear a [___] on my motorbike.",
     "help2": "I wear a helmet on my motorbike.",
     "keywords": [
       "wear",
-      "safety",
-      "helmet"
+      "helmet",
+      "on",
+      "motorbike"
     ]
   },
   {
@@ -2241,9 +2272,11 @@ const lessonData = [
     "variants": [
       "Where will we live in the future?"
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Where will we live in the [___]?",
     "help2": "Where will we live in the future?",
     "keywords": [
+      "where",
+      "will",
       "live",
       "future"
     ]
@@ -2255,10 +2288,12 @@ const lessonData = [
     "variants": [
       "We may live among the stars."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "We may live among the [___].",
     "help2": "We may live among the stars.",
     "keywords": [
       "live",
+      "among",
+      "the",
       "stars"
     ]
   },
@@ -2269,12 +2304,13 @@ const lessonData = [
     "variants": [
       "Future houses will be smart and convenient."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Future houses will be [___].",
     "help2": "Future houses will be smart and convenient.",
     "keywords": [
       "future",
       "houses",
-      "smart"
+      "smart",
+      "convenient"
     ]
   },
   {
@@ -2284,12 +2320,13 @@ const lessonData = [
     "variants": [
       "Robots will help people do house chores."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Robots will help people [___].",
     "help2": "Robots will help people do house chores.",
     "keywords": [
       "robots",
       "help",
-      "people"
+      "people",
+      "chores"
     ]
   },
   {
@@ -2299,12 +2336,13 @@ const lessonData = [
     "variants": [
       "Flying cars will help reduce traffic jams."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "[___] will help reduce traffic jams.",
     "help2": "Flying cars will help reduce traffic jams.",
     "keywords": [
       "flying",
       "cars",
-      "help"
+      "reduce",
+      "jams"
     ]
   }
 ];
@@ -2440,6 +2478,8 @@ const lessonData = [
         dom.help.classList.add('is-hidden');
         dom.help1.classList.add('is-hidden');
         dom.help2.classList.add('is-hidden');
+        dom.help1.classList.remove('help-color-primary', 'help-color-secondary');
+        dom.help2.classList.remove('help-color-primary', 'help-color-secondary');
         dom.help1.textContent = '';
         dom.help2.textContent = '';
         dom.helpButton.textContent = 'Gợi ý 1 (Space)';
@@ -2463,6 +2503,8 @@ const lessonData = [
         const isOdd = (state.currentIndex + 1) % 2 === 1;
         dom.question.classList.toggle('dec-text-primary', isOdd);
         dom.question.classList.toggle('dec-text-secondary', !isOdd);
+        dom.help1.dataset.questionColor = isOdd ? 'primary' : 'secondary';
+        dom.help2.dataset.questionColor = isOdd ? 'primary' : 'secondary';
         dom.previous.disabled = state.currentIndex === 0;
         dom.next.disabled = state.currentIndex === lessonData.length - 1;
         dom.helpButton.disabled = false;
@@ -2475,12 +2517,18 @@ const lessonData = [
         if (!item) return;
         state.helpStage = Math.min(2, state.helpStage + 1);
         dom.help.classList.remove('is-hidden');
+        const questionColor = dom.help1.dataset.questionColor || 'primary';
+        const hint1Color = questionColor === 'primary' ? 'secondary' : 'primary';
         if (state.helpStage >= 1) {
-            dom.help1.textContent = `Hint1: ${item.help1}`;
+            dom.help1.textContent = item.help1;
+            dom.help1.classList.remove('help-color-primary', 'help-color-secondary');
+            dom.help1.classList.add(`help-color-${hint1Color}`);
             dom.help1.classList.remove('is-hidden');
         }
         if (state.helpStage >= 2) {
-            dom.help2.textContent = `Hint2: ${item.help2}`;
+            dom.help2.textContent = item.help2;
+            dom.help2.classList.remove('help-color-primary', 'help-color-secondary');
+            dom.help2.classList.add(`help-color-${questionColor}`);
             dom.help2.classList.remove('is-hidden');
         }
         dom.helpButton.textContent = state.helpStage === 1 ? 'Gợi ý 2 (Space)' : 'Đang xem gợi ý 2';

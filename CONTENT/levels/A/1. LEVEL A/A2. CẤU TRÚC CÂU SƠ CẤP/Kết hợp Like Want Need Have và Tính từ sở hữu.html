@@ -39,1642 +39,7 @@ html,body,button,input,select,textarea{font-family:var(--dec-font-family-offline
 .fa-lock{--fa-icon:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M144 224v-64a112 112 0 0 1 224 0v64h32v240H112V224h32zm48 0h128v-64a64 64 0 0 0-128 0v64z'/%3E%3C/svg%3E")}
 .fa-check-circle{--fa-icon:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M256 32a224 224 0 1 0 0 448 224 224 0 0 0 0-448zm-32 320L128 256l34-34 62 62 126-126 34 34-160 160z'/%3E%3C/svg%3E")}
 </style>
-<style>
-        /* --- DEC MASTER UI CSS --- */
-        :root {
-            color-scheme: only light;
-            --bg-color: #eef3ff;
-            --container-bg: rgba(255, 255, 255, 0.88);
-            --card-bg: linear-gradient(180deg, rgba(255, 252, 249, 0.98), rgba(246, 250, 255, 0.98));
-            --primary-pink: #e5566a;
-            --light-pink: #fff5f6;
-            --border-pink: #ffd3d8;
-            --primary-blue: #19a7a0;
-            --color-y-0: rgba(229, 86, 106, 0.16);
-            --color-y-100: rgba(25, 167, 160, 0.16);
-            --color-y-50: rgba(127, 126, 133, 0.16);
-            --q-block-bg: linear-gradient(90deg, var(--color-y-0) 0%, var(--color-y-50) 100%);
-            --opt-block-bg: linear-gradient(90deg, var(--color-y-100) 0%, var(--color-y-50) 100%);
-            --choice-success-bg: hsla(187, 100%, 38%, 0.12);
-            --choice-success-border: hsl(187, 100%, 38%);
-            --choice-success-text: hsl(187, 100%, 25%);
-            --choice-error-bg: hsla(340, 82%, 58%, 0.12);
-            --choice-error-border: hsl(340, 82%, 58%);
-            --choice-error-text: hsl(340, 82%, 45%);
-            --progress-correct-gradient: linear-gradient(135deg, hsl(187, 100%, 46%) 0%, hsl(187, 100%, 32%) 100%);
-            --progress-wrong-gradient: linear-gradient(135deg, hsl(340, 82%, 64%) 0%, hsl(340, 82%, 50%) 100%);
-            --hover-blue: #0f8e87;
-            --primary-pink-hover: #c94a5d;
-            --success-bg: #dff9e8;
-            --success-text: #177245;
-            --success-border: rgba(23, 114, 69, 0.32);
-            --error-bg: #ffe5e8;
-            --error-text: #b42336;
-            --error-border: rgba(180, 35, 54, 0.32);
-            --warning-bg: #fff3df;
-            --warning-text: #a35f00;
-            --warning-border: rgba(245, 158, 11, 0.42);
-            --text-color: #334155;
-            --muted-text: #5a7089;
-            --border-main: rgba(210, 223, 238, 0.95);
-            --line-main: rgba(30, 73, 101, 0.12);
-            --option-bg: #f8fcff;
-            --option-hover-text: #ffffff;
-            --option-selected-bg:linear-gradient(130deg,hsl(340,82%,58%) 0%,hsl(262,18%,48%) 100%);
-            --btn-primary-bg:linear-gradient(130deg,hsl(340,82%,58%) 0%,hsl(262,18%,48%) 100%);
-            --btn-secondary-bg:linear-gradient(130deg,hsl(262,18%,48%) 0%,hsl(187,100%,38%) 100%);
-            --accent-gradient:linear-gradient(90deg,hsl(340,82%,58%),hsl(187,100%,38%));
-            --btn-danger-bg:linear-gradient(130deg,hsl(212,19%,40%) 0%,hsl(283,20%,46%) 100%);
-            --white: #ffffff;
-            --font-main: "Be Vietnam Pro", sans-serif;
-            --theme-motion-fast: 0.22s ease;
-            --theme-motion-medium: 0.32s ease;
-            --toggle-width: 140px;
-            --toggle-height: 36px;
-            --toggle-knob: 28px;
-            --toggle-shift: 102px;
-            --toggle-text-youth-left: 10px;
-            --toggle-text-elegant-left: -10px;
-            --toggle-slider-bg: linear-gradient(135deg, rgba(229, 86, 106, 0.16) 0%, rgba(25, 167, 160, 0.16) 100%);
-            --toggle-slider-checked-bg: var(--btn-secondary-bg);
-            --toggle-slider-border: rgba(229, 86, 106, 0.25);
-            --toggle-slider-checked-border: #c8d6e5;
-            --toggle-slider-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
-            --toggle-slider-checked-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1), 0 5px 12px rgba(42, 92, 121, 0.25);
-            --toggle-knob-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-            --toggle-knob-bg: #fff5f6;
-            --toggle-knob-border: transparent;
-            --toggle-text-color: var(--muted-text);
-            --toggle-text-checked-color: var(--white);
-            --quiz-nav-height: var(--toggle-height);
-            --lesson-title-min-height: 3.7rem;
-            --adaptive-progress-height: clamp(24px, 2.2vw, 30px);
-            --adaptive-progress-gap: 4px;
-            --adaptive-progress-segment-radius: 8px;
-            --adaptive-progress-border-width: 1px;
-            --progress-dot-font-weight: 600;
-            --progress-dot-motion: var(--theme-motion-fast);
-            --adaptive-progress-empty-bg: var(--white);
-            --adaptive-progress-empty-text: var(--text-color);
-            --adaptive-progress-active-bg: var(--muted-text);
-            --adaptive-progress-active-text: var(--white);
-            --adaptive-progress-done-bg: var(--success-bg);
-            --adaptive-progress-done-text: var(--muted-text);
-            --adaptive-progress-done-border: var(--border-main);
-            --adaptive-progress-warn-bg: var(--light-pink);
-            --adaptive-progress-warn-text: var(--muted-text);
-            --adaptive-progress-warn-border: var(--border-main);
-            --progress-dot-correct-fill: var(--choice-success-border);
-            --progress-dot-wrong-fill: var(--choice-error-border);
-            --progress-hover-bg: rgba(90, 112, 137, 0.12);
-            /* Focus action button tokens (DMU standard) */
-            --focus-action-bg: rgba(255, 255, 255, 0.86);
-            --focus-action-hover-bg: rgba(25, 167, 160, 0.1);
-            --focus-action-active-bg: var(--btn-secondary-bg);
-            --focus-action-text: var(--primary-blue);
-            --focus-action-active-text: #ffffff;
-            --focus-action-border: rgba(25, 167, 160, 0.36);
-            --focus-action-shadow: 0 10px 24px rgba(25, 167, 160, 0.14);
-
-            /* DMU Feedback Spacing Tokens */
-            --feedback-height: 82px;
-            --feedback-border-width: 2px;
-            --feedback-padding: 12px 15px;
-            --feedback-radius: 12px;
-            --feedback-margin-top: 15px;
-            --feedback-placeholder-bg: rgba(255, 255, 255, 0.4);
-            --feedback-placeholder-border: var(--feedback-border-width) solid rgba(30, 73, 101, 0.08);
-            --feedback-placeholder-color: var(--muted-text);
-        }
-
-        body:not([data-theme="elegant"]) {
-            --adaptive-progress-empty-bg: var(--white);
-            --adaptive-progress-empty-text: var(--text-color);
-            --adaptive-progress-active-bg: var(--muted-text);
-            --adaptive-progress-active-text: var(--white);
-            --adaptive-progress-done-bg: var(--success-bg);
-            --adaptive-progress-done-text: var(--muted-text);
-            --adaptive-progress-done-border: var(--border-main);
-            --adaptive-progress-warn-bg: var(--light-pink);
-            --adaptive-progress-warn-text: var(--muted-text);
-            --adaptive-progress-warn-border: var(--border-main);
-        }
-
-        body {
-            font-family: var(--font-main);
-            background-color: var(--bg-color);
-            background-image:
-                radial-gradient(circle at 12% 10%, rgba(36, 191, 181, 0.16), transparent 36%),
-                radial-gradient(circle at 88% 84%, rgba(255, 160, 122, 0.22), transparent 35%),
-                linear-gradient(165deg, #f3f7ff 0%, #f7fbff 48%, #fffaf6 100%);
-            background-attachment: fixed;
-            color: var(--text-color);
-            margin: 0;
-            padding: 20px 10px;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            min-height: 100vh;
-            min-height: 100dvh;
-            width: 100%;
-            overflow-x: hidden;
-            box-sizing: border-box;
-            transition: background-color var(--theme-motion-medium), color var(--theme-motion-fast);
-        }
-
-        /* Fallback (Firefox / engines không hỗ trợ zoom) */
-        @supports not (zoom: 1) {
-            html {
-                font-size: 85%;
-            }
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto 20px;
-            width: 100%;
-            min-width: 0;
-            background: var(--card-bg);
-            border-radius: 22px;
-            border: 1px solid var(--border-main);
-            box-shadow: 0 22px 50px rgba(28, 62, 95, 0.16);
-            backdrop-filter: blur(8px);
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            overflow: hidden;
-            box-sizing: border-box;
-            transition: background var(--theme-motion-medium), border-color var(--theme-motion-fast), box-shadow var(--theme-motion-medium);
-        }
-
-        /* Normal view: keep the quiz shell inside the actual browser viewport. */
-        @media (min-width: 601px) and (min-height: 640px) {
-            body:not(.focus-mode) {
-                height: 100dvh;
-                padding: 10px;
-                box-sizing: border-box;
-                overflow: hidden;
-            }
-
-            body:not(.focus-mode) .container {
-                height: 100%;
-                margin: 0 auto;
-            }
-
-            body:not(.focus-mode) #quiz-area {
-                grid-template-rows: auto minmax(0, 1fr) auto;
-                flex: 1 1 auto;
-                min-height: 0;
-                padding-top: 12px;
-                padding-bottom: 12px;
-            }
-
-            body:not(.focus-mode) #question-container {
-                min-height: 0;
-                overflow-x: hidden;
-                overflow-y: hidden;
-                padding-right: 0;
-                padding-bottom: 58px;
-                box-sizing: border-box;
-                position: relative;
-            }
-
-            body:not(.focus-mode) #header-area {
-                gap: 8px;
-                padding: 12px 22px;
-            }
-
-            body:not(.focus-mode) #lessonTitle.dec-ui-game-title {
-                margin-top: 0;
-                margin-bottom: 0;
-                padding-top: 4px;
-                padding-bottom: 4px;
-            }
-
-            body:not(.focus-mode) .question-block {
-                margin-bottom: 8px;
-                font-size: 1.6rem;
-            }
-
-            body:not(.focus-mode) .options-grid {
-                gap: 10px;
-            }
-
-            body:not(.focus-mode) .option-label {
-                padding: 6px 12px;
-                font-size: 1.35rem;
-            }
-
-            body:not(.focus-mode) .feedback.is-visible {
-                position: absolute;
-                right: 0;
-                bottom: 0;
-                left: 0;
-                height: auto;
-                min-height: 0;
-                margin: 0;
-                padding: 4px 8px;
-                font-size: clamp(0.9rem, 1.15vw, 1.1rem);
-                line-height: 1.25;
-                overflow: visible;
-                z-index: 1;
-            }
-
-            body:not(.focus-mode) .feedback.is-visible div[style] {
-                margin-top: 2px !important;
-            }
-
-            body:not(.focus-mode) .dec-footer {
-                flex: 0 0 auto;
-                margin-top: 0;
-                padding: 6px 22px 10px;
-            }
-        }
-
-        .container::before {
-            content: "";
-            position: absolute;
-            inset: 0 0 auto;
-            height: 6px;
-            background: var(--accent-gradient);
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        h1 {
-            font-family: var(--font-main);
-            color: var(--primary-pink);
-            text-align: center;
-            margin: 0;
-            font-size: clamp(1.45rem, 2.4vw, 1.95rem);
-            border-bottom: 3px solid var(--border-pink);
-            padding-bottom: 10px;
-            font-weight: 800;
-            zoom: 0.7;
-            text-transform: none;
-            box-sizing: border-box;
-            min-height: var(--lesson-title-min-height);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: color var(--theme-motion-fast), border-color var(--theme-motion-fast);
-        }
-
-        #lessonTitle.dec-ui-game-title {
-            font-family: "Be Vietnam Pro", sans-serif;
-            font-weight:var(--dummy,800);
-            font-size: clamp(2rem, 2.7vw, 2.4rem);
-            letter-spacing: 0.0625rem;
-            text-align: center;
-            background: var(--accent-gradient, var(--btn-secondary-bg));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: var(--color-transparent, transparent);
-            color: var(--color-transparent, transparent);
-            margin-top: 0.5rem;
-            margin-bottom: 0.5rem;
-            text-transform: none;
-            zoom: 0.7;
-            border-bottom: none;
-            padding-top: 8px;
-            padding-bottom: 8px;
-            line-height: 1.35;
-            min-height: auto;
-        }
-
-        .main-label {
-            font-weight: 800;
-            text-transform: uppercase;
-            margin-top: 24px;
-            margin-bottom: 10px;
-            display: block;
-            font-size: 0.96rem;
-            color: var(--primary-pink);
-        }
-
-        .first-label {
-            margin-top: 8px !important;
-        }
-
-        .subtitle {
-            text-align: left;
-            margin: 0;
-            font-style: italic;
-            color: var(--muted-text);
-            font-size: 0.98em;
-            flex: 1;
-            line-height: 1.4;
-            transition: color var(--theme-motion-fast);
-        }
-
-        .header-meta {
-            grid-column: 1 / -1;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-            transition: border-color var(--theme-motion-fast);
-        }
-
-        @media (max-width: 600px) {
-            .header-meta {
-                flex-wrap: wrap;
-                gap: 10px;
-            }
-
-            .subtitle {
-                font-size: 0.88em;
-                min-width: 100%;
-            }
-
-        }
-
-        #header-area {
-            display: grid !important;
-            grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-            gap: 14px;
-            padding: 22px;
-            background: linear-gradient(110deg, var(--light-pink) 0%, var(--option-bg) 100%);
-            border-bottom: 1px solid var(--border-main);
-            box-sizing: border-box;
-            transition: all 0.2s ease;
-        }
-
-        #quiz-area {
-            display: grid !important;
-            grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-            gap: 14px;
-            padding: 16px 22px 22px;
-            background: var(--container-bg);
-            min-width: 0;
-            overflow-x: hidden;
-            box-sizing: border-box;
-        }
-
-        .controls {
-            display: contents !important;
-        }
-
-        #lessonTitle,
-        #focus-progress-row,
-        #question-container,
-        .progress-container,
-        .dec-footer {
-            grid-column: 1 / -1;
-        }
-
-        #focus-progress-row {
-            min-width: 0;
-            display: contents;
-        }
-
-        #question-container {
-            min-width: 0;
-        }
-
-        #subtitle-placeholder:empty {
-            display: none;
-        }
-
-        #header-area.compact h1 {
-            font-size: 1.2em;
-            margin-bottom: 0;
-            padding-bottom: 6px;
-            border-bottom-width: 2px;
-        }
-
-        #header-area.compact .subtitle {
-            font-size: 0.95em;
-            margin-bottom: 10px;
-        }
-
-        /* QUESTION AREA */
-        .question-block {
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(120deg, var(--color-y-0), var(--color-y-50), var(--color-y-100), var(--color-y-0));
-            background-size: 300% 300%;
-            animation: questionGradientMove 12s ease infinite;
-            border: 1px solid var(--border-main);
-            box-sizing: border-box;
-            border-radius: 18px;
-            padding: 16px;
-            margin-bottom: 20px;
-            font-size: 1.85rem;
-            font-weight: 800;
-            text-align: left;
-            color: var(--text-color);
-            line-height: 1.45;
-            min-height: calc(2 * 1.45em + 40px);
-            overflow-wrap: anywhere;
-            text-wrap: pretty;
-            transition: background var(--theme-motion-medium), border-color var(--theme-motion-fast), color var(--theme-motion-fast);
-        }
-
-        .question-block::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.6) 0%, transparent 40%),
-                        radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.4) 0%, transparent 40%);
-            mix-blend-mode: overlay;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        /* OPTIONS */
-        .options-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .option-item {
-            position: relative;
-        }
-
-        .option-input {
-            position: absolute;
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-
-        .option-label {
-            display: block;
-            background-color: var(--option-bg);
-            background-repeat: no-repeat;
-            background-size: 102% 102%;
-            background-position: center;
-            background-clip: border-box;
-            padding: 12px 15px;
-            border-radius: 12px;
-            cursor: pointer;
-            border: 1px solid var(--border-main);
-            transition: background-color var(--theme-motion-fast), border-color var(--theme-motion-fast), color var(--theme-motion-fast), transform 0.2s ease;
-            font-weight: 600;
-            font-size: 1.55rem;
-            position: relative;
-            overflow: hidden;
-            min-width: 0;
-            overflow-wrap: anywhere;
-            text-wrap: pretty;
-        }
-
-        .option-label::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(112deg, transparent 20%, rgba(255, 255, 255, 0.35) 50%, transparent 80%);
-            transform: translateX(-135%);
-            transition: transform 0.6s ease;
-            pointer-events: none;
-            z-index: 2;
-        }
-
-        .option-label:hover::before {
-            transform: translateX(130%);
-        }
-
-        .option-label:hover {
-            background: hsl(187, 100%, 38%) !important;
-            color: var(--option-hover-text) !important;
-            transform: translateY(-2px);
-        }
-
-        /* States */
-        .option-input:checked+.option-label {
-            background-image: var(--option-selected-bg);
-            border-color: transparent;
-            box-shadow: none;
-            color: var(--white);
-            transform: scale(0.98);
-        }
-
-        .option-input:disabled+.option-label {
-            cursor: default;
-            opacity: 0.8;
-            pointer-events: none;
-            /* Disable hover effects */
-        }
-
-        /* Feedback Styling & Glassmorphism Placeholder (DMU compliant) */
-        .feedback,
-        .feedback-placeholder {
-            margin-top: var(--feedback-margin-top);
-            padding: var(--feedback-padding);
-            border-radius: var(--feedback-radius);
-            height: var(--feedback-height); /* Khóa cứng chiều cao cố định để triệt tiêu hoàn toàn jitter dọc! */
-            box-sizing: border-box;
-            font-size: 1.32rem;
-            line-height: 1.4;
-            animation: fadeIn 0.3s ease-in-out;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .feedback-placeholder {
-            background: transparent !important;
-            border: none !important;
-            color: var(--feedback-placeholder-color);
-            font-style: italic;
-            opacity: 0.65;
-            align-items: flex-start;
-            text-align: left;
-            display: none;
-        }
-
-        .feedback {
-            display: none; /* Hidden by default */
-            border: var(--feedback-border-width) solid transparent;
-        }
-
-        .feedback.is-visible {
-            display: flex !important;
-        }
-
-        .is-initially-visible {
-            display: block;
-        }
-
-        .is-initially-hidden {
-            display: none;
-        }
-
-        .is-runtime-hidden {
-            display: none !important;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-5px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .feedback.correct {
-            background-color: transparent !important;
-            color: var(--choice-success-text) !important;
-            border-color: transparent !important;
-            box-shadow: none !important;
-        }
-
-        .feedback.wrong {
-            background-color: transparent !important;
-            color: var(--choice-error-text) !important;
-            border-color: transparent !important;
-            box-shadow: none !important;
-        }
-
-        /* Highlight Correct Answer (selected correctly OR revealed on wrong choice) */
-        .option-input.force-highlight+.option-label,
-        .option-input.force-correct-revealed+.option-label {
-            background-image: var(--btn-secondary-bg) !important;
-            color: var(--white) !important;
-            border: 1px solid transparent !important;
-            font-weight: bold;
-            position: relative;
-        }
-
-        .option-input.force-highlight+.option-label {
-            padding-right: 40px !important; /* Chừa chỗ cho checkmark tuyệt đối */
-        }
-
-        .option-input.force-highlight+.option-label::after {
-            content: "✅";
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 1.1rem;
-            line-height: 1;
-        }
-
-        /* Highlight Wrong Selected Answer */
-        .option-input.force-wrong+.option-label {
-            background-image: var(--btn-primary-bg) !important;
-            color: var(--white) !important;
-            border: 1px solid transparent !important;
-            font-weight: bold;
-            position: relative;
-            padding-right: 40px !important; /* Chừa chỗ cho crossmark tuyệt đối */
-        }
-
-        .option-input.force-wrong+.option-label::after {
-            content: "❌";
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 1.1rem;
-            line-height: 1;
-        }
-
-        /* BUTTONS */
-        .controls {
-            margin-top: 20px;
-        }
-
-        .btn {
-            border: 1px solid transparent;
-            box-sizing: border-box;
-            min-height: 38px;
-            padding: 10px 20px;
-            border-radius: 12px;
-            font-family: var(--font-main);
-            font-size: 0.95rem;
-            font-weight: 800;
-            line-height: 1.2;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            white-space: nowrap;
-            transition: background-color var(--theme-motion-fast), color var(--theme-motion-fast), border-color var(--theme-motion-fast), box-shadow var(--theme-motion-fast), transform 0.2s ease;
-            color: var(--white);
-            box-shadow: 0 8px 18px rgba(31, 53, 82, 0.12);
-            min-width: 128px;
-            max-width: 220px;
-            position: relative;
-            overflow: hidden;
-            background-repeat: no-repeat;
-            background-size: 100% 100%;
-            background-position: center;
-            background-clip: border-box;
-            background-origin: border-box;
-        }
-
-        .btn::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(112deg, transparent 20%, rgba(255, 255, 255, 0.35) 50%, transparent 80%);
-            transform: translateX(-135%);
-            transition: transform 0.55s ease;
-            pointer-events: none;
-            z-index: 2;
-        }
-
-        .btn:hover::before {
-            transform: translateX(130%);
-        }
-
-        #prev-btn {
-            grid-column: 1;
-            grid-row: 3;
-            justify-self: start;
-            align-self: center;
-        }
-
-        #next-btn,
-        #submit-btn {
-            grid-column: 3;
-            grid-row: 3;
-            justify-self: end;
-            align-self: center;
-        }
-
-        .btn:active {
-            transform: scale(0.96);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-        }
-
-        #prev-btn,
-        #next-btn,
-        #confirm-back-btn {
-            background-image: var(--btn-secondary-bg);
-            box-shadow: 0 8px 18px rgba(25, 167, 160, 0.22);
-        }
-
-        #prev-btn:hover,
-        #next-btn:hover,
-        #confirm-back-btn:hover {
-            filter: brightness(1.06);
-        }
-
-        #submit-btn,
-        #confirm-submit-btn {
-            background-image: var(--btn-primary-bg);
-            box-shadow: 0 8px 18px rgba(229, 86, 106, 0.28);
-        }
-
-        #submit-btn:hover,
-        #confirm-submit-btn:hover {
-            filter: brightness(1.06);
-        }
-
-        #confirm-back-btn {
-            grid-column: 1;
-            grid-row: 3;
-            justify-self: start;
-            align-self: center;
-        }
-
-        #confirm-submit-btn {
-            grid-column: 3;
-            grid-row: 3;
-            justify-self: end;
-            align-self: center;
-        }
-
-        .confirm-msg-area {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 200px;
-            padding: 20px;
-        }
-
-        .confirm-msg-area>div {
-            text-align: center;
-            font-size: 1.15em;
-            line-height: 1.9;
-        }
-
-        #reset-btn {
-            background-image: var(--btn-danger-bg);
-            grid-column: 1 / -1;
-            grid-row: 3;
-            justify-self: center;
-            align-self: center;
-        }
-
-        #reset-btn:hover {
-            filter: brightness(1.06);
-        }
-
-        /* PROGRESS NAV */
-        .progress-container {
-            margin-top: 0;
-            margin-bottom: 16px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: var(--adaptive-progress-gap);
-            padding-top: 0;
-            border-top: none;
-            width: 100%;
-            min-width: 0;
-        }
-
-        .progress-container.wrap-mode {
-            flex-wrap: wrap !important;
-            height: auto !important;
-        }
-
-        .progress-container.wrap-mode .progress-dot {
-            flex: 0 0 calc((100% - (29 * var(--adaptive-progress-gap))) / 30) !important;
-            box-sizing: border-box !important;
-            max-width: none !important;
-        }
-
-        .progress-dot {
-            appearance: none;
-            flex: 1 1 0;
-            max-width: 32px;
-            min-width: 20px;
-            height: var(--adaptive-progress-height);
-            box-sizing: border-box;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: var(--adaptive-progress-border-width) solid var(--border-main);
-            border-radius: var(--adaptive-progress-segment-radius);
-            cursor: pointer;
-            font-size: 0.72rem;
-            font-weight: var(--progress-dot-font-weight);
-            color: var(--adaptive-progress-empty-text);
-            background: var(--adaptive-progress-empty-bg);
-            font-family: inherit;
-            transition: background-color var(--theme-motion-fast), border-color var(--theme-motion-fast), color var(--theme-motion-fast), transform var(--theme-motion-fast), box-shadow var(--theme-motion-fast);
-        }
-
-        .progress-dot.current,
-        .progress-dot.current.correct,
-        .progress-dot.current.wrong {
-            background: var(--muted-text) !important;
-            border-color: var(--muted-text) !important;
-            color: var(--white) !important;
-            box-shadow: none !important;
-        }
-
-        .progress-dot.correct {
-            background: var(--adaptive-progress-done-bg);
-            color: var(--adaptive-progress-done-text);
-            border-color: var(--adaptive-progress-done-border);
-        }
-
-        .progress-dot.wrong {
-            background: var(--adaptive-progress-warn-bg);
-            color: var(--adaptive-progress-warn-text);
-            border-color: var(--adaptive-progress-warn-border);
-        }
-
-        .progress-dot:hover:not(.current) {
-            background-color: var(--progress-hover-bg) !important;
-        }
-
-        /* RESULTS */
-        .result-screen {
-            text-align: center;
-            padding: 30px;
-            display: none;
-        }
-
-        .result-score {
-            font-size: 2em;
-            font-weight: bold;
-            color: var(--primary-pink);
-            margin-bottom: 10px;
-        }
-
-        .result-msg {
-            font-size: 1.3em;
-            margin-bottom: 20px;
-        }
-
-        .result-msg.result-pass {
-            color: var(--success-text);
-        }
-
-        .result-msg.result-retry {
-            color: var(--warning-text);
-        }
-
-        .dec-footer {
-            margin-top: 20px;
-            padding-top: 14px;
-            border-top: none;
-            text-align: center;
-            font-size: 0.78em;
-            color: var(--muted-text);
-            line-height: 1.5;
-        }
-
-        /* Responsive Fixes */
-        @media (max-width: 600px) {
-            .container {
-                padding: 0;
-            }
-
-            #header-area,
-            #quiz-area {
-                padding-left: 15px;
-                padding-right: 15px;
-            }
-
-            .btn {
-                font-size: 1em;
-                padding: 0 12px;
-            }
-
-            .option-label {
-                padding: 10px;
-                font-size: 1.6em;
-            }
-
-            .feedback {
-                font-size: 0.88em;
-            }
-
-            .dec-footer {
-                font-size: 0.72em;
-            }
-
-            .theme-switch-wrap {
-                margin-bottom: 10px;
-            }
-
-            .theme-chip {
-                font-size: 0.74rem;
-                padding: 6px 10px;
-            }
-        }
-
-        /* --- Theme Switcher --- */
-        .theme-switch-wrap {
-            display: inline-flex;
-            align-items: center;
-            margin-left: auto;
-        }
-
-        .theme-switch {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 4px;
-            border-radius: 999px;
-            border: 1px solid var(--border-pink);
-            background: var(--light-pink);
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
-        }
-
-        .theme-chip {
-            border: 1px solid transparent;
-            box-sizing: border-box;
-            background: transparent;
-            color: var(--muted-text);
-            border-radius: 999px;
-            padding: 7px 12px;
-            min-width: 96px;
-            line-height: 1.2;
-            white-space: nowrap;
-            font-family: var(--font-main);
-            font-size: 0.8rem;
-            font-weight: 700;
-            letter-spacing: 0.02em;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            transition: background-color var(--theme-motion-fast), color var(--theme-motion-fast), box-shadow var(--theme-motion-fast), border-color var(--theme-motion-fast);
-        }
-
-        .theme-chip:hover {
-            background: rgba(229, 86, 106, 0.1);
-            color: var(--primary-pink);
-        }
-
-        .theme-chip.active {
-            background: var(--btn-primary-bg);
-            color: var(--white);
-            box-shadow: 0 8px 16px rgba(229, 86, 106, 0.24);
-        }
-
-        #header-area.compact .theme-switch-wrap {
-            margin-bottom: 0;
-        }
-
-        #header-area.compact .theme-chip {
-            padding: 6px 10px;
-            font-size: 0.75rem;
-            min-width: 92px;
-        }
-
-        /* --- 2026 Unified Pro Theme Override (Elegant / E) --- */
-        body[data-theme="elegant"] {
-            color-scheme: only dark;
-            --bg-color: #0b1524;
-            --container-bg: rgba(252, 253, 255, 0.93);
-
-            /* DMU Feedback Elegant Spacing Tokens */
-            --feedback-placeholder-bg: rgba(255, 255, 255, 0.03);
-            --feedback-placeholder-border: var(--feedback-border-width) solid var(--border-main);
-            --feedback-placeholder-color: var(--muted-text);
-
-            --card-bg: #f9fbfd;
-            --primary-pink: #5e738a;
-            --color-e-0: rgba(91, 116, 141, 0.16);
-            --color-e-100: rgba(74, 99, 125, 0.16);
-            --color-e-50: rgba(82, 107, 131, 0.16);
-            --q-block-bg: linear-gradient(90deg, var(--color-e-0) 0%, var(--color-e-50) 100%);
-            --opt-block-bg: linear-gradient(90deg, var(--color-e-100) 0%, var(--color-e-50) 100%);
-            --choice-success-bg: hsla(211, 19%, 46%, 0.12);
-            --choice-success-border: hsl(211, 19%, 46%);
-            --choice-success-text: hsl(211, 19%, 30%);
-            --choice-error-bg: hsla(211, 23%, 58%, 0.12);
-            --choice-error-border: hsl(211, 23%, 58%);
-            --choice-error-text: hsl(211, 23%, 40%);
-            --progress-correct-gradient: linear-gradient(135deg, hsl(211, 19%, 52%) 0%, hsl(211, 19%, 40%) 100%);
-            --progress-wrong-gradient: linear-gradient(135deg, hsl(211, 23%, 64%) 0%, hsl(211, 23%, 52%) 100%);
-            --light-pink: #f2f5f8;
-            --border-pink: #c8d4e0;
-            --primary-blue: #5e738a;
-            --hover-blue: #4b627a;
-            --primary-pink-hover: #4b627a;
-            --success-bg: #dff9e8;
-            --success-text: #177245;
-            --error-bg: #ffe5e8;
-            --error-text: #b42336;
-            --warning-bg: #f4f1eb;
-            --warning-text: #6f675c;
-            --text-color: #3f5268;
-            --muted-text: #4a6077;
-            --border-main: rgba(205, 216, 228, 0.92);
-            --line-main: rgba(74, 96, 119, 0.14);
-            --adaptive-progress-empty-bg: var(--option-bg);
-            --adaptive-progress-empty-text: var(--text-color);
-            --adaptive-progress-active-bg: var(--muted-text);
-            --adaptive-progress-active-text: var(--white);
-            --adaptive-progress-done-bg: #edf2f6;
-            --adaptive-progress-done-text: var(--muted-text);
-            --adaptive-progress-done-border: var(--border-main);
-            --adaptive-progress-warn-bg: var(--light-pink);
-            --adaptive-progress-warn-text: var(--muted-text);
-            --adaptive-progress-warn-border: var(--border-main);
-            --option-bg: #f9fbfd;
-            --option-selected-bg:linear-gradient(130deg,hsl(211,23%,58%) 0%,hsl(211,18%,52%) 100%);
-            --btn-primary-bg:linear-gradient(130deg,hsl(211,23%,58%) 0%,hsl(211,18%,52%) 100%);
-            --btn-secondary-bg:linear-gradient(130deg,hsl(211,18%,52%) 0%,hsl(211,19%,46%) 100%);
-            --accent-gradient:linear-gradient(90deg,hsl(211,23%,58%),hsl(211,19%,46%));
-            --btn-danger-bg:linear-gradient(130deg,hsl(211,20%,44%),hsl(212,25%,34%));
-            --toggle-slider-bg: linear-gradient(90deg, #5b748d 15%, #4a637d 85%);
-            --toggle-slider-checked-bg: linear-gradient(130deg, #50667f 0%, #3d5066 100%);
-            --toggle-slider-checked-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0, 0, 0, 0.3);
-            --toggle-knob-bg: #4a5c70;
-            --toggle-knob-border: #788b9d;
-            --toggle-knob-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-            --toggle-slider-border: #788b9d;
-            --toggle-slider-checked-border: #788b9d;
-            --toggle-text-color: var(--white);
-            --toggle-text-checked-color: var(--white);
-            --progress-dot-correct-fill: var(--choice-success-border);
-            --progress-dot-wrong-fill: var(--choice-error-border);
-            --progress-hover-bg: rgba(74, 96, 119, 0.18);
-            /* Focus action button tokens (DMU standard) */
-            --focus-action-bg: rgba(248, 250, 252, 0.9);
-            --focus-action-hover-bg: rgba(74, 96, 119, 0.1);
-            --focus-action-active-bg: var(--btn-secondary-bg);
-            --focus-action-text: #3d536c;
-            --focus-action-active-text: #ffffff;
-            --focus-action-border: rgba(96, 117, 141, 0.34);
-            --focus-action-shadow: 0 10px 24px rgba(42, 64, 88, 0.16);
-            font-family: var(--font-main);
-            background:
-                radial-gradient(circle at 10% 12%, rgba(132, 166, 210, 0.46), transparent 33%),
-                radial-gradient(circle at 88% 86%, rgba(106, 141, 183, 0.42), transparent 31%),
-                radial-gradient(circle at 52% 6%, rgba(70, 104, 147, 0.28), transparent 44%),
-                linear-gradient(150deg, #08111c 0%, #132036 43%, #2a4667 100%);
-            background-color: #0b1524;
-            background-attachment: fixed;
-        }
-
-        body[data-theme="elegant"] .container {
-            background: var(--card-bg);
-            box-shadow: 0 22px 50px rgba(28, 62, 95, 0.16);
-        }
-
-        body[data-theme="elegant"] h1 {
-            color: var(--text-color);
-        }
-
-        body[data-theme="elegant"] #lessonTitle.dec-ui-game-title {
-            background: var(--heading-gradient, var(--btn-primary-bg));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: var(--color-transparent, transparent);
-            color: var(--color-transparent, transparent);
-        }
-
-        body[data-theme="elegant"] .main-label {
-            background: linear-gradient(120deg, var(--primary-blue), var(--hover-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        body[data-theme="elegant"] .subtitle {
-            color: var(--muted-text);
-        }
-
-        body[data-theme="elegant"] .header-meta {
-            border-bottom-color: var(--border-main);
-        }
-
-        body[data-theme="elegant"] .question-block {
-            background: linear-gradient(120deg, var(--color-e-0), var(--color-e-50), var(--color-e-100), var(--color-e-0));
-            background-size: 300% 300%;
-            animation: questionGradientMove 15s ease infinite;
-            border: 1px solid var(--border-main);
-            border-radius: 18px;
-            color: var(--text-color);
-        }
-
-        body[data-theme="elegant"] .question-block::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.4) 0%, transparent 40%),
-                        radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.2) 0%, transparent 40%);
-            mix-blend-mode: overlay;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        body[data-theme="elegant"] .option-label {
-            background-color: var(--option-bg);
-            border: 1px solid var(--border-main);
-            border-radius: 12px;
-        }
-
-        body[data-theme="elegant"] .option-label:hover {
-            background: var(--btn-secondary-bg) !important;
-            color: var(--white) !important;
-            transform: translateY(-1px);
-        }
-
-        body[data-theme="elegant"] .option-input:checked+.option-label {
-            background-image: var(--option-selected-bg);
-            border-color: transparent;
-            box-shadow: 0 0 0 3px rgba(94, 115, 138, 0.2);
-        }
-
-        body[data-theme="elegant"] .option-input.force-highlight+.option-label,
-        body[data-theme="elegant"] .option-input.force-correct-revealed+.option-label {
-            background-image: var(--btn-secondary-bg) !important;
-            color: var(--white) !important;
-            border-color: transparent !important;
-        }
-
-        body[data-theme="elegant"] .option-input.force-wrong+.option-label {
-            background-image: var(--btn-primary-bg) !important;
-            color: var(--white) !important;
-            border-color: transparent !important;
-        }
-
-        body[data-theme="elegant"] .feedback {
-            border-width: var(--feedback-border-width);
-            border-radius: 12px;
-        }
-
-        body[data-theme="elegant"] .btn {
-            font-family: var(--font-main);
-            border-radius: 12px;
-            box-shadow: 0 8px 18px rgba(31, 53, 82, 0.2);
-        }
-
-        body[data-theme="elegant"] #prev-btn,
-        body[data-theme="elegant"] #next-btn,
-        body[data-theme="elegant"] #confirm-back-btn {
-            background-image: var(--btn-secondary-bg);
-            box-shadow: 0 8px 18px rgba(80, 100, 120, 0.22);
-        }
-
-        body[data-theme="elegant"] #prev-btn:hover,
-        body[data-theme="elegant"] #next-btn:hover,
-        body[data-theme="elegant"] #confirm-back-btn:hover {
-            filter: brightness(1.06);
-        }
-
-        body[data-theme="elegant"] #submit-btn,
-        body[data-theme="elegant"] #confirm-submit-btn {
-            background-image: var(--btn-primary-bg);
-            box-shadow: 0 8px 18px rgba(94, 115, 138, 0.3);
-        }
-
-        body[data-theme="elegant"] #reset-btn {
-            background-image: var(--btn-danger-bg);
-        }
-
-        body[data-theme="elegant"] .progress-container {
-            border-top: none;
-        }
-
-        body[data-theme="elegant"] .progress-dot {
-            background: var(--option-bg);
-            border: var(--adaptive-progress-border-width) solid var(--border-main);
-            border-radius: var(--adaptive-progress-segment-radius);
-            color: var(--muted-text);
-        }
-
-        body[data-theme="elegant"] .progress-dot.current,
-        body[data-theme="elegant"] .progress-dot.current.correct,
-        body[data-theme="elegant"] .progress-dot.current.wrong {
-            background: var(--muted-text) !important;
-            border-color: var(--muted-text) !important;
-            color: var(--white) !important;
-            box-shadow: none !important;
-        }
-
-        body[data-theme="elegant"] .progress-dot.correct {
-            background: var(--adaptive-progress-done-bg) !important;
-            color: var(--adaptive-progress-done-text) !important;
-            border-color: var(--adaptive-progress-done-border) !important;
-        }
-
-        body[data-theme="elegant"] .progress-dot.wrong {
-            background: var(--adaptive-progress-warn-bg) !important;
-            color: var(--adaptive-progress-warn-text) !important;
-            border-color: var(--adaptive-progress-warn-border) !important;
-        }
-
-        body[data-theme="elegant"] .result-score {
-            font-family: var(--font-main);
-            color: var(--text-color);
-        }
-
-        body[data-theme="elegant"] .dec-footer {
-            color: var(--muted-text);
-            border-top: none;
-        }
-
-        body[data-theme="elegant"] .theme-switch {
-            border-color: var(--border-main);
-            background: var(--light-pink);
-        }
-
-        body[data-theme="elegant"] .theme-chip {
-            color: var(--muted-text);
-        }
-
-        body[data-theme="elegant"] .theme-chip:hover {
-            background: rgba(94, 115, 138, 0.1);
-            color: var(--text-color);
-        }
-
-        body[data-theme="elegant"] .theme-chip.active {
-            background: var(--btn-secondary-bg);
-            color: var(--white);
-            box-shadow: 0 8px 16px rgba(80, 104, 126, 0.32);
-        }
-
-        /* --- Theme Toggle Switch --- */
-        .theme-toggle-switch {
-            display: inline-block;
-            position: relative;
-            width: var(--toggle-width);
-            height: var(--toggle-height);
-            vertical-align: middle;
-            margin: 0;
-        }
-
-        .theme-toggle-switch input {
-            display: none;
-        }
-
-        .theme-toggle-switch .slider {
-            position: absolute;
-            inset: 0;
-            cursor: pointer;
-            background: var(--toggle-slider-bg);
-            border-radius: var(--toggle-height);
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            box-shadow: var(--toggle-slider-shadow);
-            border: 1px solid var(--toggle-slider-border);
-            transition: background var(--theme-motion-medium), box-shadow var(--theme-motion-fast), border-color var(--theme-motion-fast);
-        }
-
-        .theme-toggle-switch .slider-text {
-            width: 100%;
-            position: absolute;
-            left: var(--toggle-text-youth-left);
-            text-align: center;
-            color: var(--toggle-text-color);
-            font-weight: 700;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            pointer-events: none;
-            user-select: none;
-            transition: left var(--theme-motion-medium), color var(--theme-motion-fast);
-            z-index: 1;
-            user-select: none;
-            font-family: "Be Vietnam Pro", sans-serif;
-            white-space: nowrap;
-        }
-
-        .theme-toggle-switch .slider:before {
-            position: absolute;
-            content: "";
-            height: var(--toggle-knob);
-            width: var(--toggle-knob);
-            left: 4px;
-            bottom: 3px;
-            box-sizing: border-box;
-            border: 2px solid var(--toggle-knob-border);
-            background-color: var(--toggle-knob-bg);
-            border-radius: 50%;
-            z-index: 2;
-            box-shadow: var(--toggle-knob-shadow);
-            transition: transform var(--theme-motion-medium), border-color var(--theme-motion-fast), background-color var(--theme-motion-fast), box-shadow var(--theme-motion-fast);
-        }
-
-        .theme-toggle-switch input:checked+.slider {
-            background: var(--toggle-slider-checked-bg);
-            box-shadow: var(--toggle-slider-checked-shadow);
-            border: 1px solid var(--toggle-slider-checked-border);
-        }
-
-        .theme-toggle-switch input:checked+.slider .slider-text {
-            left: var(--toggle-text-elegant-left);
-            color: var(--toggle-text-checked-color);
-        }
-
-        .theme-toggle-switch input:checked+.slider:before {
-            transform: translateX(var(--toggle-shift));
-        }
-
-        body[data-theme="elegant"] .theme-toggle-switch .slider {
-            background: var(--toggle-slider-bg);
-            box-shadow: var(--toggle-slider-shadow);
-        }
-
-        body[data-theme="elegant"] .theme-toggle-switch input:checked+.slider {
-            background: var(--toggle-slider-checked-bg);
-            box-shadow: var(--toggle-slider-checked-shadow);
-        }
-
-        /* --- Focus Mode Button & Layout --- */
-        .focus-toggle-btn {
-            font-family: var(--font-main);
-            height: var(--toggle-height);
-            padding: 0 16px;
-            border-radius: 12px;
-            background: var(--focus-action-bg);
-            border: 1px solid var(--focus-action-border);
-            box-shadow: var(--focus-action-shadow);
-            color: var(--focus-action-text);
-            font-weight: 500;
-            font-size: 0.8rem;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-right: 12px;
-            transition: all var(--theme-motion-fast);
-        }
-
-        .focus-toggle-btn:hover {
-            background: var(--focus-action-hover-bg);
-        }
-
-        .focus-toggle-btn[aria-pressed="true"] {
-            background: var(--focus-action-bg) !important;
-            color: var(--focus-action-text) !important;
-            border-color: var(--focus-action-border) !important;
-            box-shadow: var(--focus-action-shadow) !important;
-        }
-
-        .focus-toggle-btn[aria-pressed="true"]:hover {
-            background: var(--focus-action-hover-bg) !important;
-        }
-
-        /* --- Focus Mode Styles --- */
-        body.focus-mode {
-            height: 100vh;
-            height: 100dvh;
-            padding: 10px;
-            box-sizing: border-box;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-
-            /* DMU Tokens for Focus Mode */
-            --focus-exit-height: 26px;
-            --focus-exit-padding: 0 10px;
-            --focus-exit-font-size: 0.72rem;
-            --focus-exit-radius: 8px;
-            --focus-exit-margin-bottom: 8px;
-            --focus-progress-height: 10px;
-            --focus-progress-margin-top: 4px;
-            --focus-progress-margin-bottom: 12px;
-            --focus-q-block-padding: 12px 16px;
-            --focus-q-block-margin-bottom: 12px;
-            --focus-q-block-font-size: 1.36rem;
-            --focus-option-padding: 8px 12px;
-            --focus-option-font-size: 1.12rem;
-            --focus-option-radius: 10px;
-            --focus-option-gap: 8px;
-            --focus-btn-height: clamp(44px, 5vh, 56px);
-            --focus-btn-padding: clamp(9px, 1.2vh, 12px) clamp(20px, 2vw, 28px);
-            --focus-btn-font-size: clamp(1rem, 1.65vw, 1.2rem);
-            --focus-btn-radius: 12px;
-            --focus-controls-margin-top: 12px;
-            --focus-feedback-padding: 10px 12px;
-            --focus-feedback-margin-top: 10px;
-            --focus-feedback-radius: 10px;
-            --focus-feedback-height: 72px;
-
-            /* Override DMU Feedback variables in Focus Mode */
-            --feedback-height: var(--focus-feedback-height);
-            --feedback-padding: var(--focus-feedback-padding);
-            --feedback-radius: var(--focus-feedback-radius);
-            --feedback-margin-top: var(--focus-feedback-margin-top);
-        }
-
-        body.focus-mode .container {
-            height: 100%;
-            max-width: 100%;
-            width: 100%;
-            margin: 0;
-            border-radius: 22px;
-            box-shadow: none;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            padding: 16px 20px;
-            box-sizing: border-box;
-            position: relative;
-        }
-
-        /* Ẩn các thành phần gây xao nhãng và định vị lại nút Focus */
-        body.focus-mode #header-area {
-            display: none !important;
-        }
-
-        body.focus-mode #btnFocusMode {
-            flex: 0 0 auto;
-            margin: 0 !important;
-            height: auto !important;
-            padding: 8px 16px !important;
-            border-radius: 999px !important;
-            font-size: 0.85rem !important;
-            font-weight: 700 !important;
-        }
-
-        body.focus-mode .progress-dot {
-            max-width: none !important;
-            border-radius: var(--adaptive-progress-segment-radius) !important;
-            background: var(--adaptive-progress-empty-bg) !important;
-            border-color: var(--border-main) !important;
-            color: var(--adaptive-progress-empty-text) !important;
-        }
-
-        body.focus-mode .progress-dot.current,
-        body.focus-mode .progress-dot.current.correct,
-        body.focus-mode .progress-dot.current.wrong {
-            background: var(--adaptive-progress-active-bg) !important;
-            color: var(--adaptive-progress-active-text) !important;
-            border-color: var(--adaptive-progress-active-bg) !important;
-        }
-
-        body.focus-mode .progress-dot.correct {
-            background: var(--adaptive-progress-done-bg) !important;
-            color: var(--adaptive-progress-done-text) !important;
-            border-color: var(--adaptive-progress-done-border, transparent) !important;
-        }
-
-        body.focus-mode .progress-dot.wrong {
-            background: var(--adaptive-progress-warn-bg) !important;
-            color: var(--adaptive-progress-warn-text) !important;
-            border-color: var(--adaptive-progress-warn-border, transparent) !important;
-        }
-
-        body.focus-mode .dec-footer {
-            display: none !important;
-        }
-
-        /* Focus shell: giữ progress/controls cố định, chỉ cho nội dung câu hỏi cuộn khi cần. */
-        body.focus-mode #quiz-area {
-            display: grid !important;
-            grid-template-rows: auto minmax(0, 1fr) auto !important;
-            align-items: stretch !important;
-            flex: none !important;
-            height: 100% !important;
-            width: 100% !important;
-            max-width: 1500px !important;
-            margin: 0 auto !important;
-            box-sizing: border-box !important;
-        }
-
-        body.focus-mode #focus-progress-row {
-            display: flex !important;
-            grid-column: 1 / -1 !important;
-            grid-row: 1 !important;
-            align-items: center;
-            gap: 12px;
-            width: 100%;
-            min-width: 0;
-            margin-bottom: var(--focus-progress-margin-bottom);
-        }
-
-        body.focus-mode #question-container {
-            min-height: 0 !important;
-            overflow-x: hidden !important;
-            overflow-y: hidden !important;
-            padding-right: 0;
-        }
-
-        body.focus-mode .question-block {
-            width: 100% !important;
-            margin-bottom: var(--focus-q-block-margin-bottom) !important;
-            padding: var(--focus-q-block-padding) !important;
-            font-size: var(--focus-q-block-font-size) !important;
-            min-height: calc(2 * 1.45em + 60px) !important;
-        }
-
-        body.focus-mode .options-grid {
-            width: 100% !important;
-            gap: var(--focus-option-gap) !important;
-        }
-
-        body.focus-mode .option-label {
-            padding: var(--focus-option-padding) !important;
-            font-size: var(--focus-option-font-size) !important;
-            border-radius: var(--focus-option-radius) !important;
-        }
-
-        body.focus-mode .controls {
-            grid-column: 1 / -1 !important;
-            width: 100% !important;
-            margin-top: var(--focus-controls-margin-top) !important;
-            display: flex !important;
-            justify-content: space-between !important;
-            align-items: center !important;
-            align-self: end !important;
-        }
-
-        body.focus-mode .controls .btn {
-            grid-row: 1 !important;
-            min-height: var(--focus-btn-height) !important;
-            padding: var(--focus-btn-padding) !important;
-            font-size: var(--focus-btn-font-size) !important;
-            border-radius: var(--focus-btn-radius) !important;
-        }
-
-        body.focus-mode #next-btn {
-            margin-left: auto !important;
-        }
-
-        body.focus-mode #progress-area {
-            flex: 1 1 auto;
-            min-width: 0;
-            margin-top: var(--focus-progress-margin-top) !important;
-            margin-bottom: 0 !important;
-            padding-top: 0 !important;
-            width: auto !important;
-            max-width: none !important;
-            justify-content: flex-start;
-            overflow-x: auto;
-            overflow-y: hidden;
-        }
-
-
-
-        body.focus-mode .feedback,
-        body.focus-mode .feedback-placeholder {
-            padding: 4px 8px !important;
-            margin-top: 4px !important;
-            font-size: clamp(0.9rem, 1.15vw, 1.1rem) !important;
-            line-height: 1.25;
-            border-radius: var(--feedback-radius) !important;
-            height: auto !important;
-            min-height: 0 !important;
-            max-height: none !important;
-            overflow: visible !important;
-            overflow-wrap: anywhere;
-        }
-
-        body.focus-mode .feedback div[style] {
-            margin-top: 2px !important;
-        }
-
-        body.focus-mode #quiz-area.zoom-pending {
-            visibility: hidden !important;
-            opacity: 0 !important;
-            transition: none !important;
-        }
-
-        #quiz-area.result-state .controls {
-            display: none !important;
-        }
-
-        .result-actions {
-            display: flex;
-            justify-content: center;
-            margin-top: 4px;
-        }
-
-        .result-actions #reset-btn {
-            margin: 0;
-        }
-
-        body.focus-mode #quiz-area.result-state #question-container {
-            display: flex;
-            grid-row: 2 !important;
-            overflow: hidden !important;
-        }
-
-        body.focus-mode #quiz-area.result-state .confirm-msg-area {
-            display: flex;
-            flex: 1;
-            min-height: 0;
-            padding: 0;
-            align-items: center;
-            justify-content: center;
-        }
-
-        body.focus-mode #quiz-area.result-state .confirm-msg-area > div {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-        }
-
-        @keyframes questionGradientMove {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-    </style>
+<style>:root{color-scheme:only light;--bg-color:#eef3ff;--container-bg:rgba(255,255,255,0.88);--card-bg:linear-gradient(180deg,rgba(255,252,249,0.98),rgba(246,250,255,0.98));--primary-pink:#e5566a;--light-pink:#fff5f6;--border-pink:#ffd3d8;--primary-blue:#19a7a0;--color-y-0:rgba(229,86,106,0.16);--color-y-100:rgba(25,167,160,0.16);--color-y-50:rgba(127,126,133,0.16);--q-block-bg:linear-gradient(90deg,var(--color-y-0) 0%,var(--color-y-50) 100%);--opt-block-bg:linear-gradient(90deg,var(--color-y-100) 0%,var(--color-y-50) 100%);--choice-success-bg:hsla(187,100%,38%,0.12);--choice-success-border:hsl(187,100%,38%);--choice-success-text:hsl(187,100%,25%);--choice-error-bg:hsla(340,82%,58%,0.12);--choice-error-border:hsl(340,82%,58%);--choice-error-text:hsl(340,82%,45%);--progress-correct-gradient:linear-gradient(135deg,hsl(187,100%,46%) 0%,hsl(187,100%,32%) 100%);--progress-wrong-gradient:linear-gradient(135deg,hsl(340,82%,64%) 0%,hsl(340,82%,50%) 100%);--hover-blue:#0f8e87;--primary-pink-hover:#c94a5d;--success-bg:#dff9e8;--success-text:#177245;--success-border:rgba(23,114,69,0.32);--error-bg:#ffe5e8;--error-text:#b42336;--error-border:rgba(180,35,54,0.32);--warning-bg:#fff3df;--warning-text:#a35f00;--warning-border:rgba(245,158,11,0.42);--text-color:#334155;--muted-text:#5a7089;--border-main:rgba(210,223,238,0.95);--line-main:rgba(30,73,101,0.12);--option-bg:#f8fcff;--option-hover-text:#ffffff;--option-selected-bg:linear-gradient(130deg,hsl(340,82%,58%) 0%,hsl(262,18%,48%) 100%);--btn-primary-bg:linear-gradient(130deg,hsl(340,82%,58%) 0%,hsl(262,18%,48%) 100%);--btn-secondary-bg:linear-gradient(130deg,hsl(262,18%,48%) 0%,hsl(187,100%,38%) 100%);--accent-gradient:linear-gradient(90deg,hsl(340,82%,58%),hsl(187,100%,38%));--btn-danger-bg:linear-gradient(130deg,hsl(212,19%,40%) 0%,hsl(283,20%,46%) 100%);--white:#ffffff;--font-main:"Be Vietnam Pro",sans-serif;--theme-motion-fast:0.22s ease;--theme-motion-medium:0.32s ease;--toggle-width:140px;--toggle-height:36px;--toggle-knob:28px;--toggle-shift:102px;--toggle-text-youth-left:10px;--toggle-text-elegant-left:-10px;--toggle-slider-bg:linear-gradient(135deg,rgba(229,86,106,0.16) 0%,rgba(25,167,160,0.16) 100%);--toggle-slider-checked-bg:var(--btn-secondary-bg);--toggle-slider-border:rgba(229,86,106,0.25);--toggle-slider-checked-border:#c8d6e5;--toggle-slider-shadow:inset 0 1px 3px rgba(0,0,0,0.05);--toggle-slider-checked-shadow:inset 0 2px 4px rgba(0,0,0,0.1),0 5px 12px rgba(42,92,121,0.25);--toggle-knob-shadow:0 2px 4px rgba(0,0,0,0.15);--toggle-knob-bg:#fff5f6;--toggle-knob-border:transparent;--toggle-text-color:var(--muted-text);--toggle-text-checked-color:var(--white);--quiz-nav-height:var(--toggle-height);--lesson-title-min-height:3.7rem;--adaptive-progress-height:clamp(24px,2.2vw,30px);--adaptive-progress-gap:4px;--adaptive-progress-segment-radius:8px;--adaptive-progress-border-width:1px;--progress-dot-font-weight:600;--progress-dot-motion:var(--theme-motion-fast);--adaptive-progress-empty-bg:var(--white);--adaptive-progress-empty-text:var(--text-color);--adaptive-progress-active-bg:var(--muted-text);--adaptive-progress-active-text:var(--white);--adaptive-progress-done-bg:var(--success-bg);--adaptive-progress-done-text:var(--muted-text);--adaptive-progress-done-border:var(--border-main);--adaptive-progress-warn-bg:var(--light-pink);--adaptive-progress-warn-text:var(--muted-text);--adaptive-progress-warn-border:var(--border-main);--progress-dot-correct-fill:var(--choice-success-border);--progress-dot-wrong-fill:var(--choice-error-border);--progress-hover-bg:rgba(90,112,137,0.12);--focus-action-bg:rgba(255,255,255,0.86);--focus-action-hover-bg:rgba(25,167,160,0.1);--focus-action-active-bg:var(--btn-secondary-bg);--focus-action-text:var(--primary-blue);--focus-action-active-text:#ffffff;--focus-action-border:rgba(25,167,160,0.36);--focus-action-shadow:0 10px 24px rgba(25,167,160,0.14);--feedback-height:82px;--feedback-border-width:2px;--feedback-padding:12px 15px;--feedback-radius:12px;--feedback-margin-top:15px;--feedback-placeholder-bg:rgba(255,255,255,0.4);--feedback-placeholder-border:var(--feedback-border-width) solid rgba(30,73,101,0.08);--feedback-placeholder-color:var(--muted-text);}body:not([data-theme="elegant"]){--adaptive-progress-empty-bg:var(--white);--adaptive-progress-empty-text:var(--text-color);--adaptive-progress-active-bg:var(--muted-text);--adaptive-progress-active-text:var(--white);--adaptive-progress-done-bg:var(--success-bg);--adaptive-progress-done-text:var(--muted-text);--adaptive-progress-done-border:var(--border-main);--adaptive-progress-warn-bg:var(--light-pink);--adaptive-progress-warn-text:var(--muted-text);--adaptive-progress-warn-border:var(--border-main);}body{font-family:var(--font-main);background-color:var(--bg-color);background-image:radial-gradient(circle at 12% 10%,rgba(36,191,181,0.16),transparent 36%),radial-gradient(circle at 88% 84%,rgba(255,160,122,0.22),transparent 35%),linear-gradient(165deg,#f3f7ff 0%,#f7fbff 48%,#fffaf6 100%);background-attachment:fixed;color:var(--text-color);margin:0;padding:20px 10px;display:flex;justify-content:center;align-items:flex-start;min-height:100vh;min-height:100dvh;width:100%;overflow-x:hidden;box-sizing:border-box;transition:background-color var(--theme-motion-medium),color var(--theme-motion-fast);}@supports not (zoom:1){html{font-size:85%;}}.container{max-width:900px;margin:0 auto 20px;width:100%;min-width:0;background:var(--card-bg);border-radius:22px;border:1px solid var(--border-main);box-shadow:0 22px 50px rgba(28,62,95,0.16);backdrop-filter:blur(8px);padding:0;display:flex;flex-direction:column;position:relative;overflow:hidden;box-sizing:border-box;transition:background var(--theme-motion-medium),border-color var(--theme-motion-fast),box-shadow var(--theme-motion-medium);}@media (min-width:601px) and (min-height:640px){body:not(.focus-mode){height:100dvh;padding:10px;box-sizing:border-box;overflow:hidden;}body:not(.focus-mode) .container{height:100%;margin:0 auto;}body:not(.focus-mode) #quiz-area{grid-template-rows:auto minmax(0,1fr) auto;flex:1 1 auto;min-height:0;padding-top:12px;padding-bottom:12px;}body:not(.focus-mode) #question-container{min-height:0;overflow-x:hidden;overflow-y:hidden;padding-right:0;padding-bottom:58px;box-sizing:border-box;position:relative;}body:not(.focus-mode) #header-area{gap:8px;padding:12px 22px;}body:not(.focus-mode) #lessonTitle.dec-ui-game-title{margin-top:0;margin-bottom:0;padding-top:4px;padding-bottom:4px;}body:not(.focus-mode) .question-block{margin-bottom:8px;font-size:1.6rem;}body:not(.focus-mode) .options-grid{gap:10px;}body:not(.focus-mode) .option-label{padding:6px 12px;font-size:1.35rem;}body:not(.focus-mode) .feedback.is-visible{position:absolute;right:0;bottom:0;left:0;height:auto;min-height:0;margin:0;padding:4px 8px;font-size:clamp(0.9rem,1.15vw,1.1rem);line-height:1.25;overflow:visible;z-index:1;}body:not(.focus-mode) .feedback.is-visible div[style]{margin-top:2px !important;}body:not(.focus-mode) .dec-footer{flex:0 0 auto;margin-top:0;padding:6px 22px 10px;}}.container::before{content:"";position:absolute;inset:0 0 auto;height:6px;background:var(--accent-gradient);z-index:1;pointer-events:none;}h1{font-family:var(--font-main);color:var(--primary-pink);text-align:center;margin:0;font-size:clamp(1.45rem,2.4vw,1.95rem);border-bottom:3px solid var(--border-pink);padding-bottom:10px;font-weight:800;zoom:0.7;text-transform:none;box-sizing:border-box;min-height:var(--lesson-title-min-height);display:flex;align-items:center;justify-content:center;transition:color var(--theme-motion-fast),border-color var(--theme-motion-fast);}#lessonTitle.dec-ui-game-title{font-family:"Be Vietnam Pro",sans-serif;font-weight:var(--dummy,800);font-size:clamp(2rem,2.7vw,2.4rem);letter-spacing:0.0625rem;text-align:center;background:var(--accent-gradient,var(--btn-secondary-bg));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:var(--color-transparent,transparent);color:var(--color-transparent,transparent);margin-top:0.5rem;margin-bottom:0.5rem;text-transform:none;zoom:0.7;border-bottom:none;padding-top:8px;padding-bottom:8px;line-height:1.35;min-height:auto;}.main-label{font-weight:800;text-transform:uppercase;margin-top:24px;margin-bottom:10px;display:block;font-size:0.96rem;color:var(--primary-pink);}.first-label{margin-top:8px !important;}.subtitle{text-align:left;margin:0;font-style:italic;color:var(--muted-text);font-size:0.98em;flex:1;line-height:1.4;transition:color var(--theme-motion-fast);}.header-meta{grid-column:1 / -1;display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:0;padding-bottom:0;border-bottom:none;transition:border-color var(--theme-motion-fast);}@media (max-width:600px){.header-meta{flex-wrap:wrap;gap:10px;}.subtitle{font-size:0.88em;min-width:100%;}}#header-area{display:grid !important;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:14px;padding:22px;background:linear-gradient(110deg,var(--light-pink) 0%,var(--option-bg) 100%);border-bottom:1px solid var(--border-main);box-sizing:border-box;transition:all 0.2s ease;}#quiz-area{display:grid !important;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:14px;padding:16px 22px 22px;background:var(--container-bg);min-width:0;overflow-x:hidden;box-sizing:border-box;}.controls{display:contents !important;}#lessonTitle,#focus-progress-row,#question-container,.progress-container,.dec-footer{grid-column:1 / -1;}#focus-progress-row{min-width:0;display:contents;}#question-container{min-width:0;}#subtitle-placeholder:empty{display:none;}#header-area.compact h1{font-size:1.2em;margin-bottom:0;padding-bottom:6px;border-bottom-width:2px;}#header-area.compact .subtitle{font-size:0.95em;margin-bottom:10px;}.question-block{position:relative;overflow:hidden;background:linear-gradient(120deg,var(--color-y-0),var(--color-y-50),var(--color-y-100),var(--color-y-0));background-size:300% 300%;animation:questionGradientMove 12s ease infinite;border:1px solid var(--border-main);box-sizing:border-box;border-radius:18px;padding:16px;margin-bottom:20px;font-size:1.85rem;font-weight:800;text-align:left;color:var(--text-color);line-height:1.45;min-height:calc(2 * 1.45em + 40px);overflow-wrap:anywhere;text-wrap:pretty;transition:background var(--theme-motion-medium),border-color var(--theme-motion-fast),color var(--theme-motion-fast);}.question-block::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(255,255,255,0.6) 0%,transparent 40%),radial-gradient(circle at 20% 80%,rgba(255,255,255,0.4) 0%,transparent 40%);mix-blend-mode:overlay;pointer-events:none;z-index:1;}.options-grid{display:flex;flex-direction:column;gap:12px;}.option-item{position:relative;}.option-input{position:absolute;opacity:0;width:0;height:0;}.option-label{display:block;background-color:var(--option-bg);background-repeat:no-repeat;background-size:102% 102%;background-position:center;background-clip:border-box;padding:12px 15px;border-radius:12px;cursor:pointer;border:1px solid var(--border-main);transition:background-color var(--theme-motion-fast),border-color var(--theme-motion-fast),color var(--theme-motion-fast),transform 0.2s ease;font-weight:600;font-size:1.55rem;position:relative;overflow:hidden;min-width:0;overflow-wrap:anywhere;text-wrap:pretty;}.option-label::before{content:"";position:absolute;inset:0;background:linear-gradient(112deg,transparent 20%,rgba(255,255,255,0.35) 50%,transparent 80%);transform:translateX(-135%);transition:transform 0.6s ease;pointer-events:none;z-index:2;}.option-label:hover::before{transform:translateX(130%);}.option-label:hover{background:hsl(187,100%,38%) !important;color:var(--option-hover-text) !important;transform:translateY(-2px);}.option-input:checked+.option-label{background-image:var(--option-selected-bg);border-color:transparent;box-shadow:none;color:var(--white);transform:scale(0.98);}.option-input:disabled+.option-label{cursor:default;opacity:0.8;pointer-events:none;}.feedback,.feedback-placeholder{margin-top:var(--feedback-margin-top);padding:var(--feedback-padding);border-radius:var(--feedback-radius);height:var(--feedback-height);box-sizing:border-box;font-size:1.32rem;line-height:1.4;animation:fadeIn 0.3s ease-in-out;display:flex;flex-direction:column;justify-content:center;overflow:hidden;}.feedback-placeholder{background:transparent !important;border:none !important;color:var(--feedback-placeholder-color);font-style:italic;opacity:0.65;align-items:flex-start;text-align:left;display:none;}.feedback{display:none;border:var(--feedback-border-width) solid transparent;}.feedback.is-visible{display:flex !important;}.is-initially-visible{display:block;}.is-initially-hidden{display:none;}.is-runtime-hidden{display:none !important;}@keyframes fadeIn{from{opacity:0;transform:translateY(-5px);}to{opacity:1;transform:translateY(0);}}.feedback.correct{background-color:transparent !important;color:var(--choice-success-text) !important;border-color:transparent !important;box-shadow:none !important;}.feedback.wrong{background-color:transparent !important;color:var(--choice-error-text) !important;border-color:transparent !important;box-shadow:none !important;}.option-input.force-highlight+.option-label,.option-input.force-correct-revealed+.option-label{background-image:var(--btn-secondary-bg) !important;color:var(--white) !important;border:1px solid transparent !important;font-weight:bold;position:relative;}.option-input.force-highlight+.option-label{padding-right:40px !important;}.option-input.force-highlight+.option-label::after{content:"✅";position:absolute;right:15px;top:50%;transform:translateY(-50%);font-size:1.1rem;line-height:1;}.option-input.force-wrong+.option-label{background-image:var(--btn-primary-bg) !important;color:var(--white) !important;border:1px solid transparent !important;font-weight:bold;position:relative;padding-right:40px !important;}.option-input.force-wrong+.option-label::after{content:"❌";position:absolute;right:15px;top:50%;transform:translateY(-50%);font-size:1.1rem;line-height:1;}.controls{margin-top:20px;}.btn{border:1px solid transparent;box-sizing:border-box;min-height:38px;padding:10px 20px;border-radius:12px;font-family:var(--font-main);font-size:0.95rem;font-weight:800;line-height:1.2;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;white-space:nowrap;transition:background-color var(--theme-motion-fast),color var(--theme-motion-fast),border-color var(--theme-motion-fast),box-shadow var(--theme-motion-fast),transform 0.2s ease;color:var(--white);box-shadow:0 8px 18px rgba(31,53,82,0.12);min-width:128px;max-width:220px;position:relative;overflow:hidden;background-repeat:no-repeat;background-size:100% 100%;background-position:center;background-clip:border-box;background-origin:border-box;}.btn::before{content:"";position:absolute;inset:0;background:linear-gradient(112deg,transparent 20%,rgba(255,255,255,0.35) 50%,transparent 80%);transform:translateX(-135%);transition:transform 0.55s ease;pointer-events:none;z-index:2;}.btn:hover::before{transform:translateX(130%);}#prev-btn{grid-column:1;grid-row:3;justify-self:start;align-self:center;}#next-btn,#submit-btn{grid-column:3;grid-row:3;justify-self:end;align-self:center;}.btn:active{transform:scale(0.96);box-shadow:0 4px 10px rgba(0,0,0,0.15);}#prev-btn,#next-btn,#confirm-back-btn{background-image:var(--btn-secondary-bg);box-shadow:0 8px 18px rgba(25,167,160,0.22);}#prev-btn:hover,#next-btn:hover,#confirm-back-btn:hover{filter:brightness(1.06);}#submit-btn,#confirm-submit-btn{background-image:var(--btn-primary-bg);box-shadow:0 8px 18px rgba(229,86,106,0.28);}#submit-btn:hover,#confirm-submit-btn:hover{filter:brightness(1.06);}#confirm-back-btn{grid-column:1;grid-row:3;justify-self:start;align-self:center;}#confirm-submit-btn{grid-column:3;grid-row:3;justify-self:end;align-self:center;}.confirm-msg-area{display:flex;align-items:center;justify-content:center;min-height:200px;padding:20px;}.confirm-msg-area>div{text-align:center;font-size:1.15em;line-height:1.9;}#reset-btn{background-image:var(--btn-danger-bg);grid-column:1 / -1;grid-row:3;justify-self:center;align-self:center;}#reset-btn:hover{filter:brightness(1.06);}.progress-container{margin-top:0;margin-bottom:16px;display:flex;justify-content:center;align-items:center;gap:var(--adaptive-progress-gap);padding-top:0;border-top:none;width:100%;min-width:0;}.progress-container.dynamic-mode{flex-wrap:nowrap;height:var(--adaptive-progress-height);overflow:hidden;}.progress-container.dynamic-mode .progress-dot.current{flex-grow:2.25;min-width:4.5rem;max-width:none;}.progress-dot{appearance:none;flex:1 1 0;max-width:32px;min-width:20px;height:var(--adaptive-progress-height);box-sizing:border-box;display:flex;align-items:center;justify-content:center;border:var(--adaptive-progress-border-width) solid var(--border-main);border-radius:var(--adaptive-progress-segment-radius);cursor:pointer;font-size:0.72rem;font-weight:var(--progress-dot-font-weight);color:var(--adaptive-progress-empty-text);background:var(--adaptive-progress-empty-bg);font-family:inherit;transition:background-color var(--theme-motion-fast),border-color var(--theme-motion-fast),color var(--theme-motion-fast),transform var(--theme-motion-fast),box-shadow var(--theme-motion-fast);}.progress-dot.current,.progress-dot.current.correct,.progress-dot.current.wrong{background:var(--muted-text) !important;border-color:var(--muted-text) !important;color:var(--white) !important;box-shadow:none !important;}.progress-dot.correct{background:var(--adaptive-progress-done-bg);color:var(--adaptive-progress-done-text);border-color:var(--adaptive-progress-done-border);}.progress-dot.wrong{background:var(--adaptive-progress-warn-bg);color:var(--adaptive-progress-warn-text);border-color:var(--adaptive-progress-warn-border);}.progress-dot:hover:not(.current){background-color:var(--progress-hover-bg) !important;}.progress-bank-count{appearance:none;flex:0 0 auto;min-width:36px;height:100%;padding:0 8px;border:var(--adaptive-progress-border-width) solid var(--border-main);border-radius:var(--adaptive-progress-segment-radius);color:var(--muted-text);background:var(--adaptive-progress-empty-bg);font:inherit;font-size:0.72rem;font-weight:var(--progress-dot-font-weight);line-height:1;white-space:nowrap;opacity:1;}.progress-bank-count.is-expandable{border-color:var(--primary-blue);color:var(--primary-blue);cursor:pointer;}.progress-bank-count.is-expandable:hover,.progress-bank-count.is-expandable:focus-visible{background:var(--progress-hover-bg);outline:2px solid var(--primary-blue);outline-offset:2px;}.progress-bank-count.is-collapse{border-color:var(--btn-secondary-bg);color:var(--btn-secondary-bg);cursor:pointer;}.progress-bank-count.is-collapse:hover,.progress-bank-count.is-collapse:focus-visible{background:var(--progress-hover-bg);outline:2px solid var(--btn-secondary-bg);outline-offset:2px;}@media (max-width:640px){.progress-container.dynamic-mode .progress-dot.current{min-width:4rem;}}.result-screen{text-align:center;padding:30px;display:none;}.result-score{font-size:2em;font-weight:bold;color:var(--primary-pink);margin-bottom:10px;}.result-msg{font-size:1.3em;margin-bottom:20px;}.result-msg.result-pass{color:var(--success-text);}.result-msg.result-retry{color:var(--warning-text);}.dec-footer{margin-top:20px;padding-top:14px;border-top:none;text-align:center;font-size:0.78em;color:var(--muted-text);line-height:1.5;}@media (max-width:600px){.container{padding:0;}#header-area,#quiz-area{padding-left:15px;padding-right:15px;}.btn{font-size:1em;padding:0 12px;}.option-label{padding:10px;font-size:1.6em;}.feedback{font-size:0.88em;}.dec-footer{font-size:0.72em;}.theme-switch-wrap{margin-bottom:10px;}.theme-chip{font-size:0.74rem;padding:6px 10px;}}.theme-switch-wrap{display:inline-flex;align-items:center;margin-left:auto;}.theme-switch{display:inline-flex;align-items:center;gap:6px;padding:4px;border-radius:999px;border:1px solid var(--border-pink);background:var(--light-pink);box-shadow:inset 0 1px 0 rgba(255,255,255,0.9);}.theme-chip{border:1px solid transparent;box-sizing:border-box;background:transparent;color:var(--muted-text);border-radius:999px;padding:7px 12px;min-width:96px;line-height:1.2;white-space:nowrap;font-family:var(--font-main);font-size:0.8rem;font-weight:700;letter-spacing:0.02em;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px;transition:background-color var(--theme-motion-fast),color var(--theme-motion-fast),box-shadow var(--theme-motion-fast),border-color var(--theme-motion-fast);}.theme-chip:hover{background:rgba(229,86,106,0.1);color:var(--primary-pink);}.theme-chip.active{background:var(--btn-primary-bg);color:var(--white);box-shadow:0 8px 16px rgba(229,86,106,0.24);}#header-area.compact .theme-switch-wrap{margin-bottom:0;}#header-area.compact .theme-chip{padding:6px 10px;font-size:0.75rem;min-width:92px;}body[data-theme="elegant"]{color-scheme:only dark;--bg-color:#0b1524;--container-bg:rgba(252,253,255,0.93);--feedback-placeholder-bg:rgba(255,255,255,0.03);--feedback-placeholder-border:var(--feedback-border-width) solid var(--border-main);--feedback-placeholder-color:var(--muted-text);--card-bg:#f9fbfd;--primary-pink:#5e738a;--color-e-0:rgba(91,116,141,0.16);--color-e-100:rgba(74,99,125,0.16);--color-e-50:rgba(82,107,131,0.16);--q-block-bg:linear-gradient(90deg,var(--color-e-0) 0%,var(--color-e-50) 100%);--opt-block-bg:linear-gradient(90deg,var(--color-e-100) 0%,var(--color-e-50) 100%);--choice-success-bg:hsla(211,19%,46%,0.12);--choice-success-border:hsl(211,19%,46%);--choice-success-text:hsl(211,19%,30%);--choice-error-bg:hsla(211,23%,58%,0.12);--choice-error-border:hsl(211,23%,58%);--choice-error-text:hsl(211,23%,40%);--progress-correct-gradient:linear-gradient(135deg,hsl(211,19%,52%) 0%,hsl(211,19%,40%) 100%);--progress-wrong-gradient:linear-gradient(135deg,hsl(211,23%,64%) 0%,hsl(211,23%,52%) 100%);--light-pink:#f2f5f8;--border-pink:#c8d4e0;--primary-blue:#5e738a;--hover-blue:#4b627a;--primary-pink-hover:#4b627a;--success-bg:#dff9e8;--success-text:#177245;--error-bg:#ffe5e8;--error-text:#b42336;--warning-bg:#f4f1eb;--warning-text:#6f675c;--text-color:#3f5268;--muted-text:#4a6077;--border-main:rgba(205,216,228,0.92);--line-main:rgba(74,96,119,0.14);--adaptive-progress-empty-bg:var(--option-bg);--adaptive-progress-empty-text:var(--text-color);--adaptive-progress-active-bg:var(--muted-text);--adaptive-progress-active-text:var(--white);--adaptive-progress-done-bg:#edf2f6;--adaptive-progress-done-text:var(--muted-text);--adaptive-progress-done-border:var(--border-main);--adaptive-progress-warn-bg:var(--light-pink);--adaptive-progress-warn-text:var(--muted-text);--adaptive-progress-warn-border:var(--border-main);--option-bg:#f9fbfd;--option-selected-bg:linear-gradient(130deg,hsl(211,23%,58%) 0%,hsl(211,18%,52%) 100%);--btn-primary-bg:linear-gradient(130deg,hsl(211,23%,58%) 0%,hsl(211,18%,52%) 100%);--btn-secondary-bg:linear-gradient(130deg,hsl(211,18%,52%) 0%,hsl(211,19%,46%) 100%);--accent-gradient:linear-gradient(90deg,hsl(211,23%,58%),hsl(211,19%,46%));--btn-danger-bg:linear-gradient(130deg,hsl(211,20%,44%),hsl(212,25%,34%));--toggle-slider-bg:linear-gradient(90deg,#5b748d 15%,#4a637d 85%);--toggle-slider-checked-bg:linear-gradient(130deg,#50667f 0%,#3d5066 100%);--toggle-slider-checked-shadow:inset 0 2px 4px rgba(0,0,0,0.1),0 4px 12px rgba(0,0,0,0.3);--toggle-knob-bg:#4a5c70;--toggle-knob-border:#788b9d;--toggle-knob-shadow:0 2px 5px rgba(0,0,0,0.25);--toggle-slider-border:#788b9d;--toggle-slider-checked-border:#788b9d;--toggle-text-color:var(--white);--toggle-text-checked-color:var(--white);--progress-dot-correct-fill:var(--choice-success-border);--progress-dot-wrong-fill:var(--choice-error-border);--progress-hover-bg:rgba(74,96,119,0.18);--focus-action-bg:rgba(248,250,252,0.9);--focus-action-hover-bg:rgba(74,96,119,0.1);--focus-action-active-bg:var(--btn-secondary-bg);--focus-action-text:#3d536c;--focus-action-active-text:#ffffff;--focus-action-border:rgba(96,117,141,0.34);--focus-action-shadow:0 10px 24px rgba(42,64,88,0.16);font-family:var(--font-main);background:radial-gradient(circle at 10% 12%,rgba(132,166,210,0.46),transparent 33%),radial-gradient(circle at 88% 86%,rgba(106,141,183,0.42),transparent 31%),radial-gradient(circle at 52% 6%,rgba(70,104,147,0.28),transparent 44%),linear-gradient(150deg,#08111c 0%,#132036 43%,#2a4667 100%);background-color:#0b1524;background-attachment:fixed;}body[data-theme="elegant"] .container{background:var(--card-bg);box-shadow:0 22px 50px rgba(28,62,95,0.16);}body[data-theme="elegant"] h1{color:var(--text-color);}body[data-theme="elegant"] #lessonTitle.dec-ui-game-title{background:var(--heading-gradient,var(--btn-primary-bg));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:var(--color-transparent,transparent);color:var(--color-transparent,transparent);}body[data-theme="elegant"] .main-label{background:linear-gradient(120deg,var(--primary-blue),var(--hover-blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}body[data-theme="elegant"] .subtitle{color:var(--muted-text);}body[data-theme="elegant"] .header-meta{border-bottom-color:var(--border-main);}body[data-theme="elegant"] .question-block{background:linear-gradient(120deg,var(--color-e-0),var(--color-e-50),var(--color-e-100),var(--color-e-0));background-size:300% 300%;animation:questionGradientMove 15s ease infinite;border:1px solid var(--border-main);border-radius:18px;color:var(--text-color);}body[data-theme="elegant"] .question-block::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(255,255,255,0.4) 0%,transparent 40%),radial-gradient(circle at 20% 80%,rgba(255,255,255,0.2) 0%,transparent 40%);mix-blend-mode:overlay;pointer-events:none;z-index:1;}body[data-theme="elegant"] .option-label{background-color:var(--option-bg);border:1px solid var(--border-main);border-radius:12px;}body[data-theme="elegant"] .option-label:hover{background:var(--btn-secondary-bg) !important;color:var(--white) !important;transform:translateY(-1px);}body[data-theme="elegant"] .option-input:checked+.option-label{background-image:var(--option-selected-bg);border-color:transparent;box-shadow:0 0 0 3px rgba(94,115,138,0.2);}body[data-theme="elegant"] .option-input.force-highlight+.option-label,body[data-theme="elegant"] .option-input.force-correct-revealed+.option-label{background-image:var(--btn-secondary-bg) !important;color:var(--white) !important;border-color:transparent !important;}body[data-theme="elegant"] .option-input.force-wrong+.option-label{background-image:var(--btn-primary-bg) !important;color:var(--white) !important;border-color:transparent !important;}body[data-theme="elegant"] .feedback{border-width:var(--feedback-border-width);border-radius:12px;}body[data-theme="elegant"] .btn{font-family:var(--font-main);border-radius:12px;box-shadow:0 8px 18px rgba(31,53,82,0.2);}body[data-theme="elegant"] #prev-btn,body[data-theme="elegant"] #next-btn,body[data-theme="elegant"] #confirm-back-btn{background-image:var(--btn-secondary-bg);box-shadow:0 8px 18px rgba(80,100,120,0.22);}body[data-theme="elegant"] #prev-btn:hover,body[data-theme="elegant"] #next-btn:hover,body[data-theme="elegant"] #confirm-back-btn:hover{filter:brightness(1.06);}body[data-theme="elegant"] #submit-btn,body[data-theme="elegant"] #confirm-submit-btn{background-image:var(--btn-primary-bg);box-shadow:0 8px 18px rgba(94,115,138,0.3);}body[data-theme="elegant"] #reset-btn{background-image:var(--btn-danger-bg);}body[data-theme="elegant"] .progress-container{border-top:none;}body[data-theme="elegant"] .progress-dot{background:var(--option-bg);border:var(--adaptive-progress-border-width) solid var(--border-main);border-radius:var(--adaptive-progress-segment-radius);color:var(--muted-text);}body[data-theme="elegant"] .progress-bank-count{background:var(--option-bg);color:var(--muted-text);}body[data-theme="elegant"] .progress-dot.current,body[data-theme="elegant"] .progress-dot.current.correct,body[data-theme="elegant"] .progress-dot.current.wrong{background:var(--muted-text) !important;border-color:var(--muted-text) !important;color:var(--white) !important;box-shadow:none !important;}body[data-theme="elegant"] .progress-dot.correct{background:var(--adaptive-progress-done-bg) !important;color:var(--adaptive-progress-done-text) !important;border-color:var(--adaptive-progress-done-border) !important;}body[data-theme="elegant"] .progress-dot.wrong{background:var(--adaptive-progress-warn-bg) !important;color:var(--adaptive-progress-warn-text) !important;border-color:var(--adaptive-progress-warn-border) !important;}body[data-theme="elegant"] .result-score{font-family:var(--font-main);color:var(--text-color);}body[data-theme="elegant"] .dec-footer{color:var(--muted-text);border-top:none;}body[data-theme="elegant"] .theme-switch{border-color:var(--border-main);background:var(--light-pink);}body[data-theme="elegant"] .theme-chip{color:var(--muted-text);}body[data-theme="elegant"] .theme-chip:hover{background:rgba(94,115,138,0.1);color:var(--text-color);}body[data-theme="elegant"] .theme-chip.active{background:var(--btn-secondary-bg);color:var(--white);box-shadow:0 8px 16px rgba(80,104,126,0.32);}.theme-toggle-switch{display:inline-block;position:relative;width:var(--toggle-width);height:var(--toggle-height);vertical-align:middle;margin:0;}.theme-toggle-switch input{display:none;}.theme-toggle-switch .slider{position:absolute;inset:0;cursor:pointer;background:var(--toggle-slider-bg);border-radius:var(--toggle-height);overflow:hidden;display:flex;align-items:center;box-shadow:var(--toggle-slider-shadow);border:1px solid var(--toggle-slider-border);transition:background var(--theme-motion-medium),box-shadow var(--theme-motion-fast),border-color var(--theme-motion-fast);}.theme-toggle-switch .slider-text{width:100%;position:absolute;left:var(--toggle-text-youth-left);text-align:center;color:var(--toggle-text-color);font-weight:700;font-size:0.8rem;text-transform:uppercase;pointer-events:none;user-select:none;transition:left var(--theme-motion-medium),color var(--theme-motion-fast);z-index:1;user-select:none;font-family:"Be Vietnam Pro",sans-serif;white-space:nowrap;}.theme-toggle-switch .slider:before{position:absolute;content:"";height:var(--toggle-knob);width:var(--toggle-knob);left:4px;bottom:3px;box-sizing:border-box;border:2px solid var(--toggle-knob-border);background-color:var(--toggle-knob-bg);border-radius:50%;z-index:2;box-shadow:var(--toggle-knob-shadow);transition:transform var(--theme-motion-medium),border-color var(--theme-motion-fast),background-color var(--theme-motion-fast),box-shadow var(--theme-motion-fast);}.theme-toggle-switch input:checked+.slider{background:var(--toggle-slider-checked-bg);box-shadow:var(--toggle-slider-checked-shadow);border:1px solid var(--toggle-slider-checked-border);}.theme-toggle-switch input:checked+.slider .slider-text{left:var(--toggle-text-elegant-left);color:var(--toggle-text-checked-color);}.theme-toggle-switch input:checked+.slider:before{transform:translateX(var(--toggle-shift));}body[data-theme="elegant"] .theme-toggle-switch .slider{background:var(--toggle-slider-bg);box-shadow:var(--toggle-slider-shadow);}body[data-theme="elegant"] .theme-toggle-switch input:checked+.slider{background:var(--toggle-slider-checked-bg);box-shadow:var(--toggle-slider-checked-shadow);}.focus-toggle-btn{font-family:var(--font-main);height:var(--toggle-height);padding:0 16px;border-radius:12px;background:var(--focus-action-bg);border:1px solid var(--focus-action-border);box-shadow:var(--focus-action-shadow);color:var(--focus-action-text);font-weight:500;font-size:0.8rem;cursor:pointer;display:inline-flex;align-items:center;gap:8px;margin-right:12px;transition:all var(--theme-motion-fast);}.focus-toggle-btn:hover{background:var(--focus-action-hover-bg);}.focus-toggle-btn[aria-pressed="true"]{background:var(--focus-action-bg) !important;color:var(--focus-action-text) !important;border-color:var(--focus-action-border) !important;box-shadow:var(--focus-action-shadow) !important;}.focus-toggle-btn[aria-pressed="true"]:hover{background:var(--focus-action-hover-bg) !important;}body.focus-mode{height:100vh;height:100dvh;padding:10px;box-sizing:border-box;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-start;align-items:center;--focus-exit-height:26px;--focus-exit-padding:0 10px;--focus-exit-font-size:0.72rem;--focus-exit-radius:8px;--focus-exit-margin-bottom:8px;--focus-progress-height:10px;--focus-progress-margin-top:4px;--focus-progress-margin-bottom:12px;--focus-q-block-padding:12px 16px;--focus-q-block-margin-bottom:12px;--focus-q-block-font-size:1.36rem;--focus-option-padding:8px 12px;--focus-option-font-size:1.12rem;--focus-option-radius:10px;--focus-option-gap:8px;--focus-btn-height:clamp(44px,5vh,56px);--focus-btn-padding:clamp(9px,1.2vh,12px) clamp(20px,2vw,28px);--focus-btn-font-size:clamp(1rem,1.65vw,1.2rem);--focus-btn-radius:12px;--focus-controls-margin-top:12px;--focus-feedback-padding:10px 12px;--focus-feedback-margin-top:10px;--focus-feedback-radius:10px;--focus-feedback-height:72px;--feedback-height:var(--focus-feedback-height);--feedback-padding:var(--focus-feedback-padding);--feedback-radius:var(--focus-feedback-radius);--feedback-margin-top:var(--focus-feedback-margin-top);}body.focus-mode .container{height:100%;max-width:100%;width:100%;margin:0;border-radius:22px;box-shadow:none;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-start;align-items:center;padding:16px 20px;box-sizing:border-box;position:relative;}body.focus-mode #header-area{display:none !important;}body.focus-mode #btnFocusMode{flex:0 0 auto;margin:0 !important;height:auto !important;padding:8px 16px !important;border-radius:999px !important;font-size:0.85rem !important;font-weight:700 !important;}body.focus-mode .progress-dot{max-width:none !important;border-radius:var(--adaptive-progress-segment-radius) !important;background:var(--adaptive-progress-empty-bg) !important;border-color:var(--border-main) !important;color:var(--adaptive-progress-empty-text) !important;}body.focus-mode .progress-bank-count{background:var(--adaptive-progress-empty-bg) !important;border-color:var(--border-main) !important;color:var(--adaptive-progress-empty-text) !important;}body.focus-mode .progress-dot.current,body.focus-mode .progress-dot.current.correct,body.focus-mode .progress-dot.current.wrong{background:var(--adaptive-progress-active-bg) !important;color:var(--adaptive-progress-active-text) !important;border-color:var(--adaptive-progress-active-bg) !important;}body.focus-mode .progress-dot.correct{background:var(--adaptive-progress-done-bg) !important;color:var(--adaptive-progress-done-text) !important;border-color:var(--adaptive-progress-done-border,transparent) !important;}body.focus-mode .progress-dot.wrong{background:var(--adaptive-progress-warn-bg) !important;color:var(--adaptive-progress-warn-text) !important;border-color:var(--adaptive-progress-warn-border,transparent) !important;}body.focus-mode .dec-footer{display:none !important;}body.focus-mode #quiz-area{display:grid !important;grid-template-rows:auto minmax(0,1fr) auto !important;align-items:stretch !important;flex:none !important;height:100% !important;width:100% !important;max-width:1500px !important;margin:0 auto !important;box-sizing:border-box !important;}body.focus-mode #focus-progress-row{display:flex !important;grid-column:1 / -1 !important;grid-row:1 !important;align-items:center;gap:12px;width:100%;min-width:0;margin-bottom:var(--focus-progress-margin-bottom);}body.focus-mode #question-container{min-height:0 !important;overflow-x:hidden !important;overflow-y:hidden !important;padding-right:0;}body.focus-mode .question-block{width:100% !important;margin-bottom:var(--focus-q-block-margin-bottom) !important;padding:var(--focus-q-block-padding) !important;font-size:var(--focus-q-block-font-size) !important;min-height:calc(2 * 1.45em + 60px) !important;}body.focus-mode .options-grid{width:100% !important;gap:var(--focus-option-gap) !important;}body.focus-mode .option-label{padding:var(--focus-option-padding) !important;font-size:var(--focus-option-font-size) !important;border-radius:var(--focus-option-radius) !important;}body.focus-mode .controls{grid-column:1 / -1 !important;width:100% !important;margin-top:var(--focus-controls-margin-top) !important;display:flex !important;justify-content:space-between !important;align-items:center !important;align-self:end !important;}body.focus-mode .controls .btn{grid-row:1 !important;min-height:var(--focus-btn-height) !important;padding:var(--focus-btn-padding) !important;font-size:var(--focus-btn-font-size) !important;border-radius:var(--focus-btn-radius) !important;}body.focus-mode #next-btn{margin-left:auto !important;}body.focus-mode #progress-area{flex:1 1 auto;min-width:0;margin-top:var(--focus-progress-margin-top) !important;margin-bottom:0 !important;padding-top:0 !important;width:auto !important;max-width:none !important;justify-content:flex-start;overflow-x:auto;overflow-y:hidden;}body.focus-mode .feedback,body.focus-mode .feedback-placeholder{padding:4px 8px !important;margin-top:4px !important;font-size:clamp(0.9rem,1.15vw,1.1rem) !important;line-height:1.25;border-radius:var(--feedback-radius) !important;height:auto !important;min-height:0 !important;max-height:none !important;overflow:visible !important;overflow-wrap:anywhere;}body.focus-mode .feedback div[style]{margin-top:2px !important;}body.focus-mode #quiz-area.zoom-pending{visibility:hidden !important;opacity:0 !important;transition:none !important;}#quiz-area.result-state .controls{display:none !important;}.result-actions{display:flex;justify-content:center;margin-top:4px;}.result-actions #reset-btn{margin:0;}body.focus-mode #quiz-area.result-state #question-container{display:flex;grid-row:2 !important;overflow:hidden !important;}body.focus-mode #quiz-area.result-state .confirm-msg-area{display:flex;flex:1;min-height:0;padding:0;align-items:center;justify-content:center;}body.focus-mode #quiz-area.result-state .confirm-msg-area > div{display:flex;flex-direction:column;align-items:center;width:100%;}@keyframes questionGradientMove{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}</style>
 </head>
 
 <body>
@@ -1699,7 +64,7 @@ html,body,button,input,select,textarea{font-family:var(--dec-font-family-offline
         </div>
 
         <!-- Quiz Content -->
-        <div id="quiz-area">
+        <div id="quiz-area" class="is-initially-hidden">
             <div id="focus-progress-row">
                 <div id="progress-area" class="progress-container"></div>
             </div>
@@ -1718,8 +83,7 @@ html,body,button,input,select,textarea{font-family:var(--dec-font-family-offline
         <footer class="dec-footer">Bản quyền thuộc về DEC - thầy Đức tiếng Anh - 0966939583</footer>
     </div>
 
-    <script>
-        // --- DUKEGEM QUESTION BANK
+    <script>// --- DUKEGEM QUESTION BANK
 const fullQuestionBank = [
   {
         "q": "Chọn từ tiếng Anh đúng. Nghĩa: Tôi thích chiếc ô tô đồ chơi mới vì đó là món đồ tôi yêu thích: I ___ my new toy car because it is my favorite. 🚗",
@@ -4222,769 +2586,888 @@ const fullQuestionBank = [
     ]
   }
 ];
-
-        const DASHBOARD_THEME_KEY = 'dec_dashboard_theme_v1';
-
-        function syncThemeToggleUI(theme) {
-            const isElegant = theme === 'elegant';
-            const toggle = document.getElementById('themeToggleCheckbox');
-            const text = document.getElementById('themeToggleText');
-
-            if (toggle && toggle.checked !== isElegant) {
-                toggle.checked = isElegant;
-            }
-
-            if (text) {
-                text.textContent = isElegant ? 'ELEGANT' : 'YOUTH';
-            }
-        }
-
-        function applyDashboardTheme(theme) {
-            const normalizedTheme = theme === 'elegant' ? 'elegant' : 'youth';
-            document.body.setAttribute('data-theme', normalizedTheme);
-            syncThemeToggleUI(normalizedTheme);
-
-            const youthBtn = document.getElementById('themeYouthBtn');
-            const elegantBtn = document.getElementById('themeElegantBtn');
-            if (youthBtn && elegantBtn) {
-                youthBtn.classList.toggle('active', normalizedTheme === 'youth');
-                elegantBtn.classList.toggle('active', normalizedTheme === 'elegant');
-            }
-        }
-
-        function setDashboardTheme(theme) {
-            applyDashboardTheme(theme);
-            try {
-                localStorage.setItem(DASHBOARD_THEME_KEY, theme);
-            } catch (err) {
-                // localStorage can be blocked in strict browser settings.
-            }
-        }
-
-        function initDashboardTheme() {
-            let savedTheme = null;
-            try {
-                savedTheme = localStorage.getItem(DASHBOARD_THEME_KEY);
-            } catch (err) {
-                savedTheme = null;
-            }
-            applyDashboardTheme(savedTheme || 'youth');
-        }
-
-        initDashboardTheme();
-
-        function handleThemeToggleChange(event) {
-            const newTheme = event && event.target && event.target.checked ? 'elegant' : 'youth';
-            if (typeof switchTheme === 'function') switchTheme(newTheme);
-            else if (typeof setDashboardTheme === 'function') setDashboardTheme(newTheme);
-            else {
-                document.body.setAttribute('data-theme', newTheme);
-                try {
-                    localStorage.setItem(DASHBOARD_THEME_KEY, newTheme);
-                } catch (err) {
-                    // localStorage can be blocked in strict browser settings.
-                }
-            }
-        }
-
-        function initControlBindings() {
-            const themeToggle = document.getElementById('themeToggleCheckbox');
-            const focusBtn = document.getElementById('btnFocusMode');
-            const prevBtn = document.getElementById('prev-btn');
-            const nextBtn = document.getElementById('next-btn');
-            const submitBtn = document.getElementById('submit-btn');
-            const confirmBackBtn = document.getElementById('confirm-back-btn');
-            const confirmSubmitBtn = document.getElementById('confirm-submit-btn');
-            const resetBtn = document.getElementById('reset-btn');
-            const progressArea = document.getElementById('progress-area');
-
-            if (themeToggle) themeToggle.addEventListener('change', handleThemeToggleChange);
-            if (focusBtn) focusBtn.addEventListener('click', toggleFocusMode);
-            if (prevBtn) prevBtn.addEventListener('click', navPrev);
-            if (nextBtn) nextBtn.addEventListener('click', navNext);
-            if (submitBtn) submitBtn.addEventListener('click', requestSubmitConfirmation);
-            if (confirmBackBtn) confirmBackBtn.addEventListener('click', exitSubmitConfirmation);
-            if (confirmSubmitBtn) confirmSubmitBtn.addEventListener('click', () => submitQuiz(true));
-            if (resetBtn) resetBtn.addEventListener('click', initQuiz);
-            if (progressArea) {
-                progressArea.addEventListener('click', (event) => {
-                    const dot = event.target.closest('.progress-dot');
-                    if (!dot || !progressArea.contains(dot)) return;
-                    const index = Number(dot.dataset.navIndex);
-                    if (!Number.isInteger(index)) return;
-                    navTo(index);
-                });
-            }
-        }
-
-        // --- CONFIG & STATE ---
-        const TOTAL_QUESTIONS = 20;
-        const PASSING_RATE = 0.8;
-        let isSubmitConfirming = false;
-        let quizState = {
-            questions: [], // The __TOTAL_QUESTIONS__ selected questions
-            currentIndex: 0,
-            userAnswers: {}, // index -> {selectedText, isCorrect}
-            isFinished: false
-        };
-
-        // --- FOCUS MODE STATE ---
-        const Q_FOCUS_MAX_ZOOM = 2.05;
-        const Q_FOCUS_STEP = 0.05;
-        let qFocusZoomScale = 1.0;
-        let qFocusFitFrame = null;
-
-        // --- UTILS ---
-        function escapeHtml(value) {
-            return (value ?? '').toString()
-                .replaceAll('&', '&amp;')
-                .replaceAll('<', '&lt;')
-                .replaceAll('>', '&gt;')
-                .replaceAll('"', '&quot;')
-                .replaceAll("'", '&#39;');
-        }
-
-        function shuffle(array) {
-            let currentIndex = array.length, randomIndex;
-            while (currentIndex != 0) {
-                randomIndex = Math.floor(Math.random() * currentIndex);
-                currentIndex--;
-                [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
-            }
-            return array;
-        }
-
-        function getConfiguredQuestionCount() {
-            const availableCount = Array.isArray(fullQuestionBank) ? fullQuestionBank.length : 0;
-            if (availableCount <= 0) return 0;
-            return Math.min(TOTAL_QUESTIONS, availableCount);
-        }
-
-        function getQuestionCount() {
-            return quizState.questions.length || getConfiguredQuestionCount();
-        }
-
-        function setDisplay(target, displayValue) {
-            const el = typeof target === 'string' ? document.getElementById(target) : target;
-            if (!el) return;
-            const shouldHide = displayValue === 'none';
-            el.classList.toggle('is-runtime-hidden', shouldHide);
-            if (!shouldHide) el.classList.remove('is-initially-hidden');
-        }
-
-        // --- CORE FUNCTIONS ---
-
-        function initQuiz() {
-            // 1. Reset State
-            quizState = {
-                questions: [],
-                currentIndex: 0,
-                userAnswers: {},
-                isFinished: false
-            };
-            isSubmitConfirming = false;
-
-            // 2. Prepare Data (Deep Shuffle)
-            const questionCount = getConfiguredQuestionCount();
-            let rawQuestions = shuffle([...fullQuestionBank]).slice(0, questionCount);
-
-            // Shuffle options inside each question
-            quizState.questions = rawQuestions.map(q => {
-                return {
-                    ...q,
-                    a: shuffle([...q.a]) // Clone and shuffle answers
-                };
-            });
-
-            // 3. UI Reset
-            const quizArea = document.getElementById('quiz-area');
-            const resetBtn = document.getElementById('reset-btn');
-            const controls = document.querySelector('.controls');
-            if (resetBtn && controls && resetBtn.parentElement !== controls) {
-                controls.appendChild(resetBtn);
-            }
-            if (quizArea) quizArea.classList.remove('result-state');
-            setDisplay('reset-btn', 'none');
-            setDisplay('confirm-back-btn', 'none');
-            setDisplay('confirm-submit-btn', 'none');
-            setDisplay('quiz-area', 'block');
-            setDisplay('header-area', 'block');
-            setDisplay('progress-area', 'flex');
-
-            if (quizState.questions.length === 0) {
-                document.getElementById('question-container').innerHTML =
-                    `<div class="confirm-msg-area"><div>Không có câu hỏi hợp lệ để hiển thị.</div></div>`;
-                document.getElementById('progress-area').innerHTML = '';
-                setDisplay('prev-btn', 'none');
-                setDisplay('next-btn', 'none');
-                setDisplay('submit-btn', 'none');
-                return;
-            }
-
-            // 4. Start
-            renderQuestion();
-            renderProgress();
-        }
-
-        function renderQuestion() {
-            const qIndex = quizState.currentIndex;
-            const questionCount = getQuestionCount();
-            const qData = quizState.questions[qIndex];
-            const container = document.getElementById('question-container');
-
-            if (!qData) {
-                container.innerHTML = `<div class="confirm-msg-area"><div>Không tìm thấy câu hỏi để hiển thị.</div></div>`;
-                setDisplay('prev-btn', 'none');
-                setDisplay('next-btn', 'none');
-                setDisplay('submit-btn', 'none');
-                return;
-            }
-
-            // Keep header visible.
-            const header = document.getElementById('header-area');
-            setDisplay(header, 'block');
-
-            // Build HTML
-            let html = `
-            <div class="question-block">
-                Câu ${qIndex + 1}: ${escapeHtml(qData.q)}
-            </div>
-            <div class="options-grid">
-        `;
-
-            qData.a.forEach((opt, idx) => {
-                const optId = `opt-${idx}`;
-                const isChecked = quizState.userAnswers[qIndex]?.selectedText === opt.text ? 'checked' : '';
-                const isDisabled = quizState.userAnswers[qIndex] ? 'disabled' : '';
-                const _ans = quizState.userAnswers[qIndex];
-                let highlightClass = '';
-                if (_ans) {
-                    if (opt.correct) {
-                        if (_ans.selectedText === opt.text) {
-                            highlightClass = 'force-highlight';
-                        } else {
-                            highlightClass = 'force-correct-revealed';
-                        }
-                    } else if (_ans.selectedText === opt.text) {
-                        highlightClass = 'force-wrong';
-                    }
-                }
-                const safeText = escapeHtml(opt.text);
-                const safeExplanation = escapeHtml(opt.explanation || '');
-
-                // Map index 0-3 to 1-2-3-4
-                const labelPrefix = idx + 1;
-
-                html += `
-                <div class="option-item">
-                    <input type="radio"
-                        name="q"
-                        id="${optId}"
-                        class="option-input ${highlightClass}"
-                        data-text="${safeText}"
-                        data-correct="${opt.correct ? '1' : '0'}"
-                        data-explanation="${safeExplanation}"
-                        ${isChecked} ${isDisabled}>
-                    <label for="${optId}" class="option-label">
-                        <strong>${labelPrefix}.</strong> ${safeText}
-                    </label>
-                </div>
-            `;
-            });
-
-            html += `</div>`; // Close grid
-
-            // Feedback Section (Shown when answered, or placeholder reserved to eliminate jitter)
-            if (quizState.userAnswers[qIndex]) {
-                const ans = quizState.userAnswers[qIndex];
-                const className = ans.isCorrect ? 'feedback correct' : 'feedback wrong';
-                const icon = ans.isCorrect ? '👍' : '';
-                const title = ans.isCorrect ? 'Câu trả lời chính xác!' : 'Câu trả lời không chính xác!';
-
-                html += `
-                <div class="${className} is-visible">
-                    <strong>${title}${icon ? ' ' + icon : ''}</strong>
-                    <div style="margin-top: 4px;">${escapeHtml(ans.explanation)}</div>
-                </div>
-            `;
-            } else {
-                html += `<div class="feedback-placeholder" aria-hidden="true"></div>`;
-            }
-
-            container.innerHTML = html;
-
-            container.querySelectorAll('.option-input').forEach(input => {
-                input.addEventListener('change', () => {
-                    handleAnswer(
-                        qIndex,
-                        input.dataset.text || '',
-                        input.dataset.correct === '1',
-                        input.dataset.explanation || ''
-                    );
-                });
-            });
-
-            // Button States
-            setDisplay('prev-btn', qIndex === 0 ? 'none' : 'block');
-            setDisplay('next-btn', qIndex === questionCount - 1 ? 'none' : 'block');
-            setDisplay('submit-btn', qIndex === questionCount - 1 ? 'block' : 'none');
-
-            // Update Progress UI
-            updateProgressUI();
-
-            requestAnimationFrame(fitFeedbackToViewport);
-
-            // Scroll to top
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-
-            // Keep Focus scale stable while navigating between questions.
-            // Focus entry and window resize handle any required refit.
-        }
-
-        function fitFeedbackToViewport() {
-            const viewport = document.getElementById('question-container');
-            const feedback = viewport?.querySelector('.feedback.is-visible');
-            if (!viewport || !feedback) return;
-
-            const minFontSize = 11;
-            let fontSize = parseFloat(getComputedStyle(feedback).fontSize);
-            let attempts = 0;
-
-            while (
-                feedback.getBoundingClientRect().bottom > viewport.getBoundingClientRect().bottom &&
-                fontSize > minFontSize &&
-                attempts < 24
-            ) {
-                fontSize -= 0.5;
-                feedback.style.setProperty('font-size', `${fontSize}px`, 'important');
-                attempts += 1;
-            }
-        }
-
-        function handleAnswer(qIndex, text, isCorrect, explanation) {
-            // Lock answer
-            quizState.userAnswers[qIndex] = {
-                selectedText: text,
-                isCorrect: isCorrect,
-                explanation: explanation
-            };
-
-            // Re-render to show locked state and feedback immediately
-            renderQuestion();
-        }
-
-        function renderProgress() {
-            const container = document.getElementById('progress-area');
-            const questionCount = getQuestionCount();
-
-            if (container) {
-                if (questionCount > 30) {
-                    container.classList.add('wrap-mode');
-                } else {
-                    container.classList.remove('wrap-mode');
-                }
-            }
-
-            let html = '';
-            for (let i = 0; i < questionCount; i++) {
-                html += `<button id="dot-${i}" class="progress-dot" data-nav-index="${i}" type="button" aria-label="Câu ${i + 1}">${i + 1}</button>`;
-            }
-            container.innerHTML = html;
-            updateProgressUI();
-        }
-
-        function updateProgressUI() {
-            const questionCount = getQuestionCount();
-            for (let i = 0; i < questionCount; i++) {
-                const dot = document.getElementById(`dot-${i}`);
-                if (!dot) continue;
-
-                // Reset classes
-                dot.className = 'progress-dot';
-                dot.removeAttribute('aria-current');
-                dot.title = `Câu ${i + 1}`;
-
-                // Current status
-                if (i === quizState.currentIndex) {
-                    dot.classList.add('current');
-                    dot.setAttribute('aria-current', 'step');
-                    dot.title = `Câu ${i + 1}: đang làm`;
-                }
-
-                // Answer status
-                if (quizState.userAnswers[i]) {
-                    if (quizState.userAnswers[i].isCorrect) {
-                        dot.classList.add('correct');
-                        dot.title = `Câu ${i + 1}: đúng`;
-                    } else {
-                        dot.classList.add('wrong');
-                        dot.title = `Câu ${i + 1}: sai`;
-                    }
-                }
-            }
-        }
-
-        function getUnansweredIndexes() {
-            const questionCount = getQuestionCount();
-            const unanswered = [];
-            for (let i = 0; i < questionCount; i++) {
-                if (!quizState.userAnswers[i]) unanswered.push(i);
-            }
-            return unanswered;
-        }
-
-        function requestSubmitConfirmation() {
-            if (quizState.isFinished) return;
-
-            const unanswered = getUnansweredIndexes();
-            if (unanswered.length === 0) {
-                submitQuiz(true);
-                return;
-            }
-
-            isSubmitConfirming = true;
-            const preview = unanswered.slice(0, 6).map(i => i + 1).join(', ');
-            const more = unanswered.length > 6 ? ', ...' : '';
-            const msgHtml = `Bạn còn <strong>${unanswered.length}</strong> câu chưa trả lời (câu ${preview}${more}).<br>Nhấn <strong>Enter</strong> lần nữa hoặc bấm <strong>NỘP BÀI 👍</strong> để nộp ngay.<br>Nếu muốn làm tiếp, bấm <strong>⬅️ Quay lại</strong> hoặc phím <strong>mũi tên trái</strong>.`;
-
-            document.getElementById('question-container').innerHTML =
-                `<div class="confirm-msg-area"><div>${msgHtml}</div></div>`;
-            setDisplay('prev-btn', 'none');
-            setDisplay('next-btn', 'none');
-            setDisplay('submit-btn', 'none');
-            setDisplay('confirm-back-btn', 'block');
-            setDisplay('confirm-submit-btn', 'block');
-        }
-
-        function exitSubmitConfirmation() {
-            if (!isSubmitConfirming || quizState.isFinished) return;
-
-            isSubmitConfirming = false;
-            setDisplay('confirm-back-btn', 'none');
-            setDisplay('confirm-submit-btn', 'none');
-            renderQuestion();
-        }
-
-        // --- NAVIGATION ---
-        function navNext() {
-            const questionCount = getQuestionCount();
-            if (quizState.currentIndex < questionCount - 1) {
-                quizState.currentIndex++;
-                renderQuestion();
-            }
-        }
-
-        function navPrev() {
-            if (quizState.currentIndex > 0) {
-                quizState.currentIndex--;
-                renderQuestion();
-            }
-        }
-
-        function navTo(index) {
-            const questionCount = getQuestionCount();
-            if (quizState.isFinished) return; // Disable nav interaction if finished (except reset)
-            if (index < 0 || index >= questionCount) return;
-            if (isSubmitConfirming) {
-                isSubmitConfirming = false;
-                setDisplay('confirm-back-btn', 'none');
-                setDisplay('confirm-submit-btn', 'none');
-            }
-            quizState.currentIndex = index;
-            renderQuestion();
-        }
-
-        function submitQuiz(force = false) {
-            if (quizState.isFinished) return;
-            const questionCount = getQuestionCount();
-            if (questionCount === 0) return;
-
-            if (!force) {
-                requestSubmitConfirmation();
-                return;
-            }
-
-            isSubmitConfirming = false;
-            let score = 0;
-            for (let i = 0; i < questionCount; i++) {
-                if (quizState.userAnswers[i] && quizState.userAnswers[i].isCorrect) {
-                    score++;
-                }
-            }
-
-            // Show Results inline (same layout as quiz)
-            const passingScore = Math.ceil(questionCount * PASSING_RATE);
-            const msgText = score >= passingScore ? 'Tuyệt vời! Bạn làm rất tốt! 🎉🥳' : 'Hãy cố gắng hơn lần sau nhé! 💜💪';
-            const msgClass = score >= passingScore ? 'result-pass' : 'result-retry';
-            const quizArea = document.getElementById('quiz-area');
-            if (quizArea) quizArea.classList.add('result-state');
-
-            const questionContainer = document.getElementById('question-container');
-            questionContainer.innerHTML = `
-            <div class="confirm-msg-area"><div>
-                <div class="result-score">${score} / ${questionCount}</div>
-                <div class="result-msg ${msgClass}">${msgText}</div>
-                <div class="result-actions"></div>
-            </div></div>`;
-
-            setDisplay('prev-btn', 'none');
-            setDisplay('next-btn', 'none');
-            setDisplay('submit-btn', 'none');
-            setDisplay('confirm-back-btn', 'none');
-            setDisplay('confirm-submit-btn', 'none');
-            const resetBtn = document.getElementById('reset-btn');
-            const resultActions = questionContainer.querySelector('.result-actions');
-            if (resetBtn && resultActions) resultActions.appendChild(resetBtn);
-            setDisplay(resetBtn, 'inline-flex');
-
-            quizState.isFinished = true;
-        }
-
-        // --- FOCUS MODE FUNCTIONS ---
-        function getFocusPanel() {
-            return document.getElementById('quiz-area');
-        }
-
-        function applyFocusZoomScale(scale, reveal = true) {
-            const panel = getFocusPanel();
-            if (!panel) return;
-
-            const isFocus = document.body.classList.contains('focus-mode');
-            qFocusZoomScale = Math.min(Q_FOCUS_MAX_ZOOM, Math.max(1.0, Math.round(scale * 100) / 100));
-            panel.style.setProperty('--focus-zoom', String(qFocusZoomScale));
-            panel.style.zoom = '';
-
-            if (!isFocus) {
-                [
-                    '--focus-q-block-font-size',
-                    '--focus-option-font-size',
-                    '--focus-q-block-padding',
-                    '--focus-option-padding',
-                    '--focus-option-gap'
-                ].forEach(name => panel.style.removeProperty(name));
-                if (reveal) panel.classList.remove('zoom-pending');
-                return;
-            }
-
-            const qVertical = Math.round(12 * qFocusZoomScale);
-            const qHorizontal = Math.round(16 * qFocusZoomScale);
-            const optionVertical = Math.round(8 * qFocusZoomScale);
-            const optionHorizontal = Math.round(12 * qFocusZoomScale);
-
-            panel.style.setProperty('--focus-q-block-font-size', `${(1.36 * qFocusZoomScale).toFixed(3)}rem`);
-            panel.style.setProperty('--focus-option-font-size', `${(1.12 * qFocusZoomScale).toFixed(3)}rem`);
-            panel.style.setProperty('--focus-q-block-padding', `${qVertical}px ${qHorizontal}px`);
-            panel.style.setProperty('--focus-option-padding', `${optionVertical}px ${optionHorizontal}px`);
-            panel.style.setProperty('--focus-option-gap', `${Math.round(8 * qFocusZoomScale)}px`);
-            if (reveal) panel.classList.remove('zoom-pending');
-        }
-
-        function doesFocusZoomFit(scale) {
-            if (!document.body.classList.contains('focus-mode')) return false;
-            const contentViewport = document.getElementById('question-container');
-            if (!contentViewport || contentViewport.clientHeight <= 0) return false;
-
-            applyFocusZoomScale(scale, false);
-            return contentViewport.scrollWidth <= contentViewport.clientWidth + 1 &&
-                   contentViewport.scrollHeight <= contentViewport.clientHeight + 1;
-        }
-
-        function ensureFocusZoomFits() {
-            const isFocus = document.body.classList.contains('focus-mode');
-            const container = document.querySelector('.container');
-            if (!container) return;
-
-            if (!isFocus) {
-                container.style.height = '';
-                applyFocusZoomScale(1.0);
-                container.style.zoom = '';
-                return;
-            }
-
-            container.style.height = '';
-
-            const panel = getFocusPanel();
-            if (!panel) return;
-            panel.classList.add('zoom-pending');
-            const contentViewport = document.getElementById('question-container');
-            if (contentViewport) contentViewport.scrollTop = 0;
-
-            let scale = 1.0;
-            let lastFitScale = 1.0;
-            while (scale <= Q_FOCUS_MAX_ZOOM) {
-                if (doesFocusZoomFit(scale)) {
-                    lastFitScale = scale;
-                    scale = Math.round((scale + Q_FOCUS_STEP) * 100) / 100;
-                } else {
-                    break;
-                }
-            }
-            applyFocusZoomScale(lastFitScale);
-        }
-
-        function scheduleFocusFit() {
-            if (qFocusFitFrame) {
-                cancelAnimationFrame(qFocusFitFrame);
-            }
-            qFocusFitFrame = requestAnimationFrame(() => {
-                qFocusFitFrame = requestAnimationFrame(() => {
-                    qFocusFitFrame = null;
-                    ensureFocusZoomFits();
-                });
-            });
-        }
-
-        async function syncFocusFullscreen(enabled) {
-            try {
-                if (enabled && !document.fullscreenElement && document.documentElement.requestFullscreen) {
-                    await document.documentElement.requestFullscreen();
-                } else if (!enabled && document.fullscreenElement && document.exitFullscreen) {
-                    await document.exitFullscreen();
-                }
-            } catch (error) {
-                // Trình duyệt có thể chặn fullscreen
-            }
-        }
-
-        function applyFocusMode(enabled, options = {}) {
-            const isEnabled = Boolean(enabled);
-            document.body.classList.toggle('focus-mode', isEnabled);
-            
-            const container = document.querySelector('.container');
-            if (!isEnabled) {
-                if (container) container.style.height = '';
-                qFocusZoomScale = 1.0;
-                applyFocusZoomScale(1.0);
-            }
-            
-            syncFocusModeButton();
-            
-            if (isEnabled) {
-                scheduleFocusFit();
-            }
-            
-            if (options.syncFullscreen !== false) {
-                syncFocusFullscreen(isEnabled);
-            }
-        }
-
-        function syncFocusModeButton() {
-            const btn = document.getElementById('btnFocusMode');
-            if (!btn) return;
-            const isFocus = document.body.classList.contains('focus-mode');
-            
-            const headerMeta = document.querySelector('.header-meta');
-            const focusProgressRow = document.getElementById('focus-progress-row');
-            
-            if (isFocus) {
-                if (focusProgressRow && btn.parentElement !== focusProgressRow) {
-                    focusProgressRow.appendChild(btn);
-                }
-            } else {
-                if (headerMeta && btn.parentElement !== headerMeta) {
-                    headerMeta.insertBefore(btn, headerMeta.firstChild);
-                }
-            }
-            
-            btn.setAttribute('aria-pressed', isFocus ? 'true' : 'false');
-            if (isFocus) {
-                btn.innerHTML = `<i class="fa-solid fa-compress" aria-hidden="true"></i>Exit (F)`;
-                btn.title = "Thoát Focus Mode (F hoặc Esc)";
-            } else {
-                btn.innerHTML = `<i class="fa-solid fa-expand" aria-hidden="true"></i>Focus Mode`;
-                btn.title = "Bật Focus Mode (F)";
-            }
-        }
-
-        function toggleFocusMode() {
-            if (quizState.isFinished) return;
-            applyFocusMode(!document.body.classList.contains('focus-mode'));
-        }
-
-        // --- KEYBOARD SHORTCUTS ---
-        document.addEventListener('keydown', (e) => {
-            if (quizState.isFinished) return;
-
-            // Esc key to exit focus mode
-            if (e.key === 'Escape') {
-                if (document.body.classList.contains('focus-mode')) {
-                    e.preventDefault();
-                    applyFocusMode(false);
-                }
-                return;
-            }
-
-            // 'F' or 'f' key to toggle focus mode (but not when in an input field)
-            if ((e.key === 'f' || e.key === 'F') && e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
-                e.preventDefault();
-                toggleFocusMode();
-                return;
-            }
-
-            if (isSubmitConfirming) {
-                if (e.key === 'Enter') {
-                    e.preventDefault();
-                    submitQuiz(true);
-                } else if (e.key === 'ArrowLeft') {
-                    e.preventDefault();
-                    exitSubmitConfirmation();
-                }
-                return;
-            }
-
-            if (e.key === 'Enter') {
-                e.preventDefault();
-                requestSubmitConfirmation();
-                return;
-            }
-
-            // Navigation
-            if (e.key === 'ArrowRight' || e.key === 'ArrowUp') {
-                navNext();
-            }
-            else if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') {
-                navPrev();
-            }
-
-            // Selection (1, 2, 3, 4)
-            if (['1', '2', '3', '4'].includes(e.key)) {
-                // Check if already answered
-                if (quizState.userAnswers[quizState.currentIndex]) return;
-
-                const idx = parseInt(e.key) - 1;
-                const input = document.getElementById(`opt-${idx}`);
-                if (input) {
-                    input.checked = true;
-                    // Trigger change event manually
-                    input.dispatchEvent(new Event('change'));
-                }
-            }
-        });
-
-        // --- THEME SYNC ---
-        function initThemeToggle() {
-            syncThemeToggleUI(document.body.getAttribute('data-theme') === 'elegant' ? 'elegant' : 'youth');
-        }
-
-        // --- BOOTSTRAP ---
-        window.addEventListener('load', () => {
-            initControlBindings();
-            initQuiz();
-            initThemeToggle();
-
-            document.addEventListener('fullscreenchange', () => {
-                if (!document.fullscreenElement && document.body.classList.contains('focus-mode')) {
-                    applyFocusMode(false, { syncFullscreen: false });
-                }
-            });
-
-            // Listen for window resize to refit zoom in both focus and normal mode
-            window.addEventListener('resize', () => {
-                scheduleFocusFit();
-            });
-        });
-
-    </script>
+const DASHBOARD_THEME_KEY = 'dec_dashboard_theme_v1';
+function syncThemeToggleUI(theme) {
+const isElegant = theme === 'elegant';
+const toggle = document.getElementById('themeToggleCheckbox');
+const text = document.getElementById('themeToggleText');
+if (toggle && toggle.checked !== isElegant) {
+toggle.checked = isElegant;
+}
+if (text) {
+text.textContent = isElegant ? 'ELEGANT' : 'YOUTH';
+}
+}
+function applyDashboardTheme(theme) {
+const normalizedTheme = theme === 'elegant' ? 'elegant' : 'youth';
+document.body.setAttribute('data-theme', normalizedTheme);
+syncThemeToggleUI(normalizedTheme);
+const youthBtn = document.getElementById('themeYouthBtn');
+const elegantBtn = document.getElementById('themeElegantBtn');
+if (youthBtn && elegantBtn) {
+youthBtn.classList.toggle('active', normalizedTheme === 'youth');
+elegantBtn.classList.toggle('active', normalizedTheme === 'elegant');
+}
+}
+function setDashboardTheme(theme) {
+applyDashboardTheme(theme);
+try {
+localStorage.setItem(DASHBOARD_THEME_KEY, theme);
+} catch (err) {
+// localStorage can be blocked in strict browser settings.
+}
+}
+function initDashboardTheme() {
+let savedTheme = null;
+try {
+savedTheme = localStorage.getItem(DASHBOARD_THEME_KEY);
+} catch (err) {
+savedTheme = null;
+}
+applyDashboardTheme(savedTheme || 'youth');
+}
+initDashboardTheme();
+function handleThemeToggleChange(event) {
+const newTheme = event && event.target && event.target.checked ? 'elegant' : 'youth';
+if (typeof switchTheme === 'function') switchTheme(newTheme);
+else if (typeof setDashboardTheme === 'function') setDashboardTheme(newTheme);
+else {
+document.body.setAttribute('data-theme', newTheme);
+try {
+localStorage.setItem(DASHBOARD_THEME_KEY, newTheme);
+} catch (err) {
+// localStorage can be blocked in strict browser settings.
+}
+}
+}
+function initControlBindings() {
+const themeToggle = document.getElementById('themeToggleCheckbox');
+const focusBtn = document.getElementById('btnFocusMode');
+const prevBtn = document.getElementById('prev-btn');
+const nextBtn = document.getElementById('next-btn');
+const submitBtn = document.getElementById('submit-btn');
+const confirmBackBtn = document.getElementById('confirm-back-btn');
+const confirmSubmitBtn = document.getElementById('confirm-submit-btn');
+const resetBtn = document.getElementById('reset-btn');
+const progressArea = document.getElementById('progress-area');
+if (themeToggle) themeToggle.addEventListener('change', handleThemeToggleChange);
+if (focusBtn) focusBtn.addEventListener('click', toggleFocusMode);
+if (prevBtn) prevBtn.addEventListener('click', navPrev);
+if (nextBtn) nextBtn.addEventListener('click', navNext);
+if (submitBtn) submitBtn.addEventListener('click', requestSubmitConfirmation);
+if (confirmBackBtn) confirmBackBtn.addEventListener('click', exitSubmitConfirmation);
+if (confirmSubmitBtn) confirmSubmitBtn.addEventListener('click', () => submitQuiz(true));
+if (resetBtn) resetBtn.addEventListener('click', resetQuiz);
+if (progressArea) {
+progressArea.addEventListener('click', (event) => {
+const bankCount = event.target.closest('.progress-bank-count');
+if (bankCount && progressArea.contains(bankCount)) {
+if (selectedQuizMode === 'all') collapseQuizToSampleQuestions();
+else expandQuizToAllQuestions();
+return;
+}
+const dot = event.target.closest('.progress-dot');
+if (!dot || !progressArea.contains(dot)) return;
+const index = Number(dot.dataset.navIndex);
+if (!Number.isInteger(index)) return;
+navTo(index);
+});
+}
+}
+// --- CONFIG & STATE ---
+const DEFAULT_QUESTION_COUNT = 20;
+const PASSING_RATE = 0.8;
+const DESKTOP_PROGRESS_RADIUS = 10;
+const COMPACT_PROGRESS_RADIUS = 4;
+const FORCE_ALL_QUESTIONS = window.DEC_QUIZ_FORCE_ALL === true || document.body.dataset.quizForceAll === 'true';
+let isSubmitConfirming = false;
+let selectedQuizMode = null;
+let bankSignatureCache = null;
+let quizState = {
+questions: [],
+selectedIndexes: [],
+optionOrders: [],
+mode: null,
+currentIndex: 0,
+userAnswers: {},
+isFinished: false
+};
+// --- FOCUS MODE STATE ---
+const Q_FOCUS_MAX_ZOOM = 2.05;
+const Q_FOCUS_STEP = 0.05;
+let qFocusZoomScale = 1.0;
+let qFocusFitFrame = null;
+// --- UTILS ---
+function escapeHtml(value) {
+return (value ?? '').toString()
+.replaceAll('&', '&amp;')
+.replaceAll('<', '&lt;')
+.replaceAll('>', '&gt;')
+.replaceAll('"', '&quot;')
+.replaceAll("'", '&#39;');
+}
+function shuffle(array) {
+let currentIndex = array.length, randomIndex;
+while (currentIndex != 0) {
+randomIndex = Math.floor(Math.random() * currentIndex);
+currentIndex--;
+[array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+}
+return array;
+}
+function getProgressRadius() {
+return window.matchMedia('(max-width: 640px)').matches
+? COMPACT_PROGRESS_RADIUS
+: DESKTOP_PROGRESS_RADIUS;
+}
+function getProgressCapacity() {
+return getProgressRadius() * 2 + 1;
+}
+function getBankSignature() {
+if (bankSignatureCache) return bankSignatureCache;
+let hash = 2166136261;
+const add = value => {
+const text = String(value || '');
+for (let i = 0; i < text.length; i++) {
+hash ^= text.charCodeAt(i);
+hash = Math.imul(hash, 16777619);
+}
+};
+add(document.title);
+fullQuestionBank.forEach(question => {
+add(question.q);
+(question.a || []).forEach(option => add(option.text));
+});
+bankSignatureCache = `${fullQuestionBank.length}-${(hash >>> 0).toString(16)}`;
+return bankSignatureCache;
+}
+function getSessionKey() {
+return `dec_quiz_session_v2:${location.pathname}:${getBankSignature()}`;
+}
+function readQuizSession() {
+try {
+const session = JSON.parse(localStorage.getItem(getSessionKey()) || 'null');
+if (!session || session.version !== 2 || session.bankSignature !== getBankSignature()) return null;
+if (!['sample', 'all'].includes(session.mode)) return null;
+if (!Array.isArray(session.selectedIndexes) || !Array.isArray(session.optionOrders)) return null;
+if (session.selectedIndexes.length !== session.optionOrders.length) return null;
+if (session.selectedIndexes.some(index => !Number.isInteger(index) || !fullQuestionBank[index])) return null;
+const invalidOrder = session.optionOrders.some((order, position) => {
+const sourceQuestion = fullQuestionBank[session.selectedIndexes[position]];
+return !Array.isArray(order)
+|| order.length !== sourceQuestion.a.length
+|| new Set(order).size !== order.length
+|| order.some(index => !Number.isInteger(index) || !sourceQuestion.a[index]);
+});
+if (invalidOrder) return null;
+return session;
+} catch (error) {
+return null;
+}
+}
+function saveQuizSession() {
+if (!quizState.mode || quizState.isFinished || quizState.questions.length === 0) return;
+const session = {
+version: 2,
+bankSignature: getBankSignature(),
+mode: quizState.mode,
+selectedIndexes: quizState.selectedIndexes,
+optionOrders: quizState.optionOrders,
+currentIndex: quizState.currentIndex,
+userAnswers: quizState.userAnswers
+};
+try {
+localStorage.setItem(getSessionKey(), JSON.stringify(session));
+} catch (error) {
+// Quota or privacy settings may disable persistence.
+}
+}
+function clearQuizSession() {
+try {
+localStorage.removeItem(getSessionKey());
+} catch (error) {
+// Storage may be blocked.
+}
+}
+function sampleQuestionIndexes(count) {
+const pool = Array.from({ length: fullQuestionBank.length }, (_, index) => index);
+const limit = Math.min(count, pool.length);
+for (let i = 0; i < limit; i++) {
+const randomIndex = i + Math.floor(Math.random() * (pool.length - i));
+[pool[i], pool[randomIndex]] = [pool[randomIndex], pool[i]];
+}
+return pool.slice(0, limit);
+}
+function shuffledOptionIndexes(question) {
+return shuffle(Array.from({ length: question.a.length }, (_, index) => index));
+}
+function buildQuestions(selectedIndexes, optionOrders) {
+return selectedIndexes.map((sourceIndex, position) => {
+const sourceQuestion = fullQuestionBank[sourceIndex];
+const order = optionOrders[position];
+return {
+...sourceQuestion,
+__sourceIndex: sourceIndex,
+a: order.map(optionIndex => sourceQuestion.a[optionIndex])
+};
+});
+}
+function getConfiguredQuestionCount() {
+const availableCount = Array.isArray(fullQuestionBank) ? fullQuestionBank.length : 0;
+if (availableCount <= 0) return 0;
+return selectedQuizMode === 'all'
+? availableCount
+: Math.min(DEFAULT_QUESTION_COUNT, availableCount);
+}
+function getQuestionCount() {
+return quizState.questions.length || getConfiguredQuestionCount();
+}
+function setDisplay(target, displayValue) {
+const el = typeof target === 'string' ? document.getElementById(target) : target;
+if (!el) return;
+const shouldHide = displayValue === 'none';
+el.classList.toggle('is-runtime-hidden', shouldHide);
+if (!shouldHide) el.classList.remove('is-initially-hidden');
+}
+// --- CORE FUNCTIONS ---
+function startQuiz(mode, session = null) {
+selectedQuizMode = mode === 'all' ? 'all' : 'sample';
+const selectedIndexes = session
+? [...session.selectedIndexes]
+: selectedQuizMode === 'all'
+? sampleQuestionIndexes(fullQuestionBank.length)
+: sampleQuestionIndexes(DEFAULT_QUESTION_COUNT);
+const optionOrders = session
+? session.optionOrders.map(order => [...order])
+: selectedIndexes.map(index => shuffledOptionIndexes(fullQuestionBank[index]));
+quizState = {
+questions: buildQuestions(selectedIndexes, optionOrders),
+selectedIndexes,
+optionOrders,
+mode: selectedQuizMode,
+currentIndex: session ? Math.min(session.currentIndex || 0, Math.max(0, selectedIndexes.length - 1)) : 0,
+userAnswers: session && session.userAnswers ? session.userAnswers : {},
+isFinished: false
+};
+isSubmitConfirming = false;
+const quizArea = document.getElementById('quiz-area');
+const resetBtn = document.getElementById('reset-btn');
+const controls = document.querySelector('.controls');
+if (resetBtn && controls && resetBtn.parentElement !== controls) {
+controls.appendChild(resetBtn);
+}
+if (quizArea) quizArea.classList.remove('result-state');
+setDisplay('reset-btn', 'none');
+setDisplay('confirm-back-btn', 'none');
+setDisplay('confirm-submit-btn', 'none');
+setDisplay('quiz-area', 'block');
+setDisplay('header-area', 'block');
+setDisplay('progress-area', 'flex');
+if (quizState.questions.length === 0) {
+document.getElementById('question-container').innerHTML =
+`<div class="confirm-msg-area"><div>Không có câu hỏi hợp lệ để hiển thị.</div></div>`;
+document.getElementById('progress-area').innerHTML = '';
+setDisplay('prev-btn', 'none');
+setDisplay('next-btn', 'none');
+setDisplay('submit-btn', 'none');
+return;
+}
+renderQuestion();
+renderProgress();
+saveQuizSession();
+}
+function expandQuizToAllQuestions() {
+if (selectedQuizMode === 'all' || quizState.questions.length >= fullQuestionBank.length) return;
+const selected = new Set(quizState.selectedIndexes);
+const remainingIndexes = shuffle(
+Array.from({ length: fullQuestionBank.length }, (_, index) => index)
+.filter(index => !selected.has(index))
+);
+const remainingOrders = remainingIndexes.map(index => shuffledOptionIndexes(fullQuestionBank[index]));
+quizState.selectedIndexes.push(...remainingIndexes);
+quizState.optionOrders.push(...remainingOrders);
+quizState.questions = buildQuestions(quizState.selectedIndexes, quizState.optionOrders);
+quizState.mode = 'all';
+selectedQuizMode = 'all';
+renderQuestion();
+renderProgress();
+saveQuizSession();
+}
+function collapseQuizToSampleQuestions() {
+if (selectedQuizMode !== 'all' || FORCE_ALL_QUESTIONS || fullQuestionBank.length <= DEFAULT_QUESTION_COUNT) return;
+const answeredBeyondSample = Object.keys(quizState.userAnswers)
+.some(index => Number(index) >= DEFAULT_QUESTION_COUNT);
+if (answeredBeyondSample && typeof window.confirm === 'function'
+&& !window.confirm('Quay về 20 câu? Tiến độ các câu sau 20 sẽ được bỏ khỏi lượt này.')) {
+return;
+}
+const selectedIndexes = quizState.selectedIndexes.slice(0, DEFAULT_QUESTION_COUNT);
+const optionOrders = quizState.optionOrders.slice(0, DEFAULT_QUESTION_COUNT);
+const userAnswers = Object.fromEntries(
+Object.entries(quizState.userAnswers)
+.filter(([index]) => Number(index) < DEFAULT_QUESTION_COUNT)
+);
+quizState = {
+questions: buildQuestions(selectedIndexes, optionOrders),
+selectedIndexes,
+optionOrders,
+mode: 'sample',
+currentIndex: Math.min(quizState.currentIndex, selectedIndexes.length - 1),
+userAnswers,
+isFinished: false
+};
+selectedQuizMode = 'sample';
+renderQuestion();
+renderProgress();
+saveQuizSession();
+}
+function resetQuiz() {
+clearQuizSession();
+selectedQuizMode = null;
+initQuiz();
+}
+function initQuiz() {
+const availableCount = Array.isArray(fullQuestionBank) ? fullQuestionBank.length : 0;
+const session = readQuizSession();
+if (availableCount === 0) {
+startQuiz('all');
+return;
+}
+if (FORCE_ALL_QUESTIONS) {
+startQuiz('all', session && session.mode === 'all' ? session : null);
+return;
+}
+if (session) {
+startQuiz(session.mode, session);
+return;
+}
+startQuiz(availableCount <= DEFAULT_QUESTION_COUNT ? 'all' : 'sample');
+}
+function renderQuestion() {
+const qIndex = quizState.currentIndex;
+const questionCount = getQuestionCount();
+const qData = quizState.questions[qIndex];
+const container = document.getElementById('question-container');
+if (!qData) {
+container.innerHTML = `<div class="confirm-msg-area"><div>Không tìm thấy câu hỏi để hiển thị.</div></div>`;
+setDisplay('prev-btn', 'none');
+setDisplay('next-btn', 'none');
+setDisplay('submit-btn', 'none');
+return;
+}
+// Keep header visible.
+const header = document.getElementById('header-area');
+setDisplay(header, 'block');
+// Build HTML
+let html = `
+<div class="question-block">
+Câu ${qIndex + 1}: ${escapeHtml(qData.q)}
+</div>
+<div class="options-grid">
+`;
+qData.a.forEach((opt, idx) => {
+const optId = `opt-${idx}`;
+const isChecked = quizState.userAnswers[qIndex]?.selectedText === opt.text ? 'checked' : '';
+const isDisabled = quizState.userAnswers[qIndex] ? 'disabled' : '';
+const _ans = quizState.userAnswers[qIndex];
+let highlightClass = '';
+if (_ans) {
+if (opt.correct) {
+if (_ans.selectedText === opt.text) {
+highlightClass = 'force-highlight';
+} else {
+highlightClass = 'force-correct-revealed';
+}
+} else if (_ans.selectedText === opt.text) {
+highlightClass = 'force-wrong';
+}
+}
+const safeText = escapeHtml(opt.text);
+const safeExplanation = escapeHtml(opt.explanation || '');
+// Map index 0-3 to 1-2-3-4
+const labelPrefix = idx + 1;
+html += `
+<div class="option-item">
+<input type="radio"
+name="q"
+id="${optId}"
+class="option-input ${highlightClass}"
+data-text="${safeText}"
+data-correct="${opt.correct ? '1' : '0'}"
+data-explanation="${safeExplanation}"
+${isChecked} ${isDisabled}>
+<label for="${optId}" class="option-label">
+<strong>${labelPrefix}.</strong> ${safeText}
+</label>
+</div>
+`;
+});
+html += `</div>`; // Close grid
+// Feedback Section (Shown when answered, or placeholder reserved to eliminate jitter)
+if (quizState.userAnswers[qIndex]) {
+const ans = quizState.userAnswers[qIndex];
+const className = ans.isCorrect ? 'feedback correct' : 'feedback wrong';
+const icon = ans.isCorrect ? '👍' : '';
+const title = ans.isCorrect ? 'Câu trả lời chính xác!' : 'Câu trả lời không chính xác!';
+html += `
+<div class="${className} is-visible">
+<strong>${title}${icon ? ' ' + icon : ''}</strong>
+<div style="margin-top: 4px;">${escapeHtml(ans.explanation)}</div>
+</div>
+`;
+} else {
+html += `<div class="feedback-placeholder" aria-hidden="true"></div>`;
+}
+container.innerHTML = html;
+container.querySelectorAll('.option-input').forEach(input => {
+input.addEventListener('change', () => {
+handleAnswer(
+qIndex,
+input.dataset.text || '',
+input.dataset.correct === '1',
+input.dataset.explanation || ''
+);
+});
+});
+// Button States
+setDisplay('prev-btn', qIndex === 0 ? 'none' : 'block');
+setDisplay('next-btn', qIndex === questionCount - 1 ? 'none' : 'block');
+setDisplay('submit-btn', qIndex === questionCount - 1 ? 'block' : 'none');
+// Update Progress UI
+updateProgressUI();
+requestAnimationFrame(fitFeedbackToViewport);
+// Scroll to top
+window.scrollTo({ top: 0, behavior: 'smooth' });
+// Keep Focus scale stable while navigating between questions.
+// Focus entry and window resize handle any required refit.
+}
+function fitFeedbackToViewport() {
+const viewport = document.getElementById('question-container');
+const feedback = viewport?.querySelector('.feedback.is-visible');
+if (!viewport || !feedback) return;
+const minFontSize = 11;
+let fontSize = parseFloat(getComputedStyle(feedback).fontSize);
+let attempts = 0;
+while (
+feedback.getBoundingClientRect().bottom > viewport.getBoundingClientRect().bottom &&
+fontSize > minFontSize &&
+attempts < 24
+) {
+fontSize -= 0.5;
+feedback.style.setProperty('font-size', `${fontSize}px`, 'important');
+attempts += 1;
+}
+}
+function handleAnswer(qIndex, text, isCorrect, explanation) {
+// Lock answer
+quizState.userAnswers[qIndex] = {
+selectedText: text,
+isCorrect: isCorrect,
+explanation: explanation
+};
+saveQuizSession();
+// Re-render to show locked state and feedback immediately
+renderQuestion();
+}
+function renderProgress() {
+const container = document.getElementById('progress-area');
+const questionCount = getQuestionCount();
+if (!container) return;
+const dynamicMode = questionCount > getProgressCapacity();
+const radius = getProgressRadius();
+const visibleCount = dynamicMode
+? Math.min(questionCount, radius * 2 + 1)
+: questionCount;
+let startIndex = dynamicMode
+? Math.max(0, quizState.currentIndex - radius)
+: 0;
+let endIndex = Math.min(questionCount, startIndex + visibleCount);
+startIndex = Math.max(0, endIndex - visibleCount);
+container.classList.toggle('dynamic-mode', dynamicMode);
+container.dataset.windowStart = String(startIndex);
+container.dataset.windowEnd = String(endIndex);
+let html = '';
+for (let i = startIndex; i < endIndex; i++) {
+const label = dynamicMode && i === quizState.currentIndex
+? `${i + 1} / ${questionCount}`
+: i + 1;
+html += `<button id="dot-${i}" class="progress-dot" data-nav-index="${i}" type="button" aria-label="Câu ${i + 1} trên ${questionCount}">${label}</button>`;
+}
+const bankCount = Array.isArray(fullQuestionBank) ? fullQuestionBank.length : 0;
+const canExpand = selectedQuizMode !== 'all' && questionCount < bankCount;
+const canCollapse = selectedQuizMode === 'all' && !FORCE_ALL_QUESTIONS && bankCount > DEFAULT_QUESTION_COUNT;
+const bankButtonLabel = canCollapse ? '↩ 20' : `/${bankCount}`;
+const bankButtonAttributes = canExpand
+? `aria-label="Mở rộng từ ${questionCount} lên toàn bộ ${bankCount} câu hỏi" title="Làm toàn bộ ${bankCount} câu"`
+: canCollapse
+? `aria-label="Quay về 20 câu đầu của lượt này" title="Quay về 20 câu"`
+: `disabled aria-label="Đang làm toàn bộ ${bankCount} câu hỏi"`;
+const bankButtonClass = canExpand ? ' is-expandable' : canCollapse ? ' is-collapse' : '';
+html += `<button class="progress-bank-count${bankButtonClass}" type="button" ${bankButtonAttributes}>${bankButtonLabel}</button>`;
+container.innerHTML = html;
+updateProgressUI();
+}
+function updateProgressUI() {
+const container = document.getElementById('progress-area');
+const questionCount = getQuestionCount();
+if (!container) return;
+const dynamicMode = questionCount > getProgressCapacity();
+const radius = getProgressRadius();
+const visibleCount = dynamicMode
+? Math.min(questionCount, radius * 2 + 1)
+: questionCount;
+let expectedStart = dynamicMode
+? Math.max(0, quizState.currentIndex - radius)
+: 0;
+let expectedEnd = Math.min(questionCount, expectedStart + visibleCount);
+expectedStart = Math.max(0, expectedEnd - visibleCount);
+if (
+Number(container.dataset.windowStart) !== expectedStart ||
+Number(container.dataset.windowEnd) !== expectedEnd ||
+container.classList.contains('dynamic-mode') !== dynamicMode
+) {
+renderProgress();
+return;
+}
+container.querySelectorAll('.progress-dot').forEach((dot) => {
+const i = Number(dot.dataset.navIndex);
+if (!Number.isInteger(i)) return;
+// Reset classes
+dot.className = 'progress-dot';
+dot.removeAttribute('aria-current');
+dot.title = `Câu ${i + 1}`;
+dot.textContent = dynamicMode && i === quizState.currentIndex
+? `${i + 1} / ${questionCount}`
+: String(i + 1);
+// Current status
+if (i === quizState.currentIndex) {
+dot.classList.add('current');
+dot.setAttribute('aria-current', 'step');
+dot.title = `Câu ${i + 1}: đang làm`;
+}
+// Answer status
+if (quizState.userAnswers[i]) {
+if (quizState.userAnswers[i].isCorrect) {
+dot.classList.add('correct');
+dot.title = `Câu ${i + 1}: đúng`;
+} else {
+dot.classList.add('wrong');
+dot.title = `Câu ${i + 1}: sai`;
+}
+}
+});
+}
+function getUnansweredIndexes() {
+const questionCount = getQuestionCount();
+const unanswered = [];
+for (let i = 0; i < questionCount; i++) {
+if (!quizState.userAnswers[i]) unanswered.push(i);
+}
+return unanswered;
+}
+function requestSubmitConfirmation() {
+if (quizState.isFinished) return;
+const unanswered = getUnansweredIndexes();
+if (unanswered.length === 0) {
+submitQuiz(true);
+return;
+}
+isSubmitConfirming = true;
+const preview = unanswered.slice(0, 6).map(i => i + 1).join(', ');
+const more = unanswered.length > 6 ? ', ...' : '';
+const msgHtml = `Bạn còn <strong>${unanswered.length}</strong> câu chưa trả lời (câu ${preview}${more}).<br>Nhấn <strong>Enter</strong> lần nữa hoặc bấm <strong>NỘP BÀI 👍</strong> để nộp ngay.<br>Nếu muốn làm tiếp, bấm <strong>⬅️ Quay lại</strong> hoặc phím <strong>mũi tên trái</strong>.`;
+document.getElementById('question-container').innerHTML =
+`<div class="confirm-msg-area"><div>${msgHtml}</div></div>`;
+setDisplay('prev-btn', 'none');
+setDisplay('next-btn', 'none');
+setDisplay('submit-btn', 'none');
+setDisplay('confirm-back-btn', 'block');
+setDisplay('confirm-submit-btn', 'block');
+}
+function exitSubmitConfirmation() {
+if (!isSubmitConfirming || quizState.isFinished) return;
+isSubmitConfirming = false;
+setDisplay('confirm-back-btn', 'none');
+setDisplay('confirm-submit-btn', 'none');
+renderQuestion();
+}
+// --- NAVIGATION ---
+function navNext() {
+const questionCount = getQuestionCount();
+if (quizState.currentIndex < questionCount - 1) {
+quizState.currentIndex++;
+saveQuizSession();
+renderQuestion();
+}
+}
+function navPrev() {
+if (quizState.currentIndex > 0) {
+quizState.currentIndex--;
+saveQuizSession();
+renderQuestion();
+}
+}
+function navTo(index) {
+const questionCount = getQuestionCount();
+if (quizState.isFinished) return; // Disable nav interaction if finished (except reset)
+if (index < 0 || index >= questionCount) return;
+if (isSubmitConfirming) {
+isSubmitConfirming = false;
+setDisplay('confirm-back-btn', 'none');
+setDisplay('confirm-submit-btn', 'none');
+}
+quizState.currentIndex = index;
+saveQuizSession();
+renderQuestion();
+}
+function submitQuiz(force = false) {
+if (quizState.isFinished) return;
+const questionCount = getQuestionCount();
+if (questionCount === 0) return;
+if (!force) {
+requestSubmitConfirmation();
+return;
+}
+isSubmitConfirming = false;
+let score = 0;
+for (let i = 0; i < questionCount; i++) {
+if (quizState.userAnswers[i] && quizState.userAnswers[i].isCorrect) {
+score++;
+}
+}
+// Show Results inline (same layout as quiz)
+const passingScore = Math.ceil(questionCount * PASSING_RATE);
+const msgText = score >= passingScore ? 'Tuyệt vời! Bạn làm rất tốt! 🎉🥳' : 'Hãy cố gắng hơn lần sau nhé! 💜💪';
+const msgClass = score >= passingScore ? 'result-pass' : 'result-retry';
+const quizArea = document.getElementById('quiz-area');
+if (quizArea) quizArea.classList.add('result-state');
+const questionContainer = document.getElementById('question-container');
+questionContainer.innerHTML = `
+<div class="confirm-msg-area"><div>
+<div class="result-score">${score} / ${questionCount}</div>
+<div class="result-msg ${msgClass}">${msgText}</div>
+<div class="result-actions"></div>
+</div></div>`;
+setDisplay('prev-btn', 'none');
+setDisplay('next-btn', 'none');
+setDisplay('submit-btn', 'none');
+setDisplay('confirm-back-btn', 'none');
+setDisplay('confirm-submit-btn', 'none');
+const resetBtn = document.getElementById('reset-btn');
+const resultActions = questionContainer.querySelector('.result-actions');
+if (resetBtn && resultActions) resultActions.appendChild(resetBtn);
+setDisplay(resetBtn, 'inline-flex');
+quizState.isFinished = true;
+clearQuizSession();
+}
+// --- FOCUS MODE FUNCTIONS ---
+function getFocusPanel() {
+return document.getElementById('quiz-area');
+}
+function applyFocusZoomScale(scale, reveal = true) {
+const panel = getFocusPanel();
+if (!panel) return;
+const isFocus = document.body.classList.contains('focus-mode');
+qFocusZoomScale = Math.min(Q_FOCUS_MAX_ZOOM, Math.max(1.0, Math.round(scale * 100) / 100));
+panel.style.setProperty('--focus-zoom', String(qFocusZoomScale));
+panel.style.zoom = '';
+if (!isFocus) {
+[
+'--focus-q-block-font-size',
+'--focus-option-font-size',
+'--focus-q-block-padding',
+'--focus-option-padding',
+'--focus-option-gap'
+].forEach(name => panel.style.removeProperty(name));
+if (reveal) panel.classList.remove('zoom-pending');
+return;
+}
+const qVertical = Math.round(12 * qFocusZoomScale);
+const qHorizontal = Math.round(16 * qFocusZoomScale);
+const optionVertical = Math.round(8 * qFocusZoomScale);
+const optionHorizontal = Math.round(12 * qFocusZoomScale);
+panel.style.setProperty('--focus-q-block-font-size', `${(1.36 * qFocusZoomScale).toFixed(3)}rem`);
+panel.style.setProperty('--focus-option-font-size', `${(1.12 * qFocusZoomScale).toFixed(3)}rem`);
+panel.style.setProperty('--focus-q-block-padding', `${qVertical}px ${qHorizontal}px`);
+panel.style.setProperty('--focus-option-padding', `${optionVertical}px ${optionHorizontal}px`);
+panel.style.setProperty('--focus-option-gap', `${Math.round(8 * qFocusZoomScale)}px`);
+if (reveal) panel.classList.remove('zoom-pending');
+}
+function doesFocusZoomFit(scale) {
+if (!document.body.classList.contains('focus-mode')) return false;
+const contentViewport = document.getElementById('question-container');
+if (!contentViewport || contentViewport.clientHeight <= 0) return false;
+applyFocusZoomScale(scale, false);
+return contentViewport.scrollWidth <= contentViewport.clientWidth + 1 &&
+contentViewport.scrollHeight <= contentViewport.clientHeight + 1;
+}
+function ensureFocusZoomFits() {
+const isFocus = document.body.classList.contains('focus-mode');
+const container = document.querySelector('.container');
+if (!container) return;
+if (!isFocus) {
+container.style.height = '';
+applyFocusZoomScale(1.0);
+container.style.zoom = '';
+return;
+}
+container.style.height = '';
+const panel = getFocusPanel();
+if (!panel) return;
+panel.classList.add('zoom-pending');
+const contentViewport = document.getElementById('question-container');
+if (contentViewport) contentViewport.scrollTop = 0;
+let scale = 1.0;
+let lastFitScale = 1.0;
+while (scale <= Q_FOCUS_MAX_ZOOM) {
+if (doesFocusZoomFit(scale)) {
+lastFitScale = scale;
+scale = Math.round((scale + Q_FOCUS_STEP) * 100) / 100;
+} else {
+break;
+}
+}
+applyFocusZoomScale(lastFitScale);
+}
+function scheduleFocusFit() {
+if (qFocusFitFrame) {
+cancelAnimationFrame(qFocusFitFrame);
+}
+qFocusFitFrame = requestAnimationFrame(() => {
+qFocusFitFrame = requestAnimationFrame(() => {
+qFocusFitFrame = null;
+ensureFocusZoomFits();
+});
+});
+}
+async function syncFocusFullscreen(enabled) {
+try {
+if (enabled && !document.fullscreenElement && document.documentElement.requestFullscreen) {
+await document.documentElement.requestFullscreen();
+} else if (!enabled && document.fullscreenElement && document.exitFullscreen) {
+await document.exitFullscreen();
+}
+} catch (error) {
+// Trình duyệt có thể chặn fullscreen
+}
+}
+function applyFocusMode(enabled, options = {}) {
+const isEnabled = Boolean(enabled);
+document.body.classList.toggle('focus-mode', isEnabled);
+const container = document.querySelector('.container');
+if (!isEnabled) {
+if (container) container.style.height = '';
+qFocusZoomScale = 1.0;
+applyFocusZoomScale(1.0);
+}
+syncFocusModeButton();
+if (isEnabled) {
+scheduleFocusFit();
+}
+if (options.syncFullscreen !== false) {
+syncFocusFullscreen(isEnabled);
+}
+}
+function syncFocusModeButton() {
+const btn = document.getElementById('btnFocusMode');
+if (!btn) return;
+const isFocus = document.body.classList.contains('focus-mode');
+const headerMeta = document.querySelector('.header-meta');
+const focusProgressRow = document.getElementById('focus-progress-row');
+if (isFocus) {
+if (focusProgressRow && btn.parentElement !== focusProgressRow) {
+focusProgressRow.appendChild(btn);
+}
+} else {
+if (headerMeta && btn.parentElement !== headerMeta) {
+headerMeta.insertBefore(btn, headerMeta.firstChild);
+}
+}
+btn.setAttribute('aria-pressed', isFocus ? 'true' : 'false');
+if (isFocus) {
+btn.innerHTML = `<i class="fa-solid fa-compress" aria-hidden="true"></i>Exit (F)`;
+btn.title = "Thoát Focus Mode (F hoặc Esc)";
+} else {
+btn.innerHTML = `<i class="fa-solid fa-expand" aria-hidden="true"></i>Focus Mode`;
+btn.title = "Bật Focus Mode (F)";
+}
+}
+function toggleFocusMode() {
+if (quizState.isFinished) return;
+applyFocusMode(!document.body.classList.contains('focus-mode'));
+}
+// --- KEYBOARD SHORTCUTS ---
+document.addEventListener('keydown', (e) => {
+if (quizState.isFinished) return;
+// Esc key to exit focus mode
+if (e.key === 'Escape') {
+if (document.body.classList.contains('focus-mode')) {
+e.preventDefault();
+applyFocusMode(false);
+}
+return;
+}
+// 'F' or 'f' key to toggle focus mode (but not when in an input field)
+if ((e.key === 'f' || e.key === 'F') && e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+e.preventDefault();
+toggleFocusMode();
+return;
+}
+if (isSubmitConfirming) {
+if (e.key === 'Enter') {
+e.preventDefault();
+submitQuiz(true);
+} else if (e.key === 'ArrowLeft') {
+e.preventDefault();
+exitSubmitConfirmation();
+}
+return;
+}
+if (e.key === 'Enter') {
+e.preventDefault();
+requestSubmitConfirmation();
+return;
+}
+// Navigation
+if (e.key === 'ArrowRight' || e.key === 'ArrowUp') {
+navNext();
+}
+else if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') {
+navPrev();
+}
+// Selection (1, 2, 3, 4)
+if (['1', '2', '3', '4'].includes(e.key)) {
+// Check if already answered
+if (quizState.userAnswers[quizState.currentIndex]) return;
+const idx = parseInt(e.key) - 1;
+const input = document.getElementById(`opt-${idx}`);
+if (input) {
+input.checked = true;
+// Trigger change event manually
+input.dispatchEvent(new Event('change'));
+}
+}
+});
+// --- THEME SYNC ---
+function initThemeToggle() {
+syncThemeToggleUI(document.body.getAttribute('data-theme') === 'elegant' ? 'elegant' : 'youth');
+}
+// --- BOOTSTRAP ---
+window.addEventListener('load', () => {
+initControlBindings();
+initQuiz();
+initThemeToggle();
+document.addEventListener('fullscreenchange', () => {
+if (!document.fullscreenElement && document.body.classList.contains('focus-mode')) {
+applyFocusMode(false, { syncFullscreen: false });
+}
+});
+// Listen for window resize to refit zoom in both focus and normal mode
+window.addEventListener('resize', () => {
+scheduleFocusFit();
+renderProgress();
+});
+});</script>
 </body>
 
 </html>

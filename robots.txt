@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://dec-online.pages.dev/sitemap.xml

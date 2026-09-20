@@ -40,6 +40,8 @@ html,body,button,input,select,textarea{font-family:var(--dec-font-family-offline
     --bg-color: #eef3ff;
     --primary-blue: #19a7a0;
     --primary-pink: #e5566a;
+    --hint-primary-text: #b4233b;
+    --hint-secondary-text: #006c68;
     --light-pink: #fff5f6;
     --border-pink: #ffd3d8;
     --teal-main: var(--primary-blue);
@@ -478,12 +480,22 @@ input:focus-visible {
 }
 
 .help1-line {
-    color: #9fd3ff;
+    color: var(--hint-secondary-text);
 }
 
 .help2-line {
-    color: #ffd18a;
+    color: var(--hint-primary-text);
     margin-top: 0.45rem;
+}
+
+.help1-line.help-color-primary,
+.help2-line.help-color-primary {
+    color: var(--hint-primary-text);
+}
+
+.help1-line.help-color-secondary,
+.help2-line.help-color-secondary {
+    color: var(--hint-secondary-text);
 }
 
 .is-hidden {
@@ -1942,12 +1954,13 @@ const lessonData = [
     "variants": [
       "The word big has the same meaning as huge."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The word big has the same meaning as [___].",
     "help2": "The word big has the same meaning as huge.",
     "keywords": [
       "word",
       "big",
-      "meaning"
+      "meaning",
+      "huge"
     ]
   },
   {
@@ -1957,12 +1970,13 @@ const lessonData = [
     "variants": [
       "Small is the opposite word of big."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Small is the opposite word of [___].",
     "help2": "Small is the opposite word of big.",
     "keywords": [
       "small",
       "opposite",
-      "word"
+      "word",
+      "big"
     ]
   },
   {
@@ -1972,12 +1986,13 @@ const lessonData = [
     "variants": [
       "Start is a synonym of the word begin."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Start is a synonym of the word [___].",
     "help2": "Start is a synonym of the word begin.",
     "keywords": [
       "start",
       "synonym",
-      "word"
+      "word",
+      "begin"
     ]
   },
   {
@@ -1987,12 +2002,13 @@ const lessonData = [
     "variants": [
       "Finish is the opposite word of start."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Finish is the opposite word of [___].",
     "help2": "Finish is the opposite word of start.",
     "keywords": [
       "finish",
       "opposite",
-      "word"
+      "word",
+      "start"
     ]
   },
   {
@@ -2002,7 +2018,7 @@ const lessonData = [
     "variants": [
       "Glad has the same meaning as happy."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Glad has the same meaning as [___].",
     "help2": "Glad has the same meaning as happy.",
     "keywords": [
       "glad",
@@ -2017,12 +2033,13 @@ const lessonData = [
     "variants": [
       "Sad is the opposite word of happy."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Sad is the opposite word of [___].",
     "help2": "Sad is the opposite word of happy.",
     "keywords": [
       "sad",
       "opposite",
-      "word"
+      "word",
+      "happy"
     ]
   },
   {
@@ -2032,12 +2049,13 @@ const lessonData = [
     "variants": [
       "Smart is a synonym of the word clever."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Smart is a synonym of the word [___].",
     "help2": "Smart is a synonym of the word clever.",
     "keywords": [
       "smart",
       "synonym",
-      "word"
+      "word",
+      "clever"
     ]
   },
   {
@@ -2047,7 +2065,7 @@ const lessonData = [
     "variants": [
       "Fast has the same meaning as quick."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Fast has the same meaning as [___].",
     "help2": "Fast has the same meaning as quick.",
     "keywords": [
       "fast",
@@ -2062,12 +2080,13 @@ const lessonData = [
     "variants": [
       "Slow is the opposite word of fast."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Slow is the opposite word of [___].",
     "help2": "Slow is the opposite word of fast.",
     "keywords": [
       "slow",
       "opposite",
-      "word"
+      "word",
+      "fast"
     ]
   },
   {
@@ -2077,12 +2096,13 @@ const lessonData = [
     "variants": [
       "Hard is a synonym of the word difficult."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Hard is a synonym of the word [___].",
     "help2": "Hard is a synonym of the word difficult.",
     "keywords": [
       "hard",
       "synonym",
-      "word"
+      "word",
+      "difficult"
     ]
   },
   {
@@ -2092,12 +2112,13 @@ const lessonData = [
     "variants": [
       "Easy is the opposite word of hard."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Easy is the opposite word of [___].",
     "help2": "Easy is the opposite word of hard.",
     "keywords": [
       "easy",
       "opposite",
-      "word"
+      "word",
+      "hard"
     ]
   },
   {
@@ -2107,12 +2128,13 @@ const lessonData = [
     "variants": [
       "Hot is the opposite word of cold."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Hot is the opposite word of [___].",
     "help2": "Hot is the opposite word of cold.",
     "keywords": [
       "hot",
       "opposite",
-      "word"
+      "word",
+      "cold"
     ]
   },
   {
@@ -2122,12 +2144,13 @@ const lessonData = [
     "variants": [
       "Bright has the opposite meaning to dark."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Bright has the opposite meaning to [___].",
     "help2": "Bright has the opposite meaning to dark.",
     "keywords": [
       "bright",
       "opposite",
-      "meaning"
+      "meaning",
+      "dark"
     ]
   },
   {
@@ -2137,12 +2160,13 @@ const lessonData = [
     "variants": [
       "Clean is the opposite word of dirty."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Clean is the opposite word of [___].",
     "help2": "Clean is the opposite word of dirty.",
     "keywords": [
       "clean",
       "opposite",
-      "word"
+      "word",
+      "dirty"
     ]
   },
   {
@@ -2152,12 +2176,13 @@ const lessonData = [
     "variants": [
       "Neat is a synonym of the word tidy."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Neat is a synonym of the word [___].",
     "help2": "Neat is a synonym of the word tidy.",
     "keywords": [
       "neat",
       "synonym",
-      "word"
+      "word",
+      "tidy"
     ]
   },
   {
@@ -2167,12 +2192,13 @@ const lessonData = [
     "variants": [
       "Messy is the opposite word of tidy."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Messy is the opposite word of [___].",
     "help2": "Messy is the opposite word of tidy.",
     "keywords": [
       "messy",
       "opposite",
-      "word"
+      "word",
+      "tidy"
     ]
   },
   {
@@ -2182,12 +2208,13 @@ const lessonData = [
     "variants": [
       "Cheap is the opposite word of expensive."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Cheap is the opposite word of [___].",
     "help2": "Cheap is the opposite word of expensive.",
     "keywords": [
       "cheap",
       "opposite",
-      "word"
+      "word",
+      "expensive"
     ]
   },
   {
@@ -2197,12 +2224,13 @@ const lessonData = [
     "variants": [
       "Rich is the opposite word of poor."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Rich is the opposite word of [___].",
     "help2": "Rich is the opposite word of poor.",
     "keywords": [
       "rich",
       "opposite",
-      "word"
+      "word",
+      "poor"
     ]
   },
   {
@@ -2212,12 +2240,13 @@ const lessonData = [
     "variants": [
       "Strong is the opposite word of weak."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Strong is the opposite word of [___].",
     "help2": "Strong is the opposite word of weak.",
     "keywords": [
       "strong",
       "opposite",
-      "word"
+      "word",
+      "weak"
     ]
   },
   {
@@ -2227,12 +2256,13 @@ const lessonData = [
     "variants": [
       "Heavy is the opposite word of light."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Heavy is the opposite word of [___].",
     "help2": "Heavy is the opposite word of light.",
     "keywords": [
       "heavy",
       "opposite",
-      "word"
+      "word",
+      "light"
     ]
   },
   {
@@ -2242,12 +2272,13 @@ const lessonData = [
     "variants": [
       "Noisy is the opposite word of quiet."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Noisy is the opposite word of [___].",
     "help2": "Noisy is the opposite word of quiet.",
     "keywords": [
       "noisy",
       "opposite",
-      "word"
+      "word",
+      "quiet"
     ]
   },
   {
@@ -2257,12 +2288,13 @@ const lessonData = [
     "variants": [
       "Beautiful is a synonym of the word pretty."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Beautiful is a synonym of the word [___].",
     "help2": "Beautiful is a synonym of the word pretty.",
     "keywords": [
       "beautiful",
       "synonym",
-      "word"
+      "word",
+      "pretty"
     ]
   },
   {
@@ -2272,12 +2304,13 @@ const lessonData = [
     "variants": [
       "Ugly is the opposite word of pretty."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Ugly is the opposite word of [___].",
     "help2": "Ugly is the opposite word of pretty.",
     "keywords": [
       "ugly",
       "opposite",
-      "word"
+      "word",
+      "pretty"
     ]
   },
   {
@@ -2287,12 +2320,13 @@ const lessonData = [
     "variants": [
       "Brave is a synonym of the word courageous."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Brave is a synonym of the word [___].",
     "help2": "Brave is a synonym of the word courageous.",
     "keywords": [
       "brave",
       "synonym",
-      "word"
+      "word",
+      "courageous"
     ]
   },
   {
@@ -2302,12 +2336,13 @@ const lessonData = [
     "variants": [
       "Timid is the opposite word of brave."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Timid is the opposite word of [___].",
     "help2": "Timid is the opposite word of brave.",
     "keywords": [
       "timid",
       "opposite",
-      "word"
+      "word",
+      "brave"
     ]
   }
 ];
@@ -2443,6 +2478,8 @@ const lessonData = [
         dom.help.classList.add('is-hidden');
         dom.help1.classList.add('is-hidden');
         dom.help2.classList.add('is-hidden');
+        dom.help1.classList.remove('help-color-primary', 'help-color-secondary');
+        dom.help2.classList.remove('help-color-primary', 'help-color-secondary');
         dom.help1.textContent = '';
         dom.help2.textContent = '';
         dom.helpButton.textContent = 'Gợi ý 1 (Space)';
@@ -2466,6 +2503,8 @@ const lessonData = [
         const isOdd = (state.currentIndex + 1) % 2 === 1;
         dom.question.classList.toggle('dec-text-primary', isOdd);
         dom.question.classList.toggle('dec-text-secondary', !isOdd);
+        dom.help1.dataset.questionColor = isOdd ? 'primary' : 'secondary';
+        dom.help2.dataset.questionColor = isOdd ? 'primary' : 'secondary';
         dom.previous.disabled = state.currentIndex === 0;
         dom.next.disabled = state.currentIndex === lessonData.length - 1;
         dom.helpButton.disabled = false;
@@ -2478,12 +2517,18 @@ const lessonData = [
         if (!item) return;
         state.helpStage = Math.min(2, state.helpStage + 1);
         dom.help.classList.remove('is-hidden');
+        const questionColor = dom.help1.dataset.questionColor || 'primary';
+        const hint1Color = questionColor === 'primary' ? 'secondary' : 'primary';
         if (state.helpStage >= 1) {
-            dom.help1.textContent = `Hint1: ${item.help1}`;
+            dom.help1.textContent = item.help1;
+            dom.help1.classList.remove('help-color-primary', 'help-color-secondary');
+            dom.help1.classList.add(`help-color-${hint1Color}`);
             dom.help1.classList.remove('is-hidden');
         }
         if (state.helpStage >= 2) {
-            dom.help2.textContent = `Hint2: ${item.help2}`;
+            dom.help2.textContent = item.help2;
+            dom.help2.classList.remove('help-color-primary', 'help-color-secondary');
+            dom.help2.classList.add(`help-color-${questionColor}`);
             dom.help2.classList.remove('is-hidden');
         }
         dom.helpButton.textContent = state.helpStage === 1 ? 'Gợi ý 2 (Space)' : 'Đang xem gợi ý 2';

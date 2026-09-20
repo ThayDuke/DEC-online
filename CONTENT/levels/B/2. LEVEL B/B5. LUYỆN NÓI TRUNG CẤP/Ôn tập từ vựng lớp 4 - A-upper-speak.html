@@ -40,6 +40,8 @@ html,body,button,input,select,textarea{font-family:var(--dec-font-family-offline
     --bg-color: #eef3ff;
     --primary-blue: #19a7a0;
     --primary-pink: #e5566a;
+    --hint-primary-text: #b4233b;
+    --hint-secondary-text: #006c68;
     --light-pink: #fff5f6;
     --border-pink: #ffd3d8;
     --teal-main: var(--primary-blue);
@@ -478,12 +480,22 @@ input:focus-visible {
 }
 
 .help1-line {
-    color: #9fd3ff;
+    color: var(--hint-secondary-text);
 }
 
 .help2-line {
-    color: #ffd18a;
+    color: var(--hint-primary-text);
     margin-top: 0.45rem;
+}
+
+.help1-line.help-color-primary,
+.help2-line.help-color-primary {
+    color: var(--hint-primary-text);
+}
+
+.help1-line.help-color-secondary,
+.help2-line.help-color-secondary {
+    color: var(--hint-secondary-text);
 }
 
 .is-hidden {
@@ -1942,7 +1954,7 @@ const lessonData = [
     "variants": [
       "We study at primary school."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "We study at [___].",
     "help2": "We study at primary school.",
     "keywords": [
       "study",
@@ -1957,12 +1969,13 @@ const lessonData = [
     "variants": [
       "Doctors work in general hospitals."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Doctors work in [___].",
     "help2": "Doctors work in general hospitals.",
     "keywords": [
       "doctors",
       "work",
-      "hospital"
+      "general",
+      "hospitals"
     ]
   },
   {
@@ -1972,12 +1985,13 @@ const lessonData = [
     "variants": [
       "Farmers work hard in the fields."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Farmers work hard in the [___].",
     "help2": "Farmers work hard in the fields.",
     "keywords": [
       "farmers",
       "work",
-      "hard"
+      "hard",
+      "fields"
     ]
   },
   {
@@ -1987,11 +2001,12 @@ const lessonData = [
     "variants": [
       "Workers work in large factories."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Workers work in [___].",
     "help2": "Workers work in large factories.",
     "keywords": [
       "workers",
       "work",
+      "large",
       "factories"
     ]
   },
@@ -2002,12 +2017,13 @@ const lessonData = [
     "variants": [
       "I play piano in my free time."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "I play [___] in my free time.",
     "help2": "I play piano in my free time.",
     "keywords": [
-      "enjoy",
-      "playing",
-      "piano"
+      "play",
+      "piano",
+      "free",
+      "time"
     ]
   },
   {
@@ -2017,12 +2033,13 @@ const lessonData = [
     "variants": [
       "He likes painting landscapes of his hometown."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "He likes painting [___] of his hometown.",
     "help2": "He likes painting landscapes of his hometown.",
     "keywords": [
       "likes",
       "painting",
-      "landscapes"
+      "landscapes",
+      "hometown"
     ]
   },
   {
@@ -2032,12 +2049,13 @@ const lessonData = [
     "variants": [
       "She loves taking photos of spring flowers."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "She loves [___] of spring flowers.",
     "help2": "She loves taking photos of spring flowers.",
     "keywords": [
       "loves",
       "taking",
-      "photos"
+      "photos",
+      "flowers"
     ]
   },
   {
@@ -2047,12 +2065,13 @@ const lessonData = [
     "variants": [
       "We often camp near the forest."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "We often [___] near the forest.",
     "help2": "We often camp near the forest.",
     "keywords": [
       "often",
-      "go",
-      "camping"
+      "camp",
+      "near",
+      "forest"
     ]
   },
   {
@@ -2062,12 +2081,13 @@ const lessonData = [
     "variants": [
       "Children love flying kites on open fields."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Children love [___] on open fields.",
     "help2": "Children love flying kites on open fields.",
     "keywords": [
       "children",
       "love",
-      "flying"
+      "flying",
+      "kites"
     ]
   },
   {
@@ -2077,12 +2097,13 @@ const lessonData = [
     "variants": [
       "Beef pho has a tasty broth."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Beef pho has a tasty [___].",
     "help2": "Beef pho has a tasty broth.",
     "keywords": [
       "beef",
-      "noodle",
-      "soup"
+      "pho",
+      "tasty",
+      "broth"
     ]
   },
   {
@@ -2092,12 +2113,13 @@ const lessonData = [
     "variants": [
       "A meat sandwich is a quick breakfast."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "A meat sandwich is a [___].",
     "help2": "A meat sandwich is a quick breakfast.",
     "keywords": [
       "meat",
       "sandwich",
-      "quick"
+      "quick",
+      "breakfast"
     ]
   },
   {
@@ -2107,11 +2129,12 @@ const lessonData = [
     "variants": [
       "Iced lemonade refreshes you in summer."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "[___] refreshes you in summer.",
     "help2": "Iced lemonade refreshes you in summer.",
     "keywords": [
       "iced",
       "lemonade",
+      "refreshes",
       "summer"
     ]
   },
@@ -2122,12 +2145,13 @@ const lessonData = [
     "variants": [
       "Fruit yogurt is good for digestion."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "[___] is good for digestion.",
     "help2": "Fruit yogurt is good for digestion.",
     "keywords": [
       "fruit",
       "yogurt",
-      "good"
+      "good",
+      "digestion"
     ]
   },
   {
@@ -2137,12 +2161,13 @@ const lessonData = [
     "variants": [
       "I wear a clean school uniform."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "I wear a clean [___].",
     "help2": "I wear a clean school uniform.",
     "keywords": [
       "wear",
       "clean",
-      "school"
+      "school",
+      "uniform"
     ]
   },
   {
@@ -2152,12 +2177,13 @@ const lessonData = [
     "variants": [
       "The blue sweater keeps me warm."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The [___] keeps me warm.",
     "help2": "The blue sweater keeps me warm.",
     "keywords": [
       "blue",
       "sweater",
-      "keeps"
+      "keeps",
+      "warm"
     ]
   },
   {
@@ -2167,11 +2193,12 @@ const lessonData = [
     "variants": [
       "These sneakers are comfortable."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "These [___] are comfortable.",
     "help2": "These sneakers are comfortable.",
     "keywords": [
-      "sports",
+      "these",
       "sneakers",
+      "are",
       "comfortable"
     ]
   },
@@ -2182,7 +2209,7 @@ const lessonData = [
     "variants": [
       "The cap blocks sunlight."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The [___] blocks sunlight.",
     "help2": "The cap blocks sunlight.",
     "keywords": [
       "cap",
@@ -2197,12 +2224,13 @@ const lessonData = [
     "variants": [
       "I enjoy reading natural science books."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "I enjoy reading [___].",
     "help2": "I enjoy reading natural science books.",
     "keywords": [
       "enjoy",
       "reading",
-      "natural"
+      "natural",
+      "science"
     ]
   },
   {
@@ -2212,11 +2240,12 @@ const lessonData = [
     "variants": [
       "He collects old postage stamps."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "He collects old [___].",
     "help2": "He collects old postage stamps.",
     "keywords": [
       "collects",
       "old",
+      "postage",
       "stamps"
     ]
   },
@@ -2227,12 +2256,13 @@ const lessonData = [
     "variants": [
       "She loves baking sweet cakes with mom."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "She loves [___] with mom.",
     "help2": "She loves baking sweet cakes with mom.",
     "keywords": [
       "loves",
       "baking",
-      "sweet"
+      "sweet",
+      "cakes"
     ]
   },
   {
@@ -2242,12 +2272,13 @@ const lessonData = [
     "variants": [
       "We play chess during school break time."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "We play [___] during school break time.",
     "help2": "We play chess during school break time.",
     "keywords": [
       "play",
       "chess",
-      "school"
+      "during",
+      "break"
     ]
   },
   {
@@ -2257,12 +2288,13 @@ const lessonData = [
     "variants": [
       "Students laugh in the schoolyard."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Students laugh in the [___].",
     "help2": "Students laugh in the schoolyard.",
     "keywords": [
-      "schoolyard",
-      "echoes",
-      "laughter"
+      "students",
+      "laugh",
+      "in",
+      "schoolyard"
     ]
   },
   {
@@ -2272,12 +2304,13 @@ const lessonData = [
     "variants": [
       "The library has thousands of useful books."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The library has thousands of [___].",
     "help2": "The library has thousands of useful books.",
     "keywords": [
       "library",
       "thousands",
-      "useful"
+      "useful",
+      "books"
     ]
   },
   {
@@ -2287,27 +2320,29 @@ const lessonData = [
     "variants": [
       "The computer lab has many new computers."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The [___] has many new computers.",
     "help2": "The computer lab has many new computers.",
     "keywords": [
       "computer",
       "lab",
-      "many"
+      "new",
+      "computers"
     ]
   },
   {
     "id": "q025",
-    "question": "Phòng thí nghiệm khoa học rất hiện đại sạch.",
+    "question": "Phòng thí nghiệm khoa học rất hiện đại và sạch sẽ.",
     "answer": "The science laboratory is modern and clean.",
     "variants": [
       "The science laboratory is modern and clean."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "The [___] is modern and clean.",
     "help2": "The science laboratory is modern and clean.",
     "keywords": [
       "science",
       "laboratory",
-      "modern"
+      "modern",
+      "clean"
     ]
   }
 ];
@@ -2443,6 +2478,8 @@ const lessonData = [
         dom.help.classList.add('is-hidden');
         dom.help1.classList.add('is-hidden');
         dom.help2.classList.add('is-hidden');
+        dom.help1.classList.remove('help-color-primary', 'help-color-secondary');
+        dom.help2.classList.remove('help-color-primary', 'help-color-secondary');
         dom.help1.textContent = '';
         dom.help2.textContent = '';
         dom.helpButton.textContent = 'Gợi ý 1 (Space)';
@@ -2466,6 +2503,8 @@ const lessonData = [
         const isOdd = (state.currentIndex + 1) % 2 === 1;
         dom.question.classList.toggle('dec-text-primary', isOdd);
         dom.question.classList.toggle('dec-text-secondary', !isOdd);
+        dom.help1.dataset.questionColor = isOdd ? 'primary' : 'secondary';
+        dom.help2.dataset.questionColor = isOdd ? 'primary' : 'secondary';
         dom.previous.disabled = state.currentIndex === 0;
         dom.next.disabled = state.currentIndex === lessonData.length - 1;
         dom.helpButton.disabled = false;
@@ -2478,12 +2517,18 @@ const lessonData = [
         if (!item) return;
         state.helpStage = Math.min(2, state.helpStage + 1);
         dom.help.classList.remove('is-hidden');
+        const questionColor = dom.help1.dataset.questionColor || 'primary';
+        const hint1Color = questionColor === 'primary' ? 'secondary' : 'primary';
         if (state.helpStage >= 1) {
-            dom.help1.textContent = `Hint1: ${item.help1}`;
+            dom.help1.textContent = item.help1;
+            dom.help1.classList.remove('help-color-primary', 'help-color-secondary');
+            dom.help1.classList.add(`help-color-${hint1Color}`);
             dom.help1.classList.remove('is-hidden');
         }
         if (state.helpStage >= 2) {
-            dom.help2.textContent = `Hint2: ${item.help2}`;
+            dom.help2.textContent = item.help2;
+            dom.help2.classList.remove('help-color-primary', 'help-color-secondary');
+            dom.help2.classList.add(`help-color-${questionColor}`);
             dom.help2.classList.remove('is-hidden');
         }
         dom.helpButton.textContent = state.helpStage === 1 ? 'Gợi ý 2 (Space)' : 'Đang xem gợi ý 2';

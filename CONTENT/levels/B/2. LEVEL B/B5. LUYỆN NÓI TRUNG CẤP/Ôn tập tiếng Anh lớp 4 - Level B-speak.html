@@ -40,6 +40,8 @@ html,body,button,input,select,textarea{font-family:var(--dec-font-family-offline
     --bg-color: #eef3ff;
     --primary-blue: #19a7a0;
     --primary-pink: #e5566a;
+    --hint-primary-text: #b4233b;
+    --hint-secondary-text: #006c68;
     --light-pink: #fff5f6;
     --border-pink: #ffd3d8;
     --teal-main: var(--primary-blue);
@@ -478,12 +480,22 @@ input:focus-visible {
 }
 
 .help1-line {
-    color: #9fd3ff;
+    color: var(--hint-secondary-text);
 }
 
 .help2-line {
-    color: #ffd18a;
+    color: var(--hint-primary-text);
     margin-top: 0.45rem;
+}
+
+.help1-line.help-color-primary,
+.help2-line.help-color-primary {
+    color: var(--hint-primary-text);
+}
+
+.help1-line.help-color-secondary,
+.help2-line.help-color-secondary {
+    color: var(--hint-secondary-text);
 }
 
 .is-hidden {
@@ -1942,11 +1954,12 @@ const lessonData = [
     "variants": [
       "What country are you from?"
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "What [___] are you from?",
     "help2": "What country are you from?",
     "keywords": [
       "what",
-      "country"
+      "country",
+      "from"
     ]
   },
   {
@@ -1956,9 +1969,10 @@ const lessonData = [
     "variants": [
       "I am from beautiful Vietnam."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "I am from beautiful [___].",
     "help2": "I am from beautiful Vietnam.",
     "keywords": [
+      "from",
       "beautiful",
       "vietnam"
     ]
@@ -1970,10 +1984,11 @@ const lessonData = [
     "variants": [
       "What is your nationality?"
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "What is your [___]?",
     "help2": "What is your nationality?",
     "keywords": [
       "what",
+      "your",
       "nationality"
     ]
   },
@@ -1984,10 +1999,11 @@ const lessonData = [
     "variants": [
       "I am Vietnamese and proud."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "I am [___] and proud.",
     "help2": "I am Vietnamese and proud.",
     "keywords": [
       "vietnamese",
+      "and",
       "proud"
     ]
   },
@@ -1998,11 +2014,12 @@ const lessonData = [
     "variants": [
       "When is your birthday?"
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "When is your [___]?",
     "help2": "When is your birthday?",
     "keywords": [
-      "birthday",
-      "when"
+      "when",
+      "your",
+      "birthday"
     ]
   },
   {
@@ -2012,11 +2029,12 @@ const lessonData = [
     "variants": [
       "My birthday is on the tenth of May."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "My birthday is on the [___] of May.",
     "help2": "My birthday is on the tenth of May.",
     "keywords": [
       "birthday",
       "tenth",
+      "of",
       "may"
     ]
   },
@@ -2027,9 +2045,11 @@ const lessonData = [
     "variants": [
       "Can you swim in the water?"
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Can you [___] in the water?",
     "help2": "Can you swim in the water?",
     "keywords": [
+      "can",
+      "you",
       "swim",
       "water"
     ]
@@ -2041,11 +2061,12 @@ const lessonData = [
     "variants": [
       "I can swim very fast and well."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "I can swim very [___] and well.",
     "help2": "I can swim very fast and well.",
     "keywords": [
       "swim",
       "fast",
+      "and",
       "well"
     ]
   },
@@ -2056,11 +2077,12 @@ const lessonData = [
     "variants": [
       "Where is your school?"
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Where is your [___]?",
     "help2": "Where is your school?",
     "keywords": [
-      "school",
-      "where"
+      "where",
+      "your",
+      "school"
     ]
   },
   {
@@ -2070,12 +2092,12 @@ const lessonData = [
     "variants": [
       "It is on busy Nguyen Hue Street."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "It is on busy Nguyen Hue [___].",
     "help2": "It is on busy Nguyen Hue Street.",
     "keywords": [
+      "on",
       "busy",
-      "nguyen",
-      "hue"
+      "street"
     ]
   },
   {
@@ -2085,9 +2107,10 @@ const lessonData = [
     "variants": [
       "What class are you in at primary school?"
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "What [___] are you in at primary school?",
     "help2": "What class are you in at primary school?",
     "keywords": [
+      "what",
       "class",
       "primary",
       "school"
@@ -2100,11 +2123,12 @@ const lessonData = [
     "variants": [
       "I am in class 4A."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "I am in [___] 4A.",
     "help2": "I am in class 4A.",
     "keywords": [
+      "in",
       "class",
-      "four"
+      "4A"
     ]
   },
   {
@@ -2114,11 +2138,12 @@ const lessonData = [
     "variants": [
       "What is your favorite subject at school?"
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "What is your favorite [___] at school?",
     "help2": "What is your favorite subject at school?",
     "keywords": [
       "favorite",
       "subject",
+      "at",
       "school"
     ]
   },
@@ -2129,12 +2154,13 @@ const lessonData = [
     "variants": [
       "I like math and English."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "I like [___] and English.",
     "help2": "I like math and English.",
     "keywords": [
       "like",
-      "studying",
-      "math"
+      "math",
+      "and",
+      "english"
     ]
   },
   {
@@ -2144,9 +2170,10 @@ const lessonData = [
     "variants": [
       "What time is it right now?"
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "What [___] is it right now?",
     "help2": "What time is it right now?",
     "keywords": [
+      "what",
       "time",
       "right",
       "now"
@@ -2159,11 +2186,12 @@ const lessonData = [
     "variants": [
       "It is seven fifteen in the morning."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "It is [___] in the morning.",
     "help2": "It is seven fifteen in the morning.",
     "keywords": [
       "seven",
       "fifteen",
+      "in",
       "morning"
     ]
   },
@@ -2174,9 +2202,10 @@ const lessonData = [
     "variants": [
       "What time do you wake up?"
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "What time do you [___]?",
     "help2": "What time do you wake up?",
     "keywords": [
+      "what",
       "time",
       "wake",
       "up"
@@ -2189,12 +2218,13 @@ const lessonData = [
     "variants": [
       "I wake up at six every day."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "I wake up at [___] every day.",
     "help2": "I wake up at six every day.",
     "keywords": [
       "wake",
       "up",
-      "six"
+      "six",
+      "day"
     ]
   },
   {
@@ -2204,10 +2234,12 @@ const lessonData = [
     "variants": [
       "What does your father do for a living?"
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "What does your father [___] for a living?",
     "help2": "What does your father do for a living?",
     "keywords": [
       "father",
+      "do",
+      "for",
       "living"
     ]
   },
@@ -2218,7 +2250,7 @@ const lessonData = [
     "variants": [
       "My father is a construction engineer."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "My father is a [___].",
     "help2": "My father is a construction engineer.",
     "keywords": [
       "father",
@@ -2233,9 +2265,10 @@ const lessonData = [
     "variants": [
       "Where does your mother work?"
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "Where does your mother [___]?",
     "help2": "Where does your mother work?",
     "keywords": [
+      "where",
       "mother",
       "work"
     ]
@@ -2244,13 +2277,16 @@ const lessonData = [
     "id": "q022",
     "question": "Mẹ tôi làm việc ở bệnh viện lớn.",
     "answer": "My mother works in a big hospital.",
-    "variants": [],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "variants": [
+      "My mother works in a big hospital."
+    ],
+    "help1": "My mother works in a big [___].",
     "help2": "My mother works in a big hospital.",
     "keywords": [
       "mother",
       "works",
-      "big"
+      "big",
+      "hospital"
     ]
   },
   {
@@ -2260,9 +2296,10 @@ const lessonData = [
     "variants": [
       "What is your favorite food?"
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "What is your favorite [___]?",
     "help2": "What is your favorite food?",
     "keywords": [
+      "what",
       "favorite",
       "food"
     ]
@@ -2274,12 +2311,13 @@ const lessonData = [
     "variants": [
       "I like fried rice and chicken."
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "I like [___] and chicken.",
     "help2": "I like fried rice and chicken.",
     "keywords": [
       "like",
       "fried",
-      "rice"
+      "rice",
+      "chicken"
     ]
   },
   {
@@ -2289,9 +2327,10 @@ const lessonData = [
     "variants": [
       "What is your favorite drink?"
     ],
-    "help1": "subject + V1/V2/V3 + complement.",
+    "help1": "What is your favorite [___]?",
     "help2": "What is your favorite drink?",
     "keywords": [
+      "what",
       "favorite",
       "drink"
     ]
@@ -2429,6 +2468,8 @@ const lessonData = [
         dom.help.classList.add('is-hidden');
         dom.help1.classList.add('is-hidden');
         dom.help2.classList.add('is-hidden');
+        dom.help1.classList.remove('help-color-primary', 'help-color-secondary');
+        dom.help2.classList.remove('help-color-primary', 'help-color-secondary');
         dom.help1.textContent = '';
         dom.help2.textContent = '';
         dom.helpButton.textContent = 'Gợi ý 1 (Space)';
@@ -2452,6 +2493,8 @@ const lessonData = [
         const isOdd = (state.currentIndex + 1) % 2 === 1;
         dom.question.classList.toggle('dec-text-primary', isOdd);
         dom.question.classList.toggle('dec-text-secondary', !isOdd);
+        dom.help1.dataset.questionColor = isOdd ? 'primary' : 'secondary';
+        dom.help2.dataset.questionColor = isOdd ? 'primary' : 'secondary';
         dom.previous.disabled = state.currentIndex === 0;
         dom.next.disabled = state.currentIndex === lessonData.length - 1;
         dom.helpButton.disabled = false;
@@ -2464,12 +2507,18 @@ const lessonData = [
         if (!item) return;
         state.helpStage = Math.min(2, state.helpStage + 1);
         dom.help.classList.remove('is-hidden');
+        const questionColor = dom.help1.dataset.questionColor || 'primary';
+        const hint1Color = questionColor === 'primary' ? 'secondary' : 'primary';
         if (state.helpStage >= 1) {
-            dom.help1.textContent = `Hint1: ${item.help1}`;
+            dom.help1.textContent = item.help1;
+            dom.help1.classList.remove('help-color-primary', 'help-color-secondary');
+            dom.help1.classList.add(`help-color-${hint1Color}`);
             dom.help1.classList.remove('is-hidden');
         }
         if (state.helpStage >= 2) {
-            dom.help2.textContent = `Hint2: ${item.help2}`;
+            dom.help2.textContent = item.help2;
+            dom.help2.classList.remove('help-color-primary', 'help-color-secondary');
+            dom.help2.classList.add(`help-color-${questionColor}`);
             dom.help2.classList.remove('is-hidden');
         }
         dom.helpButton.textContent = state.helpStage === 1 ? 'Gợi ý 2 (Space)' : 'Đang xem gợi ý 2';
