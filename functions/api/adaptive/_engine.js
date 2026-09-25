@@ -1,6 +1,19 @@
 // Cloudflare Pages Functions - Adaptive Realtime IRT Engine
 
-import { ITEMS_BY_ZONE, ITEMS_BY_ID, ALL_ITEMS } from "./_bank_A.js";
+import * as bankA from "./_bank_A.js";
+import * as bankB from "./_bank_B.js";
+import * as bankC from "./_bank_C.js";
+
+const BANKS = {
+  A: bankA,
+  B: bankB,
+  C: bankC
+};
+
+function getBank(level) {
+  const key = String(level || "A").toUpperCase();
+  return BANKS[key] || BANKS.A;
+}
 
 const CEFR_BANDS = [
   [-2.33, "A1-"],
@@ -23,7 +36,23 @@ function abilityToLevel(theta) {
   return "C4";
 }
 
-export function maskItem(item) {
+function getPreferredZone(level, ability) {
+  if (level === "B") {
+    if (ability >= 1.10) return "practice";
+    if (ability >= 0.98) return "structure";
+    return "core";
+  }
+  if (level === "C") {
+    if (ability >= 2.50) return "practice";
+    if (ability >= 2.38) return "structure";
+    return "core";
+  }
+  if (ability >= -1.25) return "practice";
+  if (ability >= -1.40) return "structure";
+  return "core";
+}
+
+export function maskItem(item, level = "A") {
   if (!item) return null;
   return {
     item_id: item.id,
@@ -32,7 +61,7 @@ export function maskItem(item) {
     topic: item.top,
     topic_label: item.label,
     zone: item.zone,
-    level: "A"
+    level: item.level || level || "A"
   };
 }
 
@@ -40,12 +69,21 @@ export function startSession(params = {}) {
   const maxQ = Math.max(10, Math.min(30, Number(params.max_questions) || 20));
   const minQ = Math.max(8, Math.min(15, Number(params.min_questions) || 12));
   const targetSE = Math.max(0.2, Math.min(0.5, Number(params.target_se) || 0.33));
-  const startAbility = Number.isFinite(params.start_ability) ? Number(params.start_ability) : -1.50;
+
+  const reqLevel = String(params.level || "A").toUpperCase();
+  const sessionLevel = (reqLevel === "B" || reqLevel === "C") ? reqLevel : "A";
+
+  let defaultStart = -1.50;
+  if (sessionLevel === "B") defaultStart = 0.80;
+  else if (sessionLevel === "C") defaultStart = 2.30;
+  const startAbility = Number.isFinite(params.start_ability) ? Number(params.start_ability) : defaultStart;
+
+  const bank = getBank(sessionLevel);
 
   const session = {
     session_id: "cf_" + Date.now().toString(36) + "_" + Math.random().toString(36).substring(2, 8),
     student_id: String(params.student_id || "Học viên"),
-    level: "A",
+    level: sessionLevel,
     purpose: String(params.purpose || "placement"),
     ability: startAbility,
     se: 0.95,
@@ -63,7 +101,9 @@ export function startSession(params = {}) {
   };
 
   // Start with a randomized core item
-  const corePool = ITEMS_BY_ZONE.core && ITEMS_BY_ZONE.core.length ? ITEMS_BY_ZONE.core : ALL_ITEMS;
+  const corePool = (bank.ITEMS_BY_ZONE && bank.ITEMS_BY_ZONE.core && bank.ITEMS_BY_ZONE.core.length)
+    ? bank.ITEMS_BY_ZONE.core
+    : bank.ALL_ITEMS;
   const randomIndex = Math.floor(Math.random() * corePool.length);
   const firstItem = corePool[randomIndex];
 
@@ -74,7 +114,7 @@ export function startSession(params = {}) {
 
   return {
     session,
-    first_item: maskItem(firstItem)
+    first_item: maskItem(firstItem, sessionLevel)
   };
 }
 
@@ -86,7 +126,8 @@ export function processAnswer(session, itemId, selectedIndex, responseTimeSec = 
     throw new Error("Mismatched question item for session");
   }
 
-  const item = ITEMS_BY_ID[itemId];
+  const bank = getBank(session.level);
+  const item = bank.ITEMS_BY_ID[itemId];
   if (!item) {
     throw new Error("Question not found in bank");
   }
@@ -190,24 +231,19 @@ export function processAnswer(session, itemId, selectedIndex, responseTimeSec = 
     questions_answered: session.answered_count,
     correct_count: session.correct_count,
     stop_flag: false,
-    next_item: maskItem(nextItem)
+    next_item: maskItem(nextItem, session.level)
   };
 }
 
 function pickNextQuestion(session) {
-  // Determine target zone based on ability
-  let preferredZone = "core";
-  if (session.ability >= -1.25) {
-    preferredZone = "practice";
-  } else if (session.ability >= -1.40) {
-    preferredZone = "structure";
-  }
+  const bank = getBank(session.level);
+  const preferredZone = getPreferredZone(session.level, session.ability);
 
   const servedSet = new Set(session.served_ids);
-  let pool = (ITEMS_BY_ZONE[preferredZone] || []).filter(it => !servedSet.has(it.id));
+  let pool = (bank.ITEMS_BY_ZONE[preferredZone] || []).filter(it => !servedSet.has(it.id));
   if (pool.length < 10) {
-    // Fallback to all unserved items
-    pool = ALL_ITEMS.filter(it => !servedSet.has(it.id));
+    // Fallback to all unserved items in bank
+    pool = bank.ALL_ITEMS.filter(it => !servedSet.has(it.id));
   }
   if (!pool.length) return null;
 

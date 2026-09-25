@@ -25,6 +25,7 @@ export async function onRequestPost(context) {
     const responsePayload = {
       ok: true,
       session_id: token,
+      level: session.level,
       first_item,
       current_item: first_item,
       item: first_item,
