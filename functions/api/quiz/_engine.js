@@ -2,15 +2,31 @@ import * as bankA from "./_bank_A.js";
 import * as bankB from "./_bank_B.js";
 import * as bankC from "./_bank_C.js";
 
-const BANKS = { A: bankA.LESSON_BANKS, B: bankB.LESSON_BANKS, C: bankC.LESSON_BANKS };
+const BANK_PAYLOADS = {
+  A: bankA.LESSON_BANKS_GZIP_BASE64,
+  B: bankB.LESSON_BANKS_GZIP_BASE64,
+  C: bankC.LESSON_BANKS_GZIP_BASE64,
+};
+const BANK_CACHE = new Map();
 export const QUIZ_BLOCK_SIZE = 10;
 
 function normalizeLesson(value) {
   return String(value || "").replace(/\\/g, "/").replace(/^\/+/, "");
 }
 
-function getItems(level, lesson) {
-  const bank = BANKS[String(level || "A").toUpperCase()] || BANKS.A;
+async function getBank(level) {
+  const normalizedLevel = String(level || "A").toUpperCase();
+  if (BANK_CACHE.has(normalizedLevel)) return BANK_CACHE.get(normalizedLevel);
+  const encoded = BANK_PAYLOADS[normalizedLevel] || BANK_PAYLOADS.A;
+  const bytes = Uint8Array.from(atob(encoded), char => char.charCodeAt(0));
+  const stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream("gzip"));
+  const bank = JSON.parse(await new Response(stream).text());
+  BANK_CACHE.set(normalizedLevel, bank);
+  return bank;
+}
+
+async function getItems(level, lesson) {
+  const bank = await getBank(level);
   return bank[normalizeLesson(lesson)] || [];
 }
 
@@ -46,10 +62,10 @@ function mask(item) {
   return { id: item.id, q: item.q, a: item.a };
 }
 
-export function startSession(params = {}) {
+export async function startSession(params = {}) {
   const level = String(params.level || "A").toUpperCase();
   const lesson = normalizeLesson(params.lesson);
-  const items = getItems(level, lesson);
+  const items = await getItems(level, lesson);
   if (!items.length) throw new Error("Quiz lesson not found in QBank");
   const seed = randomSeed();
   const order = buildOrder(items.length, seed);
@@ -74,8 +90,8 @@ export function startSession(params = {}) {
   };
 }
 
-export function nextBlock(session) {
-  const items = getItems(session.level, session.lesson);
+export async function nextBlock(session) {
+  const items = await getItems(session.level, session.lesson);
   if (!items.length) throw new Error("Quiz lesson not found in QBank");
   const order = buildOrder(items.length, session.seed);
   const start = Math.max(0, Number(session.offset) || 0);

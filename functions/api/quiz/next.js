@@ -19,7 +19,7 @@ export async function onRequestPost(context) {
     if (Number(session.offset) >= Number(session.total)) {
       return new Response(JSON.stringify({ ok: true, session_id: token, questions: [], block_index: Math.ceil(session.total / 10), total: session.total, has_more: false, block_size: 10 }), { headers: HEADERS });
     }
-    const result = nextBlock(session);
+    const result = await nextBlock(session);
     const session_id = await signSession(result.session, context.env?.ADAPTIVE_SECRET);
     return new Response(JSON.stringify({ ok: true, session_id, ...result, session: undefined }), { headers: HEADERS });
   } catch (error) {

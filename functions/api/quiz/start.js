@@ -14,7 +14,7 @@ export function onRequestOptions() { return new Response(null, { headers: HEADER
 export async function onRequestPost(context) {
   try {
     const body = await context.request.json().catch(() => ({}));
-    const result = startSession(body);
+    const result = await startSession(body);
     const session_id = await signSession(result.session, context.env?.ADAPTIVE_SECRET);
     return new Response(JSON.stringify({ ok: true, session_id, ...result, session: undefined }), { headers: HEADERS });
   } catch (error) {
